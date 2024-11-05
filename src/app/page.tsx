@@ -58,8 +58,8 @@ export default function ConferenceLanding() {
           ))}
         </div>
 
-        <Button size="icon" variant='secondary'>
-          <MoveRight className="h-4 w-4" />
+        <Button size="lg" variant='poppy'>
+          Register
         </Button>
       </div>
     </div>
