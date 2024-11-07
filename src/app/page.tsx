@@ -44,7 +44,9 @@ export default function ConferenceLanding() {
       />
       <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
       <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-6 tracking-tight text-[#da583c]">NCWAM 2025</h1>
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold mb-6 tracking-tight">
+          NCWAM <span className="text-[#da583c]"> 2025</span>
+        </h1>
         <p className="text-xl md:text-2xl mb-2 font-light">National Workshop on Challenges in Welding and Additive Manufacturing</p>
         <p className="text-lg md:text-xl mb-2 font-medium">February 28, 2025</p>
         <p className="text-lg md:text-xl mb-12 font-bold">BITS Pilani, Hyderabad Campus</p>
