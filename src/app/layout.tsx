@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-import Navbar from '~/components/navbar'
+import Navbar from "~/components/navbar";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
@@ -14,13 +14,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={GeistSans.variable}>
-      <body className="relative min-h-screen">
-        <header className="absolute top-0 left-0 right-0 z-50">
+      <body className="dark relative min-h-screen">
+        <header className="navbar absolute left-0 right-0 top-0 z-50">
           <Navbar />
         </header>
-        <main className="min-h-screen">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

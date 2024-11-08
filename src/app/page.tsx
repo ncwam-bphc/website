@@ -10,17 +10,17 @@ import landingPageBg from "~/assets/landing.jpeg";
 
 export default function ConferenceLanding() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
       <Image
         src={landingPageBg}
         alt="Conference background"
         fill={true}
         objectFit="cover"
-        className="z-0"
+        className="-z-20"
         priority
       />
-      <div className="absolute inset-0 z-10 bg-black bg-opacity-60"></div>
-      <div className="relative z-20 mx-auto max-w-4xl px-4 text-center text-white">
+      <div className="absolute inset-0 -z-10 bg-black bg-opacity-60"></div>
+      <div className="relative mx-auto max-w-4xl px-4 text-center">
         <h1 className="mb-6 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl">
           NCWAM <span className="text-[#da583c]"> 2025</span>
         </h1>
@@ -39,6 +39,6 @@ export default function ConferenceLanding() {
           Register
         </Button>
       </div>
-    </div>
+    </main>
   );
 }
