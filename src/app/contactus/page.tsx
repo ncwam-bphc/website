@@ -41,7 +41,7 @@ export default function ContactUs() {
       >
         <div className="p-8 md:p-12">
           <h1 className="text-4xl md:text-5xl font-bold text-[#da583c] mb-4 text-center">Contact Us</h1>
-          <p className="text-gray-700 text-center mb-12">We're here to connect and assist you</p>
+          <p className="text-gray-700 text-center mb-12">We&apos;re here to connect and assist you</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {contacts.map((contact, index) => (
