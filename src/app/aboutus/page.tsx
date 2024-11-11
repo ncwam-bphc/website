@@ -108,7 +108,7 @@ export default function AboutusPage() {
               international institute of welding
             </span>{" "}
             (IIW).
-          </div>
+40          </div>
         </Section>
         <Section>
           <div className="text-center text-xl">
