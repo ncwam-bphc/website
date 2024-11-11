@@ -42,7 +42,7 @@ export default function SpeakersPage() {
       
 
     <main className="relative flex-row min-h-screen overflow-hidden font-sans gap-40">
-      <div className="flex justify-center mt-40 mb-6 text-6xl font-bold text-[#da583c]">
+      <div className="flex justify-center mt-20 mb-6 text-6xl font-bold text-[#da583c]">
        MEET OUR
       </div>
       <div className="flex justify-center text-8xl border-b-4 border-white font-bold pb-8">SPEAKERS</div>
