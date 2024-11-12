@@ -10,9 +10,11 @@ const items = [
   { label: "About Conference", href: "/aboutconference" },
   { label: "About Us", href: "/aboutus" },
   { label: "Committees", href: "/committee" },
+  { label: "Speakers", href: "/speakers" },
   { label: "Registration", href: "/registration" },
   { label: "Sponsorship", href: "/sponsorship" },
-  { label: "Speakers", href: "/speakers" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Downloads", href: "/downloads" },
   { label: "Contact Us", href: "/contactus" },
 ];
 
@@ -41,7 +43,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="relative rounded-full px-4 py-3 text-xl font-medium transition-colors"
+                className="relative rounded-full px-2 py-2 text-lg font-medium transition-colors"
               >
                 <span className="relative z-20 text-white">{item.label}</span>
                 {active === item.label && (

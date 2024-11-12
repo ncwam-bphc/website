@@ -9,14 +9,14 @@ export default function ContactUs() {
   const contacts = [
     {
       name: "Prof. Jeevan Jaidi",
-      role: "Hon. Secretary",
+      role: "Convener & Hon. Secretary,\nIIW - Hyderabad branch",
       phone: "+91 9705612658",
       email: "jaidi@hyderabad.bits-pilani.ac.in",
       location: "IIW Hyderabad",
     },
     {
       name: "Prof. P. Jayaprakash Sharma",
-      role: "WILP",
+      role: "Co-Covener\nWILP, BITS Pilani",
       phone: "+91 9666781417",
       email: "pj.sharma@pilani.bits-pilani.ac.in",
       location: "BITS Pilani",
@@ -43,10 +43,9 @@ export default function ContactUs() {
           <h1 className="mb-4 text-center text-4xl font-bold text-accent md:text-5xl">
             Contact Us
           </h1>
-          <p className="mb-12 text-center text-gray-700">
-            We&apos;re here to connect and assist you
+          <p className="mb-12 text-center text-xl text-gray-700">
+            We&apos;re here to assist you
           </p>
-
           <div className="grid gap-8 md:grid-cols-2">
             {contacts.map((contact, index) => (
               <motion.div
@@ -55,13 +54,15 @@ export default function ContactUs() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <Card className="group overflow-hidden border-none bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
-                  <CardContent className="p-6">
+                <Card className="group flex-1 overflow-hidden border-none bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
+                  <CardContent className="h-full p-6">
                     <div className="mb-4">
                       <h2 className="text-2xl font-semibold text-accent transition-colors duration-300 group-hover:text-[#e87a62]">
                         {contact.name}
                       </h2>
-                      <p className="text-sm text-gray-600">{contact.role}</p>
+                      <p className="whitespace-break-spaces text-lg text-gray-600">
+                        {contact.role}
+                      </p>
                     </div>
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3 text-gray-700 transition-colors duration-300 group-hover:text-accent">
@@ -90,6 +91,15 @@ export default function ContactUs() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+          <div className="mt-12 flex items-center justify-center gap-4 text-xl text-gray-700">
+            <Mail className="h-6 w-6 text-accent" />
+            <a
+              href="mailto:ncwam@hyderabad.bits-pilani.ac.in"
+              className="hover:text-accent"
+            >
+              ncwam@hyderabad.bits-pilani.ac.in
+            </a>
           </div>
         </div>
       </motion.div>

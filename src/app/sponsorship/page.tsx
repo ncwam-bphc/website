@@ -15,8 +15,9 @@ export default function AboutusPage() {
               </div>
             </div>
           </div>
-          <div className="text-center">
-            Consultants and suppliers from Indian companies are invited to
+          <div className="text-center text-3xl">
+            To be updated soon.
+            {/* Consultants and suppliers from Indian companies are invited to
             participate and sponsor the conference.
             <br />
             <br />
@@ -36,7 +37,7 @@ export default function AboutusPage() {
                   Stall with an invited talk<span>₹75000 + 18%GST</span>
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </Section>
       </main>
