@@ -7,13 +7,17 @@ const speakers = [
   },
   {
     name: "Prof. G. Madhusudhan Reddy",
-    institution: "NIT Warangal",
+    institution: "NIT, Warangal",
     imageUrl: "",
   },
-  { name: "Prof. G.D. Janaki Ram", institution: "IIT Hyderabad", imageUrl: "" },
+  {
+    name: "Prof. G.D. Janaki Ram",
+    institution: "IIT, Hyderabad",
+    imageUrl: "",
+  },
   {
     name: "Prof. Murugaiyan Amirthalingam",
-    institution: "IIT Madras",
+    institution: "IIT, Madras",
     imageUrl: "",
   },
   { name: "Prof. S. Suryakumar", institution: "IIT Hyderabad", imageUrl: "" },
@@ -23,7 +27,7 @@ const speakers = [
     institution: "IIT-BHU, Varanasi",
     imageUrl: "",
   },
-  { name: "Prof. Rakesh Lingam", institution: "IIT Dharwad", imageUrl: "" },
+  { name: "Prof. Rakesh Lingam", institution: "IIT, Dharwad", imageUrl: "" },
   {
     name: "Dr. John Rozario Jegaraj",
     institution: "DRDL, Hyderabad",
@@ -41,7 +45,7 @@ const speakers = [
     imageUrl: "",
   },
   {
-    name: "Shri. Vishwanath KN",
+    name: "Shri. K.N. Vishwanath",
     institution: "Wabtec Corporation, Bangalore",
     imageUrl: "",
   },

@@ -16,7 +16,7 @@ export default function AboutusPage() {
               </div>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center text-2xl">
             Registration link:{" "}
             <a href="https://forms.gle/VizXUfDQuqaVBJFT8" className="underline">
               https://forms.gle/VizXUfDQuqaVBJFT8
@@ -27,36 +27,39 @@ export default function AboutusPage() {
             <ul className="list-disc text-left">
               <li>
                 <div className="flex justify-between">
-                  Student (UG/PG)<span>₹ 1500 + 18%GST</span>
+                  Student (UG/PG)<span>₹2,500</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  PhD Scholar<span>₹2500 + 18%GST</span>
+                  PhD Scholar<span>₹3,500</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  Faculty members<span>₹4000 + 18%GST</span>
+                  Faculty members<span>₹4,500</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  IIW India members<span>₹4000 + 18%GST</span>
+                  IIW India members<span>₹4,000</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  Non IIW India members<span>₹4500 + 18%GST</span>
+                  Non IIW India members<span>₹5,000</span>
                 </div>
               </li>
             </ul>
             <br />
-            Payment needs to be done through SBI Collect:
+            Payment needs to be done through this link:
             <br />
-            <span className="font-semibold">
-              BITS Pilani, Hyderabad Campus &gt; 2DNWWAM
-            </span>
+            <a
+              href="https://pmny.in/PAYUMN/8JLAlBISFilr"
+              className="font-semibold underline"
+            >
+              https://pmny.in/PAYUMN/8JLAlBISFilr
+            </a>
           </div>
         </Section>
       </main>

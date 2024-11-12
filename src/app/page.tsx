@@ -24,12 +24,14 @@ export default function ConferenceLanding() {
         <h1 className="mb-6 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl">
           NCWAM <span className="text-accent"> 2025</span>
         </h1>
-        <p className="mb-2 text-xl font-light md:text-2xl">
+        <p className="mb-2 text-2xl font-light md:text-2xl">
           National Conference on Challenges in Welding and Additive
           Manufacturing
         </p>
-        <p className="mb-2 text-lg font-medium md:text-xl">February 28, 2025</p>
-        <p className="mb-8 text-lg font-bold md:text-xl">
+        <p className="mb-2 text-lg font-medium md:text-2xl">
+          February 28, 2025
+        </p>
+        <p className="mb-8 text-lg font-bold md:text-2xl">
           BITS Pilani, Hyderabad Campus
         </p>
         <div className="min-h-24">

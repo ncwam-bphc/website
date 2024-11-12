@@ -16,7 +16,7 @@ export default function AboutusPage() {
               </div>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             This conference aims to bring together, the researchers, faculty
             members, scientists and practitioners from academia, R&D
             institutions and industries, and exchange experiences, disseminate

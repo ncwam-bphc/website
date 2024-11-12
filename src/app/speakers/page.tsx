@@ -26,11 +26,9 @@ const SpeakerCard = ({
             alt="avatar"
           />
         ) : null}
-        <div className="flex flex-col items-center text-center md:text-xl">
+        <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
           {name}
-          <span className="text-sm text-muted-foreground md:text-base">
-            {institution}
-          </span>
+          <span className="text-xl text-accent md:text-2xl">{institution}</span>
         </div>
       </div>
     </div>
@@ -55,7 +53,7 @@ export default function SpeakersPage() {
         <div className="flex justify-center pb-4 text-4xl font-bold md:text-6xl">
           SPEAKERS
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(19rem,max-content))] justify-center gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(22rem,max-content))] justify-center gap-4">
           {speakers.map((speaker, index) => (
             <SpeakerCard
               key={index}

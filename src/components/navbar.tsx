@@ -8,11 +8,12 @@ import { Menu, X } from "lucide-react";
 
 const items = [
   { label: "About Conference", href: "/aboutconference" },
+  { label: "About Us", href: "/aboutus" },
+  { label: "Committees", href: "/committee" },
   { label: "Registration", href: "/registration" },
   { label: "Sponsorship", href: "/sponsorship" },
-  { label: "About Us", href: "/aboutus" },
-  { label: "Contact Us", href: "/contactus" },
   { label: "Speakers", href: "/speakers" },
+  { label: "Contact Us", href: "/contactus" },
 ];
 
 export default function Navbar() {
@@ -29,7 +30,7 @@ export default function Navbar() {
     <div className="flex w-full items-center justify-between bg-black/40 p-4 backdrop-blur-lg">
       <Link
         href="/"
-        className="text-4xl font-extrabold tracking-tight text-white md:text-3xl lg:text-3xl"
+        className="text-4xl font-extrabold tracking-tight text-white"
       >
         NCWAM <span className="text-accent"> 2025</span>
       </Link>
@@ -40,7 +41,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="relative rounded-full px-4 py-3 text-xs font-medium transition-colors sm:text-sm"
+                className="relative rounded-full px-4 py-3 text-xl font-medium transition-colors"
               >
                 <span className="relative z-20 text-white">{item.label}</span>
                 {active === item.label && (
