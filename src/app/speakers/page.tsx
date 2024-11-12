@@ -53,8 +53,17 @@ export default function SpeakersPage() {
         <div className="flex justify-center text-4xl font-bold text-accent md:text-5xl">
           MEET OUR
         </div>
-        <div className="flex justify-center pb-4 text-4xl font-bold md:text-6xl">
-          SPEAKERS
+        <div className="flex justify-center pb-4 text-4xl font-bold text md:text-6xl">
+          INVITED SPEAKERS
+        </div>
+        <div className="flex justify-center text-4xl font-bold mt-4 md:text-5xl" >
+        <p className="customcol">PLEANARY</p>
+        </div>
+        <div className="flex justify-center">
+        <SpeakerCard key = {1} name = "Prof. G.D. Janaki Ram" institution="IIT, Hyderabad" img = ""></SpeakerCard>
+        </div>
+             <div className="flex justify-center text-4xl font-bold mt-4 md:text-5xl">
+       <p className="customcol">KEYNOTE</p>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,max-content))] justify-center gap-4">
           {speakers.map((speaker, index) => (
