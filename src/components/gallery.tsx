@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
@@ -17,17 +17,22 @@ interface SimpleGalleryProps {
 }
 
 const SimpleGallery: React.FC<SimpleGalleryProps> = ({ galleryID, images }) => {
+  const lightboxRef = useRef<PhotoSwipeLightbox | null>(null);
+
   useEffect(() => {
-    let lightbox = new PhotoSwipeLightbox({
+    lightboxRef.current = new PhotoSwipeLightbox({
       gallery: '#' + galleryID,
       children: 'a',
       pswpModule: () => import('photoswipe'),
     });
-    lightbox.init();
+    
+    lightboxRef.current.init();
 
     return () => {
-      lightbox.destroy();
-      lightbox = null as any;
+      if (lightboxRef.current) {
+        lightboxRef.current.destroy();
+        lightboxRef.current = null;
+      }
     };
   }, [galleryID]);
 
