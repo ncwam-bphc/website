@@ -2,12 +2,14 @@
 import "~/styles/fullpagescroll.css";
 import Section from "~/components/FullpageSection";
 import bg2 from "~/assets/aboutconference/2.jpeg";
+import { buttonVariants } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 
 export default function AboutusPage() {
   return (
     <div className="container">
       <main className="main">
-        <Section bgImage={bg2} className="flex-col gap-12">
+        <Section bgImage={bg2} className="flex-col gap-6">
           <div className="flex items-center gap-4 md:flex-col">
             <div className="flex flex-col items-center gap-4 font-bold">
               {/* <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2> */}
@@ -16,15 +18,22 @@ export default function AboutusPage() {
               </div>
             </div>
           </div>
-          <div className="text-center text-2xl">
-            Registration link:{" "}
-            <a href="https://forms.gle/VizXUfDQuqaVBJFT8" className="underline">
-              https://forms.gle/VizXUfDQuqaVBJFT8
+          <div className="text-center text-3xl">
+            <a
+              href="https://forms.gle/VizXUfDQuqaVBJFT8"
+              className={cn(
+                buttonVariants(),
+                "mt-4 rounded-xl bg-accent px-6 py-6 text-xl font-semibold text-white hover:bg-accent/80",
+              )}
+            >
+              Register now
             </a>
             <br />
             <br />
-            Registration Fee
-            <ul className="list-disc text-left">
+            Registration Fees:
+            <br />
+            <br />
+            <ul className="min-w-[500px] list-disc text-left">
               <li>
                 <div className="flex justify-between">
                   Student (UG/PG)<span>₹2,500</span>
@@ -52,13 +61,16 @@ export default function AboutusPage() {
               </li>
             </ul>
             <br />
-            Payment needs to be done through this link:
+            <span className="">Click below to make payment</span>
             <br />
             <a
               href="https://pmny.in/PAYUMN/8JLAlBISFilr"
-              className="font-semibold underline"
+              className={cn(
+                buttonVariants(),
+                "mt-4 rounded-xl bg-accent px-6 py-6 text-xl font-semibold text-white hover:bg-accent/80",
+              )}
             >
-              https://pmny.in/PAYUMN/8JLAlBISFilr
+              Make Payment
             </a>
           </div>
         </Section>
