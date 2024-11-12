@@ -5,6 +5,13 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 
 const items = [
   { label: "About Conference", href: "/aboutconference" },
@@ -36,48 +43,55 @@ export default function Navbar() {
       >
         NCWAM <span className="text-accent"> 2025</span>
       </Link>
-      <div className="flex items-center">
-        <nav className="hidden rounded-full border-2 border-accent lg:block">
-          <div className="relative flex items-center gap-2">
-            {items.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="relative rounded-full px-2 py-2 text-lg font-medium transition-colors"
-              >
-                <span className="relative z-20 text-white">{item.label}</span>
-                {active === item.label && (
-                  <motion.span
-                    layoutId="bubble"
-                    className="absolute z-10 bg-accent"
-                    style={{
-                      borderRadius: 1000,
-                      top: "0",
-                      bottom: "0",
-                      left: "0",
-                      right: "0",
-                      zIndex: 1,
-                    }}
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </Link>
-            ))}
-          </div>
-        </nav>
-        <button
-          className="ml-auto block lg:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <X className="h-6 w-6 text-accent" />
-          ) : (
-            <Menu className="h-6 w-6 text-accent" />
-          )}
-        </button>
-      </div>
-      {isOpen && (
-        <div className="absolute left-0 right-0 top-16 z-50 rounded-b-lg bg-white shadow-lg">
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <div className="flex items-center">
+          <nav className="nav:block hidden rounded-full border-2 border-accent">
+            <div className="relative flex items-center gap-2">
+              {items.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="relative rounded-full px-2 py-2 text-lg font-medium transition-colors"
+                >
+                  <span className="relative z-20 text-white">{item.label}</span>
+                  {active === item.label && (
+                    <motion.span
+                      layoutId="bubble"
+                      className="absolute z-10 bg-accent"
+                      style={{
+                        borderRadius: 1000,
+                        top: "0",
+                        bottom: "0",
+                        left: "0",
+                        right: "0",
+                        zIndex: 1,
+                      }}
+                      transition={{
+                        type: "spring",
+                        bounce: 0.2,
+                        duration: 0.6,
+                      }}
+                    />
+                  )}
+                </Link>
+              ))}
+            </div>
+          </nav>
+          <SheetTrigger asChild>
+            <button className="nav:hidden ml-auto block">
+              {isOpen ? (
+                <X className="h-6 w-6 text-accent" />
+              ) : (
+                <Menu className="h-6 w-6 text-accent" />
+              )}
+            </button>
+          </SheetTrigger>
+        </div>
+
+        <SheetContent className="w-72 bg-gray-100 text-xl text-black">
+          <SheetHeader>
+            <SheetTitle>Tabs</SheetTitle>
+          </SheetHeader>
           <div className="grid gap-4 p-4">
             {items.map((item) => (
               <Link
@@ -90,8 +104,8 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-        </div>
-      )}
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

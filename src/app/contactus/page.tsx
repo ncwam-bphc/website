@@ -29,10 +29,10 @@ export default function ContactUs() {
         src={contactusBg}
         alt="Background"
         fill={true}
-        className="object-cover"
+        className="-z-20 object-cover"
         priority
       />
-      <div className="absolute inset-0 -z-10 bg-black bg-opacity-80 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 -z-10 bg-black bg-opacity-30 backdrop-blur-sm"></div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
