@@ -37,7 +37,7 @@ export default function ContactUs() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-20 w-full max-w-4xl overflow-hidden rounded-2xl bg-white bg-opacity-90 shadow-2xl backdrop-blur-md"
+        className="relative z-20 w-full max-w-4xl overflow-hidden rounded-2xl bg-white bg-opacity-90 shadow-2xl backdrop-blur-md max-md:mt-16"
       >
         <div className="p-8 md:p-12">
           <h1 className="mb-4 text-center text-4xl font-bold text-accent md:text-5xl">

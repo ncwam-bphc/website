@@ -44,7 +44,7 @@ export default function AboutusPage() {
               </div>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             Academicians (research scholars & faculty members), R&D laboratories
             (scientists & technicians), Practicing Engineers and Consultants
             from industries (automotive, aerospace, defense, space, marine and
@@ -60,7 +60,7 @@ export default function AboutusPage() {
               </div>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The scope of the conference includes assessment of quality and life
             of the welded joints and additively manufactured components through
             experimental testing and characterization techniques towards the

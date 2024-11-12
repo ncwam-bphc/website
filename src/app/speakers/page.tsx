@@ -17,7 +17,7 @@ const SpeakerCard = ({
   return (
     <div
       onClick={props.onClick}
-      className="flex max-w-[22rem] flex-col border-b-2 border-l-0 border-r-0 border-t-0 hover:brightness-110"
+      className="flex max-w-[23rem] flex-col border-b-2 border-l-0 border-r-0 border-t-0 hover:brightness-110"
     >
       <div className="flex flex-col items-center gap-4 p-4">
         {img ? (
@@ -56,7 +56,7 @@ export default function SpeakersPage() {
         <div className="flex justify-center pb-4 text-4xl font-bold md:text-6xl">
           SPEAKERS
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(22rem,max-content))] justify-center gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(23rem,max-content))] justify-center gap-4">
           {speakers.map((speaker, index) => (
             <SpeakerCard
               key={index}
