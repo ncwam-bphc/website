@@ -3,71 +3,70 @@ import { StaticImageData } from "next/image";
 import bits from "~/assets/about.jpeg";
 import Image from "next/image";
 import spbg from "~/assets/spbg2.jpeg";
+import speakers from "~/assets/speakers";
 
-function Speak({
-  img1,
-  img2,
-  img3,
+const SpeakerCard = ({
+  name,
+  institution,
+  img,
+  ...props
 }: {
-  img1: StaticImageData;
-  img2: StaticImageData;
-  img3: StaticImageData;
-}) {
+  name: string;
+  institution: string;
+  img: string;
+} & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className="mt-10 flex-col justify-center gap-56 sm:mt-10 sm:flex sm:flex-row sm:justify-center sm:gap-56">
-      <div className="ml-2 flex flex-col items-center">
-        <Image
-          style={{ borderRadius: "100%" }}
-          className="size-40"
-          src={img1}
-          alt="img1"
-        />
-        <div className="mt-8">NAME</div> <div>INSTITUTION</div>
-      </div>
-      <div className="flex flex-col items-center">
-        <Image
-          style={{ borderRadius: "100%" }}
-          className="size-40"
-          src={img2}
-          alt="img1"
-        />
-        <div className="mt-8">NAME</div> <div>INSTITUTION</div>
-      </div>
-      <div className="mr-2 flex flex-col items-center">
-        <Image
-          style={{ borderRadius: "100%" }}
-          className="size-40"
-          src={img3}
-          alt="img1"
-        />
-        <div className="mt-8">NAME</div> <div>INSTITUTION</div>
+    <div
+      onClick={props.onClick}
+      className="flex max-w-80 flex-col border-b-2 border-l-0 border-r-0 border-t-0 hover:brightness-110"
+    >
+      <div className="flex flex-col items-center gap-4 p-4">
+        {img ? (
+          <Image
+            src={img}
+            className="h-28 w-28 border-2 object-cover"
+            alt="avatar"
+          />
+        ) : null}
+        <div className="flex flex-col items-center text-center md:text-xl">
+          {name}
+          <span className="text-sm text-muted-foreground md:text-base">
+            {institution}
+          </span>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default function SpeakersPage() {
   return (
-    <div className="content h-full gap-8 p-8 lg:p-16">
+    <div className="h-full">
       <Image
         src={spbg}
         alt="Conference background"
         fill={true}
-        objectFit="cover"
         className="-z-20 opacity-15"
         priority
       />
 
-      <main className="relative min-h-screen flex-row gap-40 overflow-hidden font-sans">
-        <div className="mb-6 mt-20 flex justify-center text-6xl font-bold text-accent">
+      <main className="flex flex-col gap-2 pt-36">
+        <div className="flex justify-center text-4xl font-bold text-accent md:text-5xl">
           MEET OUR
         </div>
-        <div className="flex justify-center border-b-4 border-white pb-8 text-8xl font-bold">
+        <div className="flex justify-center pb-4 text-4xl font-bold md:text-6xl">
           SPEAKERS
         </div>
-        <Speak img1={bits} img2={bits} img3={bits}></Speak>
-        <Speak img1={bits} img2={bits} img3={bits}></Speak>
-        <Speak img1={bits} img2={bits} img3={bits}></Speak>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(19rem,max-content))] justify-center gap-4">
+          {speakers.map((speaker, index) => (
+            <SpeakerCard
+              key={index}
+              name={speaker.name}
+              institution={speaker.institution}
+              img={speaker.imageUrl}
+            />
+          ))}
+        </div>
       </main>
     </div>
   );
