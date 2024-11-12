@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 const items = [
   { label: "About Conference", href: "/aboutconference" },
   { label: "Registration", href: "/registration" },
+  { label: "Sponsorship", href: "/sponsorship" },
   { label: "About Us", href: "/aboutus" },
   { label: "Contact Us", href: "/contactus" },
   { label: "Speakers", href: "/speakers" },
@@ -33,13 +34,13 @@ export default function Navbar() {
         NCWAM <span className="text-accent"> 2025</span>
       </Link>
       <div className="flex items-center">
-        <nav className="hidden rounded-full border-2 border-accent md:block">
-          <div className="relative flex items-center gap-4">
+        <nav className="hidden rounded-full border-2 border-accent lg:block">
+          <div className="relative flex items-center gap-2">
             {items.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="relative rounded-full px-6 py-3 text-xs font-medium transition-colors sm:text-sm"
+                className="relative rounded-full px-4 py-3 text-xs font-medium transition-colors sm:text-sm"
               >
                 <span className="relative z-20 text-white">{item.label}</span>
                 {active === item.label && (
@@ -62,7 +63,7 @@ export default function Navbar() {
           </div>
         </nav>
         <button
-          className="ml-auto block md:hidden"
+          className="ml-auto block lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
