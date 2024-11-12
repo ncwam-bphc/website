@@ -1,45 +1,32 @@
 "use client";
-import "~/styles/aboutpage.css";
+import "~/styles/fullpagescroll.css";
 import aboutBg from "~/assets/about.jpeg";
+import bitsLogo from "~/assets/bits_logo.png";
+// import wilpLogo from "~/assets/WILP Logo 1-Dr JPS.png";
+import iiwLogo from "~/assets/IIW India-Logo 1.jpg";
+import iiwhLogo from "~/assets/IIW India logo-brochure.jpg";
 import Image from "next/image";
-
-const Section = ({ children }: { children?: React.ReactNode }) => {
-  return (
-    <section className="section">
-      <div className="content h-full gap-8 p-8 lg:p-16">
-        <Image
-          src={aboutBg}
-          alt="Conference background"
-          fill={true}
-          objectFit="cover"
-          className="-z-20"
-          priority
-        />
-        <div className="absolute inset-0 -z-10 bg-black bg-opacity-80 backdrop-blur-sm"></div>
-        <div className="mx-auto flex h-full max-w-6xl items-center gap-24">
-          {children}
-        </div>
-      </div>
-    </section>
-  );
-};
+import Section from "~/components/FullpageSection";
 
 export default function AboutusPage() {
   return (
     <div className="container">
       <main className="main">
-        <Section>
-          <div className="flex flex-col items-center gap-4 font-bold">
-            <h2 className="text-6xl text-[#da583c]">ABOUT</h2>
-            <div className="text-center text-5xl">
-              BITS PILANI
-              <br />
-              UNIVERSITY
+        <Section bgImage={aboutBg}>
+          <div className="flex items-center gap-4 md:flex-col md:gap-8">
+            <div className="flex flex-col items-center gap-4 font-bold">
+              <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
+              <div className="text-center text-3xl md:text-5xl">
+                BITS PILANI
+                <br />
+                UNIVERSITY
+              </div>
             </div>
+            <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center text-xl">
+          <div className="text-center">
             The{" "}
-            <span className="text-[#da583c]">
+            <span className="text-accent">
               Birla Institute of Technology & Science Pilani
             </span>{" "}
             (BITS Pilani) is a multi-locational University with three campuses
@@ -51,18 +38,28 @@ export default function AboutusPage() {
             Pilani has established strong linkages with industries, R&D
             organizations and financial institutions through its
             university-industry linkage programs, such as{" "}
-            <span className="text-[#da583c]">
+            <span className="text-accent">
               Work Integrated Learning Programmers
             </span>{" "}
             (WILP) and
-            <span className="text-[#da583c]">Practice School</span> (PS-I &
-            PS-II).
+            <span className="text-accent">Practice School</span> (PS-I & PS-II).
           </div>
         </Section>
-        <Section>
-          <div className="text-center text-xl">
+        <Section bgImage={aboutBg} className="md:flex-row-reverse">
+          <div className="flex items-center gap-4 md:flex-col">
+            <div className="flex flex-col items-center gap-4 font-bold">
+              <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
+              <div className="text-nowrap text-center text-3xl md:text-5xl">
+                WILP Division,
+                <br />
+                BITS Pilani
+              </div>
+            </div>
+            {/* <Image src={wilpLogo} className="h-24 w-auto md:h-32" alt="logo" /> */}
+          </div>
+          <div className="text-center">
             The{" "}
-            <span className="text-[#da583c]">
+            <span className="text-accent">
               Work Integrated Learning Programmes
             </span>{" "}
             (WILP) is a variant of the conventional mode of education, leading
@@ -73,28 +70,23 @@ export default function AboutusPage() {
             on the path of lifelong learning.
             <br />
             <br />
-            <span className="text-[#da583c]">BITS Pilani</span> has been
-            offering undergraduate and masters programs in CSIS, Core
-            Engineering, Management and other disciplines over several decades
-            benefitting over 500 organizations and 45,000 working professionals.
-          </div>
-          <div className="flex flex-col items-center gap-4 font-bold">
-            <h2 className="text-6xl text-[#da583c]">ABOUT</h2>
-            <div className="text-nowrap text-center text-5xl">
-              WILP Division,
-              <br />
-              BITS Pilani
-            </div>
+            <span className="text-accent">BITS Pilani</span> has been offering
+            undergraduate and masters programs in CSIS, Core Engineering,
+            Management and other disciplines over several decades benefitting
+            over 500 organizations and 45,000 working professionals.
           </div>
         </Section>
-        <Section>
-          <div className="flex flex-col items-center gap-4 font-bold">
-            <h2 className="text-6xl text-[#da583c]">ABOUT</h2>
-            <div className="text-5xl">IIW India</div>
+        <Section bgImage={aboutBg}>
+          <div className="flex items-center gap-4 md:flex-col md:gap-8">
+            <div className="flex flex-col items-center gap-4 font-bold">
+              <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
+              <div className="text-3xl md:text-5xl">IIW India</div>
+            </div>
+            <Image src={iiwLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center text-xl">
+          <div className="text-center">
             The{" "}
-            <span className="text-[#da583c]">
+            <span className="text-accent">
               Indian Institute of Welding India
             </span>{" "}
             (IIW India), a representative body of professional welding engineers
@@ -104,27 +96,30 @@ export default function AboutusPage() {
             <br />
             The IIW has been recognized as an authorized national body to carry
             out certification programs of the{" "}
-            <span className="text-[#da583c]">
+            <span className="text-accent">
               international institute of welding
             </span>{" "}
-            (IIW).
-40          </div>
-        </Section>
-        <Section>
-          <div className="text-center text-xl">
-            The <span className="text-[#da583c]">IIW, Hyderabad Branch</span>,
-            the 13th branch of IIW India, has been formed in May 2014 to create
-            a forum for interaction and knowledge sharing among the
-            professionals, R&D personnel, academicians and students of Telangana
-            State involved in the field of welding and allied technologies.
+            (IIW). 40{" "}
           </div>
-          <div className="flex flex-col items-center gap-4 font-bold">
-            <h2 className="text-6xl text-[#da583c]">ABOUT</h2>
-            <div className="text-nowrap text-center text-5xl">
-              IIW India,
-              <br />
-              Hyderabad Branch
+        </Section>
+        <Section bgImage={aboutBg} className="md:flex-row-reverse">
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-4 font-bold">
+              <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
+              <div className="text-nowrap text-center text-3xl md:text-5xl">
+                IIW India,
+                <br />
+                Hyderabad Branch
+              </div>
             </div>
+            <Image src={iiwhLogo} className="h-24 w-auto md:h-32" alt="logo" />
+          </div>
+          <div className="text-center">
+            The <span className="text-accent">IIW, Hyderabad Branch</span>, the
+            13th branch of IIW India, has been formed in May 2014 to create a
+            forum for interaction and knowledge sharing among the professionals,
+            R&D personnel, academicians and students of Telangana State involved
+            in the field of welding and allied technologies.
           </div>
         </Section>
       </main>
