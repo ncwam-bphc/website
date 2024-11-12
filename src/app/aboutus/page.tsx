@@ -24,7 +24,7 @@ export default function AboutusPage() {
             </div>
             <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The{" "}
             <span className="text-accent">
               Birla Institute of Technology & Science Pilani
@@ -57,7 +57,7 @@ export default function AboutusPage() {
             </div>
             {/* <Image src={wilpLogo} className="h-24 w-auto md:h-32" alt="logo" /> */}
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The{" "}
             <span className="text-accent">
               Work Integrated Learning Programmes
@@ -84,7 +84,7 @@ export default function AboutusPage() {
             </div>
             <Image src={iiwLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The{" "}
             <span className="text-accent">
               Indian Institute of Welding India
@@ -114,7 +114,7 @@ export default function AboutusPage() {
             </div>
             <Image src={iiwhLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The <span className="text-accent">IIW, Hyderabad Branch</span>, the
             13th branch of IIW India, has been formed in May 2014 to create a
             forum for interaction and knowledge sharing among the professionals,

@@ -11,11 +11,6 @@ const speakers = [
     imageUrl: "",
   },
   {
-    name: "Prof. G.D. Janaki Ram",
-    institution: "IIT, Hyderabad",
-    imageUrl: "",
-  },
-  {
     name: "Prof. Murugaiyan Amirthalingam",
     institution: "IIT, Madras",
     imageUrl: "",
