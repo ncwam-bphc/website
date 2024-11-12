@@ -1,0 +1,59 @@
+"use client"
+import React, { useEffect } from 'react';
+import Image from 'next/image';
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
+interface Image {
+  largeURL: string;
+  thumbnailURL: string;
+  width: number;
+  height: number;
+}
+
+interface SimpleGalleryProps {
+  galleryID: string;
+  images: Image[];
+}
+
+const SimpleGallery: React.FC<SimpleGalleryProps> = ({ galleryID, images }) => {
+  useEffect(() => {
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: '#' + galleryID,
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+      lightbox = null as any;
+    };
+  }, [galleryID]);
+
+  return (
+    <div className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id={galleryID}>
+      {images.map((image, index) => (
+        <a
+          href={image.largeURL}
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          key={`${galleryID}-${index}`}
+          className="relative block aspect-square"
+        >
+          <Image
+            src={image.thumbnailURL}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+            className="object-cover"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJiEwLzgvMC84O0BAO0FFPy44QUVFTDpNXV1dmp6hoqKionV1v8PDz//2wBDARUXFyAeIBogHB4iIj9MREZETExERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERH/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+          />
+        </a>
+      ))}
+    </div>
+  );
+};
+
+export default SimpleGallery;
