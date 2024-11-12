@@ -1,50 +1,18 @@
 "use client";
-import "~/styles/aboutpage.css";
+import "~/styles/fullpagescroll.css";
 import aboutBg from "~/assets/about.jpeg";
 import bitsLogo from "~/assets/bits_logo.png";
-import wilpLogo from "~/assets/WILP Logo 1-Dr JPS.png";
+// import wilpLogo from "~/assets/WILP Logo 1-Dr JPS.png";
 import iiwLogo from "~/assets/IIW India-Logo 1.jpg";
 import iiwhLogo from "~/assets/IIW India logo-brochure.jpg";
 import Image from "next/image";
-import { cn } from "~/lib/utils";
-
-const Section = ({
-  children,
-  className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <section className="section">
-      <div className="content h-full gap-8 p-8 lg:p-16">
-        <Image
-          src={aboutBg}
-          alt="Conference background"
-          fill={true}
-          objectFit="cover"
-          className="-z-20"
-          priority
-        />
-        <div className="absolute inset-0 -z-10 bg-black bg-opacity-80 backdrop-blur-sm"></div>
-        <div
-          className={cn(
-            "mx-auto flex h-full max-w-6xl items-center justify-center gap-24 text-base max-md:flex-col max-md:gap-12 md:text-xl",
-            className,
-          )}
-        >
-          {children}
-        </div>
-      </div>
-    </section>
-  );
-};
+import Section from "~/components/FullpageSection";
 
 export default function AboutusPage() {
   return (
     <div className="container">
       <main className="main">
-        <Section>
+        <Section bgImage={aboutBg}>
           <div className="flex items-center gap-4 md:flex-col md:gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
@@ -77,7 +45,7 @@ export default function AboutusPage() {
             <span className="text-accent">Practice School</span> (PS-I & PS-II).
           </div>
         </Section>
-        <Section className="md:flex-row-reverse">
+        <Section bgImage={aboutBg} className="md:flex-row-reverse">
           <div className="flex items-center gap-4 md:flex-col">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
@@ -108,7 +76,7 @@ export default function AboutusPage() {
             over 500 organizations and 45,000 working professionals.
           </div>
         </Section>
-        <Section>
+        <Section bgImage={aboutBg}>
           <div className="flex items-center gap-4 md:flex-col md:gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
@@ -134,7 +102,7 @@ export default function AboutusPage() {
             (IIW). 40{" "}
           </div>
         </Section>
-        <Section className="md:flex-row-reverse">
+        <Section bgImage={aboutBg} className="md:flex-row-reverse">
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
