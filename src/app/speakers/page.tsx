@@ -1,6 +1,4 @@
 "use client";
-import { StaticImageData } from "next/image";
-import bits from "~/assets/about.jpeg";
 import Image from "next/image";
 import spbg from "~/assets/spbg2.jpeg";
 import speakers from "~/assets/speakers";

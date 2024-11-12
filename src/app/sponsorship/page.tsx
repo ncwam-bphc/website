@@ -1,13 +1,13 @@
 "use client";
 import "~/styles/fullpagescroll.css";
 import Section from "~/components/FullpageSection";
-import bg2 from "~/assets/aboutconference/2.jpeg";
+import bg1 from "~/assets/aboutconference/1.jpeg";
 
 export default function AboutusPage() {
   return (
     <div className="container">
       <main className="main">
-        <Section bgImage={bg2} className="flex-col gap-12">
+        <Section bgImage={bg1} className="flex-col gap-12">
           <div className="flex items-center gap-4 md:flex-col">
             <div className="flex flex-col items-center gap-4 font-bold">
               <div className="text-nowrap text-center text-3xl text-accent md:text-5xl">
