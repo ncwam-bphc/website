@@ -50,7 +50,7 @@ export default function AboutusPage() {
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-nowrap text-center text-3xl md:text-5xl">
-                WILP Division,
+                WILP,
                 <br />
                 BITS Pilani
               </div>
