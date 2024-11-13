@@ -1,12 +1,13 @@
-"use client"
-import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
+"use client";
+import React, { useEffect, useRef } from "react";
+import Image from "next/image";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import "photoswipe/style.css";
+import type { StaticImageData } from "next/dist/shared/lib/get-img-props";
 
 interface Image {
-  largeURL: string;
-  thumbnailURL: string;
+  largeURL: StaticImageData;
+  thumbnailURL: StaticImageData;
   width: number;
   height: number;
 }
@@ -21,11 +22,11 @@ const SimpleGallery: React.FC<SimpleGalleryProps> = ({ galleryID, images }) => {
 
   useEffect(() => {
     lightboxRef.current = new PhotoSwipeLightbox({
-      gallery: '#' + galleryID,
-      children: 'a',
-      pswpModule: () => import('photoswipe'),
+      gallery: "#" + galleryID,
+      children: "a",
+      pswpModule: () => import("photoswipe"),
     });
-    
+
     lightboxRef.current.init();
 
     return () => {
@@ -37,10 +38,13 @@ const SimpleGallery: React.FC<SimpleGalleryProps> = ({ galleryID, images }) => {
   }, [galleryID]);
 
   return (
-    <div className="pswp-gallery grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id={galleryID}>
+    <div
+      className="pswp-gallery grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
+      id={galleryID}
+    >
       {images.map((image, index) => (
         <a
-          href={image.largeURL}
+          href={image.largeURL.src}
           data-pswp-width={image.width}
           data-pswp-height={image.height}
           key={`${galleryID}-${index}`}
