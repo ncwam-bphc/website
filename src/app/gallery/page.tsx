@@ -2,19 +2,18 @@
 import SimpleGallery from '~/components/gallery'
 import * as React from "react"
 import Image from "next/image"
+import { type CarouselApi } from '~/components/ui/carousel'
 import { Card, CardContent } from "~/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "~/components/ui/carousel"
 import { useEffect } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 const GalleryPage = () => {
-  const [api, setApi] = React.useState<any>()
+  const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
   const galleryimages = [
     {
@@ -559,33 +558,37 @@ const GalleryPage = () => {
       height: 3456,
     },
   ]
-  const autoplay = React.useRef(Autoplay({ delay: 3000, stopOnInteraction: false }))
+  const autoplay = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false })
+  );
 
   useEffect(() => {
-    if (!api) {
-      return
-    }
+    if (!api) return;
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap())
-    })
-  }, [api])
+    api.on('select', () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const handlePrevious = () => {
-    if (current === 0) {
-      api?.scrollTo(images.length - 1)
-    } else {
-      api?.scrollPrev()
+    if (api) {
+      if (current === 0) {
+        api.scrollTo(images.length - 1);
+      } else {
+        api.scrollPrev();
+      }
     }
-  }
+  };
 
   const handleNext = () => {
-    if (current === images.length - 1) {
-      api?.scrollTo(0)
-    } else {
-      api?.scrollNext()
+    if (api) {
+      if (current === images.length - 1) {
+        api.scrollTo(0);
+      } else {
+        api.scrollNext();
+      }
     }
-  }
+  };
 
   return (
     <div>
@@ -649,11 +652,10 @@ const GalleryPage = () => {
                 <button
                   key={index}
                   onClick={() => api?.scrollTo(index)}
-                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                    index === current
+                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${index === current
                       ? 'bg-white scale-110'
                       : 'bg-white/50 hover:bg-white/70'
-                  }`}
+                    }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
