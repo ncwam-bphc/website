@@ -6,6 +6,7 @@ import SoumyoPic from "~/assets/committe/Soumyo Mukherji 1.webp";
 import GurunarayanPic from "~/assets/committe/gurunarayan.webp";
 import PBvenkataramanPic from "~/assets/committe/PB-Venkataraman.webp";
 import GRSabareeshPic from "~/assets/committe/G.R. Sabareesh.webp";
+import satishr from "~/assets/committe/satish reddy.jpeg";
 
 export const guestHonors = [
   {
@@ -41,6 +42,11 @@ export const patrons = [
     institution: "WILP, BITS Pilani",
     imageUrl: GurunarayanPic,
   },
+  {
+    name:"Dr. G. Satheesh Reddy",
+    institution: "Former Secretary DDR&D, Chairman DRDO",
+    imageUrl: satishr,
+  }
 ];
 
 export const chairmen = [

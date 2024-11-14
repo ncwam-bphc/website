@@ -64,7 +64,7 @@ const Section = ({
 }) => (
   <>
     <div className="mt-4 flex justify-center text-3xl font-bold uppercase md:text-4xl">
-      {title}
+      <p className="customcol">{title}</p>
     </div>
     <div className="flex flex-wrap items-start justify-center gap-4">
       {contentList.map((content, index) => (
