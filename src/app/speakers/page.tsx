@@ -28,7 +28,7 @@ const SpeakerCard = ({
       {img ? (
         <Image
           src={img}
-          className="h-32 w-32 rounded-full border-2 object-cover"
+          className="h-32 w-32 rounded-full border-2 border-white object-cover"
           alt="avatar"
         />
       ) : (
