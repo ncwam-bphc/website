@@ -40,15 +40,15 @@ export default function ConferenceLanding() {
           <Timer />
         </div>
 
-        <Button className="mt-4" size="lg" variant="poppy" asChild>
+        <Button className="mt-4 md:text-xl" size="lg" variant="poppy" asChild>
           <Link href="/registration">Register</Link>
         </Button>
       </div>
       <Link
         href="/contactus"
         className={cn(
-          "absolute bottom-4 right-4 mt-4",
-          buttonVariants({ variant: "poppy" }),
+          "absolute bottom-4 right-4 mt-4 md:text-xl",
+          buttonVariants({ variant: "poppy", size: "lg" }),
         )}
       >
         Contact us
@@ -57,8 +57,8 @@ export default function ConferenceLanding() {
       <Link
         href="/downloads"
         className={cn(
-          "absolute bottom-4 left-4 mt-4",
-          buttonVariants({ variant: "poppy" }),
+          "absolute bottom-4 left-4 mt-4 md:text-xl",
+          buttonVariants({ variant: "poppy", size: "lg" }),
         )}
       >
         Downloads
