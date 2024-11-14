@@ -11,36 +11,36 @@ import satishr from "~/assets/committe/satish reddy.jpeg";
 
 export const guestHonors = [
   {
-    name: "Dr. R. Balamuralikrishnan, Director",
-    institution: "DMRL, Hyderabad",
+    name: "Dr. R. Balamuralikrishnan",
+    institution: "Director, DMRL, Hyderabad",
     imageUrl: BalamuraliPic,
   },
   {
-    name: "Dr. Shaju K. Albert, Retd.",
-    institution: "IGCAR, Kalpakkam",
+    name: "Dr. Shaju K. Albert",
+    institution: "Retd., IGCAR, Kalpakkam",
     imageUrl: ShajuPic,
   },
   {
-    name: "Shri. P. Manoj Kumar, Dy. Director",
-    institution: "Airworthiness, Delhi",
+    name: "Shri. P. Manoj Kumar",
+    institution: "Dy. Director, Airworthiness, Delhi",
     imageUrl: ManojKumarPic,
   },
 ];
 
 export const patrons = [
   {
-    name: "Prof. G. Sundar, Director\nOff-Campus Programmes and Industry Engagement",
-    institution: "BITS Pilani",
+    name: "Prof. G. Sundar",
+    institution: "Director, Off-Campus Programmes and Industry Engagement, BITS Pilani",
     imageUrl: GSundarPic,
   },
   {
-    name: "Prof. Soumya Mukerjee, Director",
-    institution: "BITS Pilani, Hyderabad",
+    name: "Prof. Soumya Mukerjee",
+    institution: "Director, BITS Pilani, Hyderabad",
     imageUrl: SoumyoPic,
   },
   {
-    name: "Prof. S. Gurunarayanan, Deputy Director",
-    institution: "WILP, BITS Pilani",
+    name: "Prof. S. Gurunarayanan",
+    institution: "Deputy Director, WILP, BITS Pilani",
     imageUrl: GurunarayanPic,
   },
   {
@@ -52,18 +52,18 @@ export const patrons = [
 
 export const chairmen = [
   {
-    name: "Prof. P.B Venkataraman, Dean",
-    institution: "WILP, BITS Pilani",
+    name: "Prof. P.B Venkataraman",
+    institution: "Dean WILP, BITS Pilani",
     imageUrl: PBvenkataramanPic,
   },
   {
-    name: "Dr. C.V.S Murthy, Chairman",
-    institution: "IIW-Hyderabad",
+    name: "Dr. C.V.S Murthy",
+    institution: "Chairman, IIW-Hyderabad",
     imageUrl: CVSMurthyPic,
   },
   {
-    name: "Prof. G.R Sabareesh, HOD, Mech. Engg.",
-    institution: "BITS Pilani, Hyderabad",
+    name: "Prof. G.R Sabareesh",
+    institution: "HOD, Mech. Engg.\nBITS Pilani, Hyderabad",
     imageUrl: GRSabareeshPic,
   },
 ];

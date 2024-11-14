@@ -42,8 +42,8 @@ export default function AboutusPage() {
             <span className="text-accent">
               Work Integrated Learning Programmes
             </span>{" "}
-            (WILP) and {" "}
-            <span className="text-accent">Practice School</span> (PS-I & PS-II).
+            (WILP) and
+            <span className="text-accent"> Practice School</span> (PS-I & PS-II).
           </div>
         </Section>
         <Section bgImage={aboutBg} className="md:flex-row-reverse">
@@ -124,7 +124,7 @@ export default function AboutusPage() {
             <span className="text-accent">
               international institute of welding
             </span>{" "}
-            (IIW). 40{" "}
+            (IIW).
           </div>
         </Section>
         <Section bgImage={aboutBg} className="md:flex-row">
