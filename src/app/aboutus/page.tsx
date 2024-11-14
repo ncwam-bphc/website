@@ -40,9 +40,9 @@ export default function AboutusPage() {
             organizations and financial institutions through its
             university-industry linkage programs, such as{" "}
             <span className="text-accent">
-              Work Integrated Learning Programmers
+              Work Integrated Learning Programmes
             </span>{" "}
-            (WILP) and
+            (WILP) and {" "}
             <span className="text-accent">Practice School</span> (PS-I & PS-II).
           </div>
         </Section>

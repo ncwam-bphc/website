@@ -47,10 +47,7 @@ export default function AboutusPage() {
             </div>
           </div>
           <div className="text-justify">
-            Academicians (research scholars & faculty members), R&D laboratories
-            (scientists & technicians), Practicing Engineers and Consultants
-            from industries (automotive, aerospace, defense, space, marine and
-            medical).
+            Academicians (faculty members and research scholars), Scientists and technicians (R&D laboratories), Practicing Engineers and Consultants from industries (automotive, aerospace, defense, space, marine and medical).
           </div>
         </Section>
         <Section bgImage={bg3}>
