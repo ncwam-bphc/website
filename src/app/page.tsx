@@ -5,9 +5,11 @@ import Image from "next/image";
 const Timer = dynamic(() => import("~/components/timer"), {
   ssr: false,
 });
-import { Button } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import landingPageBg from "~/assets/landing.jpeg";
-import Link from "next/link"
+import Link from "next/link";
+import { cn } from "~/lib/utils";
+
 export default function ConferenceLanding() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
@@ -42,6 +44,25 @@ export default function ConferenceLanding() {
           <Link href="/registration">Register</Link>
         </Button>
       </div>
+      <Link
+        href="/contactus"
+        className={cn(
+          "absolute bottom-4 right-4 mt-4",
+          buttonVariants({ variant: "poppy" }),
+        )}
+      >
+        Contact us
+      </Link>
+
+      <Link
+        href="/downloads"
+        className={cn(
+          "absolute bottom-4 left-4 mt-4",
+          buttonVariants({ variant: "poppy" }),
+        )}
+      >
+        Downloads
+      </Link>
     </main>
   );
 }
