@@ -1,37 +1,42 @@
 "use client";
-import Image from "next/image";
+import { AvatarIcon } from "@radix-ui/react-icons";
+import Image, { type StaticImageData } from "next/image";
 import spbg from "~/assets/spbg2.jpeg";
-import speakers from "~/assets/speakers";
+import speakers from "~/assets/speakers/speakers";
+import { cn } from "~/lib/utils";
+import JanakiRam from "~/assets/speakers/G.D. Janaki Ram.webp";
 
 const SpeakerCard = ({
   name,
   institution,
   img,
+  className,
   ...props
 }: {
   name: string;
   institution: string;
-  img: string;
+  img: StaticImageData | null;
 } & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
-      onClick={props.onClick}
-      className="flex max-w-80 flex-col border-b-2 border-l-0 border-r-0 border-t-0 hover:brightness-110"
+      {...props}
+      className={cn(
+        "flex w-[23rem] flex-col items-center gap-4 p-4",
+        className,
+      )}
     >
-      <div className="flex flex-col items-center gap-4 p-4">
-        {img ? (
-          <Image
-            src={img}
-            className="h-28 w-28 border-2 object-cover"
-            alt="avatar"
-          />
-        ) : null}
-        <div className="flex flex-col items-center text-center md:text-xl">
-          {name}
-          <span className="text-sm text-muted-foreground md:text-base">
-            {institution}
-          </span>
-        </div>
+      {img ? (
+        <Image
+          src={img}
+          className="h-32 w-32 rounded-full border-2 border-white object-cover"
+          alt="avatar"
+        />
+      ) : (
+        <AvatarIcon className="h-32 w-32 text-muted-foreground" />
+      )}
+      <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
+        {name}
+        <span className="text-xl text-accent md:text-xl">{institution}</span>
       </div>
     </div>
   );
@@ -39,12 +44,11 @@ const SpeakerCard = ({
 
 export default function SpeakersPage() {
   return (
-    <div className="h-full">
+    <div>
       <Image
         src={spbg}
         alt="Conference background"
-        fill={true}
-        className="-z-20 opacity-15"
+        className="fixed left-0 top-0 -z-20 h-full object-cover opacity-10"
         priority
       />
 
@@ -52,10 +56,23 @@ export default function SpeakersPage() {
         <div className="flex justify-center text-4xl font-bold text-accent md:text-5xl">
           MEET OUR
         </div>
-        <div className="flex justify-center pb-4 text-4xl font-bold md:text-6xl">
-          SPEAKERS
+        <div className="text flex justify-center pb-4 text-4xl font-bold md:text-6xl">
+          INVITED SPEAKERS
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(19rem,max-content))] justify-center gap-4">
+        <div className="mt-4 flex justify-center text-4xl font-bold md:text-5xl">
+          <p className="customcol">PLEANARY</p>
+        </div>
+        <div className="flex justify-center">
+          <SpeakerCard
+            name="Prof. G.D. Janaki Ram"
+            institution="IIT, Hyderabad"
+            img={JanakiRam}
+          ></SpeakerCard>
+        </div>
+        <div className="mt-4 flex justify-center text-4xl font-bold md:text-5xl">
+          <p className="customcol">KEYNOTE</p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-4">
           {speakers.map((speaker, index) => (
             <SpeakerCard
               key={index}

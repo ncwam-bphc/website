@@ -7,6 +7,7 @@ import iiwLogo from "~/assets/IIW India-Logo 1.jpg";
 import iiwhLogo from "~/assets/IIW India logo-brochure.jpg";
 import Image from "next/image";
 import Section from "~/components/FullpageSection";
+import crensl from "~/assets/crenslogo.jpeg";
 
 export default function AboutusPage() {
   return (
@@ -24,7 +25,7 @@ export default function AboutusPage() {
             </div>
             <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The{" "}
             <span className="text-accent">
               Birla Institute of Technology & Science Pilani
@@ -39,10 +40,10 @@ export default function AboutusPage() {
             organizations and financial institutions through its
             university-industry linkage programs, such as{" "}
             <span className="text-accent">
-              Work Integrated Learning Programmers
+              Work Integrated Learning Programmes
             </span>{" "}
             (WILP) and
-            <span className="text-accent">Practice School</span> (PS-I & PS-II).
+            <span className="text-accent"> Practice School</span> (PS-I & PS-II).
           </div>
         </Section>
         <Section bgImage={aboutBg} className="md:flex-row-reverse">
@@ -50,14 +51,14 @@ export default function AboutusPage() {
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-nowrap text-center text-3xl md:text-5xl">
-                WILP Division,
+                WILP,
                 <br />
                 BITS Pilani
               </div>
             </div>
-            {/* <Image src={wilpLogo} className="h-24 w-auto md:h-32" alt="logo" /> */}
+            <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The{" "}
             <span className="text-accent">
               Work Integrated Learning Programmes
@@ -76,7 +77,31 @@ export default function AboutusPage() {
             over 500 organizations and 45,000 working professionals.
           </div>
         </Section>
-        <Section bgImage={aboutBg}>
+
+        <Section bgImage={aboutBg} className="md:flex-row">
+          <div className="flex items-center gap-4 md:flex-col">
+            <div className="flex flex-col items-center gap-4 font-bold">
+              <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
+              <div className="text-nowrap text-center text-3xl md:text-5xl">
+                CRENS
+        
+              </div>
+            </div>
+            <Image src={crensl} className="h-24 w-auto md:h-32" alt="logo" />
+          </div>
+          <div className="text-justify">
+            The{" "}
+            <span className="text-accent">
+              Center for Research Excellence in National Security (CRENS)
+            </span>{" "}
+     established at BITS Pilani, Hyderabad campus to foster collaboration between BITS Pilani and various stakeholders of National Security domain for Research, Innovation and Skill Development with aim of addressing critical challenges and contribute to National Security Apparatus.
+            
+            
+          </div>
+        </Section>
+
+
+        <Section bgImage={aboutBg} className="md: flex-row-reverse">
           <div className="flex items-center gap-4 md:flex-col md:gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
@@ -84,7 +109,7 @@ export default function AboutusPage() {
             </div>
             <Image src={iiwLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The{" "}
             <span className="text-accent">
               Indian Institute of Welding India
@@ -99,10 +124,10 @@ export default function AboutusPage() {
             <span className="text-accent">
               international institute of welding
             </span>{" "}
-            (IIW). 40{" "}
+            (IIW).
           </div>
         </Section>
-        <Section bgImage={aboutBg} className="md:flex-row-reverse">
+        <Section bgImage={aboutBg} className="md:flex-row">
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
@@ -114,7 +139,7 @@ export default function AboutusPage() {
             </div>
             <Image src={iiwhLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
-          <div className="text-center">
+          <div className="text-justify">
             The <span className="text-accent">IIW, Hyderabad Branch</span>, the
             13th branch of IIW India, has been formed in May 2014 to create a
             forum for interaction and knowledge sharing among the professionals,
