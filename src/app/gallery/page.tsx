@@ -20,7 +20,7 @@ const GalleryPage = () => {
   const [current, setCurrent] = React.useState(0);
 
   const autoplay = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false }),
+    Autoplay({ delay: 2000, stopOnInteraction: false }),
   );
 
   useEffect(() => {
@@ -94,7 +94,6 @@ const GalleryPage = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
             <button
               onClick={handlePrevious}
               className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full border border-gray-200 bg-white/70 p-1.5 text-gray-800 shadow-md hover:bg-white/90 sm:left-4 sm:p-2 md:p-3"

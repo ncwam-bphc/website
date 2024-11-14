@@ -6,6 +6,7 @@ import SoumyoPic from "~/assets/committe/Soumyo Mukherji 1.webp";
 import GurunarayanPic from "~/assets/committe/gurunarayan.webp";
 import PBvenkataramanPic from "~/assets/committe/PB-Venkataraman.webp";
 import GRSabareeshPic from "~/assets/committe/G.R. Sabareesh.webp";
+import CVSMurthyPic from "~/assets/committe/cvsmurthy.webp";
 import satishr from "~/assets/committe/satish reddy.jpeg";
 
 export const guestHonors = [
@@ -28,7 +29,7 @@ export const guestHonors = [
 
 export const patrons = [
   {
-    name: "Prof. G. Sundar, Director, Off-Campus Programmes and Industry Engagement",
+    name: "Prof. G. Sundar, Director\nOff-Campus Programmes and Industry Engagement",
     institution: "BITS Pilani",
     imageUrl: GSundarPic,
   },
@@ -58,7 +59,7 @@ export const chairmen = [
   {
     name: "Dr. C.V.S Murthy, Chairman",
     institution: "IIW, Hyderabad",
-    imageUrl: null,
+    imageUrl: CVSMurthyPic,
   },
   {
     name: "Prof. G.R Sabareesh, HOD, Mech. Engg.",
@@ -170,6 +171,11 @@ export const advisory = [
     name: "Prof. Satish Vasu Kailas",
     institution: "IISc, Bangalore",
     imageUrl: null,
+  },
+  {
+    name: "Dr. M. Rama Manohara Babu ",
+    institution: "Head CRENS, BITS Pilani\nRetd., ASL, DRDO",
+    imageUrl: null
   },
   {
     name: "Dr. G. Madhusudhan Reddy",

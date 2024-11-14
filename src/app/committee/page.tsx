@@ -40,12 +40,10 @@ const CommitteeCard = ({
           className="h-32 w-32 rounded-full border-2 object-cover"
           alt="avatar"
         />
-      ) : (
-        <AvatarIcon className="h-32 w-32 text-muted-foreground" />
-      )}
-      <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
+      ) : null}
+      <div className="flex flex-col items-center whitespace-break-spaces text-center text-xl font-semibold md:text-2xl">
         {name}
-        <span className="text-xl text-accent md:text-xl">{institution}</span>
+        <span className="text-xl text-accent md:text-xl whitespace-break-spaces">{institution}</span>
       </div>
     </div>
   );
