@@ -57,7 +57,7 @@ export default function ConferenceLanding() {
       <Image
         src={mottoImage}
         alt="bits"
-        className="absolute bottom-4 w-40 object-contain md:w-60"
+        className="absolute bottom-4 w-40 object-contain md:w-60 md:h-12"
       />
       <Link
         href="/downloads"

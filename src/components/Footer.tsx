@@ -10,7 +10,7 @@ const Footer = () => {
     <Image
       src={mottoImage}
       alt="bits"
-      className="fixed bottom-4 right-4 w-40 object-contain md:w-52"
+      className="fixed bottom-4 right-4 w-40 object-contain md:w-52 md:-z-10"
     />
   ) : null;
 };
