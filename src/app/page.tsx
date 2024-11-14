@@ -7,7 +7,7 @@ const Timer = dynamic(() => import("~/components/timer"), {
 });
 import { Button } from "~/components/ui/button";
 import landingPageBg from "~/assets/landing.jpeg";
-
+import Link from "next/link"
 export default function ConferenceLanding() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
@@ -29,7 +29,7 @@ export default function ConferenceLanding() {
           Manufacturing
         </p>
         <p className="mb-2 text-lg font-medium md:text-2xl">
-          February 28, 2025
+          February 27-28, 2025
         </p>
         <p className="mb-8 text-lg font-bold md:text-2xl">
           BITS Pilani, Hyderabad Campus
@@ -38,8 +38,8 @@ export default function ConferenceLanding() {
           <Timer />
         </div>
 
-        <Button className="mt-4" size="lg" variant="poppy">
-          Register
+        <Button className="mt-4" size="lg" variant="poppy" asChild>
+          <Link href="/registration">Register</Link>
         </Button>
       </div>
     </main>

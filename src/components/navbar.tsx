@@ -21,8 +21,6 @@ const items = [
   { label: "Registration", href: "/registration" },
   { label: "Sponsorship", href: "/sponsorship" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Downloads", href: "/downloads" },
-  { label: "Contact Us", href: "/contactus" },
 ];
 
 export default function Navbar() {
