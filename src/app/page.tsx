@@ -9,6 +9,7 @@ import { Button, buttonVariants } from "~/components/ui/button";
 import landingPageBg from "~/assets/landing.jpeg";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
+import mottoImage from "~/assets/homepage/motto.webp";
 
 export default function ConferenceLanding() {
   return (
@@ -53,7 +54,11 @@ export default function ConferenceLanding() {
       >
         Contact us
       </Link>
-
+      <Image
+        src={mottoImage}
+        alt="bits"
+        className="absolute bottom-4 w-40 object-contain md:w-60"
+      />
       <Link
         href="/downloads"
         className={cn(

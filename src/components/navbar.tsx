@@ -18,6 +18,7 @@ const items = [
   { label: "About Us", href: "/aboutus" },
   { label: "Committees", href: "/committee" },
   { label: "Speakers", href: "/speakers" },
+  { label: "Important Dates", href: "/importantdates" },
   { label: "Registration", href: "/registration" },
   { label: "Sponsorship", href: "/sponsorship" },
   { label: "Gallery", href: "/gallery" },
@@ -43,7 +44,7 @@ export default function Navbar() {
       </Link>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <div className="flex items-center">
-          <nav className="nav:block hidden rounded-full border-2 border-accent">
+          <nav className="hidden rounded-full border-2 border-accent nav:block">
             <div className="relative flex items-center gap-2">
               {items.map((item) => (
                 <Link
@@ -76,7 +77,7 @@ export default function Navbar() {
             </div>
           </nav>
           <SheetTrigger asChild>
-            <button className="nav:hidden ml-auto block">
+            <button className="ml-auto block nav:hidden">
               {isOpen ? (
                 <X className="h-6 w-6 text-accent" />
               ) : (
