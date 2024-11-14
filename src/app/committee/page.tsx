@@ -118,8 +118,8 @@ export default function SpeakersPage() {
           title="Convener"
           contentList={[
             {
-              name: "Prof. Jeevan Jaidi, Hon. Secretary",
-              institution: "IIW, Hyderabad",
+              name: "Prof. Jeevan Jaidi",
+              institution: "Hon. Secretary, IIW-Hyderabad",
               imageUrl: JeevanJaidiPic,
             },
           ]}

@@ -58,7 +58,7 @@ export const chairmen = [
   },
   {
     name: "Dr. C.V.S Murthy, Chairman",
-    institution: "IIW, Hyderabad",
+    institution: "IIW-Hyderabad",
     imageUrl: CVSMurthyPic,
   },
   {
@@ -131,27 +131,27 @@ export const organizing = [
   },
   {
     name: "Prof. P. Venkata Ramana",
-    institution: "IIW, Hyderabad",
+    institution: "IIW-Hyderabad",
     imageUrl: null,
   },
   {
     name: "Shri Mincheri Ravi",
-    institution: "IIW, Hyderabad",
+    institution: "IIW-Hyderabad",
     imageUrl: null,
   },
   {
     name: "Shri Challa Phani Babu",
-    institution: "IIW, Hyderabad",
+    institution: "IIW-Hyderabad",
     imageUrl: null,
   },
   {
     name: "Prof. P. Sammaiah",
-    institution: "IIW, Hyderabad",
+    institution: "IIW-Hyderabad",
     imageUrl: null,
   },
   {
     name: "Prof. J. Kandasamy",
-    institution: "IIW, Hyderabad",
+    institution: "IIW-Hyderabad",
     imageUrl: null,
   },
 ];
