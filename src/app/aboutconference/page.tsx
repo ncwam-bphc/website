@@ -17,17 +17,19 @@ export default function AboutusPage() {
             </div>
           </div>
           <div className="text-justify">
-            This conference aims to bring together, the researchers, faculty
+            This conference aims to bring together, {" "}<span className="text-accent">
+              
+             the researchers, faculty
             members, scientists and practitioners from academia, R&D
-            institutions and industries, and exchange experiences, disseminate
+            institutions and industries, </span>and exchange experiences, disseminate
             up-to-date information, the challenges involved and explore new
             collaborative opportunities in the broad research areas of welding
             and additive manufacturing technologies.
             <br />
             <br />
-            The proceedings include invited talks by distinguished scientists
+            The proceedings include {" "} <span className="text-accent">invited talks by distinguished scientists
             from the national R&D laboratories, faculty members from premier
-            institutions and industry experts as well as paper presentations
+            institutions and industry experts </span> as well as paper presentations
             (oral and poster). Overall, this would serve as a platform for young
             researchers to meet and discuss with experts and get motivated
             further to produce high quality research in the coming decades,
@@ -63,13 +65,13 @@ export default function AboutusPage() {
           <div className="text-justify">
             The scope of the conference includes assessment of quality and life
             of the welded joints and additively manufactured components through
-            experimental testing and characterization techniques towards the
-            property-structure correlations, as well as modelling and simulation
-            techniques for the{" "}
-            <span className="text-accent">
+            {" "}<span className="text-accent">experimental testing and characterization techniques </span>towards the
+            process-property-structure correlations, as well as {" "}<span className="text-accent">modelling and simulation
+            techniques </span>for the
+            
               thermomechanical-metallurgical phenomena
-            </span>{" "}
-            (per se) towards the off-line process optimization, quality
+          
+            towards the off-line process optimization, quality
             enhancement and savings in terms of materials and resources.
           </div>
         </Section>

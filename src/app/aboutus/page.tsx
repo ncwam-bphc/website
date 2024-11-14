@@ -56,7 +56,7 @@ export default function AboutusPage() {
                 BITS Pilani
               </div>
             </div>
-            {/* <Image src={wilpLogo} className="h-24 w-auto md:h-32" alt="logo" /> */}
+            <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
           <div className="text-justify">
             The{" "}
