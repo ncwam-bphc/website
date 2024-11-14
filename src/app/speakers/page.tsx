@@ -64,7 +64,6 @@ export default function SpeakersPage() {
         </div>
         <div className="flex justify-center">
           <SpeakerCard
-            key={1}
             name="Prof. G.D. Janaki Ram"
             institution="IIT, Hyderabad"
             img={JanakiRam}

@@ -81,8 +81,8 @@ const GalleryPage = () => {
                           src={image.src}
                           alt={`Carousel image ${index + 1}`}
                           fill
+                          loading="lazy"
                           className="object-cover"
-                          priority={index === 0}
                           sizes="(max-width: 640px) 100vw, 
                                  (max-width: 1024px) 90vw, 
                                  (max-width: 1280px) 80vw,
