@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Card, CardContent } from "~/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import contactusBg from "~/assets/contactus.jpeg";
+import contactusBg from "~/assets/contactus.webp";
 export default function ContactUs() {
   const contacts = [
     {

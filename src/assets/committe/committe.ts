@@ -30,7 +30,8 @@ export const guestHonors = [
 export const patrons = [
   {
     name: "Prof. G. Sundar",
-    institution: "Director, Off-Campus Programmes and Industry Engagement, BITS Pilani",
+    institution:
+      "Director, Off-Campus Programmes and Industry Engagement, BITS Pilani",
     imageUrl: GSundarPic,
   },
   {
@@ -40,14 +41,15 @@ export const patrons = [
   },
   {
     name: "Prof. S. Gurunarayanan",
-    institution: "Deputy Director, Off-Campus Programmes and Industry Engagement, BITS Pilani",
+    institution:
+      "Deputy Director, Off-Campus Programmes and Industry Engagement, BITS Pilani",
     imageUrl: GurunarayanPic,
   },
   {
-    name:"Dr. G. Satheesh Reddy",
+    name: "Dr. G. Satheesh Reddy",
     institution: "Former Secretary DDR&D, Chairman DRDO",
     imageUrl: satishr,
-  }
+  },
 ];
 
 export const chairmen = [
@@ -154,6 +156,51 @@ export const organizing = [
     institution: "IIW-Hyderabad",
     imageUrl: null,
   },
+  {
+    name: "Prof. K. Ramanjaneyulu",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. B. Vijay Kumar",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Sri Vivek Kumar",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. G. Prakasham",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Dr. P. Mastanaiah",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Shri K.V. Phani Prabhakar",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Shri Shankar Shivaratri",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Shri Amaresh M. Parsodkar",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Shri V. Narasimha Reddy",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
 ];
 
 export const advisory = [
@@ -175,7 +222,7 @@ export const advisory = [
   {
     name: "Dr. M. Rama Manohara Babu ",
     institution: "Head CRENS, BITS Pilani\nRetd., ASL, DRDO",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Dr. G. Madhusudhan Reddy",

@@ -6,7 +6,7 @@ const Timer = dynamic(() => import("~/components/timer"), {
   ssr: false,
 });
 import { Button, buttonVariants } from "~/components/ui/button";
-import landingPageBg from "~/assets/landing.jpeg";
+import landingPageBg from "~/assets/landing.webp";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
 import mottoImage from "~/assets/homepage/motto.webp";
@@ -18,8 +18,7 @@ export default function ConferenceLanding() {
         src={landingPageBg}
         alt="Conference background"
         fill={true}
-        objectFit="cover"
-        className="-z-20"
+        className="-z-20 object-cover"
         priority
       />
       <div className="absolute inset-0 -z-10 bg-black bg-opacity-60"></div>
@@ -57,7 +56,7 @@ export default function ConferenceLanding() {
       <Image
         src={mottoImage}
         alt="bits"
-        className="absolute bottom-4 w-40 object-contain md:w-60 md:h-12 -z-10 opacity-80 max-sm:hidden" 
+        className="absolute bottom-4 -z-10 w-40 object-contain opacity-80 max-sm:hidden md:h-12 md:w-60"
       />
       <Link
         href="/downloads"
