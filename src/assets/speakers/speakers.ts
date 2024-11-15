@@ -39,42 +39,42 @@ const speakers = [
   },
   {
     name: "Prof. N. Kishore Babu",
-    institution: "IIT Hyderabad",
+    institution: "NIT Warangal",
     imageUrl: NKishoreBabu,
   },
   {
     name: "Prof. G.M. Karthik",
-    institution: "IIT Hyderabad",
+    institution: "IIT-BHU Varanasi",
     imageUrl: GMKarthik,
   },
   {
-    name: "Dr. Rakesh Lingam",
-    institution: "IIT Hyderabad",
+    name: "Prof. Rakesh Lingam",
+    institution: "IIT Dharwad",
     imageUrl: RakeshLingam,
   },
   {
     name: "Dr. John Rozario Jegaraj",
-    institution: "IIT Hyderabad",
+    institution: "DRDL, Hyderabad",
     imageUrl: JohnRozarioJegaraj,
   },
   {
     name: "Dr. P. Mastanaiah",
-    institution: "IIT Hyderabad",
+    institution: "DRDL, Hyderabad",
     imageUrl: null,
   },
   {
     name: "Dr. Subrata Karmakar",
-    institution: "IIT Hyderabad",
+    institution: "ABB India, Bangalore",
     imageUrl: SubrataKarmakar,
   },
   {
     name: "Dr. Nijagunayya Soppayya",
-    institution: "IIT Hyderabad",
+    institution: "Apollo Heat Exchangers, Tarapur",
     imageUrl: NijagunayyaSoppayya,
   },
   {
     name: "Dr. K.N. Vishwanath",
-    institution: "IIT Hyderabad",
+    institution: "Wabtec Corporation, Bangalore",
     imageUrl: KNVishwanath,
   },
 ];
