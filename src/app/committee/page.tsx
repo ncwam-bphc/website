@@ -126,7 +126,7 @@ export default function SpeakersPage() {
           contentList={[
             {
               name: "Prof. P. Jayaprakash Sharma",
-              institution: "WILP, BITS Pilani",
+              institution: "BITS Pilani WILP",
               imageUrl: JayaprakashPic,
             },
           ]}

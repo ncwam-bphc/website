@@ -16,7 +16,7 @@ export default function ContactUs() {
     },
     {
       name: "Prof. P. Jayaprakash Sharma",
-      role: "Co-Covener\nWILP, BITS Pilani",
+      role: "Co-Covener\nBITS Pilani WILP",
       phone: "+91 9666781417",
       email: "pj.sharma@pilani.bits-pilani.ac.in",
       location: "BITS Pilani",

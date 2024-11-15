@@ -7,7 +7,7 @@ import GurunarayanPic from "~/assets/committe/gurunarayan.webp";
 import PBvenkataramanPic from "~/assets/committe/PB-Venkataraman.webp";
 import GRSabareeshPic from "~/assets/committe/G.R. Sabareesh.webp";
 import CVSMurthyPic from "~/assets/committe/cvsmurthy.webp";
-import satishr from "~/assets/committe/satish reddy.jpeg";
+import satishr from "~/assets/committe/satish reddy.webp";
 
 export const guestHonors = [
   {
@@ -55,7 +55,7 @@ export const patrons = [
 export const chairmen = [
   {
     name: "Prof. P.B. Venkataraman",
-    institution: "Dean WILP, BITS Pilani",
+    institution: "Dean BITS Pilani WILP",
     imageUrl: PBvenkataramanPic,
   },
   {
@@ -73,27 +73,27 @@ export const chairmen = [
 export const organizing = [
   {
     name: "Prof. Vaishali Pagaria",
-    institution: "WILP, BITS Pilani",
+    institution: "BITS Pilani WILP",
     imageUrl: null,
   },
   {
     name: "Prof. Gaurav Nagpal",
-    institution: "WILP, BITS Pilani",
+    institution: "BITS Pilani WILP",
     imageUrl: null,
   },
   {
     name: "Prof. Rakesh Dash",
-    institution: "WILP, BITS Pilani",
+    institution: "BITS Pilani WILP",
     imageUrl: null,
   },
   {
     name: "Prof. Ankur Pachauri",
-    institution: "WILP, BITS Pilani",
+    institution: "BITS Pilani WILP",
     imageUrl: null,
   },
   {
     name: "Prof. Harish Kumar",
-    institution: "WILP, BITS Pilani",
+    institution: "BITS Pilani WILP",
     imageUrl: null,
   },
   {

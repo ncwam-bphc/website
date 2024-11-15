@@ -7,18 +7,16 @@ export default function AboutusPage() {
   return (
     <div className="container min-w-[320px]">
       <main className="main">
-        <Section bgImage={bg} className="flex-col gap-1 md:gap-4">
-          <div className="flex items-center gap-1 md:flex-col">
+        <Section bgImage={bg} className="flex-col gap-4 max-md:gap-4">
+          <div className="flex items-center gap-1 lg:flex-col">
             <div className="flex flex-col items-center gap-1 font-bold">
-              <div className="text-nowrap text-center text-3xl text-accent md:text-3xl lg:text-5xl">
+              <div className="text-nowrap text-center text-3xl text-accent lg:text-4xl">
                 IMPORTANT DATES
               </div>
             </div>
           </div>
-          <div className="text-center text-xs md:min-w-[1000px] md:text-3xl">
-            <br></br>
-
-            <ul className="mx-auto w-full min-w-[300px] list-disc px-4 text-left text-base md:min-w-[500px] md:px-0 md:text-3xl">
+          <div className="flex flex-col items-center gap-5 text-center lg:min-w-[1000px]">
+            <ul className="mx-auto w-full min-w-[300px] max-w-4xl list-disc pl-4 text-left text-base sm:pl-16 md:text-xl lg:min-w-[500px] lg:text-2xl">
               <li>
                 <div className="flex justify-between">
                   <span className="flex-[3]">
@@ -80,14 +78,12 @@ export default function AboutusPage() {
                 </div>
               </li>
             </ul>
-            <br />
-            <span className="text-base md:text-3xl">
+            <span className="flex w-full max-w-3xl text-justify text-base md:text-xl lg:text-2xl">
               *Paper presentations (oral/poster) will be decided by the
               technical committee based on the quality of the manuscript. The
               selected papers will be published in an indexed journal. Further
               details will be updated very soon.
             </span>
-            <br />
           </div>
         </Section>
       </main>
