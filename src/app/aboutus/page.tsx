@@ -1,13 +1,12 @@
 "use client";
 import "~/styles/fullpagescroll.css";
-import aboutBg from "~/assets/about.jpeg";
-import bitsLogo from "~/assets/bits_logo.png";
-// import wilpLogo from "~/assets/WILP Logo 1-Dr JPS.png";
-import iiwLogo from "~/assets/IIW India-Logo 1.jpg";
-import iiwhLogo from "~/assets/IIW India logo-brochure.jpg";
+import aboutBg from "~/assets/aboutus/bg.webp";
+import bitsLogo from "~/assets/bits_logo.webp";
+import iiwLogo from "~/assets/aboutus/IIW India.webp";
+import iiwhLogo from "~/assets/aboutus/IIW India hyd.webp";
 import Image from "next/image";
 import Section from "~/components/FullpageSection";
-import crensl from "~/assets/crenslogo.jpeg";
+import crensl from "~/assets/aboutus/crenslogo.webp";
 
 export default function AboutusPage() {
   return (
@@ -43,7 +42,8 @@ export default function AboutusPage() {
               Work Integrated Learning Programmes
             </span>{" "}
             (WILP) and
-            <span className="text-accent"> Practice School</span> (PS-I & PS-II).
+            <span className="text-accent"> Practice School</span> (PS-I &
+            PS-II).
           </div>
         </Section>
         <Section bgImage={aboutBg} className="md:flex-row-reverse">
@@ -84,7 +84,6 @@ export default function AboutusPage() {
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-nowrap text-center text-3xl md:text-5xl">
                 CRENS
-        
               </div>
             </div>
             <Image src={crensl} className="h-24 w-auto md:h-32" alt="logo" />
@@ -94,12 +93,13 @@ export default function AboutusPage() {
             <span className="text-accent">
               Center for Research Excellence in National Security (CRENS)
             </span>{" "}
-     established at BITS Pilani, Hyderabad campus to foster collaboration between BITS Pilani and various stakeholders of National Security domain for Research, Innovation and Skill Development with aim of addressing critical challenges and contribute to National Security Apparatus.
-            
-            
+            established at BITS Pilani, Hyderabad campus to foster collaboration
+            between BITS Pilani and various stakeholders of National Security
+            domain for Research, Innovation and Skill Development with aim of
+            addressing critical challenges and contribute to National Security
+            Apparatus.
           </div>
         </Section>
-
 
         <Section bgImage={aboutBg} className="md: flex-row-reverse">
           <div className="flex items-center gap-4 md:flex-col md:gap-8">

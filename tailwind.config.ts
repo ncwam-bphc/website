@@ -1,5 +1,6 @@
 import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import tailwindCssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -15,7 +16,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
-        nav: "1388px",
+        nav: "82rem",
       },
       colors: {
         poppy: "#da583c",
@@ -62,5 +63,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindCssAnimate],
 } satisfies Config;
