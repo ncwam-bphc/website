@@ -96,8 +96,8 @@ export default function SpeakersPage() {
           title="Chief Guest"
           contentList={[
             {
-              name: "Prof. BS Murty",
-              institution: "Director, IIT, Hyderabad",
+              name: "Prof. B.S Murty",
+              institution: "Director, IIT Hyderabad",
               imageUrl: BSMurthyPic,
             },
           ]}
