@@ -34,27 +34,27 @@ export default function AboutusPage() {
             <ul className="mx-auto w-full min-w-[300px] list-disc px-4 text-left text-base md:min-w-[500px] md:px-0 md:text-3xl">
               <li>
                 <div className="flex justify-between">
-                  Student (UG/PG)<span>₹2,500</span>
+                  Student (UG/PG)<span className="text-accent">₹2,500</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  PhD Scholar<span>₹3,500</span>
+                  PhD Scholar<span className="text-accent">₹3,500</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  Faculty members<span>₹4,500</span>
+                  Faculty members<span className="text-accent">₹4,500</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  IIW India members<span>₹4,000</span>
+                  IIW India members<span className="text-accent">₹4,000</span>
                 </div>
               </li>
               <li>
                 <div className="flex justify-between">
-                  Non IIW India members<span>₹5,000</span>
+                  Non IIW India members<span className="text-accent">₹5,000</span>
                 </div>
               </li>
             </ul>

@@ -60,7 +60,7 @@ export default function SpeakersPage() {
           INVITED SPEAKERS
         </div>
         <div className="mt-4 flex justify-center text-4xl font-bold md:text-5xl">
-          <p className="customcol">PLEANARY</p>
+          <p className="customcol">PLENARY</p>
         </div>
         <div className="flex justify-center">
           <SpeakerCard
