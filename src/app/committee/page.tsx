@@ -1,5 +1,4 @@
 "use client";
-import { AvatarIcon } from "@radix-ui/react-icons";
 import Image, { type StaticImageData } from "next/image";
 import spbg from "~/assets/spbg2.jpeg";
 import { cn } from "~/lib/utils";
@@ -37,13 +36,15 @@ const CommitteeCard = ({
       {img ? (
         <Image
           src={img}
-          className="h-32 w-32 rounded-full border-2 object-cover"
+          className="h-32 w-32 rounded-full border-2 border-white object-cover"
           alt="avatar"
         />
       ) : null}
       <div className="flex flex-col items-center whitespace-break-spaces text-center text-xl font-semibold md:text-2xl">
         {name}
-        <span className="text-xl text-accent md:text-xl whitespace-break-spaces">{institution}</span>
+        <span className="whitespace-break-spaces text-xl text-accent md:text-xl">
+          {institution}
+        </span>
       </div>
     </div>
   );
