@@ -7,7 +7,7 @@ import Footer from "~/components/Footer";
 export const metadata: Metadata = {
   title: "NCWAM 2025",
   description: "NCWAM website",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/bits_logo.png" }],
 };
 
 export default function RootLayout({
