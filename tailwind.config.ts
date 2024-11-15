@@ -16,7 +16,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
-        nav: "82rem",
+        nav: "1310px",
       },
       colors: {
         poppy: "#da583c",
