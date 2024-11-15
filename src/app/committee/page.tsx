@@ -96,7 +96,7 @@ export default function SpeakersPage() {
           title="Chief Guest"
           contentList={[
             {
-              name: "Prof. B.S Murty",
+              name: "Prof. B.S. Murty",
               institution: "Director, IIT Hyderabad",
               imageUrl: BSMurthyPic,
             },
@@ -108,7 +108,7 @@ export default function SpeakersPage() {
           contentList={[
             {
               name: "Prof. V. Ramgopal Rao",
-              institution: "Vice Chancellor, BITS Pilani University",
+              institution: "Vice Chancellor, BITS Pilani",
               imageUrl: VRamgopalPic,
             },
           ]}

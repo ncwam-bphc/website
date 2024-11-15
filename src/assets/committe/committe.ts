@@ -34,7 +34,7 @@ export const patrons = [
     imageUrl: GSundarPic,
   },
   {
-    name: "Prof. Soumya Mukerjee",
+    name: "Prof. Soumyo Mukherji",
     institution: "Director, BITS Pilani, Hyderabad",
     imageUrl: SoumyoPic,
   },
@@ -52,17 +52,17 @@ export const patrons = [
 
 export const chairmen = [
   {
-    name: "Prof. P.B Venkataraman",
+    name: "Prof. P.B. Venkataraman",
     institution: "Dean WILP, BITS Pilani",
     imageUrl: PBvenkataramanPic,
   },
   {
-    name: "Dr. C.V.S Murthy",
+    name: "Dr. C.V.S. Murthy",
     institution: "Chairman, IIW-Hyderabad",
     imageUrl: CVSMurthyPic,
   },
   {
-    name: "Prof. G.R Sabareesh",
+    name: "Prof. G.R. Sabareesh",
     institution: "HOD, Mech. Engg.\nBITS Pilani, Hyderabad",
     imageUrl: GRSabareeshPic,
   },
