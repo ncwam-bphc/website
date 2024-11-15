@@ -85,7 +85,7 @@ export default function AboutusPage() {
               *Paper presentations (oral/poster) will be decided by the
               technical committee based on the quality of the manuscript. The
               selected papers will be published in an indexed journal. Further
-              details will be updated very soon
+              details will be updated very soon.
             </span>
             <br />
           </div>
