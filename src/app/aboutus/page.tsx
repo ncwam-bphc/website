@@ -7,6 +7,8 @@ import iiwhLogo from "~/assets/aboutus/IIW India hyd.webp";
 import Image from "next/image";
 import Section from "~/components/FullpageSection";
 import crensl from "~/assets/aboutus/crenslogo.webp";
+import IIW from "~/assets/aboutus/IIW Logo with name - 1.png";
+import IIWW from "~/assets/aboutus/IIW Logo.png";
 
 export default function AboutusPage() {
   return (
@@ -29,7 +31,7 @@ export default function AboutusPage() {
             <span className="text-accent">
               Birla Institute of Technology & Science Pilani
             </span>{" "}
-            (BITS Pilani) is a multi-locational University with three campuses
+            (BITS Pilani) is a multi-campus University with three campuses
             in India (Pilani, Goa and Hyderabad) and one international campus in
             Dubai (U.A.E).
             <br />
@@ -107,7 +109,7 @@ export default function AboutusPage() {
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-3xl md:text-5xl">IIW India</div>
             </div>
-            <Image src={iiwLogo} className="h-24 w-auto md:h-32" alt="logo" />
+            <Image src={IIWW} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
           <div className="text-justify">
             The{" "}
@@ -137,7 +139,7 @@ export default function AboutusPage() {
                 Hyderabad Branch
               </div>
             </div>
-            <Image src={iiwhLogo} className="h-24 w-auto md:h-32" alt="logo" />
+            <Image src={IIW} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
           <div className="text-justify">
             The <span className="text-accent">IIW, Hyderabad Branch</span>, the
