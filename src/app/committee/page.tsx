@@ -136,7 +136,7 @@ export default function SpeakersPage() {
           ]}
         />
         <Section title="Organizing Committee" contentList={organizing} />
-        <Section title="National Advisory Committee" contentList={advisory} />
+        <div className="text-center"><Section title="National Advisory Committee" contentList={advisory} /></div>
       </main>
     </div>
   );
