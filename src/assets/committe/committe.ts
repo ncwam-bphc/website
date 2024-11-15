@@ -40,7 +40,7 @@ export const patrons = [
   },
   {
     name: "Prof. S. Gurunarayanan",
-    institution: "Deputy Director, WILP, BITS Pilani",
+    institution: "Deputy Director, Off-Campus Programmes and Industry Engagement, BITS Pilani",
     imageUrl: GurunarayanPic,
   },
   {
@@ -135,12 +135,12 @@ export const organizing = [
     imageUrl: null,
   },
   {
-    name: "Shri Mincheri Ravi",
+    name: "Shri. Mincheri Ravi",
     institution: "IIW-Hyderabad",
     imageUrl: null,
   },
   {
-    name: "Shri Challa Phani Babu",
+    name: "Shri. Challa Phani Babu",
     institution: "IIW-Hyderabad",
     imageUrl: null,
   },
@@ -159,7 +159,7 @@ export const organizing = [
 export const advisory = [
   {
     name: "Prof. B.S. Murty",
-    institution: "IIT, Hyderabad",
+    institution: "IIT Hyderabad",
     imageUrl: null,
   },
   {
@@ -224,42 +224,42 @@ export const advisory = [
   },
   {
     name: "Prof. Amitava De",
-    institution: "IIT, Bombay",
+    institution: "IIT Bombay",
     imageUrl: null,
   },
   {
     name: "Prof. Ashish K. Nath",
-    institution: "Retd., IIT, Kharagpur",
+    institution: "Retd., IIT Kharagpur",
     imageUrl: null,
   },
   {
     name: "Prof. G.D. Janaki Ram",
-    institution: "IIT, Hyderabad",
+    institution: "IIT Hyderabad",
     imageUrl: null,
   },
   {
     name: "Prof. Gandham Phanikumar",
-    institution: "IIT, Madras",
+    institution: "IIT Madras",
     imageUrl: null,
   },
   {
     name: "Prof. N. Venkata Reddy",
-    institution: "IIT, Hyderabad",
+    institution: "IIT Hyderabad",
     imageUrl: null,
   },
   {
     name: "Prof. Santosh Kumar",
-    institution: "IIT-BHU, Varanasi",
+    institution: "IIT-BHU Varanasi",
     imageUrl: null,
   },
   {
     name: "Prof. Balasubramanian V",
-    institution: "Annamalai Univ., Chennai",
+    institution: "Annamalai University, Chennai",
     imageUrl: null,
   },
   {
     name: "Prof. Dheerendra Kumar Dwivedi",
-    institution: "IIT, Roorkee",
+    institution: "IIT Roorkee",
     imageUrl: null,
   },
 ];
