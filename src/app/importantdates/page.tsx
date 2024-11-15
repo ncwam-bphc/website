@@ -22,8 +22,8 @@ export default function AboutusPage() {
               <li>
                 <div className="flex justify-between">
                   <span className="flex-[3]">
-                    Call for submission of Extended Abstracts{" "}
-                  </span>{" "}
+                    Call for submission of Extended Abstracts:
+                  </span>
                   <span className="flex-1 text-accent">Nov. 15, 2024</span>
                 </div>
               </li>
@@ -83,7 +83,9 @@ export default function AboutusPage() {
             <br />
             <span className="text-base md:text-3xl">
               *Paper presentations (oral/poster) will be decided by the
-              technical committee based on the quality of the manuscript.
+              technical committee based on the quality of the manuscript. The
+              selected papers will be published in an indexed journal. Further
+              details will be updated very soon
             </span>
             <br />
           </div>
