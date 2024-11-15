@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 import Navbar from "~/components/navbar";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
-import Footer from "~/components/Footer";
+// import Footer from "~/components/Footer";
 
 export const metadata: Metadata = {
   title: "NCWAM 2025",
@@ -20,7 +20,7 @@ export default function RootLayout({
           <Navbar />
         </header>
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
