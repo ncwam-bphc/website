@@ -206,17 +206,17 @@ export const organizing = [
 export const advisory = [
   {
     name: "Prof. B.S. Murty",
-    institution: "IIT Hyderabad",
+    institution: "Director, IIT Hyderabad",
     imageUrl: null,
   },
   {
     name: "Prof. Satyam Suwas",
-    institution: "IISc, Bangalore",
+    institution: "IISc Bangalore",
     imageUrl: null,
   },
   {
     name: "Prof. Satish Vasu Kailas",
-    institution: "IISc, Bangalore",
+    institution: "IISc Bangalore",
     imageUrl: null,
   },
   {
@@ -231,42 +231,42 @@ export const advisory = [
   },
   {
     name: "Dr. R. Balamuralikrishnan",
-    institution: "DMRL, Hyderabad",
+    institution: "Director, DMRL Hyderabad",
     imageUrl: null,
   },
   {
     name: "Dr. Amit Bhattacharjee",
-    institution: "Retd., DMRL, Hyderabad",
+    institution: "Retd. Scientist-G, DMRL Hyderabad",
     imageUrl: null,
   },
   {
     name: "Dr. Jaiteerth Joshi",
-    institution: "DRDL, Hyderabad",
+    institution: "Programme Director, DRDL Hyderabad",
     imageUrl: null,
   },
   {
     name: "Dr. Shaju K. Albert",
-    institution: "Retd., IGCAR, Kalpakkam",
+    institution: "Retd. Director, MMG, IGCAR Kalpakkam",
     imageUrl: null,
   },
   {
     name: "Dr. M. Vasudevan",
-    institution: "IGCAR, Kalpakkam",
+    institution: "Associate Director, MDTG, IGCAR Kalpakkam",
     imageUrl: null,
   },
   {
     name: "Dr. T. Jayakumar",
-    institution: "Retd., IGCAR, Kalpakkam",
+    institution: "Retd. Director, MMG, IGCAR Kalpakkam",
     imageUrl: null,
   },
   {
     name: "Dr. Komal Kapoor",
-    institution: "NFC, Hyderabad",
+    institution: "Chairman & Chief Executive, NFC Hyderabad",
     imageUrl: null,
   },
   {
     name: "Dr. S.V.S. Narayana Murty",
-    institution: "LPSC, Trivandrum",
+    institution: "General Manager, LPSC Trivandrum",
     imageUrl: null,
   },
   {
@@ -276,7 +276,7 @@ export const advisory = [
   },
   {
     name: "Prof. Ashish K. Nath",
-    institution: "Retd., IIT Kharagpur",
+    institution: "Retd. Professor, IIT Kharagpur",
     imageUrl: null,
   },
   {
@@ -301,7 +301,7 @@ export const advisory = [
   },
   {
     name: "Prof. Balasubramanian V",
-    institution: "Annamalai University, Chennai",
+    institution: "Annamalai Univ. Chennai",
     imageUrl: null,
   },
   {
