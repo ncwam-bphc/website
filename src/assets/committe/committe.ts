@@ -17,7 +17,7 @@ export const guestHonors = [
   },
   {
     name: "Dr. Shaju K. Albert",
-    institution: "Retd., IGCAR, Kalpakkam",
+    institution: "Retd. Director, MMG, IGCAR Kalpakkam",
     imageUrl: ShajuPic,
   },
   {
@@ -221,12 +221,12 @@ export const advisory = [
   },
   {
     name: "Dr. M. Rama Manohara Babu ",
-    institution: "Head CRENS, BITS Pilani\nRetd., ASL, DRDO",
+    institution: "Head CRENS, BITS Pilani\nRetd. Director, ASL Hyderabad",
     imageUrl: null,
   },
   {
     name: "Dr. G. Madhusudhan Reddy",
-    institution: "Retd., DMRL, Hyderabad",
+    institution: "Retd. Director, DMRL Hyderabad",
     imageUrl: null,
   },
   {
