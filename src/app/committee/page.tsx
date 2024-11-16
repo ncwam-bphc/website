@@ -116,7 +116,7 @@ export default function SpeakersPage() {
           contentList={[
             {
               name: "Prof. Jeevan Jaidi",
-              institution: "Hon. Secretary, IIW-Hyderabad",
+              institution: "BITS Pilani Hyderabad\nHon. Secretary, IIW-Hyderabad",
               imageUrl: JeevanJaidiPic,
             },
           ]}
