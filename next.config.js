@@ -7,7 +7,11 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ['unsplash.it','cdn.photoswipe.com','utfs.io'],
+    remotePatterns: [
+      { hostname: 'unsplash.it' },
+      { hostname: 'cdn.photoswipe.com' },
+      { hostname: 'utfs.io' },
+    ],
   },
 };
 

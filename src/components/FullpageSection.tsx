@@ -13,7 +13,7 @@ const Section = ({
 }) => {
   return (
     <section className="section">
-      <div className="content h-full gap-8 p-8 lg:p-16">
+      <div className="content h-full px-4">
         {bgImage ? (
           <Image
             src={bgImage}

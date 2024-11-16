@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Card, CardContent } from "~/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
-import contactusBg from "~/assets/contactus.jpeg";
+import contactusBg from "~/assets/contactus.webp";
 export default function ContactUs() {
   const contacts = [
     {
@@ -16,7 +16,7 @@ export default function ContactUs() {
     },
     {
       name: "Prof. P. Jayaprakash Sharma",
-      role: "Co-Covener\nWILP, BITS Pilani",
+      role: "Co-Covener\nBITS Pilani WILP",
       phone: "+91 9666781417",
       email: "pj.sharma@pilani.bits-pilani.ac.in",
       location: "BITS Pilani",

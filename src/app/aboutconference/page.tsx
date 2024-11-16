@@ -7,16 +7,16 @@ export default function AboutusPage() {
   return (
     <div className="container">
       <main className="main">
-        <Section bgImage={bg} className="max-md:gap-6">
+        <Section bgImage={bg}>
           <div className="flex items-center gap-4 md:flex-col md:gap-8">
             <div className="flex flex-col items-center gap-2 font-bold md:gap-4">
-              <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
-              <div className="text-center text-3xl md:text-5xl">
+              <h2 className="text-4xl text-accent lg:text-6xl">ABOUT</h2>
+              <div className="text-center text-3xl lg:text-5xl">
                 THE CONFERENCE
               </div>
             </div>
           </div>
-          <div className="text-justify">
+          <div className="text-justify text-lg lg:text-2xl">
             This conference aims to bring together,{" "}
             <span className="text-accent">
               the researchers, faculty members, scientists and practitioners
@@ -45,12 +45,12 @@ export default function AboutusPage() {
           <div className="flex items-center gap-4 md:flex-col">
             <div className="flex flex-col items-center gap-4 font-bold">
               {/* <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2> */}
-              <div className="text-nowrap text-center text-3xl text-accent md:text-5xl">
+              <div className="text-nowrap text-center text-3xl text-accent lg:text-5xl">
                 WHO SHOULD ATTEND?
               </div>
             </div>
           </div>
-          <div className="text-justify">
+          <div className="text-justify text-lg lg:text-2xl">
             Academicians (faculty members and research scholars), Scientists and
             technicians (R&D laboratories), Practicing Engineers and Consultants
             from industries (automotive, aerospace, defense, space, marine and
@@ -60,13 +60,13 @@ export default function AboutusPage() {
         <Section bgImage={bg}>
           <div className="flex items-center gap-4 md:flex-col md:gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
-              <h2 className="text-4xl text-accent md:text-6xl">SCOPE</h2>
-              <div className="text-center text-3xl md:text-5xl">
+              <h2 className="text-4xl text-accent lg:text-6xl">SCOPE</h2>
+              <div className="text-center text-3xl lg:text-5xl">
                 OF THE CONFERENCE
               </div>
             </div>
           </div>
-          <div className="text-justify">
+          <div className="text-justify text-lg lg:text-2xl">
             The scope of the conference includes assessment of quality and life
             of the welded joints and additively manufactured components through{" "}
             <span className="text-accent">

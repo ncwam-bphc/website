@@ -1,6 +1,6 @@
 "use client";
 import Image, { type StaticImageData } from "next/image";
-import spbg from "~/assets/spbg2.jpeg";
+import spbg from "~/assets/speakers.webp";
 import { cn } from "~/lib/utils";
 import {
   advisory,
@@ -63,7 +63,7 @@ const Section = ({
 }) => (
   <>
     <div className="mt-4 flex justify-center text-3xl font-bold uppercase md:text-4xl">
-      <p className="customcol">{title}</p>
+      <p className="customcol text-center">{title}</p>
     </div>
     <div className="flex flex-wrap items-start justify-center gap-4">
       {contentList.map((content, index) => (
@@ -84,19 +84,15 @@ export default function SpeakersPage() {
       <Image
         src={spbg}
         alt="Conference background"
-        className="fixed left-0 top-0 -z-20 h-full object-cover opacity-10"
+        className="fixed left-0 top-0 -z-20 h-full w-full object-cover opacity-10"
         priority
       />
-
-      <main className="flex flex-col gap-2 pt-36">
-        <div className="flex justify-center text-4xl font-bold text-accent md:text-5xl">
-          COMMITTEE
-        </div>
+      <main className="flex flex-col gap-2 pt-28">
         <Section
           title="Chief Guest"
           contentList={[
             {
-              name: "Prof. B.S Murty",
+              name: "Prof. B.S. Murty",
               institution: "Director, IIT Hyderabad",
               imageUrl: BSMurthyPic,
             },
@@ -108,7 +104,7 @@ export default function SpeakersPage() {
           contentList={[
             {
               name: "Prof. V. Ramgopal Rao",
-              institution: "Vice Chancellor, BITS Pilani University",
+              institution: "Vice Chancellor, BITS Pilani",
               imageUrl: VRamgopalPic,
             },
           ]}
@@ -130,13 +126,13 @@ export default function SpeakersPage() {
           contentList={[
             {
               name: "Prof. P. Jayaprakash Sharma",
-              institution: "WILP, BITS Pilani",
+              institution: "BITS Pilani WILP",
               imageUrl: JayaprakashPic,
             },
           ]}
         />
+        <Section title="National Advisory Committee" contentList={advisory} />
         <Section title="Organizing Committee" contentList={organizing} />
-        <div className="text-center"><Section title="National Advisory Committee" contentList={advisory} /></div>
       </main>
     </div>
   );

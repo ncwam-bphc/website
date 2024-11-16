@@ -2,11 +2,11 @@
 import "~/styles/fullpagescroll.css";
 import aboutBg from "~/assets/aboutus/bg.webp";
 import bitsLogo from "~/assets/bits_logo.webp";
-import iiwLogo from "~/assets/aboutus/IIW India.webp";
-import iiwhLogo from "~/assets/aboutus/IIW India hyd.webp";
 import Image from "next/image";
 import Section from "~/components/FullpageSection";
 import crensl from "~/assets/aboutus/crenslogo.webp";
+import IIWH from "~/assets/aboutus/IIW Hyd logo.webp";
+import IIW from "~/assets/aboutus/IIW Logo.webp";
 
 export default function AboutusPage() {
   return (
@@ -29,8 +29,8 @@ export default function AboutusPage() {
             <span className="text-accent">
               Birla Institute of Technology & Science Pilani
             </span>{" "}
-            (BITS Pilani) is a multi-locational University with three campuses
-            in India (Pilani, Goa and Hyderabad) and one international campus in
+            (BITS Pilani) is a multi-campus University with three campuses in
+            India (Pilani, Goa and Hyderabad) and one international campus in
             Dubai (U.A.E).
             <br />
             <br />
@@ -51,9 +51,7 @@ export default function AboutusPage() {
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-nowrap text-center text-3xl md:text-5xl">
-                WILP,
-                <br />
-                BITS Pilani
+                BITS Pilani WILP
               </div>
             </div>
             <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
@@ -107,7 +105,7 @@ export default function AboutusPage() {
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-3xl md:text-5xl">IIW India</div>
             </div>
-            <Image src={iiwLogo} className="h-24 w-auto md:h-32" alt="logo" />
+            <Image src={IIW} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
           <div className="text-justify">
             The{" "}
@@ -137,7 +135,7 @@ export default function AboutusPage() {
                 Hyderabad Branch
               </div>
             </div>
-            <Image src={iiwhLogo} className="h-24 w-auto md:h-32" alt="logo" />
+            <Image src={IIWH} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
           <div className="text-justify">
             The <span className="text-accent">IIW, Hyderabad Branch</span>, the

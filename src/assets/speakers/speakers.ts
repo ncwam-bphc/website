@@ -24,12 +24,12 @@ const speakers = [
   },
   {
     name: "Prof. G. Madhusudhan Reddy",
-    institution: "NIT, Warangal",
+    institution: "NIT Warangal",
     imageUrl: GMadhusudhanReddy,
   },
   {
     name: "Prof. Murugaiyan Amirthalingam",
-    institution: "IIT, Madras",
+    institution: "IIT Madras",
     imageUrl: MurugaiyanAmirthalingam,
   },
   {
@@ -63,17 +63,17 @@ const speakers = [
     imageUrl: null,
   },
   {
-    name: "Dr. Subrata Karmakar",
+    name: "Shri. Subrata Karmakar",
     institution: "ABB India, Bangalore",
     imageUrl: SubrataKarmakar,
   },
   {
-    name: "Dr. Nijagunayya Soppayya",
+    name: "Shri. Nijagunayya Soppayya",
     institution: "Apollo Heat Exchangers, Tarapur",
     imageUrl: NijagunayyaSoppayya,
   },
   {
-    name: "Dr. K.N. Vishwanath",
+    name: "Shri. K.N. Vishwanath",
     institution: "Wabtec Corporation, Bangalore",
     imageUrl: KNVishwanath,
   },

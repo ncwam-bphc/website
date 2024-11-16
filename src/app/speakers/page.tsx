@@ -1,7 +1,7 @@
 "use client";
 import { AvatarIcon } from "@radix-ui/react-icons";
 import Image, { type StaticImageData } from "next/image";
-import spbg from "~/assets/spbg2.jpeg";
+import spbg from "~/assets/speakers.webp";
 import speakers from "~/assets/speakers/speakers";
 import { cn } from "~/lib/utils";
 import JanakiRam from "~/assets/speakers/G.D. Janaki Ram.webp";
@@ -48,7 +48,7 @@ export default function SpeakersPage() {
       <Image
         src={spbg}
         alt="Conference background"
-        className="fixed left-0 top-0 -z-20 h-full object-cover opacity-10"
+        className="fixed left-0 top-0 -z-20 h-full w-full object-cover opacity-10"
         priority
       />
 
@@ -65,7 +65,7 @@ export default function SpeakersPage() {
         <div className="flex justify-center">
           <SpeakerCard
             name="Prof. G.D. Janaki Ram"
-            institution="IIT, Hyderabad"
+            institution="IIT Hyderabad"
             img={JanakiRam}
           ></SpeakerCard>
         </div>

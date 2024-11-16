@@ -4,8 +4,8 @@ import Section from "~/components/FullpageSection";
 import bg from "~/assets/downloads/bg.webp";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
-import frontpage from "~/assets/downloads/frontpage.jpeg";
-import backpage from "~/assets/downloads/backpage.jpeg";
+import frontpage from "~/assets/downloads/frontpage.png";
+import backpage from "~/assets/downloads/backpage.png";
 
 export default function AboutusPage() {
   return (
@@ -21,7 +21,7 @@ export default function AboutusPage() {
           </div>
           <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
             <a
-              href="/brochure-15.11.2024.pdf"
+              href="/brochure.pdf"
               target="_blank"
               className={cn(
                 buttonVariants(),
