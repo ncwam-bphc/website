@@ -9,7 +9,7 @@ export default function AboutusPage() {
   return (
     <div className="container min-w-[320px]">
       <main className="main">
-        <Section bgImage={bg} className="flex-col gap-1 md:gap-1">
+        <Section bgImage={bg} className="flex-col gap-1 max-md:gap-1 md:gap-1">
           <div className="flex items-center gap-1 md:flex-col">
             <div className="flex flex-col items-center gap-1 font-bold">
               <div className="text-nowrap text-center text-3xl text-accent md:text-3xl lg:text-5xl">
@@ -28,10 +28,13 @@ export default function AboutusPage() {
               Register now
             </a> */}
             <br />
+            Registration window will be open from 25th November onwards.
+            <br />
+            <br />
             Registration Fees:
             <br />
             <br />
-            <ul className="mx-auto w-full min-w-[300px] list-disc px-4 text-left text-base md:min-w-[500px] md:px-0 md:text-3xl">
+            <ul className="mx-auto w-[300px] list-disc px-4 text-left text-base md:w-[500px] md:px-0 md:text-3xl">
               <li>
                 <div className="flex justify-between">
                   Student (UG/PG)<span className="text-accent">₹2,500</span>
@@ -54,7 +57,8 @@ export default function AboutusPage() {
               </li>
               <li>
                 <div className="flex justify-between">
-                  Non IIW India members<span className="text-accent">₹5,000</span>
+                  Non IIW India members
+                  <span className="text-accent">₹5,000</span>
                 </div>
               </li>
             </ul>
