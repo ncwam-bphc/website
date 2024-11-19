@@ -20,6 +20,7 @@ const items = [
   { label: "Speakers", href: "/speakers" },
   { label: "Important Dates", href: "/importantdates" },
   { label: "Registration", href: "/registration" },
+  { label: "Submissions", href: "/submissions" },
   { label: "Sponsorship", href: "/sponsorship" },
   { label: "Gallery", href: "/gallery" },
 ];
