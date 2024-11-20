@@ -69,7 +69,7 @@ const GalleryPage = () => {
               {images.map((image, index) => (
                 <CarouselItem key={index}>
                   <Card className="border-none">
-                    <CardContent className="p-0">
+                    <CardContent className="max-h-[60vh] p-0">
                       <div className="relative w-full">
                         <div
                           style={{
@@ -82,7 +82,7 @@ const GalleryPage = () => {
                           alt={`Carousel image ${index + 1}`}
                           fill
                           loading="lazy"
-                          className="object-cover"
+                          className="max-h-[60vh] object-contain"
                           sizes="(max-width: 640px) 100vw, 
                                  (max-width: 1024px) 90vw, 
                                  (max-width: 1280px) 80vw,

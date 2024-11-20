@@ -48,12 +48,11 @@ const SimpleGallery: React.FC<SimpleGalleryProps> = ({ galleryID, images }) => {
           data-pswp-width={image.width}
           data-pswp-height={image.height}
           key={`${galleryID}-${index}`}
-          className="relative block aspect-square"
+          className="relative block"
         >
           <Image
             src={image.thumbnailURL}
             alt={`Gallery image ${index + 1}`}
-            fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             className="object-cover"
             loading="lazy"
