@@ -22,7 +22,7 @@ export default function AboutusPage() {
           </div>
         </div>
       </div>
-      <div className="mt-4 text-center text-justify text-lg md:text-xl">
+      <div className="mt-4 text-justify text-lg md:text-xl">
         We, the Organizers of{" "}
         <span className="text-accent">
           National Conference on Challenges in Welding and Additive
@@ -43,7 +43,7 @@ export default function AboutusPage() {
           <thead>
             <tr>
               <th>
-                <h2 className="px-2 text-lg font-medium text-accent md:text-3xl md:text-xl">
+                <h2 className="px-2 text-lg font-medium text-accent md:text-xl">
                   Sponsorship Category
                 </h2>
                 <p className="mb-3"></p>
@@ -424,7 +424,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="py-1 text-lg md:text-lg md:text-xl">
+                <h3 className="py-1 text-lg md:text-xl">
                   Special mention during &quot;Vote of Thanks&quot;
                 </h3>
               </th>
@@ -491,7 +491,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-center">
-                <h3 className="py-1 text-lg text-accent md:text-3xl md:text-xl">
+                <h3 className="py-1 text-lg text-accent md:text-xl">
                   Sponsorship amount (in lacs)
                 </h3>
               </th>
