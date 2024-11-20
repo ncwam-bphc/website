@@ -130,15 +130,13 @@ export default function AboutusPage() {
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-nowrap text-center text-3xl md:text-5xl">
-                IIW India,
-                <br />
-                Hyderabad Branch
+                IIW-Hyderabad Branch
               </div>
             </div>
             <Image src={IIWH} className="h-24 w-auto md:h-32" alt="logo" />
           </div>
           <div className="text-justify">
-            The <span className="text-accent">IIW, Hyderabad Branch</span>, the
+            The <span className="text-accent">IIW-Hyderabad Branch</span>, the
             13th branch of IIW India, has been formed in May 2014 to create a
             forum for interaction and knowledge sharing among the professionals,
             R&D personnel, academicians and students of Telangana State involved
