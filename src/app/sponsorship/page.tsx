@@ -22,14 +22,14 @@ export default function AboutusPage() {
           </div>
         </div>
       </div>
-      <div className="mt-4 text-center text-justify text-xl">
+      <div className="mt-4 text-justify text-xl">
         We, the Organizers of{" "}
         <span className="text-accent">
           National Conference on Challenges in Welding and Additive
           Manufacturing (NCWAM-2025)
         </span>
         , take immense pleasure in inviting sponsors from equipment and software
-        suppliers, service providers and consultants to showcase one’s products
+        suppliers, service providers and consultants to showcase one&apos;s products
         and services to the delegates and participants from academia, R&Ds and
         core industries. We earnestly request the sponsors to book the
         sponsorship category by online payment through the conference webpage.{" "}
@@ -507,10 +507,15 @@ export default function AboutusPage() {
           </tbody>
         </table>
       </div>
-      <div className="max-w-[900px] self-center text-center text-justify text-lg">
-        ​For any queries, please drop an email
-        (ncwam@hyderabad.bits-pilani.ac.in) with an expression of interest, and
-        the lead faculty member will get back and discuss about your
+      <div className="max-w-[900px] self-center text-justify text-lg">
+        For any queries, please drop an email{" "}(
+        <a
+          href="mailto:ncwam@hyderabad.bits-pilani.ac.in"
+          className="text-blue-400"
+        >
+          ncwam@hyderabad.bits-pilani.ac.in
+        </a>) with an expression of interest, and
+         the lead faculty member will get back and discuss about your
         requirements.
       </div>
     </main>
