@@ -36,7 +36,7 @@ export default function ConferenceLanding() {
           February 27-28, 2025
         </p>
         <p className="text-lg font-bold md:text-2xl">
-          webp BITS Pilani, Hyderabad Campus
+          BITS Pilani, Hyderabad Campus
         </p>
         <div className="min-h-20">
           <Timer />
