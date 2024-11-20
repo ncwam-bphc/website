@@ -18,17 +18,27 @@ import galleryimages from "~/assets/gallery/images";
 const GalleryPage = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-
-  const autoplay = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false }),
+  const autoplayRef = React.useRef(
+    Autoplay({ 
+      delay: 2000, 
+      stopOnInteraction: true,
+      playOnInit: true 
+    })
   );
 
   useEffect(() => {
     if (!api) return;
 
+    const autoplay = autoplayRef.current;
+    api.plugins().autoplay = autoplay;
+
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });
+
+    return () => {
+      api.plugins().autoplay?.stop();
+    };
   }, [api]);
 
   const handlePrevious = () => {
@@ -38,6 +48,7 @@ const GalleryPage = () => {
       } else {
         api.scrollPrev();
       }
+      autoplayRef.current.reset();
     }
   };
 
@@ -48,9 +59,9 @@ const GalleryPage = () => {
       } else {
         api.scrollNext();
       }
+      autoplayRef.current.reset();
     }
   };
-
   return (
     <div>
       <br></br>
@@ -60,10 +71,10 @@ const GalleryPage = () => {
         <div className="relative mx-auto w-full max-w-7xl">
           <Carousel
             setApi={setApi}
-            plugins={[autoplay.current]}
+            plugins={[autoplayRef.current]}
             className="w-full"
-            onMouseEnter={autoplay.current.stop}
-            onMouseLeave={autoplay.current.reset}
+            onMouseEnter={autoplayRef.current.stop}
+            onMouseLeave={autoplayRef.current.reset}
           >
             <CarouselContent>
               {images.map((image, index) => (
@@ -112,11 +123,10 @@ const GalleryPage = () => {
                 <button
                   key={index}
                   onClick={() => api?.scrollTo(index)}
-                  className={`h-1.5 w-1.5 rounded-full transition-all duration-300 sm:h-2 sm:w-2 md:h-3 md:w-3 ${
-                    index === current
+                  className={`h-1.5 w-1.5 rounded-full transition-all duration-300 sm:h-2 sm:w-2 md:h-3 md:w-3 ${index === current
                       ? "scale-110 bg-white"
                       : "bg-white/50 hover:bg-white/70"
-                  }`}
+                    }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
