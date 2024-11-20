@@ -22,16 +22,16 @@ export default function AboutusPage() {
           </div>
         </div>
       </div>
-      <div className="mt-4 text-justify text-xl">
+      <div className="mt-4 text-center text-justify text-lg md:text-xl">
         We, the Organizers of{" "}
         <span className="text-accent">
           National Conference on Challenges in Welding and Additive
           Manufacturing (NCWAM-2025)
         </span>
         , take immense pleasure in inviting sponsors from equipment and software
-        suppliers, service providers and consultants to showcase one&apos;s products
-        and services to the delegates and participants from academia, R&Ds and
-        core industries. We earnestly request the sponsors to book the
+        suppliers, service providers and consultants to showcase one&apos;s
+        products and services to the delegates and participants from academia,
+        R&Ds and core industries. We earnestly request the sponsors to book the
         sponsorship category by online payment through the conference webpage.{" "}
         <span className="text-accent">
           The link will be active from 1st December 2024 onwards
@@ -43,7 +43,7 @@ export default function AboutusPage() {
           <thead>
             <tr>
               <th>
-                <h2 className="px-2 text-3xl font-medium text-accent">
+                <h2 className="px-2 text-lg font-medium text-accent md:text-3xl md:text-xl">
                   Sponsorship Category
                 </h2>
                 <p className="mb-3"></p>
@@ -72,7 +72,7 @@ export default function AboutusPage() {
           <tbody className="space-y-1 divide-y text-center dark:divide-gray-300">
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="py-1 text-xl">
+                <h3 className="py-1 text-lg md:text-xl">
                   Logo display on conference webpage
                 </h3>
               </th>
@@ -139,7 +139,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="customcol py-1 text-xl">
+                <h3 className="customcol py-1 text-lg md:text-xl">
                   Logo and description on the conference handouts
                 </h3>
               </th>
@@ -206,7 +206,9 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="py-1 text-xl">Banner display (lounges)</h3>
+                <h3 className="py-1 text-lg md:text-xl">
+                  Banner display (lounges)
+                </h3>
               </th>
               <td>
                 <svg
@@ -271,7 +273,9 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="customcol py-1 text-xl">Exhibition stall</h3>
+                <h3 className="customcol py-1 text-lg md:text-xl">
+                  Exhibition stall
+                </h3>
               </th>
               <td>
                 <svg
@@ -336,7 +340,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="py-1 text-xl">Industry talk</h3>
+                <h3 className="py-1 text-lg md:text-xl">Industry talk</h3>
               </th>
               <td>
                 <svg
@@ -401,26 +405,26 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="customcol py-1 text-xl">
+                <h3 className="customcol py-1 text-lg md:text-xl">
                   Delegate registration
                 </h3>
               </th>
               <td>
-                <span className="block text-xl">3</span>
+                <span className="block text-lg md:text-xl">3</span>
               </td>
               <td>
-                <span className="block text-xl">2</span>
+                <span className="block text-lg md:text-xl">2</span>
               </td>
               <td>
-                <span className="block text-xl">1</span>
+                <span className="block text-lg md:text-xl">1</span>
               </td>
               <td>
-                <span className="block text-xl">1</span>
+                <span className="block text-lg md:text-xl">1</span>
               </td>
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="py-1 text-xl">
+                <h3 className="py-1 text-lg md:text-lg md:text-xl">
                   Special mention during &quot;Vote of Thanks&quot;
                 </h3>
               </th>
@@ -487,7 +491,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-center">
-                <h3 className="py-1 text-3xl text-accent">
+                <h3 className="py-1 text-lg text-accent md:text-3xl md:text-xl">
                   Sponsorship amount (in lacs)
                 </h3>
               </th>
@@ -508,15 +512,15 @@ export default function AboutusPage() {
         </table>
       </div>
       <div className="max-w-[900px] self-center text-justify text-lg">
-        For any queries, please drop an email{" "}(
+        For any queries, please drop an email (
         <a
           href="mailto:ncwam@hyderabad.bits-pilani.ac.in"
           className="text-blue-400"
         >
           ncwam@hyderabad.bits-pilani.ac.in
-        </a>) with an expression of interest, and
-         the lead faculty member will get back and discuss about your
-        requirements.
+        </a>
+        ) with an expression of interest, and the lead faculty member will get
+        back and discuss about your requirements.
       </div>
     </main>
   );
