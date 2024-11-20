@@ -23,7 +23,7 @@ export default function ConferenceLanding() {
       />
       <div className="absolute inset-0 -z-10 bg-black bg-opacity-60"></div>
       <div className="relative mx-auto max-w-4xl px-4 text-center">
-        <h1 className="mb-6 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl">
+        <h1 className="mb-6 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl pt-5">
           NCWAM <span className="text-accent"> 2025</span>
         </h1>
         <p className="mb-2 text-2xl font-light md:text-2xl">
@@ -56,7 +56,7 @@ export default function ConferenceLanding() {
       <Image
         src={mottoImage}
         alt="bits"
-        className="absolute bottom-4 -z-10 w-36 object-contain opacity-80 max-sm:hidden md:h-auto   "
+        className="absolute top-20 nav:top-24 md:left-4 -z-10 w-24 object-contain opacity-80 md:h-auto   "
       />
       <Link
         href="/downloads"
