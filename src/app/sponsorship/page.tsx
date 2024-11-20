@@ -419,7 +419,7 @@ export default function AboutusPage() {
             <tr>
               <th scope="row" className="text-left">
                 <h3 className="py-1 text-xl">
-                  Special mention during "Vote of Thanks"
+                  Special mention during &quot;Vote of Thanks&quot;
                 </h3>
               </th>
               <td>
