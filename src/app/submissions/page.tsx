@@ -16,8 +16,8 @@ export default function AboutusPage() {
             </div>
           </div>
           <div className="text-center text-3xl">
-            Extended Abstract submission window will be open from 25th November
-            onwards.
+            Extended Abstract submission window will be open from{" "}
+            <span className="text-accent">25th November</span> onwards.
           </div>
         </Section>
       </main>
