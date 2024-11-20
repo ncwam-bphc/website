@@ -14,12 +14,12 @@ import KNVishwanath from "./Vishwanath KN.webp";
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
-    institution: "IGCAR, Kalpakkam",
+    institution: "IGCAR Kalpakkam",
     imageUrl: MVasudevan,
   },
   {
     name: "Prof. Satish Vasu Kailas",
-    institution: "IISc, Bangalore",
+    institution: "IISc Bangalore",
     imageUrl: SatishVasuKailas,
   },
   {
@@ -54,12 +54,12 @@ const speakers = [
   },
   {
     name: "Dr. John Rozario Jegaraj",
-    institution: "DRDL, Hyderabad",
+    institution: "DRDL Hyderabad",
     imageUrl: JohnRozarioJegaraj,
   },
   {
     name: "Dr. P. Mastanaiah",
-    institution: "DRDL, Hyderabad",
+    institution: "DRDL Hyderabad",
     imageUrl: null,
   },
   {
