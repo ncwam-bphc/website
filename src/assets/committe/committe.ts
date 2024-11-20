@@ -47,7 +47,7 @@ export const patrons = [
   },
   {
     name: "Dr. G. Satheesh Reddy",
-    institution: "Former Secretary DDR&D, Chairman DRDO",
+    institution: "Former Secretary, DDR&D Chairman DRDO",
     imageUrl: satishr,
   },
 ];
@@ -55,7 +55,7 @@ export const patrons = [
 export const chairmen = [
   {
     name: "Prof. P.B. Venkataraman",
-    institution: "Dean BITS Pilani WILP",
+    institution: "Dean, BITS Pilani WILP",
     imageUrl: PBvenkataramanPic,
   },
   {
