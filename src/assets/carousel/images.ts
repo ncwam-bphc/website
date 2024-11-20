@@ -13,8 +13,13 @@ import l from "./l.webp";
 import m from "./m.webp";
 import n from "./n.webp";
 import o from "./o.webp";
-
+import glimpses from "./glimpses.webp"
 const images = [
+  {
+    src: glimpses,
+    width: 5184,
+    height: 3456
+  },
   {
     src: a,
     width: 5184,

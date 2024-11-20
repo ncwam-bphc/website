@@ -33,7 +33,7 @@ export default function ConferenceLanding() {
         <p className="text-lg font-medium md:text-2xl">
           February 27-28, 2025
         </p>
-        <p className="text-lg font-bold md:text-2xl">
+        <p className="text-lg font-bold md:text-2xl">webp
           BITS Pilani, Hyderabad Campus
         </p>
         <div className="min-h-20">
@@ -60,7 +60,7 @@ export default function ConferenceLanding() {
       <Image
         src={sixtyyear}
         alt="bits"
-        className="absolute top-20 nav:top-24 md:left-4 -z-10 w-24 object-contain opacity-80 md:h-auto   "
+        className="absolute top-20 nav:top-24 md:right-4 -z-10 w-24 object-contain opacity-80 md:h-auto   "
       />
       <Link
         href="/downloads"
