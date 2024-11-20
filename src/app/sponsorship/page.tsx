@@ -32,8 +32,10 @@ export default function AboutusPage() {
         suppliers, service providers and consultants to showcase one’s products
         and services to the delegates and participants from academia, R&Ds and
         core industries. We earnestly request the sponsors to book the
-        sponsorship category by online payment through the conference webpage.
-        The link will be active from 1st December 2024 onwards
+        sponsorship category by online payment through the conference webpage.{" "}
+        <span className="text-accent">
+          The link will be active from 1st December 2024 onwards
+        </span>
       </div>
 
       <div className="container mx-auto overflow-x-auto p-4">
