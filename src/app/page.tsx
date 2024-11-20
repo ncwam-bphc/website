@@ -9,7 +9,7 @@ import { Button, buttonVariants } from "~/components/ui/button";
 import landingPageBg from "~/assets/landing.webp";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
-import mottoImage from "~/assets/homepage/motto.webp";
+import mottoImage from "~/assets/sixtyyearanniversary.webp";
 
 export default function ConferenceLanding() {
   return (
@@ -56,7 +56,7 @@ export default function ConferenceLanding() {
       <Image
         src={mottoImage}
         alt="bits"
-        className="absolute bottom-4 -z-10 w-40 object-contain opacity-80 max-sm:hidden md:h-12 md:w-60"
+        className="absolute bottom-4 -z-10 w-60 object-contain opacity-80 max-sm:hidden md:h-40 md:w-192"
       />
       <Link
         href="/downloads"
