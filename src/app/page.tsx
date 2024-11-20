@@ -9,8 +9,8 @@ import { Button, buttonVariants } from "~/components/ui/button";
 import landingPageBg from "~/assets/landing.webp";
 import Link from "next/link";
 import { cn } from "~/lib/utils";
-import mottoImage from "~/assets/sixtyyearanniversary.webp";
-
+import sixtyyear from "~/assets/homepage/sixtyyearanniversary.webp";
+import mottologo from "~/assets/homepage/motto.webp"
 export default function ConferenceLanding() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
@@ -22,27 +22,31 @@ export default function ConferenceLanding() {
         priority
       />
       <div className="absolute inset-0 -z-10 bg-black bg-opacity-60"></div>
-      <div className="relative mx-auto max-w-4xl px-4 text-center">
-        <h1 className="mb-6 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl pt-5">
+      <div className="relative mx-auto max-w-4xl px-4 flex flex-col items-center gap-4 text-center pt-12">
+        <h1 className="text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl pt-5">
           NCWAM <span className="text-accent"> 2025</span>
         </h1>
-        <p className="mb-2 text-2xl font-light md:text-2xl">
+        <p className="text-2xl font-light md:text-2xl">
           National Conference on Challenges in Welding and Additive
           Manufacturing
         </p>
-        <p className="mb-2 text-lg font-medium md:text-2xl">
+        <p className="text-lg font-medium md:text-2xl">
           February 27-28, 2025
         </p>
-        <p className="mb-8 text-lg font-bold md:text-2xl">
+        <p className="text-lg font-bold md:text-2xl">
           BITS Pilani, Hyderabad Campus
         </p>
-        <div className="min-h-24">
+        <div className="min-h-20">
           <Timer />
         </div>
-
         <Button className="mt-4 md:text-xl" size="lg" variant="poppy" asChild>
           <Link href="/registration">Register</Link>
         </Button>
+        <Image
+          src={mottologo}
+          alt="bits"
+          className="w-40 "
+        />
       </div>
       <Link
         href="/contactus"
@@ -54,7 +58,7 @@ export default function ConferenceLanding() {
         Contact us
       </Link>
       <Image
-        src={mottoImage}
+        src={sixtyyear}
         alt="bits"
         className="absolute top-20 nav:top-24 md:left-4 -z-10 w-24 object-contain opacity-80 md:h-auto   "
       />

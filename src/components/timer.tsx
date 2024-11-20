@@ -25,7 +25,7 @@ const Timer = () => {
     return () => clearInterval(timer);
   }, []);
   return (
-    <div className="mb-12 flex justify-center space-x-8">
+    <div className="flex justify-center space-x-8">
       {timeLeft &&
         Object.entries(timeLeft).map(([unit, value]) => (
           <div key={unit} className="flex flex-col items-center">
