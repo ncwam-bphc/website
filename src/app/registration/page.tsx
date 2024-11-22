@@ -57,7 +57,7 @@ export default function AboutusPage() {
               </li>
               <li>
                 <div className="flex justify-between">
-                  Non IIW India members
+                  Non-IIW India members
                   <span className="text-accent">₹5,000</span>
                 </div>
               </li>
