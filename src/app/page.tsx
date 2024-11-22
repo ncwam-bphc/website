@@ -14,6 +14,8 @@ import mottologo from "~/assets/homepage/motto.webp";
 export default function ConferenceLanding() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
+      <br />
+      <br />
       <Image
         src={landingPageBg}
         alt="Conference background"
@@ -23,8 +25,7 @@ export default function ConferenceLanding() {
       />
       <div className="absolute inset-0 -z-10 bg-black bg-opacity-60"></div>
       <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 pt-12 text-center">
-        <br />
-        <br />
+
         <h1 className="pt-5 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl">
           NCWAM <span className="text-accent"> 2025</span>
         </h1>
@@ -41,34 +42,43 @@ export default function ConferenceLanding() {
         <div className="min-h-20">
           <Timer />
         </div>
-        <Button className="mt-4 md:text-xl" size="lg" variant="poppy" asChild>
-          <Link href="/registration">Register</Link>
-        </Button>
-        <Image src={mottologo} alt="bits" className="w-40" />
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 w-full">
+          <Button 
+            className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
+            size="lg" 
+            variant="poppy" 
+            asChild
+          >
+            <Link href="/registration">Contact us</Link>
+          </Button>
+          <Button 
+            className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
+            size="lg" 
+            variant="poppy" 
+            asChild
+          >
+            <Link href="/registration">Register</Link>
+          </Button>
+          <Button 
+            className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
+            size="lg" 
+            variant="poppy" 
+            asChild
+          >
+            <Link href="/registration">Contact us</Link>
+          </Button>
+        </div>
       </div>
-      <Link
-        href="/contactus"
-        className={cn(
-          "absolute bottom-4 right-4 mt-4 md:text-xl",
-          buttonVariants({ variant: "poppy", size: "lg" }),
-        )}
-      >
-        Contact us
-      </Link>
       <Image
         src={sixtyyear}
         alt="bits"
         className="absolute top-20 -z-10 w-24 object-contain opacity-80 md:right-4 md:h-auto nav:top-24 pt-4"
       />
-      <Link
-        href="/downloads"
-        className={cn(
-          "absolute bottom-4 left-4 mt-4 md:text-xl",
-          buttonVariants({ variant: "poppy", size: "lg" }),
-        )}
-      >
-        Downloads
-      </Link>
+      <Image 
+        src={mottologo} 
+        alt="bits" 
+        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-40"
+      />
     </main>
   );
 }
