@@ -49,7 +49,7 @@ export default function ConferenceLanding() {
             variant="poppy" 
             asChild
           >
-            <Link href="/registration">Contact us</Link>
+            <Link href="/contactus">Contact us</Link>
           </Button>
           <Button 
             className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
@@ -65,7 +65,7 @@ export default function ConferenceLanding() {
             variant="poppy" 
             asChild
           >
-            <Link href="/registration">Contact us</Link>
+            <Link href="/downloads">Downloads</Link>
           </Button>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function ConferenceLanding() {
       <Image 
         src={mottologo} 
         alt="bits" 
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-40"
+        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-40 z-50 max-w-[80%]"
       />
     </main>
   );
