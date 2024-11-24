@@ -49,7 +49,7 @@ export default function ConferenceLanding() {
             variant="poppy" 
             asChild
           >
-            <Link href="/contactus">Contact us</Link>
+            <Link href="/downloads">Downloads</Link>
           </Button>
           <Button 
             className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
@@ -65,7 +65,7 @@ export default function ConferenceLanding() {
             variant="poppy" 
             asChild
           >
-            <Link href="/downloads">Downloads</Link>
+            <Link href="/contactus">Contact us</Link>
           </Button>
         </div>
       </div>
