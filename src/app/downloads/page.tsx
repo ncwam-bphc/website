@@ -19,7 +19,8 @@ export default function AboutusPage() {
           <div className="customcol text-nowrap text-center text-xl uppercase text-accent md:text-2xl lg:text-3xl">
             Manuscripts
           </div>
-          <a
+          To be updated soon.
+          {/* <a
             href="/manuscript.pdf"
             target="_blank"
             className={cn(
@@ -38,7 +39,7 @@ export default function AboutusPage() {
             )}
           >
             Manuscript-template (DOCX)
-          </a>
+          </a> */}
         </div>
         <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
           <div className="customcol text-nowrap text-center text-xl uppercase text-accent md:text-2xl lg:text-3xl">
