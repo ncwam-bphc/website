@@ -1,5 +1,5 @@
 "use client";
-import { buttonVariants } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import frontpage from "~/assets/downloads/frontpage.png";
 import backpage from "~/assets/downloads/backpage.png";
@@ -17,29 +17,21 @@ export default function AboutusPage() {
       <div className="flex gap-8 max-lg:flex-col">
         <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
           <div className="customcol text-nowrap text-center text-xl uppercase text-accent md:text-2xl lg:text-3xl">
-            Manuscripts
+            Manuscript
           </div>
-          To be updated soon.
-          {/* <a
-            href="/manuscript.pdf"
-            target="_blank"
-            className={cn(
-              buttonVariants(),
-              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
-            )}
+          <Button
+            disabled
+            className="mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl"
           >
             Manuscript-template (PDF)
-          </a>
-          <a
-            href="/manuscript.docx"
-            target="_blank"
-            className={cn(
-              buttonVariants(),
-              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
-            )}
+          </Button>
+          <Button
+            disabled
+            className="mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl"
           >
             Manuscript-template (DOCX)
-          </a> */}
+          </Button>
+          <span className="text-base">(To be updated soon)</span>
         </div>
         <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
           <div className="customcol text-nowrap text-center text-xl uppercase text-accent md:text-2xl lg:text-3xl">
