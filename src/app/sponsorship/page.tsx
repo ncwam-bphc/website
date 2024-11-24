@@ -43,7 +43,7 @@ export default function AboutusPage() {
           <thead>
             <tr>
               <th>
-                <h2 className="px-2 text-lg font-medium text-accent md:text-xl">
+                <h2 className="px-2 text-lg font-medium customcol md:text-3xl">
                   Sponsorship Category
                 </h2>
                 <p className="mb-3"></p>
@@ -491,7 +491,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-center">
-                <h3 className="py-1 text-lg text-accent md:text-xl">
+                <h3 className="py-1 text-lg text-accent md:text-xl customcol">
                   Sponsorship amount (in lacs)
                 </h3>
               </th>
