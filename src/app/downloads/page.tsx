@@ -1,6 +1,8 @@
 "use client";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
+import frontpage from "~/assets/downloads/frontpage.png";
+import backpage from "~/assets/downloads/backpage.png";
 
 export default function AboutusPage() {
   return (
@@ -25,7 +27,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Template pdf
+            Manuscript-template (PDF)
           </a>
           <a
             href="/manuscript.docx"
@@ -35,7 +37,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Template docx
+            Manuscript-template (DOCX)
           </a>
         </div>
         <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
@@ -50,7 +52,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Template pdf
+            Abstract-template (PDF)
           </a>
           <a
             href="/extended_abstract.docx"
@@ -60,7 +62,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Template docx
+            Abstract-template (DOCX)
           </a>
         </div>
         <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
@@ -75,9 +77,9 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Brochure PDF
+            Brochure (PDF)
           </a>
-          {/* <a
+          <a
             href={frontpage.src}
             target="_blank"
             className={cn(
@@ -85,7 +87,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Brochure front page
+            Brochure front page (PNG)
           </a>
           <a
             href={backpage.src}
@@ -95,8 +97,8 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Brochure back page
-          </a> */}
+            Brochure back page (PNG)
+          </a>
         </div>
       </div>
     </main>
