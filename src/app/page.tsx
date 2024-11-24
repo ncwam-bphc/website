@@ -5,10 +5,9 @@ import Image from "next/image";
 const Timer = dynamic(() => import("~/components/timer"), {
   ssr: false,
 });
-import { Button, buttonVariants } from "~/components/ui/button";
+import { Button } from "~/components/ui/button";
 import landingPageBg from "~/assets/landing.webp";
 import Link from "next/link";
-import { cn } from "~/lib/utils";
 import sixtyyear from "~/assets/homepage/sixtyyearanniversary.webp";
 import mottologo from "~/assets/homepage/motto.webp";
 export default function ConferenceLanding() {
@@ -25,7 +24,6 @@ export default function ConferenceLanding() {
       />
       <div className="absolute inset-0 -z-10 bg-black bg-opacity-60"></div>
       <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 pt-12 text-center">
-
         <h1 className="pt-5 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl">
           NCWAM <span className="text-accent"> 2025</span>
         </h1>
@@ -42,27 +40,27 @@ export default function ConferenceLanding() {
         <div className="min-h-20">
           <Timer />
         </div>
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 w-full">
-          <Button 
-            className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
-            size="lg" 
-            variant="poppy" 
+        <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
+          <Button
+            className="text-xs sm:text-base md:text-xl"
+            size="lg"
+            variant="poppy"
             asChild
           >
             <Link href="/downloads">Downloads</Link>
           </Button>
-          <Button 
-            className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
-            size="lg" 
-            variant="poppy" 
+          <Button
+            className="text-xs sm:text-base md:text-xl"
+            size="lg"
+            variant="poppy"
             asChild
           >
             <Link href="/registration">Register</Link>
           </Button>
-          <Button 
-            className="flex-grow basis-0 max-w-xs text-xs sm:text-base md:text-xl" 
-            size="lg" 
-            variant="poppy" 
+          <Button
+            className="text-xs sm:text-base md:text-xl"
+            size="lg"
+            variant="poppy"
             asChild
           >
             <Link href="/contactus">Contact us</Link>
@@ -72,12 +70,12 @@ export default function ConferenceLanding() {
       <Image
         src={sixtyyear}
         alt="bits"
-        className="absolute top-20 -z-10 w-24 object-contain opacity-80 md:right-4 md:h-auto nav:top-24 pt-4"
+        className="absolute top-20 -z-10 w-24 object-contain pt-4 opacity-80 md:right-4 md:h-auto nav:top-24"
       />
-      <Image 
-        src={mottologo} 
-        alt="bits" 
-        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-40 z-50 max-w-[80%]"
+      <Image
+        src={mottologo}
+        alt="bits"
+        className="fixed bottom-4 left-1/2 z-50 w-40 max-w-[80%] -translate-x-1/2 transform"
       />
     </main>
   );
