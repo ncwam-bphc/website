@@ -10,7 +10,7 @@ import JohnRozarioJegaraj from "./John Rozario Jegaraj.webp";
 import SubrataKarmakar from "./Subrata karmakar.webp";
 import NijagunayyaSoppayya from "./Nijagunayya.webp";
 import KNVishwanath from "./Vishwanath KN.webp";
-
+import KaushalKishore from "./kaushalkishore.webp"
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -58,9 +58,9 @@ const speakers = [
     imageUrl: JohnRozarioJegaraj,
   },
   {
-    name: "Dr. P. Mastanaiah",
-    institution: "DRDL Hyderabad",
-    imageUrl: null,
+    name: "Shri. Kaushal Kishore",
+    institution: "R&D, Tata Steel Ltd., Jamshedpur",
+    imageUrl: KaushalKishore,
   },
   {
     name: "Shri. Subrata Karmakar",

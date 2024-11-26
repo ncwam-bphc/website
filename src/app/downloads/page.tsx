@@ -4,8 +4,8 @@ import Section from "~/components/FullpageSection";
 import bg from "~/assets/downloads/bg.webp";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
-import frontpage from "~/assets/downloads/frontpage.png";
-import backpage from "~/assets/downloads/backpage.png";
+import frontpage from "~/assets/downloads/frontpage.jpg";
+import backpage from "~/assets/downloads/backpage.jpg";
 
 export default function AboutusPage() {
   return (
