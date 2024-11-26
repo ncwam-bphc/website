@@ -74,7 +74,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Brochure front page (PNG)
+            Brochure front page (JPG)
           </a>
           <a
             href={backpage.src}
@@ -84,7 +84,7 @@ export default function AboutusPage() {
               "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
             )}
           >
-            Brochure back page (PNG)
+            Brochure back page (JPG)
           </a>
         </div>
       </div>
