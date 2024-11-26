@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 import Navbar from "~/components/navbar";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import Providers from "~/components/providers";
 // import Footer from "~/components/Footer";
 
 export const metadata: Metadata = {
@@ -16,11 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.variable}>
       <body className="dark relative min-h-screen">
-        <header className="navbar absolute left-0 right-0 top-0 z-50">
-          <Navbar />
-        </header>
-        {children}
-        {/* <Footer /> */}
+        <Providers>
+          <header className="navbar absolute left-0 right-0 top-0 z-50">
+            <Navbar />
+          </header>
+          {children}
+        </Providers>
       </body>
     </html>
   );
