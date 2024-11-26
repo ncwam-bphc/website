@@ -1,23 +1,24 @@
 "use client";
-import "~/styles/fullpagescroll.css";
-import Section from "~/components/FullpageSection";
 import bg from "~/assets/downloads/bg.webp";
 import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
+import Image from "next/image";
 
 export default function AboutusPage() {
   return (
-    <div className="container min-w-[320px]">
-      <main className="main">
-        <Section bgImage={bg} className="flex-col gap-1 max-md:gap-1 md:gap-1">
-          <div className="flex items-center gap-1 md:flex-col">
-            <div className="flex flex-col items-center gap-1 font-bold">
-              <div className="text-nowrap text-center text-3xl text-accent md:text-3xl lg:text-5xl">
+        <main className="flex flex-col gap-1 max-md:gap-1 md:gap-1 pt-28 text-center">
+          <Image
+        src={bg}
+        alt="Conference background"
+        fill={true}
+        objectFit="cover"
+        className="-z-20 opacity-10"
+        priority
+      />
+          <div className="text-center text-3xl text-accent md:text-3xl lg:text-5xl font-bold pb-8">
                 REGISTRATION
               </div>
-            </div>
-          </div>
-          <div className="min-w-[300px] text-center text-xl md:text-3xl">
+          <div className="min-w-[300px] flex flex-col gap-4 items-center text-center text-xl md:text-3xl">
             {/* <a
               href="#"
               className={cn(
@@ -27,13 +28,8 @@ export default function AboutusPage() {
             >
               Register now
             </a> */}
-            <br />
-            Registration window will be open from 25th November onwards.
-            <br />
-            <br />
-            Registration Fees:
-            <br />
-            <br />
+            <span>Registration window is active now, <span className="text-accent">please proceed to complete the registration.</span></span>
+            <span>Registration Fees:</span>
             <ul className="mx-auto w-[300px] list-disc px-4 text-left text-base md:w-[500px] md:px-0 md:text-3xl">
               <li>
                 <div className="flex justify-between">
@@ -42,7 +38,7 @@ export default function AboutusPage() {
               </li>
               <li>
                 <div className="flex justify-between">
-                  PhD Scholar<span className="text-accent">₹3,500</span>
+                  PhD Scholars<span className="text-accent">₹3,500</span>
                 </div>
               </li>
               <li>
@@ -62,23 +58,30 @@ export default function AboutusPage() {
                 </div>
               </li>
             </ul>
-            <br />
             <span className="text-base md:text-3xl">
               Click below to make payment
             </span>
-            <br />
             <a
               href="https://pmny.in/PAYUMN/8JLAlBISFilr"
               className={cn(
                 buttonVariants(),
-                "mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+                "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
               )}
             >
               Make Payment
             </a>
+            <span className="text-base md:text-3xl px-4 max-w-[1100px] text-justify pt-4">Once payment is done successfully, you will receive an email with the transaction details. <span className="text-accent">Please “click” Print button and select “Save as PDF” and download the transaction details.</span> Subsequently, upload the PDF file using the following Google Form link: </span>
+            <a
+              href="https://forms.gle/CdDGPnSufTLow2S86"
+              className={cn(
+                buttonVariants(),
+                "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+              )}
+            >
+              Upload payment details
+            </a>
           </div>
-        </Section>
+
       </main>
-    </div>
   );
 }
