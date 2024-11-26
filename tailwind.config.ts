@@ -61,6 +61,15 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
       },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 15s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(250px)' },
+          to: { transform: 'translateX(-100%)' },
+        }
+      }    
     },
   },
   plugins: [tailwindCssAnimate],
