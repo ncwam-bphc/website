@@ -1,3 +1,11 @@
+CREATE TABLE IF NOT EXISTS "ncwam_abstractReviewer" (
+	"for" integer NOT NULL,
+	"reviewer" text NOT NULL,
+	"rating" integer,
+	"comments" text,
+	CONSTRAINT "ncwam_abstractReviewer_for_reviewer_pk" PRIMARY KEY("for","reviewer")
+);
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "ncwam_abstract" (
 	"papernumber" serial PRIMARY KEY NOT NULL,
 	"timestamp" timestamp with time zone NOT NULL,
@@ -6,7 +14,8 @@ CREATE TABLE IF NOT EXISTS "ncwam_abstract" (
 	"department" text NOT NULL,
 	"title" text NOT NULL,
 	"authors" text NOT NULL,
-	"upload" text
+	"upload" text,
+	"approved" boolean DEFAULT false NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "ncwam_account" (
@@ -46,6 +55,18 @@ CREATE TABLE IF NOT EXISTS "ncwam_verificationToken" (
 	"expires" timestamp NOT NULL,
 	CONSTRAINT "ncwam_verificationToken_identifier_token_pk" PRIMARY KEY("identifier","token")
 );
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "ncwam_abstractReviewer" ADD CONSTRAINT "ncwam_abstractReviewer_for_ncwam_abstract_papernumber_fk" FOREIGN KEY ("for") REFERENCES "public"."ncwam_abstract"("papernumber") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "ncwam_abstractReviewer" ADD CONSTRAINT "ncwam_abstractReviewer_reviewer_ncwam_user_user_id_fk" FOREIGN KEY ("reviewer") REFERENCES "public"."ncwam_user"("user_id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "ncwam_abstract" ADD CONSTRAINT "ncwam_abstract_userId_ncwam_user_user_id_fk" FOREIGN KEY ("userId") REFERENCES "public"."ncwam_user"("user_id") ON DELETE no action ON UPDATE no action;

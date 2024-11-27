@@ -1,9 +1,78 @@
 {
-  "id": "3ace070f-acc1-4e00-81c7-8992ccfd780b",
+  "id": "ecde8fd6-a848-4213-be18-99a3fbfd94e9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
+    "public.ncwam_abstractReviewer": {
+      "name": "ncwam_abstractReviewer",
+      "schema": "",
+      "columns": {
+        "for": {
+          "name": "for",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reviewer": {
+          "name": "reviewer",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rating": {
+          "name": "rating",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comments": {
+          "name": "comments",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "ncwam_abstractReviewer_for_ncwam_abstract_papernumber_fk": {
+          "name": "ncwam_abstractReviewer_for_ncwam_abstract_papernumber_fk",
+          "tableFrom": "ncwam_abstractReviewer",
+          "tableTo": "ncwam_abstract",
+          "columnsFrom": [
+            "for"
+          ],
+          "columnsTo": [
+            "papernumber"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "ncwam_abstractReviewer_reviewer_ncwam_user_user_id_fk": {
+          "name": "ncwam_abstractReviewer_reviewer_ncwam_user_user_id_fk",
+          "tableFrom": "ncwam_abstractReviewer",
+          "tableTo": "ncwam_user",
+          "columnsFrom": [
+            "reviewer"
+          ],
+          "columnsTo": [
+            "user_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "ncwam_abstractReviewer_for_reviewer_pk": {
+          "name": "ncwam_abstractReviewer_for_reviewer_pk",
+          "columns": [
+            "for",
+            "reviewer"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    },
     "public.ncwam_abstract": {
       "name": "ncwam_abstract",
       "schema": "",
@@ -55,6 +124,13 @@
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "approved": {
+          "name": "approved",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         }
       },
       "indexes": {},
