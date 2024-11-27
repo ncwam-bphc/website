@@ -14,12 +14,13 @@ export default function SubmissionsPage() {
       return email ? getStatus(email) : null;
     },
     enabled: session.status === "authenticated",
-    refetchInterval: Infinity,
     placeholderData: {
       email: "Loading...",
       paperNumber: "Loading...",
       status: "Loading...",
     },
+    refetchOnWindowFocus: false,
+    staleTime: Infinity,
   });
   return (
     <main className="flex h-screen flex-col items-center justify-center gap-4 text-center max-md:gap-1 md:gap-4">
