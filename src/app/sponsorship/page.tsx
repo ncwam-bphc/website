@@ -1,6 +1,5 @@
 "use client";
 import "~/styles/fullpagescroll.css";
-import Section from "~/components/FullpageSection";
 import bg from "~/assets/aboutconference/bg.webp";
 import Image from "next/image";
 
@@ -43,7 +42,7 @@ export default function AboutusPage() {
           <thead>
             <tr>
               <th>
-                <h2 className="px-2 text-lg font-medium customcol md:text-3xl">
+                <h2 className="customcol px-2 text-lg font-medium md:text-3xl">
                   Sponsorship Category
                 </h2>
                 <p className="mb-3"></p>
@@ -491,7 +490,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-center">
-                <h3 className="py-1 text-lg text-accent md:text-2xl customcol">
+                <h3 className="customcol py-1 text-lg text-accent md:text-2xl">
                   Sponsorship amount (in lacs)
                 </h3>
               </th>

@@ -9,12 +9,25 @@ import EmailProvider from "next-auth/providers/email";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { env } from "~/env";
 import { db } from "./db";
-import { accounts, sessions, users } from "./db/schema";
+import { accounts, sessions, users, verificationTokens } from "./db/schema";
 
 // You'll need to import and pass this
 // to `NextAuth` in `app/api/auth/[...nextauth]/route.ts`
 export const config = {
   callbacks: {
+    async signIn({ user }) {
+      if (!user.email) return false;
+      const userExists = await db.query.users.findFirst({
+        where(fields, { eq }) {
+          return eq(fields.email, user.email!);
+        },
+      });
+      if (userExists) {
+        return true; //if the email exists in the User collection, email them a magic login link
+      } else {
+        return false;
+      }
+    },
     session: ({ session, user }) => ({
       ...session,
       user: {
@@ -27,6 +40,7 @@ export const config = {
     usersTable: users,
     accountsTable: accounts,
     sessionsTable: sessions,
+    verificationTokensTable: verificationTokens,
   }),
   providers: [
     EmailProvider({

@@ -6,19 +6,78 @@ import {
   timestamp,
   pgTableCreator,
   primaryKey,
+  serial,
+  boolean,
 } from "drizzle-orm/pg-core";
 
 export const createTable = pgTableCreator((name) => `ncwam_${name}`);
+
+export const abstractReviewers = createTable(
+  "abstractReviewer",
+  {
+    for: integer("for")
+      .notNull()
+      .references(() => abstracts.papernumber),
+    reviewer: text("reviewer")
+      .notNull()
+      .references(() => users.id),
+    rating: integer("rating"),
+    comments: text("comments"),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.for, table.reviewer] }),
+    };
+  },
+);
+
+export const reviewersRelation = relations(abstractReviewers, ({ one }) => ({
+  abstract: one(abstracts, {
+    fields: [abstractReviewers.for],
+    references: [abstracts.papernumber],
+    relationName: "abstract",
+  }),
+  reviewer: one(users, {
+    fields: [abstractReviewers.reviewer],
+    references: [users.id],
+    relationName: "reviewer",
+  }),
+}));
+
+export const abstracts = createTable("abstract", {
+  papernumber: serial("papernumber").primaryKey(),
+  timestamp: timestamp("timestamp", { withTimezone: true }).notNull(),
+  userId: text("userId")
+    .notNull()
+    .references(() => users.id),
+  affiliation: text("affiliation").notNull(),
+  department: text("department").notNull(),
+  title: text("title").notNull(),
+  authors: text("authors").notNull(),
+  upload: text("upload"),
+  approved: boolean("approved").notNull().default(false),
+});
+
+export const abstractsRelations = relations(abstracts, ({ one, many }) => ({
+  user: one(users, {
+    fields: [abstracts.userId],
+    references: [users.id],
+    relationName: "user",
+  }),
+  reviewers: many(abstractReviewers, {
+    relationName: "abstract",
+  }),
+}));
 
 export const users = createTable("user", {
   id: text("user_id")
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
   email: text("email").unique().notNull(),
-  name: text("name").notNull(),
+  name: text("name"),
   emailVerified: timestamp("email_verified", { mode: "date" }),
   image: text("image"),
-  phone: varchar("phone", { length: 32 }),
+  phone: varchar("phone", { length: 32 }).notNull(),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({
@@ -27,6 +86,12 @@ export const usersRelations = relations(users, ({ many }) => ({
   }),
   sessions: many(sessions, {
     relationName: "user",
+  }),
+  abstracts: many(abstracts, {
+    relationName: "user",
+  }),
+  reviews: many(abstractReviewers, {
+    relationName: "reviewer",
   }),
 }));
 
@@ -77,3 +142,15 @@ export const sessionsRelations = relations(sessions, ({ one }) => ({
     relationName: "user",
   }),
 }));
+
+export const verificationTokens = createTable(
+  "verificationToken",
+  {
+    identifier: text("identifier").notNull(),
+    token: text("token").notNull(),
+    expires: timestamp("expires", { mode: "date" }).notNull(),
+  },
+  (vt) => ({
+    compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
+  }),
+);
