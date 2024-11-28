@@ -17,7 +17,7 @@ const getStatus = async (email: string) => {
     email: user.email,
     paperNumber: formatAbstractPaperNumber(user.abstracts[0].papernumber),
     paperTitle: user.abstracts[0].title,
-    status: user.abstracts[0].approved ? "approved" : "In review",
+    status: user.abstracts[0].approved ? "approved" : "under review",
   };
 };
 

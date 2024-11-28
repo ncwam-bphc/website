@@ -1,11 +1,11 @@
 "use client";
 import bg from "~/assets/aboutconference/bg.webp";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import getStatus from "~/server/actions/getStatus";
 import { cn } from "~/lib/utils";
-import { buttonVariants } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 
 export default function SubmissionsPage() {
   const session = useSession();
@@ -61,6 +61,16 @@ export default function SubmissionsPage() {
               <span className="text-white">{session.data.user?.email}</span>
             </span>
           </div>
+          <Button
+            variant="poppy"
+            className="rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl"
+            onClick={async () => {
+              await signOut();
+              window.location.href = "/";
+            }}
+          >
+            Signout
+          </Button>
         </>
       ) : (
         <>
