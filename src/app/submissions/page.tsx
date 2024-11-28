@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import getStatus from "~/server/actions/getStatus";
+import { cn } from "~/lib/utils";
+import { buttonVariants } from "~/components/ui/button";
 
 export default function SubmissionsPage() {
   const session = useSession();
@@ -70,8 +72,16 @@ export default function SubmissionsPage() {
 
           <div className="text-center text-3xl">
             Extended Abstract submission window is active now
-          
           </div>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSevsWynYOjs41eeBLqEpVKLvq2ENu9foYCdcIcOj-KEHLOc7Q/viewform?usp=sf_link"
+            className={cn(
+              buttonVariants(),
+              "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+            )}
+          >
+            Submit abstract
+          </a>
         </>
       )}
     </main>

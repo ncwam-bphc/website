@@ -21,7 +21,8 @@ async function sendMail(
 
 <p><strong>Important notes:</strong><br>
 Your paper number is unique and should be quoted in all future correspondences.<br>
-Please check the “IMPORTANT DATES” and “NEWS UPDATE” for further follow-ups.</p>
+Check your paper status on the website by logging in using this link: <a href="https://www.ncwambitshyderabad.com/api/auth/signin">https://www.ncwambitshyderabad.com/</a><br>
+Please check the “IMPORTANT DATES” and “NEWS UPDATE” on the website for further follow-ups.</p>
 
 <p>With best regards,<br>
 Dr. Jeevan Jaidi & Dr. P. Jayaprakash Sharma<br>
