@@ -63,7 +63,7 @@ export default function AboutusPage() {
             </div>
           </li>
         </ul>
-        <span className="text-base md:text-3xl">
+        <span className="customcol text-base md:text-3xl">
           Click below to make payment
         </span>
         <a
