@@ -38,7 +38,7 @@ export default function AboutusPage() {
         <ul className="mx-auto w-[300px] list-disc px-4 text-left text-base md:w-[500px] md:px-0 md:text-3xl">
           <li>
             <div className="flex justify-between">
-              Student (UG/PG)<span className="text-accent">₹2,500</span>
+              Students (UG/PG)<span className="text-accent">₹2,500</span>
             </div>
           </li>
           <li>
