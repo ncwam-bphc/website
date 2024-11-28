@@ -82,7 +82,7 @@ export default function SubmissionsPage() {
             Extended Abstract submission window is active now
           </div>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSevsWynYOjs41eeBLqEpVKLvq2ENu9foYCdcIcOj-KEHLOc7Q/viewform?usp=sf_link"
+            href="https://forms.gle/x1mrgruoTKrv7PDU9"
             className={cn(
               buttonVariants(),
               "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
