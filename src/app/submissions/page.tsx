@@ -16,6 +16,7 @@ export default function SubmissionsPage() {
     enabled: session.status === "authenticated",
     placeholderData: {
       email: "Loading...",
+      paperTitle: "Loading...",
       paperNumber: "Loading...",
       status: "Loading...",
     },
@@ -38,8 +39,10 @@ export default function SubmissionsPage() {
           </div>
           <div className="flex flex-col gap-2 text-center text-3xl">
             <span>
-              Email:{" "}
-              <span className="text-accent">{session.data.user?.email}</span>
+              Paper title:{" "}
+              <span className="text-accent">
+                {submissionStatus?.paperTitle}
+              </span>
             </span>
             <span>
               Paper number:{" "}
@@ -52,6 +55,10 @@ export default function SubmissionsPage() {
               <span className="uppercase text-accent">
                 {submissionStatus?.status}
               </span>
+            </span>
+            <span>
+              Email:{" "}
+              <span className="text-accent">{session.data.user?.email}</span>
             </span>
           </div>
         </>
