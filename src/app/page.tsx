@@ -15,8 +15,10 @@ export default function ConferenceLanding() {
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden font-sans">
       <br />
       <br />
-      <div className="absolute left-0 right-0 top-[4.5rem] nav:top-20 w-full backdrop-blur-2xl">
-        <div className="w-full flex justify-end md:text-2xl text-accent animate-infinite-scroll">Registration portal is active.</div>
+      <div className="absolute left-0 right-0 top-[4.5rem] w-full backdrop-blur-2xl nav:top-20">
+        <div className="flex w-full animate-infinite-scroll justify-end text-accent md:text-2xl">
+          Registration and abstract submission portals are active.
+        </div>
       </div>
       <Image
         src={landingPageBg}
