@@ -16,7 +16,7 @@ export default function ConferenceLanding() {
       <br />
       <br />
       <div className="absolute left-0 right-0 top-[4.5rem] w-full backdrop-blur-2xl nav:top-20">
-        <div className="flex w-full animate-infinite-scroll justify-end text-accent md:text-2xl">
+        <div className="customcol flex w-full animate-infinite-scroll justify-end md:text-2xl">
           Registration and abstract submission portals are active.
         </div>
       </div>

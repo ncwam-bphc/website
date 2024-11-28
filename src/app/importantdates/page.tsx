@@ -78,11 +78,13 @@ export default function AboutusPage() {
                 </div>
               </li>
             </ul>
-            <span className="flex w-full max-w-3xl text-justify text-base md:text-xl lg:text-2xl">
+            <span className="w-full max-w-3xl text-justify text-base md:text-xl lg:text-2xl">
               *Paper presentations (oral/poster) will be decided by the
-              technical committee based on the quality of the manuscript. The
-              selected papers will be published in an indexed journal. Further
-              details will be updated very soon.
+              technical committee based on the quality of the manuscript.{" "}
+              <span className="text-accent">
+                The selected papers will be published in an indexed journal.
+              </span>{" "}
+              Further details will be updated very soon.
             </span>
           </div>
         </Section>

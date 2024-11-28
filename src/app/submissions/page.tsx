@@ -26,7 +26,7 @@ export default function SubmissionsPage() {
     staleTime: Infinity,
   });
   return (
-    <main className="flex h-screen flex-col items-center justify-center gap-4 text-center max-md:gap-1 md:gap-4">
+    <main className="flex h-screen flex-col items-center justify-center gap-4 px-4 text-center max-md:gap-1 md:gap-4 md:px-8">
       <Image
         src={bg}
         alt="Conference background"

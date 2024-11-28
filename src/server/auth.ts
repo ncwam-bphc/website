@@ -35,6 +35,9 @@ export const config = {
         id: user.id,
       },
     }),
+    async redirect() {
+      return "/submissions";
+    },
   },
   adapter: DrizzleAdapter(db, {
     usersTable: users,

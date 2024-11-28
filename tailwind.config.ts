@@ -62,14 +62,14 @@ export default {
         },
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 7s linear infinite',
+        "infinite-scroll": "infinite-scroll 7s linear infinite",
       },
       keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(300px)' },
-          to: { transform: 'translateX(-100%)' },
-        }
-      }    
+        "infinite-scroll": {
+          from: { transform: "translateX(700px)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
     },
   },
   plugins: [tailwindCssAnimate],
