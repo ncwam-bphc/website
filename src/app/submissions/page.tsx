@@ -37,30 +37,28 @@ export default function SubmissionsPage() {
       {session.status === "authenticated" ? (
         <>
           <div className="text-nowrap text-center text-3xl font-bold uppercase text-accent md:text-5xl">
-            Your submission
+            abstract submission(s)
           </div>
-          <div className="flex flex-col gap-2 text-center text-3xl">
+          <div className="customcol flex flex-col gap-2 text-center text-3xl">
             <span>
               Paper title:{" "}
-              <span className="text-accent">
-                {submissionStatus?.paperTitle}
-              </span>
+              <span className="text-white">{submissionStatus?.paperTitle}</span>
             </span>
             <span>
               Paper number:{" "}
-              <span className="text-accent">
+              <span className="text-white">
                 {submissionStatus?.paperNumber}
               </span>
             </span>
             <span>
               Status:{" "}
-              <span className="uppercase text-accent">
+              <span className="uppercase text-white">
                 {submissionStatus?.status}
               </span>
             </span>
             <span>
               Email:{" "}
-              <span className="text-accent">{session.data.user?.email}</span>
+              <span className="text-white">{session.data.user?.email}</span>
             </span>
           </div>
         </>
