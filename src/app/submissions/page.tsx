@@ -62,8 +62,8 @@ export default function SubmissionsPage() {
           </div>
 
           <div className="text-center text-3xl">
-            Extended Abstract submission window will be open from{" "}
-            <span className="text-accent">25th November</span> onwards.
+            Extended Abstract submission window is active now
+          
           </div>
         </>
       )}
