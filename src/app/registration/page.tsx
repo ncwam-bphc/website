@@ -34,7 +34,7 @@ export default function AboutusPage() {
             please proceed to complete the registration.
           </span>
         </span>
-        <span>Registration Fees:</span>
+        <span>Registration Fee:</span>
         <ul className="mx-auto w-[300px] list-disc px-4 text-left text-base md:w-[500px] md:px-0 md:text-3xl">
           <li>
             <div className="flex justify-between">
