@@ -8,5 +8,5 @@ export default {
   dbCredentials: {
     url: env.DATABASE_URL,
   },
-  tablesFilter: ["ncwam-website_*"],
+  tablesFilter: ["ncwam_*"],
 } satisfies Config;

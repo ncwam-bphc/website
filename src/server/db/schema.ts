@@ -1,36 +1,156 @@
-// Example model schema from the Drizzle docs
-// https://orm.drizzle.team/docs/sql-schema-declaration
-
-import { sql } from "drizzle-orm";
+import { relations } from "drizzle-orm";
 import {
-  index,
-  integer,
-  pgTableCreator,
-  timestamp,
+  text,
   varchar,
+  integer,
+  timestamp,
+  pgTableCreator,
+  primaryKey,
+  serial,
+  boolean,
 } from "drizzle-orm/pg-core";
 
-/**
- * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
- * database instance for multiple projects.
- *
- * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
- */
-export const createTable = pgTableCreator((name) => `ncwam-website_${name}`);
+export const createTable = pgTableCreator((name) => `ncwam_${name}`);
 
-export const posts = createTable(
-  "post",
+export const abstractReviewers = createTable(
+  "abstractReviewer",
   {
-    id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
-    name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
-    ),
+    for: integer("for")
+      .notNull()
+      .references(() => abstracts.papernumber),
+    reviewer: text("reviewer")
+      .notNull()
+      .references(() => users.id),
+    rating: integer("rating"),
+    comments: text("comments"),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.for, table.reviewer] }),
+    };
+  },
+);
+
+export const reviewersRelation = relations(abstractReviewers, ({ one }) => ({
+  abstract: one(abstracts, {
+    fields: [abstractReviewers.for],
+    references: [abstracts.papernumber],
+    relationName: "abstract",
+  }),
+  reviewer: one(users, {
+    fields: [abstractReviewers.reviewer],
+    references: [users.id],
+    relationName: "reviewer",
+  }),
+}));
+
+export const abstracts = createTable("abstract", {
+  papernumber: serial("papernumber").primaryKey(),
+  timestamp: timestamp("timestamp", { withTimezone: true }).notNull(),
+  userId: text("userId")
+    .notNull()
+    .references(() => users.id),
+  affiliation: text("affiliation").notNull(),
+  department: text("department").notNull(),
+  title: text("title").notNull(),
+  authors: text("authors").notNull(),
+  upload: text("upload"),
+  approved: boolean("approved").notNull().default(false),
+});
+
+export const abstractsRelations = relations(abstracts, ({ one, many }) => ({
+  user: one(users, {
+    fields: [abstracts.userId],
+    references: [users.id],
+    relationName: "user",
+  }),
+  reviewers: many(abstractReviewers, {
+    relationName: "abstract",
+  }),
+}));
+
+export const users = createTable("user", {
+  id: text("user_id")
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  email: text("email").unique().notNull(),
+  name: text("name"),
+  emailVerified: timestamp("email_verified", { mode: "date" }),
+  image: text("image"),
+  phone: varchar("phone", { length: 32 }).notNull(),
+});
+
+export const usersRelations = relations(users, ({ many }) => ({
+  accounts: many(accounts, {
+    relationName: "user",
+  }),
+  sessions: many(sessions, {
+    relationName: "user",
+  }),
+  abstracts: many(abstracts, {
+    relationName: "user",
+  }),
+  reviews: many(abstractReviewers, {
+    relationName: "reviewer",
+  }),
+}));
+
+export const accounts = createTable(
+  "account",
+  {
+    userId: text("userId")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    type: text("type").notNull(),
+    provider: text("provider").notNull(),
+    providerAccountId: text("providerAccountId").notNull(),
+    refresh_token: text("refresh_token"),
+    access_token: text("access_token"),
+    expires_at: integer("expires_at"),
+    token_type: text("token_type"),
+    scope: text("scope"),
+    id_token: text("id_token"),
+    session_state: text("session_state"),
+  },
+  (account) => ({
+    compoundKey: primaryKey({
+      columns: [account.provider, account.providerAccountId],
+    }),
+  }),
+);
+
+export const accountsRelations = relations(accounts, ({ one }) => ({
+  user: one(users, {
+    fields: [accounts.userId],
+    references: [users.id],
+    relationName: "user",
+  }),
+}));
+
+export const sessions = createTable("session", {
+  sessionToken: text("sessionToken").primaryKey(),
+  userId: text("userId")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  expires: timestamp("expires", { mode: "date" }).notNull(),
+});
+
+export const sessionsRelations = relations(sessions, ({ one }) => ({
+  user: one(users, {
+    fields: [sessions.userId],
+    references: [users.id],
+    relationName: "user",
+  }),
+}));
+
+export const verificationTokens = createTable(
+  "verificationToken",
+  {
+    identifier: text("identifier").notNull(),
+    token: text("token").notNull(),
+    expires: timestamp("expires", { mode: "date" }).notNull(),
+  },
+  (vt) => ({
+    compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
+  }),
 );
