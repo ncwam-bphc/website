@@ -49,7 +49,7 @@ export const config = {
     EmailProvider({
       server: env.EMAIL_SERVER,
       from: env.EMAIL_FROM,
-      // maxAge: 90 * 24 * 60 * 60, // 90 days
+      maxAge: 90 * 24 * 60 * 60, // 90 days
     }),
   ],
 } satisfies NextAuthOptions;

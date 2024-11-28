@@ -4,12 +4,40 @@ import { abstracts, users } from "../db/schema";
 import nodemailer from "nodemailer";
 import { env } from "~/env";
 import { formatAbstractPaperNumber } from "~/lib/utils";
+import { config } from "../auth";
+import { randomBytes, createHash } from "crypto";
+
+function hashToken(token: string) {
+  return createHash("sha256")
+    .update(`${token}${env.NEXTAUTH_SECRET}`)
+    .digest("hex");
+}
+
+function generateVerificationToken(email: string) {
+  const token = randomBytes(32).toString("hex");
+  const ONE_DAY_IN_SECONDS = 86400;
+  const expires = new Date(
+    Date.now() + (config.providers[0]?.maxAge ?? ONE_DAY_IN_SECONDS) * 1000,
+  );
+  const params = new URLSearchParams({
+    callbackUrl: "/submissions",
+    token,
+    email,
+  });
+  config.adapter.createVerificationToken?.({
+    identifier: email,
+    token: hashToken(token),
+    expires,
+  });
+  return `https://ncwambitshyderabad.com/api/auth/callback/email?${params}`;
+}
 
 async function sendMail(
   to: string,
   title: string,
   paperNumber: number,
   name: string,
+  signinLink: string,
 ) {
   const abstractPaperNumber = formatAbstractPaperNumber(paperNumber);
   const mailHtml = `<p>Dear ${name},</p>
@@ -21,14 +49,14 @@ async function sendMail(
 
 <p><strong>Important notes:</strong><br>
 Your paper number is unique and should be quoted in all future correspondences.<br>
-You can check current status on the website by logging in using this link: <a href="https://www.ncwambitshyderabad.com/api/auth/signin">Sign in</a><br>
+You can check current status on the website by logging in using this link: <a href="${signinLink}" target="_blank">Sign in</a><br>
 Please check the “IMPORTANT DATES” and “NEWS UPDATE” on the website for further follow-ups.</p>
 
 <p>With best regards,<br>
 Dr. Jeevan Jaidi & Dr. P. Jayaprakash Sharma<br>
 Convener & Co-Convener, NCWAM-2025<br>
 E-mail: ncwam@hyderabad.bits-pilani.ac.in<br>
-Conference webpage: <a href="https://www.ncwambitshyderabad.com/">https://www.ncwambitshyderabad.com/</a></p>`;
+Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank">https://www.ncwambitshyderabad.com/</a></p>`;
 
   if (env.NODE_ENV !== "production") return console.log(mailHtml);
   const transporter = nodemailer.createTransport(env.EMAIL_SERVER);
@@ -39,6 +67,8 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/">https://www.nc
     subject:
       "NCWAM-2025: “Extended Abstract” received and assigned a paper number.",
     html: mailHtml,
+    messageId: abstractPaperNumber,
+    references: abstractPaperNumber,
   };
 
   await transporter.sendMail(mailOptions);
@@ -69,23 +99,26 @@ const onAbstractDataReceived = async (data: unknown) => {
     throw new Error("Validation error: " + parsed.error.message);
   if (parsed.data.status !== 200) throw new Error("Data fetch failed");
   const responses = parsed.data.data;
-  const emails = responses.map((d) => d["E-mail ID"]);
+  const timestamps = responses.map((d) => d.Timestamp);
   const existing = new Set(
     (
-      await db.query.users.findMany({
-        where(fields, { inArray }) {
-          return inArray(fields.email, emails);
-        },
+      await db.query.abstracts.findMany({
         columns: {
-          email: true,
+          timestamp: true,
         },
       })
-    ).map((e) => e.email),
+    ).map((e) => e.timestamp.valueOf()),
   );
-  const toAdd = new Set(emails.filter((e) => !existing.has(e)));
+  const toAdd = new Set(
+    timestamps
+      .filter((e) => !existing.has(e.valueOf()))
+      .map((e) => e.valueOf()),
+  );
   if (toAdd.size === 0) return true;
-  for (const entry of responses) {
-    if (!toAdd.has(entry["E-mail ID"])) continue;
+
+  for (const entry of responses.filter((e) =>
+    toAdd.has(e.Timestamp.valueOf()),
+  )) {
     await db.transaction(async (tx) => {
       const user = (
         await tx
@@ -124,17 +157,17 @@ const onAbstractDataReceived = async (data: unknown) => {
           })
           .returning()
       )[0]!;
-
+      const signinLink = generateVerificationToken(user.email);
       await sendMail(
         user.email,
         abstract.title,
         abstract.papernumber,
         user.name ?? "Corresponding author",
+        signinLink,
       );
     });
-
-    toAdd.delete(entry["E-mail ID"]);
   }
+  return true;
 };
 
 export default onAbstractDataReceived;

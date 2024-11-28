@@ -13,12 +13,13 @@ const getStatus = async (email: string) => {
     },
   });
   if (!user?.abstracts[0]) return null;
-  return {
-    email: user.email,
-    paperNumber: formatAbstractPaperNumber(user.abstracts[0].papernumber),
-    paperTitle: user.abstracts[0].title,
-    status: user.abstracts[0].approved ? "approved" : "under review",
-  };
+  return user?.abstracts.length
+    ? user.abstracts.map((e) => ({
+        paperNumber: formatAbstractPaperNumber(e.papernumber),
+        paperTitle: e.title,
+        status: e.approved ? "approved" : "under review",
+      }))
+    : null;
 };
 
 export default getStatus;

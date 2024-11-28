@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function AboutusPage() {
   return (
-    <main className="flex flex-col gap-1 pt-28 text-center max-md:gap-1 md:gap-1">
+    <main className="flex flex-col gap-1 pb-4 pt-28 text-center max-md:gap-1 md:gap-1">
       <Image
         src={bg}
         alt="Conference background"
@@ -19,15 +19,6 @@ export default function AboutusPage() {
         REGISTRATION
       </div>
       <div className="flex min-w-[300px] flex-col items-center gap-4 text-center text-xl md:text-3xl">
-        {/* <a
-              href="#"
-              className={cn(
-                buttonVariants(),
-                "mb-4 mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
-              )}
-            >
-              Register now
-            </a> */}
         <span>
           Registration window is active now,{" "}
           <span className="text-accent">
