@@ -19,9 +19,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid key" }, { status: 401 });
   switch (responseType) {
     case "abstract":
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbwgzXKfICv3eUX6Azd-o61Aip-zDLlMTHxzdtON8vthypq5w4A2iE5BpeKRKW92fkkr/exec?apiKey=pikachubphc",
-      );
+      const response = await fetch(env.ABSTRACT_URL);
       try {
         await onAbstractDataReceived(await response.json());
         NextResponse.json({ success: true }, { status: 200 });
