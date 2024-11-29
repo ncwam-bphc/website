@@ -18,8 +18,6 @@ export default function AboutusPage() {
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-center text-3xl md:text-5xl">
                 BITS PILANI
-                <br />
-                UNIVERSITY
               </div>
             </div>
             <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
