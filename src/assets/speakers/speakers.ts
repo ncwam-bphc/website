@@ -11,6 +11,8 @@ import SubrataKarmakar from "./Subrata karmakar.webp";
 import NijagunayyaSoppayya from "./Nijagunayya.webp";
 import KNVishwanath from "./Vishwanath KN.webp";
 import KaushalKishore from "./kaushalkishore.webp"
+import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp"
+import MaheshKumarTalari from "./Mahesh Kumar Talari.webp"
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -56,6 +58,16 @@ const speakers = [
     name: "Dr. John Rozario Jegaraj",
     institution: "DRDL Hyderabad",
     imageUrl: JohnRozarioJegaraj,
+  },
+  {
+    name: "Prof. Shyamprasad Karagadde",
+    institution: "IIT Bombay",
+    imageUrl: ShyamprasadKaragadde,
+  },
+  {
+    name: "Prof. Mahesh Kumar Talari",
+    institution: "NIT Warangal",
+    imageUrl: MaheshKumarTalari,
   },
   {
     name: "Shri. Kaushal Kishore",
