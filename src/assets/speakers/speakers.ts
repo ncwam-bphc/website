@@ -14,6 +14,7 @@ import KaushalKishore from "./kaushalkishore.webp"
 import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp"
 import MaheshKumarTalari from "./Mahesh Kumar Talari.webp"
 import RLakshmiNarayan from "./R. Lakshmi Narayan.webp"
+import AbhikNChoudhury from "./Abhik N. Choudhury.webp"
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -74,6 +75,11 @@ const speakers = [
     name: "Prof. R. Lakshmi Narayan",
     institution: "IIT Delhi",
     imageUrl: RLakshmiNarayan
+  },
+  {
+    name: "Prof. Abhik N. Choudhury",
+    institution: "IISc Bangalore",
+    imageUrl: AbhikNChoudhury
   },
   {
     name: "Shri. Kaushal Kishore",
