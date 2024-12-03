@@ -13,6 +13,7 @@ import KNVishwanath from "./Vishwanath KN.webp";
 import KaushalKishore from "./kaushalkishore.webp"
 import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp"
 import MaheshKumarTalari from "./Mahesh Kumar Talari.webp"
+import RLakshmiNarayan from "./R. Lakshmi Narayan.webp"
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -70,6 +71,11 @@ const speakers = [
     imageUrl: MaheshKumarTalari,
   },
   {
+    name: "Prof. R. Lakshmi Narayan",
+    institution: "IIT Delhi",
+    imageUrl: RLakshmiNarayan
+  },
+  {
     name: "Shri. Kaushal Kishore",
     institution: "R&D, Tata Steel Ltd., Jamshedpur",
     imageUrl: KaushalKishore,
@@ -89,6 +95,7 @@ const speakers = [
     institution: "Wabtec Corporation, Bangalore",
     imageUrl: KNVishwanath,
   },
+
 ];
 
 export default speakers;
