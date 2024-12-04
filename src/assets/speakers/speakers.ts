@@ -15,6 +15,8 @@ import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp"
 import MaheshKumarTalari from "./Mahesh Kumar Talari.webp"
 import RLakshmiNarayan from "./R. Lakshmi Narayan.webp"
 import AbhikNChoudhury from "./Abhik N. Choudhury.webp"
+import JyotsnaDutta from "./Jyotsna Dutta.webp"
+import { initScriptLoader } from "next/script";
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -80,6 +82,11 @@ const speakers = [
     name: "Prof. Abhik N. Choudhury",
     institution: "IISc Bangalore",
     imageUrl: AbhikNChoudhury
+  },
+  {
+    name: "Prof. Jyotsna Dutta Majumdar",
+    institution: "IIT Kharagpur",
+    imageUrl: JyotsnaDutta
   },
   {
     name: "Shri. Kaushal Kishore",
