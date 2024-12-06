@@ -32,8 +32,10 @@ export default function AboutusPage() {
         products and services to the delegates and participants from academia,
         R&Ds and core industries. We earnestly request the sponsors to book the
         sponsorship category by online payment through the conference webpage.{" "}
-        <span className="text-accent">
-          The sponsor can contact the faculty lead
+        <br />
+        <br />
+        <span>
+          The sponsor can contact the faculty lead <span className="customcol hover:text-accent">(Prof. Aritra Chatterjee: <a href="mailto:aritra.chatterjee@hyderabad.bits-pilani.ac.in">aritra.chatterjee@hyderabad.bits-pilani.ac.in</a>)</span> for further discussion and bank details.
         </span>
       </div>
 
