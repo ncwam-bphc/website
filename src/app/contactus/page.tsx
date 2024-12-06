@@ -24,7 +24,7 @@ export default function ContactUs() {
   ];
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden p-4 sm:p-8 md:p-16">
+    <div className="relative flex min-h-screen justify-center overflow-hidden p-4 sm:p-8 md:p-16 md:pt-24">
       <Image
         src={contactusBg}
         alt="Background"
@@ -91,6 +91,75 @@ export default function ContactUs() {
                 </Card>
               </motion.div>
             ))}
+
+            <Card className="group flex-1 overflow-hidden border-none bg-white shadow-lg transition-all duration-300 hover:shadow-xl md:col-span-2">
+              <CardContent className="h-full p-6">
+                <div className="mb-4 text-center">
+                  <h2 className="text-2xl font-semibold text-accent transition-colors duration-300">
+                    Faculty Leads
+                  </h2>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
+                    {/* <Phone
+                      className="text-accent transition-transform duration-300 group-hover:scale-110"
+                      size={20}
+                    /> */}
+                    <span className="text-xl text-accent">
+                      Technical Review Committee
+                    </span>
+                    <span className="flex flex-wrap items-center justify-center text-lg">
+                      Prof. Sujith R
+                      <div className="ml-2 flex items-center gap-2">
+                        <Mail
+                          className="text-accent transition-transform duration-300"
+                          size={20}
+                        />
+                        sujith@hyderabad.bits-pilani.ac.in
+                      </div>
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
+                    {/* <Mail
+                      className="text-accent transition-transform duration-300 group-hover:scale-110"
+                      size={20}
+                    /> */}
+                    <span className="text-xl text-accent">
+                      Website Committee
+                    </span>
+                    <span className="flex flex-wrap items-center justify-center text-lg">
+                      Prof. Jeevan Jaidi
+                      <div className="ml-2 flex items-center gap-2">
+                        <Mail
+                          className="text-accent transition-transform duration-300"
+                          size={20}
+                        />
+                        jaidi@hyderabad.bits-pilani.ac.in
+                      </div>
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
+                    {/* <MapPin
+                      className="text-accent transition-transform duration-300 group-hover:scale-110"
+                      size={20}
+                    /> */}
+                    <span className="text-xl text-accent">
+                      Sponsorship Committee
+                    </span>
+                    <span className="flex flex-wrap items-center justify-center text-lg">
+                      Prof. Aritra Chatterjee
+                      <div className="ml-2 flex items-center gap-2">
+                        <Mail
+                          className="text-accent transition-transform duration-300"
+                          size={20}
+                        />
+                        aritra.chatterjee@hyderabad.bits-pilani.ac.in
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
           <div className="mt-12 flex items-center justify-center gap-4 text-xl text-gray-700">
             <Mail className="h-6 w-6 text-accent" />

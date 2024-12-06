@@ -8,75 +8,15 @@ import {
   guestHonors,
   organizing,
   patrons,
+  technical,
+  website,
+  sponso,
 } from "~/assets/committe/committe";
 import BSMurthyPic from "~/assets/committe/BS Murty 2.webp";
 import VRamgopalPic from "~/assets/committe/V Ramgopal Rao 2-Chief Patron.webp";
 import JayaprakashPic from "~/assets/committe/Jayaprakash Sharma.webp";
 import JeevanJaidiPic from "~/assets/committe/Jeevan Jaidi 1.webp";
-
-const CommitteeCard = ({
-  name,
-  institution,
-  img,
-  className,
-  ...props
-}: {
-  name: string;
-  institution: string;
-  img: StaticImageData | null;
-} & React.HTMLAttributes<HTMLDivElement>) => {
-  return (
-    <div
-      {...props}
-      className={cn(
-        "flex w-[23rem] flex-col items-center gap-4 p-4",
-        className,
-      )}
-    >
-      {img ? (
-        <Image
-          src={img}
-          className="h-32 w-32 rounded-full border-2 border-white object-cover"
-          alt="avatar"
-        />
-      ) : null}
-      <div className="flex flex-col items-center whitespace-break-spaces text-center text-xl font-semibold md:text-2xl">
-        {name}
-        <span className="whitespace-break-spaces text-xl text-accent md:text-xl">
-          {institution}
-        </span>
-      </div>
-    </div>
-  );
-};
-
-const Section = ({
-  title,
-  contentList,
-}: {
-  title: string;
-  contentList: {
-    name: string;
-    institution: string;
-    imageUrl: StaticImageData | null;
-  }[];
-}) => (
-  <>
-    <div className="mt-4 flex justify-center text-3xl font-bold uppercase md:text-4xl">
-      <p className="customcol text-center">{title}</p>
-    </div>
-    <div className="flex flex-wrap items-start justify-center gap-4">
-      {contentList.map((content, index) => (
-        <CommitteeCard
-          key={`${title}-${index}`}
-          name={content.name}
-          institution={content.institution}
-          img={content.imageUrl}
-        />
-      ))}
-    </div>
-  </>
-);
+import { Section } from "~/components/Committee";
 
 export default function SpeakersPage() {
   return (
@@ -88,7 +28,7 @@ export default function SpeakersPage() {
         priority
       />
       <main className="flex flex-col gap-2 pt-28">
-        <Section
+        {/* <Section
           title="Chief Guest"
           contentList={[
             {
@@ -116,7 +56,8 @@ export default function SpeakersPage() {
           contentList={[
             {
               name: "Prof. Jeevan Jaidi",
-              institution: "BITS Pilani Hyderabad\nHon. Secretary, IIW-Hyderabad",
+              institution:
+                "BITS Pilani Hyderabad\nHon. Secretary, IIW-Hyderabad",
               imageUrl: JeevanJaidiPic,
             },
           ]}
@@ -130,9 +71,17 @@ export default function SpeakersPage() {
               imageUrl: JayaprakashPic,
             },
           ]}
-        />
+        /> */}
         <Section title="National Advisory Committee" contentList={advisory} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
         <Section title="Organizing Committee" contentList={organizing} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+        <Section title="Technical Review Committee" contentList={technical} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+        <Section title="Website Committee" contentList={website} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+        <Section title="Sponsorship Committee" contentList={sponso} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
       </main>
     </div>
   );
