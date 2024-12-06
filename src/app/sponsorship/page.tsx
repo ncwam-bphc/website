@@ -33,7 +33,7 @@ export default function AboutusPage() {
         R&Ds and core industries. We earnestly request the sponsors to book the
         sponsorship category by online payment through the conference webpage.{" "}
         <span className="text-accent">
-          The link will be active from 1st December 2024 onwards
+          The sponsor can contact the faculty lead
         </span>
       </div>
 
