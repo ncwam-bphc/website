@@ -1,8 +1,8 @@
 "use client";
 import { Button, buttonVariants } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
-import frontpage from "~/assets/downloads/frontpage.jpg";
-import backpage from "~/assets/downloads/backpage.jpg";
+import frontpage from "~/assets/downloads/frontpage.jpeg";
+import backpage from "~/assets/downloads/backpage.jpeg";
 
 export default function AboutusPage() {
   return (
