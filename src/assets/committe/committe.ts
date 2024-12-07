@@ -403,8 +403,8 @@ export const technical = [
     imageUrl: null
   },
   {
-    name: "Dr. M. Agilan",
-    institution: "LPSC ISRO Trivandrum",
+    name: "Dr. Agilan M",
+    institution: "VSSC ISRO Trivandrum",
     imageUrl: null
   },
   {
