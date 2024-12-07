@@ -1,21 +1,13 @@
 "use client";
 import Image, { type StaticImageData } from "next/image";
 import spbg from "~/assets/speakers.webp";
-import { cn } from "~/lib/utils";
 import {
   advisory,
-  chairmen,
-  guestHonors,
   organizing,
-  patrons,
   technical,
   website,
   sponso,
 } from "~/assets/committe/committe";
-import BSMurthyPic from "~/assets/committe/BS Murty 2.webp";
-import VRamgopalPic from "~/assets/committe/V Ramgopal Rao 2-Chief Patron.webp";
-import JayaprakashPic from "~/assets/committe/Jayaprakash Sharma.webp";
-import JeevanJaidiPic from "~/assets/committe/Jeevan Jaidi 1.webp";
 import { Section } from "~/components/Committee";
 
 export default function SpeakersPage() {
