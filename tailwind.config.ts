@@ -62,7 +62,7 @@ export default {
         },
       },
       animation: {
-        "infinite-scroll": "infinite-scroll 7s linear infinite",
+        "infinite-scroll": "infinite-scroll 12s linear infinite",
       },
       keyframes: {
         "infinite-scroll": {
