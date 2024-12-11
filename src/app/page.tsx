@@ -25,8 +25,7 @@ export default function ConferenceLanding() {
           src={landingPageBg}
           alt="Conference background"
           fill={true}
-          objectFit="cover"
-          className="-z-20 opacity-40"
+          className="-z-20 object-cover"
           priority
         />
       </div>
