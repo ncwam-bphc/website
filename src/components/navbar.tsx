@@ -31,9 +31,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const item = items.find((item) => item.href === path);
-    setActive(item?.label ?? "");
+    if (!path.includes('/admin') && !path.startsWith('/admin/')) {
+      const item = items.find((item) => item.href === path);
+      setActive(item?.label ?? "");
+    }
   }, [path]);
+  if (path.includes('/admin') || path.startsWith('/admin/')) {
+    return null;
+  }
 
   return (
     <div className="flex w-full items-center justify-between bg-black/40 p-4 backdrop-blur-lg">

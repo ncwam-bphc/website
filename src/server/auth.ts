@@ -10,6 +10,26 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { env } from "~/env";
 import { db } from "./db";
 import { accounts, sessions, users, verificationTokens } from "./db/schema";
+import 'next-auth';
+import { DefaultSession } from 'next-auth';
+
+declare module 'next-auth' {
+  interface Session {
+    user: {
+      role?: string;
+    } & DefaultSession['user']
+  }
+
+  interface User {
+    role?: string;
+  }
+}
+
+declare module '@auth/core/adapters' {
+  interface AdapterUser {
+    role?: string;
+  }
+}
 
 // You'll need to import and pass this
 // to `NextAuth` in `app/api/auth/[...nextauth]/route.ts`
@@ -33,6 +53,7 @@ export const config = {
       user: {
         ...session.user,
         id: user.id,
+        role: user.role,
       },
     }),
     async redirect() {
