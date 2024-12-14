@@ -21,12 +21,12 @@ export const abstractReviewers = createTable(
     reviewer: text("reviewer")
       .notNull()
       .references(() => users.id),
-    response: boolean("response").notNull(),
+    response: boolean("response"),
     comments: text("comments"),
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.for] }),
+      pk: primaryKey({ columns: [table.for, table.reviewer] }),
     };
   },
 );
@@ -93,10 +93,7 @@ export const usersRelations = relations(users, ({ many }) => ({
     relationName: "user",
   }),
   reviews: many(abstractReviewers, {
-    relationName: "reviewer1",
-  }),
-  reviews2: many(abstractReviewers, {
-    relationName: "reviewer2",
+    relationName: "reviewer",
   }),
 }));
 
