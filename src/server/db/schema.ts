@@ -21,12 +21,12 @@ export const abstractReviewers = createTable(
     reviewer: text("reviewer")
       .notNull()
       .references(() => users.id),
-    rating: integer("rating"),
+    response: boolean("response").notNull(),
     comments: text("comments"),
   },
   (table) => {
     return {
-      pk: primaryKey({ columns: [table.for, table.reviewer] }),
+      pk: primaryKey({ columns: [table.for] }),
     };
   },
 );
@@ -56,6 +56,7 @@ export const abstracts = createTable("abstract", {
   authors: text("authors").notNull(),
   upload: text("upload"),
   approved: boolean("approved").notNull().default(false),
+  status: text("status").notNull().default("submitted"),
 });
 
 export const abstractsRelations = relations(abstracts, ({ one, many }) => ({
@@ -78,6 +79,7 @@ export const users = createTable("user", {
   emailVerified: timestamp("email_verified", { mode: "date" }),
   image: text("image"),
   phone: varchar("phone", { length: 32 }).notNull(),
+  role: text("role").default("user").notNull(),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({
@@ -91,7 +93,10 @@ export const usersRelations = relations(users, ({ many }) => ({
     relationName: "user",
   }),
   reviews: many(abstractReviewers, {
-    relationName: "reviewer",
+    relationName: "reviewer1",
+  }),
+  reviews2: many(abstractReviewers, {
+    relationName: "reviewer2",
   }),
 }));
 
