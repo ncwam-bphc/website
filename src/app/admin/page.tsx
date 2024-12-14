@@ -1,13 +1,18 @@
-"use client"
-import { useState, useEffect } from 'react';
+"use client";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getPapers } from "~/server/actions/getPapers";
-import { PapersTable } from "~/components/papers-table"
+import { PapersTable } from "~/components/papers-table";
 
 export default function AdminPage() {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  const { data: papers, isLoading, isError, refetch } = useQuery({
+  const {
+    data: papers,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
     queryKey: ["allPapers"],
     queryFn: async () => {
       const fetchedPapers = await getPapers();
@@ -15,12 +20,13 @@ export default function AdminPage() {
     },
     enabled: isInitialLoad,
     refetchOnWindowFocus: false,
+    refetchOnMount: false,
     staleTime: 5 * 60 * 1000,
   });
 
   useEffect(() => {
     if (isInitialLoad) {
-      refetch().then(() => {
+      void refetch().then(() => {
         setIsInitialLoad(false);
       });
     }
@@ -28,14 +34,14 @@ export default function AdminPage() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-bold">All Papers</h2>
+      <h2 className="text-2xl font-bold">Abstracts</h2>
       {isLoading ? (
         <div>Loading papers...</div>
       ) : isError ? (
         <div>Error loading papers</div>
       ) : (
-        <PapersTable papers={papers} />
+        <PapersTable papers={papers ?? []} />
       )}
     </div>
-  )
+  );
 }

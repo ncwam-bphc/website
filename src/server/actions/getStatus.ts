@@ -2,11 +2,14 @@
 
 import { formatAbstractPaperNumber } from "~/lib/utils";
 import { db } from "../db";
+import { auth } from "../auth";
 
-const getStatus = async (email: string) => {
+const getStatus = async () => {
+  const session = await auth();
+  if (!session) return null;
   const user = await db.query.users.findFirst({
     where(fields, operators) {
-      return operators.eq(fields.email, email);
+      return operators.eq(fields.email, session.user.email!);
     },
     with: {
       abstracts: true,

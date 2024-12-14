@@ -1,61 +1,40 @@
-"use server"
-import { db } from "../db"; 
-import { abstracts, users } from "~/server/db/schema";
-import { eq } from "drizzle-orm";
+"use server";
+import { formatAbstractPaperNumber } from "~/lib/utils";
+import { auth } from "../auth";
+import { db } from "../db";
 
-type PaperStatus = "submitted" | "assigned" | "reviewed" | "accepted" | "rejected";
+type PaperStatus =
+  | "submitted"
+  | "assigned"
+  | "reviewed"
+  | "accepted"
+  | "rejected";
 
 export async function getPapers(status?: PaperStatus) {
   try {
-    if (status) {
-      const papers = await db
-        .select({
-          papernumber: abstracts.papernumber,
-          timestamp: abstracts.timestamp,
-          userId: abstracts.userId,
-          affiliation: abstracts.affiliation,
-          department: abstracts.department,
-          title: abstracts.title,
-          authors: abstracts.authors,
-          upload: abstracts.upload,
-          approved: abstracts.approved,
-          status: abstracts.status,
+    const session = await auth();
+    if (!session || session.user.role !== "admin")
+      throw new Error("Unauthorized");
+    return (
+      await db.query.abstracts.findMany({
+        with: {
           user: {
-            name: users.name,
-            email: users.email,
-          }
-        })
-        .from(abstracts)
-        .leftJoin(users, eq(abstracts.userId, users.id))
-        .where(eq(abstracts.status, status));
-      
-      return papers;
-    }
-    
-    console.log("Fetching all papers");
-    const papers = await db
-      .select({
-        papernumber: abstracts.papernumber,
-        timestamp: abstracts.timestamp,
-        userId: abstracts.userId,
-        affiliation: abstracts.affiliation,
-        department: abstracts.department,
-        title: abstracts.title,
-        authors: abstracts.authors,
-        upload: abstracts.upload,
-        approved: abstracts.approved,
-        status: abstracts.status,
-        user: {
-          name: users.name,
-          email: users.email,
-        }
+            columns: {
+              name: true,
+              email: true,
+            },
+          },
+        },
+        where: status
+          ? (fields, { eq }) => eq(fields.status, status)
+          : undefined,
       })
-      .from(abstracts)
-      .leftJoin(users, eq(abstracts.userId, users.id));
-    
-    return papers;
+    ).map((e) => ({
+      ...e,
+      papernumber: formatAbstractPaperNumber(e.papernumber),
+    }));
   } catch (error) {
     console.error("Error fetching papers:", error);
-    throw new Error("Failed to fetch papers");
+    return null;
   }
 }

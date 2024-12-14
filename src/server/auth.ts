@@ -10,14 +10,14 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { env } from "~/env";
 import { db } from "./db";
 import { accounts, sessions, users, verificationTokens } from "./db/schema";
-import 'next-auth';
-import { DefaultSession } from 'next-auth';
+import "next-auth";
+import type { DefaultSession } from "next-auth";
 
-declare module 'next-auth' {
+declare module "next-auth" {
   interface Session {
     user: {
       role?: string;
-    } & DefaultSession['user']
+    } & DefaultSession["user"];
   }
 
   interface User {
@@ -25,7 +25,7 @@ declare module 'next-auth' {
   }
 }
 
-declare module '@auth/core/adapters' {
+declare module "@auth/core/adapters" {
   interface AdapterUser {
     role?: string;
   }
