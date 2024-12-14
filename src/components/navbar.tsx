@@ -31,12 +31,14 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (!path.includes('/admin') && !path.startsWith('/admin/')) {
-      const item = items.find((item) => item.href === path);
-      setActive(item?.label ?? "");
-    }
+    const item = items.find((item) => item.href === path);
+    setActive(item?.label ?? "");
   }, [path]);
-  if (path.includes('/admin') || path.startsWith('/admin/')) {
+  if (
+    path.includes("/admin") ||
+    path.startsWith("/admin/") ||
+    path.startsWith("/review")
+  ) {
     return null;
   }
 

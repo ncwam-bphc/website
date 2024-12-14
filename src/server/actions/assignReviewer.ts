@@ -1,5 +1,5 @@
 "use server";
-import { formatAbstractPaperNumber, getAbstractPaperNumber } from "~/lib/utils";
+import { getAbstractPaperNumber } from "~/lib/utils";
 import { auth } from "../auth";
 import { db } from "../db";
 import { abstractReviewers } from "../db/schema";
