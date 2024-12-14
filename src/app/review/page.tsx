@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
-import { Button } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { Textarea } from "~/components/ui/textarea";
 import {
   changeStatus,
@@ -9,6 +9,8 @@ import {
 } from "~/server/actions/assignedAbstracts";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
+import { cn } from "~/lib/utils";
 
 const MAX_CHARS = 200;
 
@@ -86,6 +88,13 @@ export default function ReviewerDashboard() {
               <Card key={index} className="w-full text-left">
                 <CardHeader>
                   <CardTitle>{review.abstract.papernumber}</CardTitle>
+                  <a
+                    href={review.abstract.upload ?? "#"}
+                    target="_blank"
+                    className={cn(buttonVariants(), "self-center")}
+                  >
+                    View abstract <OpenInNewWindowIcon />
+                  </a>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4 text-sm text-gray-600">
