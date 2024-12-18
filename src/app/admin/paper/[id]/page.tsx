@@ -10,12 +10,19 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { AssignReviewersDialog } from "~/components/assign-reviewers-dialog";
-import { useQuery } from "@tanstack/react-query";
 import { getPaperAndReviewers } from "~/server/actions/getPaperAndReviewers";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { assignReviewer } from "~/server/actions/assignReviewer";
+import { deleteReviewer } from "~/server/actions/deleteReviewer";
+import { Trash2 } from 'lucide-react';
+import { Button } from "~/components/ui/button";
+
 export default function PaperPage() {
+  const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const router = useRouter();
-
+  const queryClient = useQueryClient();
+  
   const {
     data: paper,
     isLoading,
@@ -30,7 +37,60 @@ export default function PaperPage() {
     retry: false,
     staleTime: 5 * 60 * 1000,
   });
-
+  
+  const assignReviewerMutation = useMutation({
+    mutationFn: async ({
+      papernumber,
+      reviewerEmail,
+    }: {
+      papernumber: string;
+      reviewerEmail: string;
+    }) => {
+      return await assignReviewer(papernumber, reviewerEmail);
+    },
+  });
+  
+  const deleteReviewerMutation = useMutation({
+    mutationFn: async ({
+      papernumber,
+      reviewerEmail,
+    }: {
+      papernumber: string;
+      reviewerEmail: string;
+    }) => {
+      return await deleteReviewer(papernumber, reviewerEmail);
+    },
+  });
+  
+  const handleDelete = (reviewerEmail: string) => {
+    void deleteReviewerMutation.mutate(
+      { reviewerEmail, papernumber: id as string },
+      {
+        onSettled: () => {
+          void queryClient.invalidateQueries({
+            queryKey: [id as string],
+          });
+        },
+      },
+    );
+  };
+  
+  const handleAction = (reviewerEmail: string) => {
+    void assignReviewerMutation.mutate(
+      { reviewerEmail, papernumber: id as string },
+      {
+        onSettled: () => {
+          void queryClient.invalidateQueries({
+            queryKey: [id as string],
+          });
+        },
+        onSuccess: () => {
+          setIsOpen(false);
+        }
+      },
+    );
+  };
+  
   if (isLoading) return <div>Loading...</div>;
   if (isError || !paper) {
     router.replace("/admin");
@@ -46,7 +106,7 @@ export default function PaperPage() {
         </CardHeader>
         <CardContent>
           <p>Paper number: {paper.papernumber}</p>
-          <p>Status: {paper.status}</p>
+          <p>Status: {paper.frontendStatus}</p>
         </CardContent>
       </Card>
 
@@ -56,7 +116,11 @@ export default function PaperPage() {
             Reviewers
             {paper.reviewers.length < 2 ? (
               <div className="flex space-x-2">
-                <AssignReviewersDialog onAssign={() => null} />
+                <AssignReviewersDialog 
+                  isOpen={isOpen} 
+                  onClose={setIsOpen} 
+                  onAssign={handleAction} 
+                />
               </div>
             ) : null}
           </CardTitle>
@@ -64,14 +128,23 @@ export default function PaperPage() {
         <CardContent>
           {paper.reviewers.length
             ? paper.reviewers.map((review, index) => (
-                <div key={index} className="mb-4">
+              <div key={index} className="mb-4 flex items-center justify-between">
+                <div>
                   <h3 className="font-bold">
                     Reviewer: {review.reviewer.name ?? review.reviewer.email}
                   </h3>
                   <p>Status: {review.status}</p>
                   <p>Comments: {review.comments}</p>
                 </div>
-              ))
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  onClick={() => handleDelete(review.reviewer.email)}
+                >
+                  <Trash2 />
+                </Button>
+              </div>
+            ))
             : "No reviewers assigned"}
         </CardContent>
       </Card>

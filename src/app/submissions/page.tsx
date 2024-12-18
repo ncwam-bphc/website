@@ -13,8 +13,7 @@ export default function SubmissionsPage() {
   const { data: submissionStatus } = useQuery({
     queryKey: ["submissionStatus"],
     queryFn: async () => {
-      const email = session.data?.user?.email;
-      return email ? getStatus(email) : null;
+      return getStatus();
     },
     enabled: session.status === "authenticated",
     placeholderData: [

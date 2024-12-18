@@ -19,8 +19,8 @@ const getStatus = async () => {
   return user?.abstracts.length
     ? user.abstracts.map((e) => ({
         paperNumber: formatAbstractPaperNumber(e.papernumber),
-        paperTitle: e.title,
-        status: e.approved ? "approved" : "under review",
+        paperTitle: e.title,        
+        status: e.status === true ? "approved" : (e.status === null ? "under review" : "rejected")
       }))
     : null;
 };
