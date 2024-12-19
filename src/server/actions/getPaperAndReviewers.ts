@@ -10,8 +10,7 @@ function determineFrontendStatus(paper: {
     if (paper.status === true) return "accepted";
     if (paper.status === false) return "rejected";
     if (paper.reviewers.length === 0) return "submitted";
-    if (paper.reviewers.length === 1) return "assigned(01)";
-    if (paper.reviewers.length === 2) return "assigned(02)";
+    if (paper.reviewers.length > 0) return "assigned";
     return "submitted";
 }
 
