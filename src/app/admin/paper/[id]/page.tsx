@@ -14,15 +14,25 @@ import { getPaperAndReviewers } from "~/server/actions/getPaperAndReviewers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { assignReviewer } from "~/server/actions/assignReviewer";
 import { deleteReviewer } from "~/server/actions/deleteReviewer";
-import { Trash2 } from 'lucide-react';
+import { CheckCircle, Trash2, XCircle } from 'lucide-react';
 import { Button } from "~/components/ui/button";
-
+import { updatePaperStatus } from "~/server/actions/finalResponse";
 export default function PaperPage() {
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const router = useRouter();
   const queryClient = useQueryClient();
   
+  const updateStatusMutation = useMutation({
+    mutationFn: async ({ papernumber, status }: { papernumber: string; status: boolean }) => {
+      return await updatePaperStatus(papernumber, status);
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({
+        queryKey: [id as string],
+      });
+    },
+  });
   const {
     data: paper,
     isLoading,
@@ -61,7 +71,22 @@ export default function PaperPage() {
       return await deleteReviewer(papernumber, reviewerEmail);
     },
   });
-  
+
+  const handleStatusUpdate = (status: boolean) => {
+    void updateStatusMutation.mutate(
+      { papernumber: id as string, status },
+      {
+        onError: (error) => {
+          console.error("Failed to update paper status:", error);
+        },
+        onSettled: () => {
+          void queryClient.invalidateQueries({
+            queryKey: [id as string],
+          });
+        },
+      }
+    );
+  };
   const handleDelete = (reviewerEmail: string) => {
     void deleteReviewerMutation.mutate(
       { reviewerEmail, papernumber: id as string },
@@ -146,6 +171,38 @@ export default function PaperPage() {
               </div>
             ))
             : "No reviewers assigned"}
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Final Decision</CardTitle>
+          <CardDescription>Make a final decision on this paper</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex space-x-4">
+            <Button
+              onClick={() => handleStatusUpdate(true)}
+              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white"
+              disabled={updateStatusMutation.isPending}
+            >
+              <CheckCircle className="h-5 w-5" />
+              Accept Paper
+            </Button>
+            <Button
+              onClick={() => handleStatusUpdate(false)}
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white"
+              disabled={updateStatusMutation.isPending}
+            >
+              <XCircle className="h-5 w-5" />
+              Reject Paper
+            </Button>
+          </div>
+          {updateStatusMutation.isPending && (
+            <p className="mt-2 text-sm text-gray-500">Updating status...</p>
+          )}
+          {updateStatusMutation.isError && (
+            <p className="mt-2 text-sm text-red-500">Failed to update status. Please try again.</p>
+          )}
         </CardContent>
       </Card>
     </div>
