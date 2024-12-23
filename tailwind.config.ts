@@ -62,11 +62,11 @@ export default {
         },
       },
       animation: {
-        "infinite-scroll": "infinite-scroll 12s linear infinite",
+        "infinite-scroll": "infinite-scroll 15s linear infinite",
       },
       keyframes: {
         "infinite-scroll": {
-          from: { transform: "translateX(1400px)" },
+          from: { transform: "translateX(2000px)" },
           to: { transform: "translateX(-100%)" },
         },
       },
