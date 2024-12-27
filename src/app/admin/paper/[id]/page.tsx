@@ -14,9 +14,10 @@ import { getPaperAndReviewers } from "~/server/actions/getPaperAndReviewers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { assignReviewer } from "~/server/actions/assignReviewer";
 import { deleteReviewer } from "~/server/actions/deleteReviewer";
-import { CheckCircle, Trash2, XCircle } from 'lucide-react';
+import { CheckCircle, Trash2, XCircle, Bell } from 'lucide-react';
 import { Button } from "~/components/ui/button";
 import { updatePaperStatus } from "~/server/actions/finalResponse";
+
 export default function PaperPage() {
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
@@ -153,21 +154,28 @@ export default function PaperPage() {
         <CardContent>
           {paper.reviewers.length
             ? paper.reviewers.map((review, index) => (
-              <div key={index} className="mb-4 flex items-center justify-between">
-                <div>
-                  <h3 className="font-bold">
-                    Reviewer: {review.reviewer.name ?? review.reviewer.email}
-                  </h3>
-                  <p>Status: {review.status}</p>
-                  <p>Comments: {review.comments}</p>
+              <div key={index} className="mb-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="font-bold">
+                      Reviewer: {review.reviewer.name ?? review.reviewer.email}
+                    </h3>
+                    <p>Status: {review.status}</p>
+                    <p>Comments: {review.comments}</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      onClick={() => handleDelete(review.reviewer.email)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="icon">
+                      <Bell className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  onClick={() => handleDelete(review.reviewer.email)}
-                >
-                  <Trash2 />
-                </Button>
               </div>
             ))
             : "No reviewers assigned"}
