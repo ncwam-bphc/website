@@ -1,5 +1,5 @@
 "use client";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import spbg from "~/assets/speakers.webp";
 import {
   advisory,

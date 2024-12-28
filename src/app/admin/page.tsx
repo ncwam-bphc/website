@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getPapers } from "~/server/actions/getPapers";
 import { PapersTable } from "~/components/papers-table";
-import type { PaperFrontendStatus } from '~/lib/data';
+
 export default function AdminPage() {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const [filter, setFilter] = useState<PaperFrontendStatus | 'all'>('all');
+  const [filter, setFilter] = useState<
+    "submitted" | "assigned" | "accepted" | "rejected" | "all"
+  >("all");
   const {
     data: papers,
     isLoading,
@@ -44,7 +46,8 @@ export default function AdminPage() {
           papers={papers ?? []}
           filter={filter}
           setFilter={setFilter}
-        />)}
+        />
+      )}
     </div>
   );
 }

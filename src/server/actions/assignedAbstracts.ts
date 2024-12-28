@@ -4,6 +4,7 @@ import { auth } from "../auth";
 import { db } from "../db";
 import { abstractReviewers } from "../db/schema";
 import { and, eq } from "drizzle-orm";
+import { changeStatusSchema } from "~/schemas";
 
 export async function getAssignedAbstracts() {
   const session = await auth();
@@ -25,26 +26,34 @@ export async function getAssignedAbstracts() {
   }));
 }
 
-export async function changeStatus(
-  papernumber: number,
-  newStatus: boolean | null,
-  comment?: string,
-) {
+export async function changeStatus(data: {
+  papernumber: number;
+  newStatus: boolean | null;
+  comment?: string;
+}) {
   const session = await auth();
   if (!session || session.user.role !== "reviewer")
     throw new Error("Unauthorized");
+  const parsed = changeStatusSchema.parse(data);
   const updated = await db
     .update(abstractReviewers)
     .set({
-      response: newStatus,
-      comments: newStatus !== null ? (comment?.length ? comment : null) : null,
+      response: parsed.newStatus,
+      comments:
+        parsed.newStatus !== null
+          ? parsed.comment?.length
+            ? parsed.comment
+            : null
+          : null,
     })
     .where(
       and(
         eq(abstractReviewers.reviewer, session.user.id),
-        eq(abstractReviewers.for, papernumber),
+        eq(abstractReviewers.for, parsed.papernumber),
       ),
     )
     .returning();
   if (updated.length === 0) throw new Error("Abstract not found");
 }
+
+export type changeStatusParamsType = Parameters<typeof changeStatus>[0];

@@ -12,6 +12,7 @@ import { db } from "./db";
 import { accounts, sessions, users, verificationTokens } from "./db/schema";
 import "next-auth";
 import type { DefaultSession } from "next-auth";
+import { randomBytes, createHash } from "crypto";
 
 declare module "next-auth" {
   interface Session {
@@ -56,8 +57,12 @@ export const config = {
         role: user.role,
       },
     }),
-    async redirect() {
-      return "/submissions";
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      return `${baseUrl}/submissions`;
     },
   },
   adapter: DrizzleAdapter(db, {
@@ -83,4 +88,29 @@ export function auth(
     | []
 ) {
   return getServerSession(...args, config);
+}
+
+function hashToken(token: string) {
+  return createHash("sha256")
+    .update(`${token}${env.NEXTAUTH_SECRET}`)
+    .digest("hex");
+}
+
+export function generateSignInLink(email: string, callbackUrl?: string) {
+  const token = randomBytes(32).toString("hex");
+  const ONE_DAY_IN_SECONDS = 86400;
+  const expires = new Date(
+    Date.now() + (config.providers[0]?.maxAge ?? ONE_DAY_IN_SECONDS) * 1000,
+  );
+  const params = new URLSearchParams({
+    callbackUrl: callbackUrl ?? "/submissions",
+    token,
+    email,
+  });
+  config.adapter.createVerificationToken?.({
+    identifier: email,
+    token: hashToken(token),
+    expires,
+  });
+  return `https://ncwambitshyderabad.com/api/auth/callback/email?${params}`;
 }

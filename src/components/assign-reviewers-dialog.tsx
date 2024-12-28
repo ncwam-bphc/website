@@ -1,10 +1,9 @@
-"use client"
-import * as React from "react"
+"use client";
+import * as React from "react";
 import { useState } from "react";
-import { Check, ChevronsUpDown } from "lucide-react"
-import { env } from "~/env"
+import { Check, ChevronsUpDown } from "lucide-react";
 import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils"
+import { cn } from "~/lib/utils";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +11,7 @@ import {
   DialogTitle,
   DialogFooter,
   DialogTrigger,
-} from "~/components/ui/dialog"; 
+} from "~/components/ui/dialog";
 import {
   Command,
   CommandEmpty,
@@ -20,13 +19,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "~/components/ui/command"
+} from "~/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "~/components/ui/popover"
- 
+} from "~/components/ui/popover";
+
 const Reviewers = [
   // IITs
   {
@@ -225,7 +224,7 @@ export function AssignReviewersDialog({
                               "ml-auto",
                               reviewer === r.value
                                 ? "opacity-100"
-                                : "opacity-0"
+                                : "opacity-0",
                             )}
                           />
                         </CommandItem>
@@ -238,10 +237,7 @@ export function AssignReviewersDialog({
           </div>
         </div>
         <DialogFooter>
-          <Button 
-            onClick={handleAssign} 
-            disabled={!reviewer}
-          >
+          <Button onClick={handleAssign} disabled={!reviewer}>
             Assign
           </Button>
         </DialogFooter>

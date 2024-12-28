@@ -10,14 +10,14 @@ import JohnRozarioJegaraj from "./John Rozario Jegaraj.webp";
 import SubrataKarmakar from "./Subrata karmakar.webp";
 import NijagunayyaSoppayya from "./Nijagunayya.webp";
 import KNVishwanath from "./Vishwanath KN.webp";
-import KaushalKishore from "./kaushalkishore.webp"
-import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp"
-import MaheshKumarTalari from "./Mahesh Kumar Talari.webp"
-import RLakshmiNarayan from "./R. Lakshmi Narayan.webp"
-import AbhikNChoudhury from "./Abhik N. Choudhury.webp"
-import JyotsnaDutta from "./Jyotsna Dutta.webp"
-import Agilan from "~/assets/speakers/Dr.Agilan.jpeg"
-import { initScriptLoader } from "next/script";
+import KaushalKishore from "./kaushalkishore.webp";
+import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp";
+import MaheshKumarTalari from "./Mahesh Kumar Talari.webp";
+import RLakshmiNarayan from "./R. Lakshmi Narayan.webp";
+import AbhikNChoudhury from "./Abhik N. Choudhury.webp";
+import JyotsnaDutta from "./Jyotsna Dutta.webp";
+import Agilan from "~/assets/speakers/Dr.Agilan.jpeg";
+
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -77,23 +77,22 @@ const speakers = [
   {
     name: "Prof. R. Lakshmi Narayan",
     institution: "IIT Delhi",
-    imageUrl: RLakshmiNarayan
+    imageUrl: RLakshmiNarayan,
   },
   {
     name: "Prof. Abhik N. Choudhury",
     institution: "IISc Bangalore",
-    imageUrl: AbhikNChoudhury
+    imageUrl: AbhikNChoudhury,
   },
   {
     name: "Prof. Jyotsna Dutta Majumdar",
     institution: "IIT Kharagpur",
-    imageUrl: JyotsnaDutta
+    imageUrl: JyotsnaDutta,
   },
   {
     name: "Dr. Agilan M",
     institution: "LPSC ISRO, Trivandrum",
-    imageUrl: Agilan
-
+    imageUrl: Agilan,
   },
   {
     name: "Shri. Kaushal Kishore",
@@ -115,7 +114,6 @@ const speakers = [
     institution: "Wabtec Corporation, Bangalore",
     imageUrl: KNVishwanath,
   },
-
 ];
 
 export default speakers;

@@ -7,7 +7,6 @@ import {
   TableRow,
 } from "~/components/ui/table";
 import { Button } from "~/components/ui/button";
-import type { Paper } from "~/lib/data";
 import Link from "next/link";
 import { formatDate } from "~/lib/utils";
 import {
@@ -15,48 +14,47 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu"
+} from "~/components/ui/dropdown-menu";
 import { Filter } from "lucide-react";
+import type { getPapersReturnType } from "~/server/actions/getPapers";
 
-type PaperStatus = Paper['frontendStatus'] | 'all';
+type PaperStatus = "submitted" | "assigned" | "accepted" | "rejected" | "all";
 
 export function PapersTable({
   papers,
   filter,
-  setFilter
+  setFilter,
 }: {
-  papers: Paper[] | undefined;
+  papers: getPapersReturnType | undefined;
   filter: PaperStatus;
   setFilter: (filter: PaperStatus) => void;
 }) {
-  const statuses: PaperStatus[] = ['submitted', 'assigned', 'accepted', 'rejected'];
+  const statuses: PaperStatus[] = [
+    "submitted",
+    "assigned",
+    "accepted",
+    "rejected",
+  ];
 
-  const filteredPapers = papers?.filter(paper => filter === 'all' || paper.frontendStatus === filter);
+  const filteredPapers = papers?.filter(
+    (paper) => filter === "all" || paper.frontendStatus === filter,
+  );
 
   const ReviewerResponse = ({ response }: { response: boolean | null }) => {
     if (response === null) {
-      return (
-        <span className="font-bold uppercase text-orange-400">
-          N/A
-        </span>
-      );
+      return <span className="font-bold uppercase text-orange-400">N/A</span>;
     }
     if (response === true) {
-      return (
-        <span className="font-bold uppercase text-green-400">
-          TRUE
-        </span>
-      );
+      return <span className="font-bold uppercase text-green-400">TRUE</span>;
     }
-    return (
-      <span className="text-red-700 font-bold uppercase">
-        FALSE
-      </span>
-    );
+    return <span className="font-bold uppercase text-red-700">FALSE</span>;
   };
 
-  const getReviewerResponse = (paper: Paper, reviewerNumber: number) => {
-    const reviewer = paper.reviewers?.find(r => r.for === reviewerNumber);
+  const getReviewerResponse = (
+    paper: getPapersReturnType[number],
+    reviewerNumber: number,
+  ) => {
+    const reviewer = paper.reviewers?.find((r) => r.for === reviewerNumber);
     return reviewer?.response ?? null;
   };
 
@@ -72,8 +70,8 @@ export function PapersTable({
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuCheckboxItem
-              checked={filter === 'all'}
-              onCheckedChange={() => setFilter('all')}
+              checked={filter === "all"}
+              onCheckedChange={() => setFilter("all")}
             >
               All
             </DropdownMenuCheckboxItem>
@@ -120,11 +118,17 @@ export function PapersTable({
               </TableCell>
               <TableCell>
                 <span
-                  className={`font-semibold uppercase ${paper.frontendStatus === "submitted" ? "text-yellow-500" :
-                      paper.frontendStatus === "assigned" ? "text-blue-600" :
-                        paper.frontendStatus === "accepted" ? "text-green-700" :
-                          paper.frontendStatus === "rejected" ? "text-red-500" : ""
-                    }`}
+                  className={`font-semibold uppercase ${
+                    paper.frontendStatus === "submitted"
+                      ? "text-yellow-500"
+                      : paper.frontendStatus === "assigned"
+                        ? "text-blue-600"
+                        : paper.frontendStatus === "accepted"
+                          ? "text-green-700"
+                          : paper.frontendStatus === "rejected"
+                            ? "text-red-500"
+                            : ""
+                  }`}
                 >
                   {paper.frontendStatus}
                 </span>

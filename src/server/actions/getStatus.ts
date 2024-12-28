@@ -1,8 +1,8 @@
 "use server";
 
 import { formatAbstractPaperNumber } from "~/lib/utils";
-import { db } from "../db";
-import { auth } from "../auth";
+import { db } from "~/server/db";
+import { auth } from "~/server/auth";
 
 const getStatus = async () => {
   const session = await auth();
@@ -19,8 +19,13 @@ const getStatus = async () => {
   return user?.abstracts.length
     ? user.abstracts.map((e) => ({
         paperNumber: formatAbstractPaperNumber(e.papernumber),
-        paperTitle: e.title,        
-        status: e.status === true ? "approved" : (e.status === null ? "under review" : "rejected")
+        paperTitle: e.title,
+        status:
+          e.status === true
+            ? "approved"
+            : e.status === null
+              ? "under review"
+              : "rejected",
       }))
     : null;
 };
