@@ -17,7 +17,7 @@ import RLakshmiNarayan from "./R. Lakshmi Narayan.webp";
 import AbhikNChoudhury from "./Abhik N. Choudhury.webp";
 import JyotsnaDutta from "./Jyotsna Dutta.webp";
 import Agilan from "~/assets/speakers/Dr.Agilan.jpeg";
-
+import SrinivasaPrakashRegalla from "~/assets/speakers/Srinivasa Prakash Regalla.webp";
 const speakers = [
   {
     name: "Dr. M. Vasudevan",
@@ -88,6 +88,11 @@ const speakers = [
     name: "Prof. Jyotsna Dutta Majumdar",
     institution: "IIT Kharagpur",
     imageUrl: JyotsnaDutta,
+  },
+  {
+    name: "Prof. Srinivasa Prakash Regalla",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: SrinivasaPrakashRegalla,
   },
   {
     name: "Dr. Agilan M",
