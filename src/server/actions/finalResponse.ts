@@ -5,17 +5,23 @@ import { abstracts } from "../db/schema";
 import { eq } from "drizzle-orm";
 import { auth } from "../auth";
 import { getAbstractPaperNumber } from "~/lib/utils";
-export async function updatePaperStatus(papernumber: string, status: boolean) {
+import { updatePaperStatusSchema } from "~/schemas";
+
+export async function updatePaperStatus(data: {
+  papernumber: string;
+  status: boolean;
+}) {
   const session = await auth();
   if (!session || session.user.role !== "admin") {
     throw new Error("Unauthorized");
   }
+  const parsed = updatePaperStatusSchema.parse(data);
   try {
-    const paperId = getAbstractPaperNumber(papernumber);
+    const paperId = getAbstractPaperNumber(parsed.papernumber);
     const updated = await db
       .update(abstracts)
       .set({
-        status: status
+        status: parsed.status,
       })
       .where(eq(abstracts.papernumber, paperId))
       .returning();
@@ -29,3 +35,7 @@ export async function updatePaperStatus(papernumber: string, status: boolean) {
     throw new Error("Failed to update paper status");
   }
 }
+
+export type updatePaperStatusParamsType = Parameters<
+  typeof updatePaperStatus
+>[0];

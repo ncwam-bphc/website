@@ -4,33 +4,7 @@ import { abstracts, users } from "../db/schema";
 import nodemailer from "nodemailer";
 import { env } from "~/env";
 import { formatAbstractPaperNumber } from "~/lib/utils";
-import { config } from "../auth";
-import { randomBytes, createHash } from "crypto";
-
-function hashToken(token: string) {
-  return createHash("sha256")
-    .update(`${token}${env.NEXTAUTH_SECRET}`)
-    .digest("hex");
-}
-
-function generateVerificationToken(email: string) {
-  const token = randomBytes(32).toString("hex");
-  const ONE_DAY_IN_SECONDS = 86400;
-  const expires = new Date(
-    Date.now() + (config.providers[0]?.maxAge ?? ONE_DAY_IN_SECONDS) * 1000,
-  );
-  const params = new URLSearchParams({
-    callbackUrl: "/submissions",
-    token,
-    email,
-  });
-  config.adapter.createVerificationToken?.({
-    identifier: email,
-    token: hashToken(token),
-    expires,
-  });
-  return `https://ncwambitshyderabad.com/api/auth/callback/email?${params}`;
-}
+import { generateSignInLink } from "../auth";
 
 async function sendMail(
   to: string,
@@ -157,7 +131,7 @@ const onAbstractDataReceived = async (data: unknown) => {
           })
           .returning()
       )[0]!;
-      const signinLink = generateVerificationToken(user.email);
+      const signinLink = generateSignInLink(user.email, "/submissions");
       await sendMail(
         user.email,
         abstract.title,

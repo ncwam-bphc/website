@@ -1,11 +1,13 @@
 "use server";
+
+import { and, eq } from "drizzle-orm";
 import { getAbstractPaperNumber } from "~/lib/utils";
 import { auth, generateSignInLink } from "../auth";
-import nodemailer from "nodemailer";
 import { db } from "../db";
 import { abstractReviewers } from "../db/schema";
-import { assignReviewerSchema } from "~/schemas";
+import { deleteReviewerSchema } from "~/schemas";
 import { env } from "~/env";
+import nodemailer from "nodemailer";
 
 const sendMail = async (
   email: string,
@@ -15,7 +17,7 @@ const sendMail = async (
 ) => {
   const mailHtml = `<p>Dear ${name},</p>
         
-<p>An abstract paper has been assigned to you for review. Please complete the review at your earliest convenience.</p>
+<p>This is a reminder to review the abstract paper assigned to you. Please complete the review at your earliest convenience.</p>
 
 <p><strong>Paper Number:</strong> ${paper}</p>
 
@@ -31,7 +33,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",
     to: email,
-    subject: "NCWAM-2025: Review “Extended Abstract”",
+    subject: `Reminder: Pending Review`,
     html: mailHtml,
     messageId: email + paper,
     references: email + paper,
@@ -40,43 +42,33 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
   await transporter.sendMail(mailOptions);
 };
 
-export async function assignReviewer(data: {
+export const sendIndividualReminder = async (data: {
   papernumber: string;
-  reviewerEmail: string;
-}) {
+  reviewerId: string;
+}) => {
   const session = await auth();
   if (!session || session.user.role !== "admin")
     throw new Error("Unauthorized");
-  const parsed = assignReviewerSchema.parse(data);
+  const parsed = deleteReviewerSchema.parse(data);
   const paperId = getAbstractPaperNumber(parsed.papernumber);
-  const reviewer = await db.query.users.findFirst({
-    where(fields, { and, eq }) {
-      return and(
-        eq(fields.email, parsed.reviewerEmail),
-        eq(fields.role, "reviewer"),
-      );
+
+  const assigned = await db.query.abstractReviewers.findFirst({
+    where: and(
+      eq(abstractReviewers.for, paperId),
+      eq(abstractReviewers.reviewer, parsed.reviewerId),
+    ),
+    with: {
+      reviewer: true,
     },
   });
-  if (!reviewer)
-    throw new Error("Either user doesn't exist or doesn't have reviewer role");
-  const inserted = await db
-    .insert(abstractReviewers)
-    .values({
-      for: paperId,
-      reviewer: reviewer.id,
-    })
-    .onConflictDoNothing()
-    .returning();
-  if (inserted.length) {
-    const signInLink = generateSignInLink(reviewer.email, "/review");
-    await sendMail(
-      reviewer.email,
-      reviewer.name ?? "Reviewer",
-      parsed.papernumber,
-      signInLink,
-    );
-  }
-  return true;
-}
 
-export type assignReviewerParamsType = Parameters<typeof assignReviewer>[0];
+  if (!assigned) throw new Error("No such assignment found");
+  if (assigned.response !== null) throw new Error("Response already submitted");
+
+  const reviewerEmail = assigned.reviewer.email;
+  const reviewerName = assigned.reviewer.name ?? "Reviewer";
+  const paperNumber = parsed.papernumber;
+  const signinLink = generateSignInLink(reviewerEmail, "/review");
+
+  await sendMail(reviewerEmail, reviewerName, paperNumber, signinLink);
+};

@@ -40,7 +40,11 @@ export default function ReviewerDashboard() {
       id: number;
       status: boolean | null;
     }) => {
-      return await changeStatus(id, status, comments[id]);
+      return await changeStatus({
+        papernumber: id,
+        newStatus: status,
+        comment: comments[id],
+      });
     },
   });
 
@@ -63,7 +67,7 @@ export default function ReviewerDashboard() {
       { id, status },
       {
         onSettled: () => {
-          void queryClient.invalidateQueries({
+          void queryClient.refetchQueries({
             queryKey: ["assignedAbstracts"],
           });
         },
@@ -97,11 +101,34 @@ export default function ReviewerDashboard() {
                   </a>
                 </CardHeader>
                 <CardContent>
-                  <p className="mb-4 text-sm text-gray-600">
-                    {review.abstract.title}
-                  </p>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex gap-1">
+                      Title:
+                      <span className="text-muted-foreground">
+                        {review.abstract.title}
+                      </span>
+                    </div>
+                    <div className="flex gap-1">
+                      Authors:
+                      <span className="text-muted-foreground">
+                        {review.abstract.authors}
+                      </span>
+                    </div>
+                    <div className="flex gap-1">
+                      Affiliation:
+                      <span className="text-muted-foreground">
+                        {review.abstract.affiliation}
+                      </span>
+                    </div>
+                    <div className="flex gap-1">
+                      Department:
+                      <span className="text-muted-foreground">
+                        {review.abstract.department}
+                      </span>
+                    </div>
+                  </div>
                   {review.response !== null ? (
-                    <div className="mb-4">
+                    <div className="flex flex-col gap-2 pt-2">
                       <p className="font-semibold">
                         Status:{" "}
                         <span
@@ -112,31 +139,30 @@ export default function ReviewerDashboard() {
                           {review.response ? "Approved" : "Rejected"}
                         </span>
                       </p>
-                      {review.comments && (
-                        <p className="mt-2">Comment: {review.comments}</p>
-                      )}
+                      {review.comments && <p>Comment: {review.comments}</p>}
                       <Button
                         variant="outline"
                         onClick={() => handleAction(review.for, null)}
-                        className="mt-2"
+                        className="self-center"
                       >
                         Delete Response
                       </Button>
                     </div>
                   ) : (
-                    <>
-                      <Textarea
-                        placeholder={`Add your comment here (optional, max ${MAX_CHARS} characters)`}
-                        value={comments[review.for] ?? ""}
-                        onChange={(e) =>
-                          handleCommentChange(review.for, e.target.value)
-                        }
-                        className="mb-2"
-                      />
-                      <p className="mb-4 text-sm text-gray-500">
-                        {MAX_CHARS - (comments[review.for]?.length ?? 0)}{" "}
-                        characters remaining
-                      </p>
+                    <div className="flex flex-col gap-4 pt-4">
+                      <div>
+                        <Textarea
+                          placeholder={`Add your comment here (optional, max ${MAX_CHARS} characters)`}
+                          value={comments[review.for] ?? ""}
+                          onChange={(e) =>
+                            handleCommentChange(review.for, e.target.value)
+                          }
+                        />
+                        <p className="text-sm text-gray-500">
+                          {MAX_CHARS - (comments[review.for]?.length ?? 0)}{" "}
+                          characters remaining
+                        </p>
+                      </div>
                       <div className="flex space-x-4">
                         <Button
                           onClick={() => handleAction(review.for, true)}
@@ -152,7 +178,7 @@ export default function ReviewerDashboard() {
                           Reject
                         </Button>
                       </div>
-                    </>
+                    </div>
                   )}
                 </CardContent>
               </Card>
