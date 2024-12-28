@@ -31,12 +31,12 @@ export async function getPaperAndReviewers(data: { papernumber: string }) {
   if (!paper) throw new Error("Paper not found");
   const frontendStatus =
     paper.status === true
-      ? "Accepted"
+      ? "accepted"
       : paper.status === false
-        ? "Rejected"
+        ? "rejected"
         : paper.reviewers.length > 0
-          ? "Assigned"
-          : "Submitted";
+          ? "assigned"
+          : "submitted";
 
   return {
     ...paper,
@@ -50,10 +50,10 @@ export async function getPaperAndReviewers(data: { papernumber: string }) {
       },
       status:
         response === null
-          ? "Under review"
+          ? "under review"
           : response === true
-            ? "Approved"
-            : "Rejected",
+            ? "approved"
+            : "rejected",
       comments: comments ?? "",
     })),
     papernumber: formatAbstractPaperNumber(paper.papernumber),
