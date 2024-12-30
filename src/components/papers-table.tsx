@@ -15,8 +15,9 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { Filter } from "lucide-react";
+import { Check, Ellipsis, Filter, X } from "lucide-react";
 import type { getPapersReturnType } from "~/server/actions/getPapers";
+import { QuestionMarkIcon } from "@radix-ui/react-icons";
 
 type PaperStatus = "submitted" | "assigned" | "accepted" | "rejected" | "all";
 
@@ -40,22 +41,41 @@ export function PapersTable({
     (paper) => filter === "all" || paper.frontendStatus === filter,
   );
 
-  const ReviewerResponse = ({ response }: { response: boolean | null }) => {
+  const ReviewerResponse = ({ response }: { response?: boolean | null }) => {
+    if (response === undefined) {
+      return (
+        <span className="font-bold uppercase text-muted-foreground">
+          <QuestionMarkIcon className="h-4 w-4" />
+        </span>
+      );
+    }
     if (response === null) {
-      return <span className="font-bold uppercase text-orange-400">N/A</span>;
+      return (
+        <span className="font-bold uppercase text-orange-400">
+          <Ellipsis className="h-4 w-4" />
+        </span>
+      );
     }
     if (response === true) {
-      return <span className="font-bold uppercase text-green-400">TRUE</span>;
+      return (
+        <span className="font-bold uppercase text-green-400">
+          <Check className="h-4 w-4" />
+        </span>
+      );
     }
-    return <span className="font-bold uppercase text-red-700">FALSE</span>;
+    return (
+      <span className="font-bold uppercase text-red-700">
+        <X className="h-4 w-4" />
+      </span>
+    );
   };
 
   const getReviewerResponse = (
     paper: getPapersReturnType[number],
     reviewerNumber: number,
   ) => {
-    const reviewer = paper.reviewers?.find((r) => r.for === reviewerNumber);
-    return reviewer?.response ?? null;
+    const reviewer = paper.reviewers[reviewerNumber - 1];
+    return reviewer?.response;
   };
 
   return (
@@ -90,12 +110,12 @@ export function PapersTable({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Paper Number</TableHead>
+            <TableHead>Paper</TableHead>
             <TableHead>Title</TableHead>
             <TableHead>Authors</TableHead>
             <TableHead>Submitter</TableHead>
-            <TableHead>Reviewer 1</TableHead>
-            <TableHead>Reviewer 2</TableHead>
+            <TableHead>R1</TableHead>
+            <TableHead>R2</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Submitted On</TableHead>
             <TableHead>Actions</TableHead>
@@ -104,7 +124,11 @@ export function PapersTable({
         <TableBody>
           {(filteredPapers ?? []).map((paper) => (
             <TableRow key={paper.papernumber}>
-              <TableCell>{paper.papernumber}</TableCell>
+              <TableCell className="whitespace-pre">
+                {paper.papernumber.split("-").slice(0, 2).join("-") +
+                  "-\n" +
+                  paper.papernumber.split("-")[2]}
+              </TableCell>
               <TableCell>{paper.title}</TableCell>
               <TableCell>{paper.authors}</TableCell>
               <TableCell>

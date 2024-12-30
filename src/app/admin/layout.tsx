@@ -1,4 +1,7 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
+import { buttonVariants } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 import { auth } from "~/server/auth";
 export default async function AdminLayout({
   children,
@@ -12,7 +15,11 @@ export default async function AdminLayout({
   }
   return (
     <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Admin</h1>
+      <div className="flex gap-4">
+        <Link href="/admin" className="text-2xl font-bold">
+          Admin
+        </Link>
+      </div>
       <div className="mt-4">{children}</div>
     </div>
   );

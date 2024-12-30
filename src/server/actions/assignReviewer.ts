@@ -43,6 +43,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
 export async function assignReviewer(data: {
   papernumber: string;
   reviewerEmail: string;
+  sendEmail: boolean;
 }) {
   const session = await auth();
   if (!session || session.user.role !== "admin")
@@ -67,7 +68,7 @@ export async function assignReviewer(data: {
     })
     .onConflictDoNothing()
     .returning();
-  if (inserted.length) {
+  if (inserted.length && parsed.sendEmail) {
     const signInLink = generateSignInLink(reviewer.email, "/review");
     await sendMail(
       reviewer.email,

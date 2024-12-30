@@ -15,6 +15,7 @@ export const assignReviewerSchema: z.ZodType<assignReviewerParamsType> =
   z.object({
     papernumber: z.string(),
     reviewerEmail: z.string().email(),
+    sendEmail: z.boolean(),
   });
 
 export const deleteReviewerSchema: z.ZodType<deleteReviewerParamsType> =

@@ -14,18 +14,32 @@ import { getPaperAndReviewers } from "~/server/actions/getPaperAndReviewers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { assignReviewer } from "~/server/actions/assignReviewer";
 import { deleteReviewer } from "~/server/actions/deleteReviewer";
-import { CheckCircle, Trash2, XCircle, Bell } from "lucide-react";
+import { Trash2, XCircle, Bell } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { updatePaperStatus } from "~/server/actions/finalResponse";
 import { sendIndividualReminder } from "~/server/actions/reminderMail";
 import { cn } from "~/lib/utils";
+import { toast } from "sonner";
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import {
+  DialogTrigger,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "~/components/ui/dialog";
+import Image from "next/image";
+import acceptedStamp from "~/assets/admin/accepted.webp";
+import rejectedStamp from "~/assets/admin/rejected.webp";
 
 const ACCEPTED = ["accepted", "approved"];
 const getStatusColor = (status: string) => {
   const val = status.toLowerCase();
   return ACCEPTED.includes(val)
     ? "text-green-600"
-    : val === "Rejected"
+    : val === "rejected"
       ? "text-red-600"
       : "text-yellow-600";
 };
@@ -51,6 +65,12 @@ export default function PaperPage() {
         queryKey: [id as string],
       });
     },
+    onSuccess: () => {
+      toast.success("Success");
+    },
+    onError: () => {
+      toast.error("An error occurred");
+    },
   });
   const {
     data: paper,
@@ -68,14 +88,18 @@ export default function PaperPage() {
   });
 
   const assignReviewerMutation = useMutation({
-    mutationFn: async ({
-      papernumber,
-      reviewerEmail,
-    }: {
-      papernumber: string;
-      reviewerEmail: string;
-    }) => {
-      return await assignReviewer({ papernumber, reviewerEmail });
+    mutationFn: assignReviewer,
+    onSettled: () => {
+      setIsOpen(false);
+      void queryClient.refetchQueries({
+        queryKey: [id as string],
+      });
+    },
+    onSuccess: () => {
+      toast.success("Reviewer assigned");
+    },
+    onError: () => {
+      toast.error("An error occurred");
     },
   });
 
@@ -102,27 +126,15 @@ export default function PaperPage() {
       return await sendIndividualReminder({ papernumber, reviewerId });
     },
     onSuccess: () => {
-      "Reminder sent"; // TODO: Show a toast
+      toast.success("Reminder sent");
     },
     onError: () => {
-      "Failed to send reminder"; // TODO: Show a toast
+      toast.error("Failed to send reminder");
     },
   });
 
   const handleStatusUpdate = (status: boolean) => {
-    void updateStatusMutation.mutate(
-      { papernumber: id as string, status },
-      {
-        onError: (error) => {
-          console.error("Failed to update paper status:", error);
-        },
-        onSettled: () => {
-          void queryClient.invalidateQueries({
-            queryKey: [id as string],
-          });
-        },
-      },
-    );
+    void updateStatusMutation.mutate({ papernumber: id as string, status });
   };
   const handleDelete = (reviewerId: string) => {
     void deleteReviewerMutation.mutate(
@@ -137,20 +149,12 @@ export default function PaperPage() {
     );
   };
 
-  const handleAction = (reviewerEmail: string) => {
-    void assignReviewerMutation.mutate(
-      { reviewerEmail, papernumber: id as string },
-      {
-        onSettled: () => {
-          void queryClient.invalidateQueries({
-            queryKey: [id as string],
-          });
-        },
-        onSuccess: () => {
-          setIsOpen(false);
-        },
-      },
-    );
+  const handleAction = (reviewerEmail: string, sendEmail: boolean) => {
+    void assignReviewerMutation.mutate({
+      reviewerEmail,
+      papernumber: id as string,
+      sendEmail,
+    });
   };
 
   if (isLoading) return <div>Loading...</div>;
@@ -187,7 +191,7 @@ export default function PaperPage() {
               <div className="flex space-x-2">
                 <AssignReviewersDialog
                   isOpen={isOpen}
-                  onClose={setIsOpen}
+                  setIsOpen={setIsOpen}
                   onAssign={handleAction}
                 />
               </div>
@@ -232,18 +236,24 @@ export default function PaperPage() {
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() =>
-                          sendIndividualReminderMutation.mutate({
-                            papernumber: id as string,
-                            reviewerId: review.reviewer.id,
-                          })
-                        }
-                      >
-                        <Bell className="h-4 w-4" />
-                      </Button>
+                      {review.status === "under review" ? (
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() =>
+                            sendIndividualReminderMutation.mutate({
+                              papernumber: id as string,
+                              reviewerId: review.reviewer.id,
+                            })
+                          }
+                          disabled={
+                            sendIndividualReminderMutation.isPending ||
+                            sendIndividualReminderMutation.isSuccess
+                          }
+                        >
+                          <Bell className="h-4 w-4" />
+                        </Button>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -251,40 +261,58 @@ export default function PaperPage() {
             : "No reviewers assigned"}
         </CardContent>
       </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Final Decision</CardTitle>
-          <CardDescription>Make a final decision on this paper</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex space-x-4">
+      {paper.status === null ? (
+        <Dialog>
+          <DialogTrigger asChild>
             <Button
-              onClick={() => handleStatusUpdate(true)}
-              className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700"
+              className="float-end flex items-center gap-2"
               disabled={updateStatusMutation.isPending}
             >
-              <CheckCircle className="h-5 w-5" />
-              Accept Paper
+              <ExclamationTriangleIcon className="h-5 w-5" />
+              Make final decision
             </Button>
-            <Button
-              onClick={() => handleStatusUpdate(false)}
-              className="flex items-center gap-2 bg-red-600 text-white hover:bg-red-700"
-              disabled={updateStatusMutation.isPending}
-            >
-              <XCircle className="h-5 w-5" />
-              Reject Paper
-            </Button>
-          </div>
-          {updateStatusMutation.isPending && (
-            <p className="mt-2 text-sm text-gray-500">Updating status...</p>
-          )}
-          {updateStatusMutation.isError && (
-            <p className="mt-2 text-sm text-red-500">
-              Failed to update status. Please try again.
-            </p>
-          )}
-        </CardContent>
-      </Card>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Final Decision</DialogTitle>
+              <DialogDescription>
+                Make a final decision on this paper
+              </DialogDescription>
+            </DialogHeader>
+            This decision is final and cannot be changed.
+            <br />
+            An email will be sent to the submitter with the decision.
+            <DialogFooter>
+              <div className="flex flex-1 justify-between">
+                <Button
+                  onClick={() => handleStatusUpdate(false)}
+                  className="flex items-center gap-2 bg-red-600 text-white hover:bg-red-700"
+                  disabled={updateStatusMutation.isPending}
+                >
+                  <XCircle className="h-5 w-5" />
+                  Reject Paper
+                </Button>
+                <Button
+                  onClick={() => handleStatusUpdate(true)}
+                  className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700"
+                  disabled={updateStatusMutation.isPending}
+                >
+                  <XCircle className="h-5 w-5" />
+                  Accept Paper
+                </Button>
+              </div>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      ) : (
+        <Image
+          src={paper.status ? acceptedStamp : rejectedStamp}
+          alt="status"
+          width={200}
+          height={200}
+          className="object-contain"
+        />
+      )}
     </div>
   );
 }

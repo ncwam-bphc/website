@@ -11,6 +11,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import { cn } from "~/lib/utils";
+import { toast } from "sonner";
 
 const MAX_CHARS = 200;
 
@@ -46,6 +47,17 @@ export default function ReviewerDashboard() {
         comment: comments[id],
       });
     },
+    onSettled: () => {
+      void queryClient.refetchQueries({
+        queryKey: ["assignedAbstracts"],
+      });
+    },
+    onSuccess: () => {
+      toast.success("success");
+    },
+    onError: () => {
+      toast.error("An error occurred");
+    },
   });
 
   useEffect(() => {
@@ -63,16 +75,7 @@ export default function ReviewerDashboard() {
   }, [reviews]);
 
   const handleAction = (id: number, status: boolean | null) => {
-    void changeStatusMutation.mutate(
-      { id, status },
-      {
-        onSettled: () => {
-          void queryClient.refetchQueries({
-            queryKey: ["assignedAbstracts"],
-          });
-        },
-      },
-    );
+    void changeStatusMutation.mutate({ id, status });
   };
 
   const handleCommentChange = (id: number, value: string) => {
