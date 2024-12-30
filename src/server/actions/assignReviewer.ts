@@ -6,6 +6,7 @@ import { db } from "../db";
 import { abstractReviewers } from "../db/schema";
 import { assignReviewerSchema } from "~/schemas";
 import { env } from "~/env";
+import { or } from "drizzle-orm";
 
 const sendMail = async (
   email: string,
@@ -54,7 +55,7 @@ export async function assignReviewer(data: {
     where(fields, { and, eq }) {
       return and(
         eq(fields.email, parsed.reviewerEmail),
-        eq(fields.role, "reviewer"),
+        or(eq(fields.role, "reviewer"), eq(fields.role, "admin")),
       );
     },
   });

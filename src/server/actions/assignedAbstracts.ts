@@ -8,7 +8,10 @@ import { changeStatusSchema } from "~/schemas";
 
 export async function getAssignedAbstracts() {
   const session = await auth();
-  if (!session || session.user.role !== "reviewer")
+  if (
+    !session ||
+    (session.user.role !== "reviewer" && session.user.role !== "admin")
+  )
     throw new Error("Unauthorized");
   return (
     await db.query.abstractReviewers.findMany({
@@ -32,7 +35,10 @@ export async function changeStatus(data: {
   comment?: string;
 }) {
   const session = await auth();
-  if (!session || session.user.role !== "reviewer")
+  if (
+    !session ||
+    (session.user.role !== "reviewer" && session.user.role !== "admin")
+  )
     throw new Error("Unauthorized");
   const parsed = changeStatusSchema.parse(data);
   const updated = await db

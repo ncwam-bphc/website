@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { buttonVariants } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
 import { auth } from "~/server/auth";
+
 export default async function AdminLayout({
   children,
 }: {

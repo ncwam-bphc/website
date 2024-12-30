@@ -8,7 +8,7 @@ export default async function ReviewerLayout({
 }) {
   const session = await auth();
 
-  if (session?.user.role !== "reviewer") {
+  if (session?.user.role !== "reviewer" && session?.user.role !== "admin") {
     redirect("/");
   }
   return (
