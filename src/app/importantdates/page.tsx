@@ -30,7 +30,7 @@ export default function AboutusPage() {
                   <span className="flex-[3]">
                     Last date for submission of Extended Abstracts:
                   </span>
-                  <span className="flex-1 text-accent">Dec. 31 2024<p className="line-through">Dec. 22, 2024</p> </span>
+                  <span className="flex-1 text-accent">Jan. 7 2024<p className="line-through">Dec. 31, 2024</p> </span>
                 </div>
               </li>
               <li>
