@@ -77,6 +77,38 @@ export default function AboutusPage() {
         <Section bgImage={aboutBg} className="md:flex-row">
           <div className="flex items-center gap-4 md:flex-col">
             <div className="flex flex-col items-center gap-4 font-bold">
+              <h2 className="text-3xl text-accent md:text-5xl">ABOUT</h2>
+              <div className="xs:text-xl text-center text-base sm:text-3xl lg:text-5xl">
+                Mechanical Engineering Department,
+                <br />
+                BITS Pilani Hyderabad
+              </div>
+            </div>
+            <Image src={bitsLogo} className="h-24 w-auto md:h-32" alt="logo" />
+          </div>
+          <div className="text-justify">
+            The{" "}
+            <span className="text-accent">
+              Mechanical Engineering Department
+            </span>{" "}
+            at BITS Pilani Hyderabad was established in the year 2008.
+            Currently, the Department is offering B.E (Hons.) in Mechanical, M.E
+            in Design Engineering, Mechanical Engineering and Manufacturing
+            Systems Engineering as well as Minor programs in Robotics and
+            Automation, and Aeronautics.
+            <br />
+            <br />
+            The faculty members and research scholars (doctoral and masters) are
+            extensively involved in the government and industry sponsored
+            research projects on various aspects of Engineering and
+            Manufacturing processes as well as advanced Technologies and
+            Materials used across the industry sectors.
+          </div>
+        </Section>
+
+        <Section bgImage={aboutBg} className="md:flex-row-reverse">
+          <div className="flex items-center gap-4 md:flex-col">
+            <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
               <div className="text-nowrap text-center text-3xl md:text-5xl">
                 CRENS
@@ -97,7 +129,7 @@ export default function AboutusPage() {
           </div>
         </Section>
 
-        <Section bgImage={aboutBg} className="md: flex-row-reverse">
+        <Section bgImage={aboutBg} className="md:flex-row">
           <div className="flex items-center gap-4 md:flex-col md:gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
@@ -123,11 +155,11 @@ export default function AboutusPage() {
             (IIW).
           </div>
         </Section>
-        <Section bgImage={aboutBg} className="md:flex-row">
+        <Section bgImage={aboutBg} className="md:flex-row-reverse">
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-col items-center gap-4 font-bold">
               <h2 className="text-4xl text-accent md:text-6xl">ABOUT</h2>
-              <div className="text-nowrap text-center text-3xl md:text-5xl">
+              <div className="text-nowrap text-center text-xl sm:text-3xl lg:text-5xl">
                 IIW-Hyderabad Branch
               </div>
             </div>

@@ -16,6 +16,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
+        xs: "375px",
         nav: "1440px",
       },
       colors: {
