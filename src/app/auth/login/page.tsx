@@ -14,7 +14,7 @@ import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import contactusBg from "~/assets/contactus.webp";
 import { signIn } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import z from "zod";
 import { useSearchParams } from "next/navigation";
 import { toast } from "sonner";
@@ -45,7 +45,7 @@ const getLoginError = (error: string) => {
   }
 };
 
-export default function LoginPage() {
+function LoginPageComponent() {
   const searchparams = useSearchParams();
   const loginError = searchparams.get("error");
   const [loginErrorToast, setLoginErrorToast] = useState<string | number>("");
@@ -140,5 +140,13 @@ export default function LoginPage() {
         </CardFooter>
       </Card>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginPageComponent />
+    </Suspense>
   );
 }

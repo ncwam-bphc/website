@@ -12,6 +12,7 @@ import Image from "next/image";
 import contactusBg from "~/assets/contactus.webp";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const getErrorDescription = (error: string | null) => {
   switch (error) {
@@ -62,7 +63,7 @@ const getErrorBody = (error: string | null) => {
   }
 };
 
-export default function ErrorPage() {
+function ErrorPageComponent() {
   const searchparams = useSearchParams();
   const error = searchparams.get("error");
   return (
@@ -91,5 +92,13 @@ export default function ErrorPage() {
         </CardFooter>
       </Card>
     </div>
+  );
+}
+
+export default function ErrorPage() {
+  return (
+    <Suspense>
+      <ErrorPageComponent />
+    </Suspense>
   );
 }
