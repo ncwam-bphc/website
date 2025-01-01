@@ -96,7 +96,7 @@ const speakers = [
   },
   {
     name: "Dr. Agilan M",
-    institution: "LPSC ISRO, Trivandrum",
+    institution: "VSSC ISRO, Trivandrum",
     imageUrl: Agilan,
   },
   {
