@@ -27,7 +27,7 @@ const Section = ({
         <div className="absolute inset-0 -z-10 bg-black bg-opacity-80 backdrop-blur-sm"></div>
         <div
           className={cn(
-            "mx-auto flex h-full max-w-6xl items-center justify-center gap-24 text-base max-md:flex-col max-md:gap-12 sm:text-xl md:text-2xl",
+            "max-xs:text-sm mx-auto flex h-full max-w-6xl items-center justify-center gap-24 text-base max-md:flex-col max-md:gap-12 max-sm:gap-8 sm:text-lg md:text-xl lg:text-2xl",
             className,
           )}
         >

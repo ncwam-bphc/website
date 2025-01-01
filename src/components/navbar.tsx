@@ -46,7 +46,7 @@ export default function Navbar() {
     <div className="flex w-full items-center justify-between bg-black/40 p-4 backdrop-blur-lg">
       <Link
         href="/"
-        className="text-4xl font-extrabold tracking-tight text-white"
+        className="text-2xl font-extrabold tracking-tight text-white sm:text-4xl"
       >
         NCWAM <span className="text-accent"> 2025</span>
       </Link>
