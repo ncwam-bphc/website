@@ -136,7 +136,7 @@ const onAbstractDataReceived = async (data: unknown) => {
         user.email,
         abstract.title,
         abstract.papernumber,
-        user.name ?? "Corresponding author",
+        user.name ?? "Submitter",
         signinLink,
       );
     });

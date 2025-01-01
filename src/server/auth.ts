@@ -35,6 +35,12 @@ declare module "@auth/core/adapters" {
 // You'll need to import and pass this
 // to `NextAuth` in `app/api/auth/[...nextauth]/route.ts`
 export const config = {
+  pages: {
+    signIn: "/auth/login",
+    signOut: "/submissions",
+    error: "/auth/error",
+    verifyRequest: "/auth/verify-request",
+  },
   callbacks: {
     async signIn({ user }) {
       if (!user.email) return false;
