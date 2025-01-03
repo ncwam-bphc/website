@@ -99,7 +99,7 @@ const onAbstractDataReceived = async (data: unknown) => {
   for (const entry of responses.filter((e) =>
     toAdd.has(e.Timestamp.valueOf()),
   )) {
-    await db.transaction(async (tx) => {
+    const [user, abstract] = await db.transaction(async (tx) => {
       const user = (
         await tx
           .insert(users)
@@ -137,15 +137,16 @@ const onAbstractDataReceived = async (data: unknown) => {
           })
           .returning()
       )[0]!;
-      const signinLink = generateSignInLink(user.email, "/submissions");
-      await sendMail(
-        user.email,
-        abstract.title,
-        abstract.papernumber,
-        user.name ?? "Submitter",
-        signinLink,
-      );
+      return [user, abstract];
     });
+    const signinLink = generateSignInLink(user.email, "/submissions");
+    await sendMail(
+      user.email,
+      abstract.title,
+      abstract.papernumber,
+      user.name ?? "Submitter",
+      signinLink,
+    );
   }
   return true;
 };
