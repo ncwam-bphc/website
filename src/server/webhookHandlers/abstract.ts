@@ -53,15 +53,16 @@ const abstractCols = z.object({
   data: z
     .object({
       Timestamp: z.coerce.date(),
-      "Name in full with title (Prof./Dr./Mr./Mrs./Ms.)": z.string(),
-      "E-mail ID": z.string().email(),
-      "Mobile number": z.string(),
+      "Name in full with title (Prof./Dr./Mr./Mrs./Ms.)": z.string().trim(),
+      "E-mail ID": z.string().trim().email(),
+      "Mobile number": z.string().trim(),
       "Affiliation in full  (University/R&D/Organization/College/Industry/Others)":
-        z.string(),
-      "Department name in full": z.string(),
-      "Title of the extended abstract": z.string(),
-      "Author's details (names of all authors, separated by commas)":
-        z.string(),
+        z.string().trim(),
+      "Department name in full": z.string().trim(),
+      "Title of the extended abstract": z.string().trim(),
+      "Author's details (names of all authors, separated by commas)": z
+        .string()
+        .trim(),
       "Upload PDF copy of extended abstract": z.string().url(),
     })
     .array(),
@@ -70,7 +71,9 @@ const abstractCols = z.object({
 const onAbstractDataReceived = async (data: unknown) => {
   const parsed = abstractCols.safeParse(data);
   if (!parsed.success)
-    throw new Error("Validation error: " + parsed.error.message);
+    throw new Error(
+      "Validation error: " + JSON.stringify(parsed.error.errors, undefined, 4),
+    );
   if (parsed.data.status !== 200) throw new Error("Data fetch failed");
   const responses = parsed.data.data;
   const timestamps = responses.map((d) => d.Timestamp);
