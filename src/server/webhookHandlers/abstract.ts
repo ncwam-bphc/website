@@ -77,7 +77,7 @@ const onAbstractDataReceived = async (data: unknown) => {
   if (parsed.data.status !== 200) throw new Error("Data fetch failed");
   const responses = parsed.data.data.map((d) => ({
     ...d,
-    Timestamp: new Date(d.Timestamp.toISOString().split(".")[0]!),
+    Timestamp: new Date(d.Timestamp.toISOString().split(".")[0]! + "-05:30"),
   }));
   const timestamps = responses.map((d) => d.Timestamp);
   const existing = new Set(
