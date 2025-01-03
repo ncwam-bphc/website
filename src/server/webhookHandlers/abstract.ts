@@ -75,7 +75,10 @@ const onAbstractDataReceived = async (data: unknown) => {
       "Validation error: " + JSON.stringify(parsed.error.errors, undefined, 4),
     );
   if (parsed.data.status !== 200) throw new Error("Data fetch failed");
-  const responses = parsed.data.data;
+  const responses = parsed.data.data.map((d) => ({
+    ...d,
+    Timestamp: new Date(d.Timestamp.toISOString().split(".")[0]!),
+  }));
   const timestamps = responses.map((d) => d.Timestamp);
   const existing = new Set(
     (
