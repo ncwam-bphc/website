@@ -99,46 +99,43 @@ const onAbstractDataReceived = async (data: unknown) => {
   for (const entry of responses.filter((e) =>
     toAdd.has(e.Timestamp.valueOf()),
   )) {
-    const [user, abstract] = await db.transaction(async (tx) => {
-      const user = (
-        await tx
-          .insert(users)
-          .values({
-            email: entry["E-mail ID"],
+    const user = (
+      await db
+        .insert(users)
+        .values({
+          email: entry["E-mail ID"],
+          name: entry["Name in full with title (Prof./Dr./Mr./Mrs./Ms.)"],
+          phone: entry["Mobile number"],
+        })
+        .onConflictDoUpdate({
+          target: [users.email],
+          set: {
             name: entry["Name in full with title (Prof./Dr./Mr./Mrs./Ms.)"],
             phone: entry["Mobile number"],
-          })
-          .onConflictDoUpdate({
-            target: [users.email],
-            set: {
-              name: entry["Name in full with title (Prof./Dr./Mr./Mrs./Ms.)"],
-              phone: entry["Mobile number"],
-            },
-          })
-          .returning()
-      )[0]!;
-      const abstract = (
-        await tx
-          .insert(abstracts)
-          .values({
-            userId: user.id,
-            affiliation:
-              entry[
-                "Affiliation in full  (University/R&D/Organization/College/Industry/Others)"
-              ],
-            department: entry["Department name in full"],
-            title: entry["Title of the extended abstract"],
-            authors:
-              entry[
-                "Author's details (names of all authors, separated by commas)"
-              ],
-            timestamp: entry.Timestamp,
-            upload: entry["Upload PDF copy of extended abstract"],
-          })
-          .returning()
-      )[0]!;
-      return [user, abstract];
-    });
+          },
+        })
+        .returning()
+    )[0]!;
+    const abstract = (
+      await db
+        .insert(abstracts)
+        .values({
+          userId: user.id,
+          affiliation:
+            entry[
+              "Affiliation in full  (University/R&D/Organization/College/Industry/Others)"
+            ],
+          department: entry["Department name in full"],
+          title: entry["Title of the extended abstract"],
+          authors:
+            entry[
+              "Author's details (names of all authors, separated by commas)"
+            ],
+          timestamp: entry.Timestamp,
+          upload: entry["Upload PDF copy of extended abstract"],
+        })
+        .returning()
+    )[0]!;
     const signinLink = generateSignInLink(user.email, "/submissions");
     await sendMail(
       user.email,
