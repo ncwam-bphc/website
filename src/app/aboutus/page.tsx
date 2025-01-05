@@ -98,11 +98,10 @@ export default function AboutusPage() {
             Automation, and Aeronautics.
             <br />
             <br />
-            The faculty members and research scholars (doctoral and masters) are
-            extensively involved in the government and industry sponsored
-            research projects on various aspects of Engineering and
-            Manufacturing processes as well as advanced Technologies and
-            Materials used across the industry sectors.
+            The <span className="text-accent"> faculty members and research scholars </span>
+            (doctoral and masters) are extensively involved in the government and industry sponsored
+            research projects on various aspects of Engineering and Manufacturing processes as well as 
+            advanced Technologies and xMaterials used across the industry sectors.
           </div>
         </Section>
 
