@@ -87,6 +87,21 @@ export default function AboutusPage() {
             Brochure back page (JPG)
           </a>
         </div>
+        <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
+          <div className="customcol text-nowrap text-center text-xl font-bold uppercase text-accent md:text-2xl lg:text-3xl">
+            Speaker Details
+          </div>
+          <a
+            href="/Invited talks with titles (Public)-2DNCWAM 2025-February 2025-Jeevan.docx"
+            target="_blank"
+            className={cn(
+              buttonVariants(),
+              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+            )}
+          >
+            Invited Talks
+          </a>
+        </div>
       </div>
     </main>
   );

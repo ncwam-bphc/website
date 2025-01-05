@@ -33,24 +33,94 @@ export default function SubmissionsPage() {
         <div className="text-nowrap text-center text-3xl font-bold uppercase text-accent md:text-5xl">
           Submissions
         </div>
-        <div className="text-center text-3xl">
+
+        {/* <div className="text-center text-3xl">
           Extended Abstract submission window is active now
-        </div>
-        <a
-          href="https://forms.gle/x1mrgruoTKrv7PDU9"
-          className={cn(
-            buttonVariants(),
-            "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
-          )}
-        >
-          Submit abstract
-        </a>
+        </div> */}
+
         {session.status === "unauthenticated" ? (
           <span>
-            Already submitted?{" "}
-            <Link href={"/api/auth/signin"} className="underline">
-              Sign in
-            </Link>
+            <div className="flex-col">
+              <div className="mb-6">
+                <div className="text-center text-xl md:text-xl">
+                  <span className="customcol text-3xl">
+                    Extended Abstracts - Compulsory Submission
+                  </span>{" "}
+                  <br></br>
+                  <div className="text-justify">
+                    <span className="text-accent">
+                      Peer reviewed and accepted abstracts
+                    </span>{" "}
+                    will be recommended for oral and/or poster presentations.
+                    Also, all accepted and presented abstracts will be published
+                    as conference proceedings, and a copy will be given to all
+                    the registered participants as part of the conference kit.
+                  </div>
+                </div>
+                <br></br>
+                <a
+                  href="https://forms.gle/x1mrgruoTKrv7PDU9"
+                  className={cn(
+                    buttonVariants(),
+                    "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+                  )}
+                >
+                  Submit abstract
+                </a>
+                <br></br>
+                Already submitted?{" "}
+                <Link href={"/api/auth/signin"} className="underline">
+                  Sign in
+                </Link>
+              </div>
+              <div className="my-4 h-[2px] w-96 justify-self-center bg-white"></div>
+              <div>
+                <div className="text-center text-xl md:text-xl">
+                  <span className="text-bold customcol text-3xl">
+                    Manuscript (full length paper) - Optional Submission:
+                  </span>{" "}
+                  <br></br>
+                  <div className="text-justify">
+                    <span className="text-accent">
+                      Manuscript submission is optional.
+                    </span>{" "}
+                    However, peer reviewed and accepted manuscripts will be
+                    recommended to Scopus journal, preferably Springer publisher
+                    with whom the discussions are in progress. The authors will
+                    be consented before recommending the manuscript for
+                    publication, and it may be a subscription based (free of
+                    cost) and/or an open access (paid, but discounted price)
+                    journal.{" "}
+                    <span className="text-accent">
+                      Details of the Scopus journal will be updated to all the
+                      registered participants by the end of January 2025.
+                    </span>{" "}
+                    So, authors who wish to publish in a Scopus journal are
+                    encouraged to submit the manuscript in a journal format
+                    (available in the downloads section) on or before the due
+                    date mentioned in the important dates section.
+                  </div>
+                </div>
+                <br></br>
+                <a
+                  // href="https://forms.gle/x1mrgruoTKrv7PDU9"
+                  className={cn(
+                    buttonVariants(),
+                    "rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+                  )}
+                >
+                  Submit manuscript
+                </a>
+                <br></br>
+                <div className="">
+                  Already submitted?{" "}
+                  <Link href={"/api/auth/signin"} className="underline">
+                    Sign in
+                  </Link>
+                </div>
+              </div>
+              <br></br>
+            </div>
           </span>
         ) : session.status === "authenticated" ? (
           <>
