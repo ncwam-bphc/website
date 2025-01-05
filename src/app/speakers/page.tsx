@@ -5,6 +5,7 @@ import spbg from "~/assets/speakers.webp";
 import speakers from "~/assets/speakers/speakers";
 import { cn } from "~/lib/utils";
 import JanakiRam from "~/assets/speakers/G.D. Janaki Ram.webp";
+import TalksTable from "~/components/talks-table"; // Add this import
 
 const SpeakerCard = ({
   name,
@@ -82,6 +83,9 @@ export default function SpeakersPage() {
             />
           ))}
         </div>
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+
+        <TalksTable />
       </main>
     </div>
   );

@@ -51,7 +51,7 @@ const speakers = [
   },
   {
     name: "Prof. G.M. Karthik",
-    institution: "IIT-BHU Varanasi",
+    institution: "IIT (BHU) Varanasi",
     imageUrl: GMKarthik,
   },
   {
