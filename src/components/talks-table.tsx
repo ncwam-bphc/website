@@ -141,25 +141,22 @@ const TalksTable = () => {
       </div>
       <Card className="border-none bg-white/5 backdrop-blur-sm">
         <CardContent className="p-4 md:p-6">
-          {/* Mobile View */}
           <div className="block md:hidden">
             {talks.map((talk, index) => (
               <div 
                 key={index}
                 className="mb-6 border-b border-white/10 pb-6 last:mb-0 last:border-b-0 last:pb-0"
               >
-                <h5 className="mb-3 text-xl font-medium">{talk.title}</h5>
-                <p className="mb-2 text-lg customcol">
-                  <span className="font-medium">Speaker:</span> {talk.speaker}
+                <h5 className="mb-3 text-2xl font-semibold">{talk.title}</h5>
+                <p className="mb-2 text-2xl customcol">
+                  <span className="font-semibold">Speaker:</span> {talk.speaker}
                 </p>
-                <p className="text-lg customcol">
-                  <span className="font-medium">Institution:</span> {talk.institution}
+                <p className="text-2xl customcol">
+                  <span className="font-semibold">Institution:</span> {talk.institution}
                 </p>
               </div>
             ))}
           </div>
-
-          {/* Desktop View */}
           <div className="hidden md:block">
             <div className="overflow-x-auto">
               <table className="w-full table-fixed">
