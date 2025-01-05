@@ -52,9 +52,9 @@ export default function SubmissionsPage() {
                       Peer reviewed and accepted abstracts
                     </span>{" "}
                     will be recommended for oral and/or poster presentations.
-                    Also, all accepted and presented abstracts will be published
-                    as conference proceedings, and a copy will be given to all
-                    the registered participants as part of the conference kit.
+                    All accepted and presented abstracts will be published as
+                    conference proceedings, and a copy will be given to all the
+                    registered participants as part of the conference kit.
                   </div>
                 </div>
                 <br></br>
