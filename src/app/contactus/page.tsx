@@ -40,10 +40,10 @@ export default function ContactUs() {
         className="relative z-20 w-full max-w-4xl overflow-hidden rounded-2xl bg-white bg-opacity-90 shadow-2xl backdrop-blur-md max-md:mt-16"
       >
         <div className="p-8 md:p-12">
-          <h1 className="mb-4 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent">
+          <h1 className="mb-4 text-center text-2xl font-bold text-accent sm:text-3xl md:text-4xl lg:text-5xl">
             Contact Us
           </h1>
-          <p className="mb-12 text-center text-base sm:text-lg md:text-xl text-gray-700">
+          <p className="mb-12 text-center text-base text-gray-700 sm:text-lg md:text-xl">
             We&apos;re here to assist you
           </p>
           <div className="grid gap-8 md:grid-cols-2">
@@ -57,29 +57,29 @@ export default function ContactUs() {
                 <Card className="group flex-1 overflow-hidden border-none bg-white shadow-lg transition-all duration-300 hover:shadow-xl">
                   <CardContent className="h-full p-6">
                     <div className="mb-4">
-                      <h2 className="text-xl sm:text-2xl font-semibold text-accent transition-colors duration-300 group-hover:text-[#e87a62]">
+                      <h2 className="text-xl font-semibold text-accent transition-colors duration-300 group-hover:text-[#e87a62] sm:text-2xl">
                         {contact.name}
                       </h2>
-                      <p className="whitespace-break-spaces text-sm sm:text-base text-gray-600">
+                      <p className="whitespace-break-spaces text-sm text-gray-600 sm:text-base">
                         {contact.role}
                       </p>
                     </div>
                     <div className="space-y-4">
-                      <div className="flex items-center space-x-3 text-sm sm:text-base text-gray-700 transition-colors duration-300 group-hover:text-accent">
+                      <div className="flex items-center space-x-3 text-sm text-gray-700 transition-colors duration-300 group-hover:text-accent sm:text-base">
                         <Phone
                           className="text-accent transition-transform duration-300 group-hover:scale-110"
                           size={20}
                         />
                         <span>{contact.phone}</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-sm sm:text-base text-gray-700 transition-colors duration-300 group-hover:text-accent">
+                      <div className="flex items-center space-x-3 text-sm text-gray-700 transition-colors duration-300 group-hover:text-accent sm:text-base">
                         <Mail
                           className="text-accent transition-transform duration-300 group-hover:scale-110"
                           size={20}
                         />
                         <span>{contact.email}</span>
                       </div>
-                      <div className="flex items-center space-x-3 text-sm sm:text-base text-gray-700 transition-colors duration-300 group-hover:text-accent">
+                      <div className="flex items-center space-x-3 text-sm text-gray-700 transition-colors duration-300 group-hover:text-accent sm:text-base">
                         <MapPin
                           className="text-accent transition-transform duration-300 group-hover:scale-110"
                           size={20}
@@ -95,29 +95,14 @@ export default function ContactUs() {
             <Card className="group flex-1 overflow-hidden border-none bg-white shadow-lg transition-all duration-300 hover:shadow-xl md:col-span-2">
               <CardContent className="h-full p-6">
                 <div className="mb-4 text-center">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-accent transition-colors duration-300">
-                    Faculty Leads
+                  <h2 className="text-xl font-semibold text-accent transition-colors duration-300 sm:text-2xl">
+                    Committee Leads
                   </h2>
                 </div>
                 <div className="space-y-4">
                   <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
-                    <span className="text-base sm:text-xl text-accent">
+                    <span className="text-base text-accent sm:text-xl">
                       Technical Review Committee
-                    </span>
-                    <span className="flex flex-wrap items-center justify-center text-sm sm:text-lg">
-                      Prof. Sujith R
-                      <div className="ml-2 flex items-center gap-2">
-                        <Mail
-                          className="text-accent transition-transform duration-300"
-                          size={20}
-                        />
-                        sujith@hyderabad.bits-pilani.ac.in
-                      </div>
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
-                    <span className="text-base sm:text-xl text-accent">
-                      Website Committee
                     </span>
                     <span className="flex flex-wrap items-center justify-center text-sm sm:text-lg">
                       Prof. Jeevan Jaidi
@@ -131,7 +116,22 @@ export default function ContactUs() {
                     </span>
                   </div>
                   <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
-                    <span className="text-base sm:text-xl text-accent">
+                    <span className="text-base text-accent sm:text-xl">
+                      Website Committee
+                    </span>
+                    <span className="flex flex-wrap items-center justify-center text-sm sm:text-lg">
+                      Mr. Shiv Patil
+                      <div className="ml-2 flex items-center gap-2">
+                        <Mail
+                          className="text-accent transition-transform duration-300"
+                          size={20}
+                        />
+                        f20230740@hyderabad.bits-pilani.ac.in
+                      </div>
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
+                    <span className="text-base text-accent sm:text-xl">
                       Sponsorship Committee
                     </span>
                     <span className="flex flex-wrap items-center justify-center text-sm sm:text-lg">
@@ -145,12 +145,42 @@ export default function ContactUs() {
                       </div>
                     </span>
                   </div>
+                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
+                    <span className="text-base text-accent sm:text-xl">
+                      Hospitality Committee
+                    </span>
+                    <span className="flex flex-wrap items-center justify-center text-sm sm:text-lg">
+                      Prof. Kundan Kumar Singh
+                      <div className="ml-2 flex items-center gap-2">
+                        <Mail
+                          className="text-accent transition-transform duration-300"
+                          size={20}
+                        />
+                        ksingh@hyderabad.bits-pilani.ac.in
+                      </div>
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center space-x-3 text-gray-700 transition-colors duration-300">
+                    <span className="text-base text-accent sm:text-xl">
+                      Event Management Committee
+                    </span>
+                    <span className="flex flex-wrap items-center justify-center text-sm sm:text-lg">
+                      Prof. Amrita Priyadarshini
+                      <div className="ml-2 flex items-center gap-2">
+                        <Mail
+                          className="text-accent transition-transform duration-300"
+                          size={20}
+                        />
+                        amrita@hyderabad.bits-pilani.ac.in
+                      </div>
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
-          <div className="mt-12 flex items-center justify-center gap-4 text-base sm:text-xl text-gray-700">
-            <Mail className="h-4 w-4 sm:h-6 sm:w-6 text-accent" />
+          <div className="mt-12 flex items-center justify-center gap-4 text-base text-gray-700 sm:text-xl">
+            <Mail className="h-4 w-4 text-accent sm:h-6 sm:w-6" />
             <a
               href="mailto:ncwam@hyderabad.bits-pilani.ac.in"
               className="hover:text-accent"

@@ -315,211 +315,313 @@ export const technical = [
   {
     name: "Prof. G.M. Karthik",
     institution: "IIT-BHU Varanasi",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Joy Prakash Misra",
     institution: "IIT-BHU Varanasi",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Pawan Sharma",
     institution: "IIT-BHU Varanasi",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Rakesh Lingam",
     institution: "IIT Dharwad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. K. Shyamprasad",
     institution: "IIT Bombay",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. R. Lakshmi Narayan",
     institution: "IIT Delhi",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Buchibabu Vicharapu",
     institution: "IIT Palakkad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Siva S",
     institution: "IIT Jammu",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Soham Muzumdar",
     institution: "IIT Bombay",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Anirudh Udupa",
     institution: "IIT Madras",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. N. Kishore Babu",
     institution: "NIT Warangal",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. T. Mahesh Kumar",
     institution: "NIT Warangal",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Shivraman",
     institution: "NIT Warangal",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Manjaiah M",
     institution: "NIT Warangal",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Adepu Kumar",
     institution: "NIT Warangal",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. K. Siva Prasad",
     institution: "NIT Trichy",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Dr. Hemant Kumar",
     institution: "IGCAR Kalpakkam",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Dr. D. Suresh Meshram",
     institution: "DMRL Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Dr. Agilan M",
     institution: "VSSC ISRO Trivandrum",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Dr. J. John Rozario",
     institution: "DRDL Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Shri. Kaushal Kishore",
     institution: "R&D, Tata Steel Ltd., Jamshedpur",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Ravi Shanker Vidyarthy",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Kundan Kumar Singh",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Sujith R",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Kurra Suresh",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Pavan Kumar P",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Amrita Priyadarshini",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. Amol Vuppuluri",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
   {
     name: "Prof. P. Jayaprakash Sharma",
     institution: "BITS Pilani WILP",
-    imageUrl: null
+    imageUrl: null,
   },
   {
-    name: "Prof. Jeevan Jaidi",
+    name: "Prof. Jeevan Jaidi (Lead)",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-  
-
 ];
 
 export const website = [
-
- 
-   
-    {
+  {
     name: "Mr. Shiv Patil",
     institution: "Student, BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-    {
+  {
     name: "Mr. Achal Jhawar",
     institution: "Student, BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-    {
+  {
     name: "Mr. Parth Munjal",
     institution: "Student, BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-   {
+  {
     name: "Mr. Amogh Chatterjee",
     institution: "Student, BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-   {
+  {
     name: "Mr. B. Ramana Murthy",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-    {
+  {
     name: "Mr. Abhinav M",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-     {
-    name: "Prof. Jeevan Jaidi",
+  {
+    name: "Prof. Jeevan Jaidi (Lead)",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
-
-
-]
-;
+];
 
 export const sponso = [
-     {
-  name: "Prof. P. Jayaprakash Sharma",
+  {
+    name: "Prof. P. Jayaprakash Sharma",
     institution: "BITS Pilani WILP",
-    imageUrl: null
+    imageUrl: null,
   },
-     {
-    name: "Prof. Aritra Chatterjee",
+  {
+    name: "Prof. Aritra Chatterjee (Lead)",
     institution: "BITS Pilani Hyderabad",
-    imageUrl: null
+    imageUrl: null,
   },
+];
 
+export const hosp = [
+  {
+    name: "Prof. Kundan Kumar Singh (Lead)",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. G. Prashanth Kumar Reddy",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Aditya Nema",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. M. Sitaram",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+];
+
+export const em = [
+  {
+    name: "Prof. Amrita Priyadarshini (Lead)",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. Pavan Kumar P",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. Kurra Suresh",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. Ravi Shanker Vidyarthy",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. Sujith R",
+    institution: "BITS Pilani, Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. Amol Vuppuluri",
+    institution: "BITS Pilani, Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. P. Venkata Ramana",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. J. Kandasamy",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Prof. P. Sammaiah",
+    institution: "IIW-Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Gururaja S",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Abhinav M",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. B. Ramana Murthy",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Kaleru Sai Kiran",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Gunashekar G",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Ms. Vishista Kaushik",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Sreejith S",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Himanshu Shukla",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
 ];

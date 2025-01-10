@@ -7,6 +7,8 @@ import {
   technical,
   website,
   sponso,
+  em,
+  hosp,
 } from "~/assets/committe/committe";
 import { Section } from "~/components/Committee";
 
@@ -73,6 +75,10 @@ export default function SpeakersPage() {
         <Section title="Website Committee" contentList={website} />
         <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
         <Section title="Sponsorship Committee" contentList={sponso} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+        <Section title="Hospitality Commitee" contentList={hosp} />
+        <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+        <Section title="Event Management Commitee" contentList={em} />
         <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
       </main>
     </div>
