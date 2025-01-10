@@ -155,7 +155,7 @@ export default function ReviewerDashboard() {
                     <div className="flex flex-col gap-4 pt-4">
                       <div>
                         <Textarea
-                          placeholder={`Add your comment here (optional, max ${MAX_CHARS} characters)`}
+                          placeholder={`Add your comment here recommending either oral or poster presentation (max ${MAX_CHARS} characters)`}
                           value={comments[review.for] ?? ""}
                           onChange={(e) =>
                             handleCommentChange(review.for, e.target.value)
