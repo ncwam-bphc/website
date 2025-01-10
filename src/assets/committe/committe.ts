@@ -36,7 +36,7 @@ export const patrons = [
   },
   {
     name: "Prof. Soumyo Mukherji",
-    institution: "Director, BITS Pilani, Hyderabad",
+    institution: "Director, BITS Pilani Hyderabad",
     imageUrl: SoumyoPic,
   },
   {
