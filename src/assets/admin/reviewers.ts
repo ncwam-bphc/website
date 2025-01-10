@@ -139,6 +139,6 @@ export const Reviewers =
         },
         {
           value: "f20232163@hyderabad.bits-pilani.ac.in",
-          label: "Acahal",
+          label: "Achal",
         },
       ];

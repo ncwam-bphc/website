@@ -22,9 +22,9 @@ const TalksTable = () => {
   const talks: TalksData = {
     plenary: [
       {
-        title: "Microstructures and Mechanical Properties of Additively Manufactured Metal Components",
-        speaker: "Prof. G.D. Janaki Ram",
-        institution: "IIT Hyderabad"
+        title: "Indigenous Technology and Challenges in Electron Beam Welding and EM Pulsed Welding Machines",
+        speaker: "Dist. Prof. Archana Sharma",
+        institution: "IIIT Naya Raipur"
       }
     ],
     welding: [

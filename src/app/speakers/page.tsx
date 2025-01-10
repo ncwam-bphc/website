@@ -4,7 +4,7 @@ import Image, { type StaticImageData } from "next/image";
 import spbg from "~/assets/speakers.webp";
 import speakers from "~/assets/speakers/speakers";
 import { cn } from "~/lib/utils";
-import JanakiRam from "~/assets/speakers/G.D. Janaki Ram.webp";
+import ArchanaSharma from "~/assets/speakers/Prof. Archana Sharma.webp"
 import TalksTable from "~/components/talks-table"; // Add this import
 
 const SpeakerCard = ({
@@ -65,9 +65,9 @@ export default function SpeakersPage() {
         </div>
         <div className="flex justify-center">
           <SpeakerCard
-            name="Prof. G.D. Janaki Ram"
-            institution="IIT Hyderabad"
-            img={JanakiRam}
+            name="Dist. Prof. Archana Sharma"
+            institution="IIIT Naya Raipur"
+            img={ArchanaSharma}
           ></SpeakerCard>
         </div>
         <div className="mt-4 flex justify-center text-4xl font-bold md:text-5xl">
