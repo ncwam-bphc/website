@@ -1,44 +1,32 @@
 "use server";
 
 import { db } from "../db";
-import { and, eq } from "drizzle-orm";
-import { users, abstractReviewers } from "../db/schema";
+import { eq, or } from "drizzle-orm";
+import { users } from "../db/schema";
 import { auth } from "../auth";
 
 export async function getReviewersData() {
   try {
     const session = await auth();
-    if (!session || session.user.role !== "admin") 
+    if (!session || session.user.role !== "admin")
       throw new Error("Unauthorized");
 
     const reviewers = await db.query.users.findMany({
-      where: eq(users.role, "reviewer"),
+      where: or(eq(users.role, "reviewer"), eq(users.role, "admin")),
       columns: {
-        id: true,
         name: true,
         email: true,
       },
-    });
-
-    const assignments = await db.query.abstractReviewers.findMany({
-      columns: {
-        reviewer: true,
+      with: {
+        reviews: true,
       },
     });
-
-    const assignmentCounts = new Map<string, number>();
-    assignments.forEach(assignment => {
-      const currentCount = assignmentCounts.get(assignment.reviewer) || 0;
-      assignmentCounts.set(assignment.reviewer, currentCount + 1);
-    });
-
-    const reviewersData = reviewers.map(reviewer => [
-      reviewer.id,
-      reviewer.name || reviewer.email,
-      assignmentCounts.get(reviewer.id) || 0
-    ]);
-
-    return reviewersData;
+    return reviewers
+      .map((reviewer) => ({
+        ...reviewer,
+        reviews: reviewer.reviews.length,
+      }))
+      .sort((a, b) => a.reviews - b.reviews);
   } catch (error) {
     console.error("Error fetching reviewers data:", error);
     return null;

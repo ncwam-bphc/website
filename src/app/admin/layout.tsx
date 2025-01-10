@@ -13,7 +13,7 @@ export default async function AdminLayout({
     redirect("/");
   }
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto p-4">
       <div className="flex gap-4">
         <Link href="/admin" className="text-2xl font-bold">
           Admin

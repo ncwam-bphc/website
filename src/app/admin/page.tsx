@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getPapers } from "~/server/actions/getPapers";
 import { PapersTable } from "~/components/papers-table";
+import { buttonVariants } from "~/components/ui/button";
+import Link from "next/link";
 
 export default function AdminPage() {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
@@ -36,6 +38,9 @@ export default function AdminPage() {
 
   return (
     <div className="space-y-4">
+      <Link href="/admin/stats" className={buttonVariants()}>
+        Stats
+      </Link>
       {isLoading ? (
         <div>Loading papers...</div>
       ) : isError ? (
