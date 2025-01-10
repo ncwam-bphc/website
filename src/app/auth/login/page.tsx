@@ -13,10 +13,10 @@ import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import contactusBg from "~/assets/contactus.webp";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Suspense, useEffect, useState } from "react";
 import z from "zod";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { X } from "lucide-react";
 
@@ -51,6 +51,12 @@ function LoginPageComponent() {
   const [loginErrorToast, setLoginErrorToast] = useState<string | number>("");
   const [emailInput, setEmailInput] = useState("");
   const [inputError, setError] = useState("");
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") router.replace("/submissions");
+  }, [status, router]);
 
   const handleSignIn = async () => {
     const parsed = emailSchema.safeParse(emailInput);

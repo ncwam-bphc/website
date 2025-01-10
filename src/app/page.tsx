@@ -35,7 +35,7 @@ export default function ConferenceLanding() {
         <div className="customcol flex w-full animate-infinite-scroll justify-end whitespace-nowrap md:text-2xl">
           Based on the requests from PhD scholars, the final deadline for
           submission of extended abstract is 25th January 2025. Manuscript
-          submission (optional) date has been extended to 31st January.
+          submission (optional) date has been extended to 7th February.
           Registration must be completed on or before 10th February 2025.
         </div>
       </div>

@@ -30,7 +30,9 @@ export default function AboutusPage() {
                   <span className="flex-[3]">
                     Last date for submission of Extended Abstracts:
                   </span>
-                  <span className="flex-1 text-accent">Jan. 7 2024<p className="line-through">Dec. 31, 2024</p> </span>
+                  <span className="flex-1 text-accent">
+                    Jan. 25, 2025<p className="line-through">Jan. 7, 2025</p>{" "}
+                  </span>
                 </div>
               </li>
               <li>
@@ -38,7 +40,7 @@ export default function AboutusPage() {
                   <span className="flex-[3]">
                     Notification of Accepted Abstracts:
                   </span>
-                  <span className="flex-1 text-accent">Jan. 1-7, 2025</span>
+                  <span className="flex-1 text-accent">Jan. 11-25, 2025</span>
                 </div>
               </li>
               <li>
@@ -46,7 +48,7 @@ export default function AboutusPage() {
                   <span className="flex-[3]">
                     Last date for submission of Manuscripts:
                   </span>
-                  <span className="flex-1 text-accent">​Jan. 31, 2025</span>
+                  <span className="flex-1 text-accent">​Feb. 7, 2025</span>
                 </div>
               </li>
               <li>

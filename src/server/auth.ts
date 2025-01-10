@@ -13,6 +13,7 @@ import { accounts, sessions, users, verificationTokens } from "./db/schema";
 import "next-auth";
 import type { DefaultSession } from "next-auth";
 import { randomBytes, createHash } from "crypto";
+import { sendVerificationRequest } from "./sendVerificationRequest";
 
 declare module "next-auth" {
   interface Session {
@@ -82,6 +83,7 @@ export const config = {
       server: env.EMAIL_SERVER,
       from: env.EMAIL_FROM,
       maxAge: 90 * 24 * 60 * 60, // 90 days
+      sendVerificationRequest: sendVerificationRequest,
     }),
   ],
 } satisfies NextAuthOptions;
