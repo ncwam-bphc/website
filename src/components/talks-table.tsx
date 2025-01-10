@@ -22,7 +22,7 @@ const TalksTable = () => {
   const talks: TalksData = {
     plenary: [
       {
-        title: "Indigenous Technology and Challenges in Electron Beam Welding and EM Pulsed Welding Machines",
+        title: "Technological Challenges of Indigenous Electron Beam Welding and Electro-magnetic Pulsed Welding",
         speaker: "Dist. Prof. Archana Sharma",
         institution: "IIIT Naya Raipur"
       }
