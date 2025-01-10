@@ -139,7 +139,7 @@ export default function ReviewerDashboard() {
                             review.response ? "text-green-600" : "text-red-600"
                           }
                         >
-                          {review.response ? "Approved" : "Rejected"}
+                          {review.response ? "Approved" : "Resubmit"}
                         </span>
                       </p>
                       {review.comments && <p>Comment: {review.comments}</p>}
@@ -178,7 +178,7 @@ export default function ReviewerDashboard() {
                           variant="destructive"
                           className="flex-1"
                         >
-                          Reject
+                          Resubmit
                         </Button>
                       </div>
                     </div>
