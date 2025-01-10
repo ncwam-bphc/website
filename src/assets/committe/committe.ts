@@ -561,12 +561,12 @@ export const em = [
   },
   {
     name: "Prof. Sujith R",
-    institution: "BITS Pilani, Hyderabad",
+    institution: "BITS Pilani Hyderabad",
     imageUrl: null,
   },
   {
     name: "Prof. Amol Vuppuluri",
-    institution: "BITS Pilani, Hyderabad",
+    institution: "BITS Pilani Hyderabad",
     imageUrl: null,
   },
   {
@@ -621,6 +621,11 @@ export const em = [
   },
   {
     name: "Mr. Himanshu Shukla",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: null,
+  },
+  {
+    name: "Mr. Aarjoo Jaimin",
     institution: "BITS Pilani Hyderabad",
     imageUrl: null,
   },
