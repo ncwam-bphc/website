@@ -172,6 +172,8 @@ export default function PaperPage() {
         </CardHeader>
         <CardContent>
           <p>Paper number: {paper.papernumber}</p>
+          <p>Institution: {paper.affiliation}</p>
+          <p>Department: {paper.department}</p>
           <p>
             Status:{" "}
             <span
