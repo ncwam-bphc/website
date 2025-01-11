@@ -114,9 +114,13 @@ export default function SubmissionsPage() {
                     registered participants by the end of January 2025.
                   </span>{" "}
                   So, authors who wish to publish in a Scopus journal are
-                  encouraged to submit the manuscript in a journal format
-                  (available in the downloads section) on or before the due date
-                  mentioned in the important dates section.
+                  encouraged to submit the manuscript in a prescribed format
+                  (available in the{" "}
+                  <Link href={"/downloads"} className="underline">
+                    downloads section
+                  </Link>
+                  ) on or before the due date mentioned in the important dates
+                  section.
                 </div>
                 <a
                   // href="https://forms.gle/x1mrgruoTKrv7PDU9"
