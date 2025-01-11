@@ -103,11 +103,12 @@ export default function SubmissionsPage() {
                     Manuscript submission is optional.
                   </span>{" "}
                   However, peer reviewed and accepted manuscripts will be
-                  recommended to Scopus journal, preferably Springer publisher
-                  with whom the discussions are in progress. The authors will be
-                  consented before recommending the manuscript for publication,
-                  and it may be a subscription based (free of cost) and/or an
-                  open access (paid, but discounted price) journal.{" "}
+                  recommended to Scopus indexed conference proceedings by
+                  international publisher(s) with whom the discussions are in
+                  progress. The authors will be consented before recommending
+                  the manuscript for publication, and it may be a subscription
+                  based (free of cost) and/or an open access (paid, but
+                  discounted price) journal.{" "}
                   <span className="text-accent">
                     Details of the Scopus journal will be updated to all the
                     registered participants by the end of January 2025.

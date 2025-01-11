@@ -56,7 +56,9 @@ export default function AboutusPage() {
                   <span className="flex-[3]">
                     Notification of Accepted Manuscripts:
                   </span>
-                  <span className="flex-1 text-accent">Jan. 16-31, 2025</span>
+                  <span className="flex-1 text-accent">
+                    Jan. 26, 2025 - Feb. 10, 2025
+                  </span>
                 </div>
               </li>
               <li>
@@ -64,7 +66,9 @@ export default function AboutusPage() {
                   <span className="flex-[3]">
                     Last date for submission of Revised Manuscripts:
                   </span>
-                  <span className="flex-1 text-accent">Feb. 15, 2025</span>
+                  <span className="flex-1 text-accent">
+                    Feb. 20, 2025<p className="line-through">Feb. 15, 2025</p>{" "}
+                  </span>
                 </div>
               </li>
               <li>
