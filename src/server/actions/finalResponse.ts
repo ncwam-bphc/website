@@ -27,7 +27,7 @@ Dr. Jeevan Jaidi & Dr. P. Jayaprakash Sharma<br>
 Convener & Co-Convener, NCWAM-2025<br>
 E-mail: ncwam@hyderabad.bits-pilani.ac.in<br>
 Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank">https://www.ncwambitshyderabad.com/</a></p>`;
-  //if (env.NODE_ENV !== "production") return console.log(mailHtml);
+  if (env.NODE_ENV !== "production") return console.log(mailHtml);
   const transporter = nodemailer.createTransport(env.EMAIL_SERVER);
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",
