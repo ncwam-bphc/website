@@ -40,10 +40,10 @@ const getStatus = async () => {
                 ? "under review"
                 : "rejected",
           reviewerA: {
-            comment: sortedReviewers[0]?.comments ?? null
+            comment: sortedReviewers[0]?.comments ?? "No comments"
           },
           reviewerB: {
-            comment: sortedReviewers[1]?.comments ?? null
+            comment: sortedReviewers[1]?.comments ?? "No comments"
           }
         };
       })

@@ -7,7 +7,6 @@ import getStatus from "~/server/actions/getStatus";
 import { cn } from "~/lib/utils";
 import { Button, buttonVariants } from "~/components/ui/button";
 import Link from "next/link";
-import { toast } from "sonner";
 
 export default function SubmissionsPage() {
   const session = useSession();
