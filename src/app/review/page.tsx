@@ -13,7 +13,7 @@ import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import { cn } from "~/lib/utils";
 import { toast } from "sonner";
 
-const MAX_CHARS = 200;
+const MAX_CHARS = 300;
 
 export default function ReviewerDashboard() {
   const [comments, setComments] = useState<Record<number, string>>({});

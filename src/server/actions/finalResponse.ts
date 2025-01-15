@@ -3,7 +3,7 @@
 import { db } from "../db";
 import { abstracts } from "../db/schema";
 import { eq } from "drizzle-orm";
-import { auth } from "../auth";
+import { auth, generateSignInLink } from "../auth";
 import { formatAbstractPaperNumber, getAbstractPaperNumber } from "~/lib/utils";
 import { updatePaperStatusSchema } from "~/schemas";
 import { env } from "~/env";
@@ -14,13 +14,18 @@ const sendMail = async (
   name: string,
   paper: number,
   status: boolean,
+  signinLink: string,
 ) => {
   const mailHtml = `<p>Dear ${name},</p>
         
-<p>Your abstract submission has been reviewed, ${status ? "and it has been accepted." : "It is suggested to revise and resubmit incorporating the reviewer's comments. "}</p>
+<p>Your abstract submission has been reviewed, ${status ? "and it has been accepted." : "it is suggested to revise and resubmit incorporating the reviewer's comments."}</p>
 
 <p><strong>Paper Number:</strong> ${formatAbstractPaperNumber(paper)}<br />
 <strong>Status:</strong> <span style="color: ${status ? "green" : "red"};">${status ? "Accepted" : "Resubmit"}</span></p>
+
+<p>
+You can check current status on the website by logging in using this link: <a href="${signinLink}" target="_blank">Sign in</a>
+</p>
 
 <p>With best regards,<br>
 Dr. Jeevan Jaidi & Dr. P. Jayaprakash Sharma<br>
@@ -44,6 +49,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
 export async function updatePaperStatus(data: {
   papernumber: string;
   status: boolean;
+  comments?: string;
 }) {
   const session = await auth();
   if (!session || session.user.role !== "admin") {
@@ -56,6 +62,7 @@ export async function updatePaperStatus(data: {
       .update(abstracts)
       .set({
         status: parsed.status,
+        comments: parsed.comments,
       })
       .where(eq(abstracts.papernumber, paperId))
       .returning();
@@ -68,11 +75,13 @@ export async function updatePaperStatus(data: {
           return eq(fields.id, updated[0]!.userId);
         },
       }))!;
+      const signInLink = generateSignInLink(user.email, "/submissions");
       void sendMail(
         user.email,
         user.name ?? "Submitter",
         updated[0]!.papernumber,
         parsed.status,
+        signInLink,
       );
     }
     return updated[0];

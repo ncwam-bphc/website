@@ -2,7 +2,7 @@
 import { formatAbstractPaperNumber } from "~/lib/utils";
 import { auth } from "../auth";
 import { db } from "../db";
-import { abstractReviewers } from "../db/schema";
+import { abstractReviewers, abstracts } from "../db/schema";
 import { and, eq } from "drizzle-orm";
 import { changeStatusSchema } from "~/schemas";
 
@@ -41,6 +41,10 @@ export async function changeStatus(data: {
   )
     throw new Error("Unauthorized");
   const parsed = changeStatusSchema.parse(data);
+  const paper = await db.query.abstracts.findFirst({
+    where: eq(abstracts.papernumber, parsed.papernumber),
+  });
+  if (paper?.status !== null) throw new Error("Abstract already reviewed");
   const updated = await db
     .update(abstractReviewers)
     .set({

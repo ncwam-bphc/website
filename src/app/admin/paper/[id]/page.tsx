@@ -32,14 +32,16 @@ import {
 } from "~/components/ui/dialog";
 import Image from "next/image";
 import acceptedStamp from "~/assets/admin/accepted.webp";
-import rejectedStamp from "~/assets/admin/rejected.webp";
+import { Textarea } from "~/components/ui/textarea";
+
+const MAX_CHARS = 300;
 
 const ACCEPTED = ["accepted", "approved"];
 const getStatusColor = (status: string) => {
   const val = status.toLowerCase();
   return ACCEPTED.includes(val)
     ? "text-green-600"
-    : val === "rejected"
+    : val === "resubmit"
       ? "text-red-600"
       : "text-yellow-600";
 };
@@ -49,16 +51,19 @@ export default function PaperPage() {
   const { id } = useParams();
   const router = useRouter();
   const queryClient = useQueryClient();
+  const [comment, setComment] = useState<string>("");
 
   const updateStatusMutation = useMutation({
     mutationFn: async ({
       papernumber,
       status,
+      comments,
     }: {
       papernumber: string;
       status: boolean;
+      comments: string;
     }) => {
-      return await updatePaperStatus({ papernumber, status });
+      return await updatePaperStatus({ papernumber, status, comments });
     },
     onSettled: () => {
       void queryClient.invalidateQueries({
@@ -134,7 +139,11 @@ export default function PaperPage() {
   });
 
   const handleStatusUpdate = (status: boolean) => {
-    void updateStatusMutation.mutate({ papernumber: id as string, status });
+    void updateStatusMutation.mutate({
+      papernumber: id as string,
+      status,
+      comments: comment,
+    });
   };
   const handleDelete = (reviewerId: string) => {
     void deleteReviewerMutation.mutate(
@@ -182,6 +191,7 @@ export default function PaperPage() {
               {paper.frontendStatus}
             </span>
           </p>
+          <p>Comments: {paper.comments?.length ? paper.comments : "-"}</p>
         </CardContent>
       </Card>
 
@@ -281,9 +291,22 @@ export default function PaperPage() {
                 Make a final decision on this paper
               </DialogDescription>
             </DialogHeader>
-            This decision is final and cannot be changed.
-            <br />
-            An email will be sent to the submitter with the decision.
+            <div>
+              <Textarea
+                placeholder={`Add your comment here (max ${MAX_CHARS} characters)`}
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <p className="text-sm text-gray-500">
+                {MAX_CHARS - (comment.length ?? 0)} characters remaining
+              </p>
+            </div>
+            <p>
+              This decision is final and cannot be changed.
+              <br />
+              An email will be sent to the submitter with the decision.
+            </p>
+
             <DialogFooter>
               <div className="flex flex-1 justify-between">
                 <Button
@@ -306,15 +329,15 @@ export default function PaperPage() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-      ) : (
+      ) : paper.status ? (
         <Image
-          src={paper.status ? acceptedStamp : rejectedStamp}
+          src={acceptedStamp}
           alt="status"
           width={200}
           height={200}
           className="object-contain"
         />
-      )}
+      ) : null}
     </div>
   );
 }

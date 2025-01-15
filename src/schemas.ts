@@ -28,6 +28,7 @@ export const updatePaperStatusSchema: z.ZodType<updatePaperStatusParamsType> =
   z.object({
     papernumber: z.string(),
     status: z.boolean(),
+    comments: z.string().trim().optional(),
   });
 
 export const getPaperAndReviewersSchema: z.ZodType<getPaperAndReviewersParamsType> =

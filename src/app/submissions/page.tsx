@@ -68,15 +68,15 @@ export default function SubmissionsPage() {
                     Peer reviewed and accepted abstracts
                   </span>{" "}
                   will be recommended for oral and/or poster presentations. All
-                  accepted and presented abstracts will be published as conference
-                  proceedings, and a copy will be given to all the registered
-                  participants as part of the conference kit.
+                  accepted and presented abstracts will be published as
+                  conference proceedings, and a copy will be given to all the
+                  registered participants as part of the conference kit.
                 </div>
                 <a
                   href="https://forms.gle/x1mrgruoTKrv7PDU9"
                   className={cn(
                     buttonVariants(),
-                    "mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl"
+                    "mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
                   )}
                 >
                   Submit abstract
@@ -97,7 +97,9 @@ export default function SubmissionsPage() {
             </div>
             <span>
               Email:{" "}
-              <span className="pr-2 text-white">{session.data.user?.email}</span>
+              <span className="pr-2 text-white">
+                {session.data.user?.email}
+              </span>
               <Button
                 variant="poppy"
                 className="rounded-xl bg-accent px-3 py-2 text-base font-semibold text-white hover:bg-accent/80"
@@ -108,49 +110,58 @@ export default function SubmissionsPage() {
                 Signout
               </Button>
             </span>
-            {submissionStatus?.length ? (
-              submissionStatus?.map((submission, index) => (
-                <div
-                  className="customcol flex w-full max-w-3xl flex-col gap-2 text-center text-lg md:text-2xl"
-                  key={index}
-                >
-                  <span>
-                    Paper title:{" "}
-                    <span className="text-white">{submission.paperTitle}</span>
-                  </span>
-                  <span>
-                    Paper number:{" "}
-                    <span className="text-white">{submission.paperNumber}</span>
-                  </span>
-                  <span>
-                    Status:{" "}
-                    <span className="uppercase text-white">{submission.status}</span>
-                  </span>
-                  {(submission.reviewerA || submission.reviewerB) && (
-                    <div className="mt-2 flex flex-col gap-2">
-                      <span className="text-xl font-semibold text-accent">
-                        Reviewer Comments
+            {submissionStatus?.length
+              ? submissionStatus?.map((submission, index) => (
+                  <div
+                    className="customcol flex w-full max-w-3xl flex-col gap-2 text-center text-lg md:text-2xl"
+                    key={index}
+                  >
+                    <span>
+                      Paper title:{" "}
+                      <span className="text-white">
+                        {submission.paperTitle}
                       </span>
-                      {submission.reviewerA && (
-                        <div className="flex flex-col gap-1">
-                          <span className="text-lg font-medium">Reviewer A:</span>
-                          <span className="text-white">{submission.reviewerA.comment}</span>
-                        </div>
-                      )}
-                      {submission.reviewerB && (
-                        <div className="flex flex-col gap-1">
-                          <span className="text-lg font-medium">Reviewer B:</span>
-                          <span className="text-white">{submission.reviewerB.comment}</span>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                  <div className="h-[2px] w-full bg-accent" />
-                </div>
-              ))
-            ) : (
-              "You don't have any submissions."
-            )}
+                    </span>
+                    <span>
+                      Paper number:{" "}
+                      <span className="text-white">
+                        {submission.paperNumber}
+                      </span>
+                    </span>
+                    <span>
+                      Status:{" "}
+                      <span className="uppercase text-white">
+                        {submission.status}
+                      </span>
+                    </span>
+                    {submission.status !== "under review" && (
+                      <div className="mt-2 flex flex-col gap-2">
+                        <span className="text-xl font-semibold text-accent">
+                          Reviewer A comments
+                        </span>
+                        <span className="text-white">
+                          {submission.reviewerA.comment}
+                        </span>
+
+                        <span className="text-xl font-semibold text-accent">
+                          Reviewer B comments
+                        </span>
+                        <span className="text-white">
+                          {submission.reviewerB.comment}
+                        </span>
+
+                        <span className="text-xl font-semibold text-accent">
+                          Final Comments
+                        </span>
+                        <span className="text-white">
+                          {submission.finalComments}
+                        </span>
+                      </div>
+                    )}
+                    <div className="h-[2px] w-full bg-accent" />
+                  </div>
+                ))
+              : "You don't have any submissions."}
           </>
         ) : (
           "Loading..."

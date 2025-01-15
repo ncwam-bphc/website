@@ -56,6 +56,7 @@ export const abstracts = createTable("abstract", {
   authors: text("authors").notNull(),
   upload: text("upload"),
   status: boolean("approved"),
+  comments: text("comments"),
 });
 
 export const abstractsRelations = relations(abstracts, ({ one, many }) => ({

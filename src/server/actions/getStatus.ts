@@ -16,10 +16,10 @@ const getStatus = async () => {
         with: {
           reviewers: {
             with: {
-              reviewer: true
-            }
-          }
-        }
+              reviewer: true,
+            },
+          },
+        },
       },
     },
   });
@@ -27,8 +27,9 @@ const getStatus = async () => {
 
   return user.abstracts.length
     ? user.abstracts.map((abstract) => {
-        const sortedReviewers = abstract.reviewers.sort((a, b) => 
-          a.reviewer.id.localeCompare(b.reviewer.id));
+        const sortedReviewers = abstract.reviewers.sort((a, b) =>
+          a.reviewer.id.localeCompare(b.reviewer.id),
+        );
 
         return {
           paperNumber: formatAbstractPaperNumber(abstract.papernumber),
@@ -40,11 +41,12 @@ const getStatus = async () => {
                 ? "under review"
                 : "resubmit",
           reviewerA: {
-            comment: sortedReviewers[0]?.comments ?? "No comments"
+            comment: sortedReviewers[0]?.comments ?? "No comments",
           },
           reviewerB: {
-            comment: sortedReviewers[1]?.comments ?? "No comments"
-          }
+            comment: sortedReviewers[1]?.comments ?? "No comments",
+          },
+          finalComments: abstract.comments ?? "No comments",
         };
       })
     : null;

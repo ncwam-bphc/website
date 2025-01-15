@@ -33,7 +33,7 @@ export async function getPaperAndReviewers(data: { papernumber: string }) {
     paper.status === true
       ? "accepted"
       : paper.status === false
-        ? "rejected"
+        ? "resubmit"
         : paper.reviewers.length > 0
           ? "assigned"
           : "submitted";
