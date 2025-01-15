@@ -17,17 +17,17 @@ const sendMail = async (
 ) => {
   const mailHtml = `<p>Dear ${name},</p>
         
-<p>Your abstract submission has been reviewed.</p>
+<p>Your abstract submission has been reviewed, ${status ? "and it has been accepted." : "It is suggested to revise and resubmit incorporating the reviewer's comments. "}</p>
 
 <p><strong>Paper Number:</strong> ${formatAbstractPaperNumber(paper)}<br />
-<strong>Status:</strong> <span style="color: ${status ? "green" : "red"};">${status ? "Accepted" : "Rejected"}</span></p>
+<strong>Status:</strong> <span style="color: ${status ? "green" : "red"};">${status ? "Accepted" : "Resubmit"}</span></p>
 
 <p>With best regards,<br>
 Dr. Jeevan Jaidi & Dr. P. Jayaprakash Sharma<br>
 Convener & Co-Convener, NCWAM-2025<br>
 E-mail: ncwam@hyderabad.bits-pilani.ac.in<br>
 Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank">https://www.ncwambitshyderabad.com/</a></p>`;
-  if (env.NODE_ENV !== "production") return console.log(mailHtml);
+  //if (env.NODE_ENV !== "production") return console.log(mailHtml);
   const transporter = nodemailer.createTransport(env.EMAIL_SERVER);
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",

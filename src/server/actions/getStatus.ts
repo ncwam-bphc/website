@@ -38,7 +38,7 @@ const getStatus = async () => {
               ? "approved"
               : abstract.status === null
                 ? "under review"
-                : "rejected",
+                : "resubmit",
           reviewerA: {
             comment: sortedReviewers[0]?.comments ?? "No comments"
           },

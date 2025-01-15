@@ -292,7 +292,7 @@ export default function PaperPage() {
                   disabled={updateStatusMutation.isPending}
                 >
                   <XCircle className="h-5 w-5" />
-                  Reject Paper
+                  Resubmit Paper
                 </Button>
                 <Button
                   onClick={() => handleStatusUpdate(true)}
