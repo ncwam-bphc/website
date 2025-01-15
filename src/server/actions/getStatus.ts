@@ -12,21 +12,41 @@ const getStatus = async () => {
       return operators.eq(fields.email, session.user.email!);
     },
     with: {
-      abstracts: true,
+      abstracts: {
+        with: {
+          reviewers: {
+            with: {
+              reviewer: true
+            }
+          }
+        }
+      },
     },
   });
   if (!user?.abstracts[0]) return null;
-  return user?.abstracts.length
-    ? user.abstracts.map((e) => ({
-        paperNumber: formatAbstractPaperNumber(e.papernumber),
-        paperTitle: e.title,
-        status:
-          e.status === true
-            ? "approved"
-            : e.status === null
-              ? "under review"
-              : "rejected",
-      }))
+
+  return user.abstracts.length
+    ? user.abstracts.map((abstract) => {
+        const sortedReviewers = abstract.reviewers.sort((a, b) => 
+          a.reviewer.id.localeCompare(b.reviewer.id));
+
+        return {
+          paperNumber: formatAbstractPaperNumber(abstract.papernumber),
+          paperTitle: abstract.title,
+          status:
+            abstract.status === true
+              ? "approved"
+              : abstract.status === null
+                ? "under review"
+                : "rejected",
+          reviewerA: {
+            comment: sortedReviewers[0]?.comments ?? null
+          },
+          reviewerB: {
+            comment: sortedReviewers[1]?.comments ?? null
+          }
+        };
+      })
     : null;
 };
 
