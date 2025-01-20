@@ -3,7 +3,7 @@ import bg from "~/assets/aboutconference/bg.webp";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
-import getStatus from "~/server/actions/getStatus";
+import getStatus from "~/server/actions/abstract/getStatus";
 import { cn } from "~/lib/utils";
 import { Button, buttonVariants } from "~/components/ui/button";
 import Link from "next/link";
@@ -157,55 +157,55 @@ export default function SubmissionsPage() {
             </span>
             {submissionStatus?.length
               ? submissionStatus?.map((submission, index) => (
-                <div
-                  className="customcol flex w-full max-w-3xl flex-col gap-2 text-center text-lg md:text-2xl"
-                  key={index}
-                >
-                  <span>
-                    Paper title:{" "}
-                    <span className="text-white">
-                      {submission.paperTitle}
-                    </span>
-                  </span>
-                  <span>
-                    Paper number:{" "}
-                    <span className="text-white">
-                      {submission.paperNumber}
-                    </span>
-                  </span>
-                  <span>
-                    Status:{" "}
-                    <span className="uppercase text-white">
-                      {submission.status}
-                    </span>
-                  </span>
-                  {submission.status !== "under review" && (
-                    <div className="mt-2 flex flex-col gap-2">
-                      <span className="text-xl font-semibold text-accent">
-                        Reviewer A comments
-                      </span>
+                  <div
+                    className="customcol flex w-full max-w-3xl flex-col gap-2 text-center text-lg md:text-2xl"
+                    key={index}
+                  >
+                    <span>
+                      Paper title:{" "}
                       <span className="text-white">
-                        {submission.reviewerA.comment}
+                        {submission.paperTitle}
                       </span>
+                    </span>
+                    <span>
+                      Paper number:{" "}
+                      <span className="text-white">
+                        {submission.paperNumber}
+                      </span>
+                    </span>
+                    <span>
+                      Status:{" "}
+                      <span className="uppercase text-white">
+                        {submission.status}
+                      </span>
+                    </span>
+                    {submission.status !== "under review" && (
+                      <div className="mt-2 flex flex-col gap-2">
+                        <span className="text-xl font-semibold text-accent">
+                          Reviewer A comments
+                        </span>
+                        <span className="text-white">
+                          {submission.reviewerA.comment}
+                        </span>
 
-                      <span className="text-xl font-semibold text-accent">
-                        Reviewer B comments
-                      </span>
-                      <span className="text-white">
-                        {submission.reviewerB.comment}
-                      </span>
+                        <span className="text-xl font-semibold text-accent">
+                          Reviewer B comments
+                        </span>
+                        <span className="text-white">
+                          {submission.reviewerB.comment}
+                        </span>
 
-                      <span className="text-xl font-semibold text-accent">
-                        Final Comments
-                      </span>
-                      <span className="text-white">
-                        {submission.finalComments}
-                      </span>
-                    </div>
-                  )}
-                  <div className="h-[2px] w-full bg-accent" />
-                </div>
-              ))
+                        <span className="text-xl font-semibold text-accent">
+                          Final Comments
+                        </span>
+                        <span className="text-white">
+                          {submission.finalComments}
+                        </span>
+                      </div>
+                    )}
+                    <div className="h-[2px] w-full bg-accent" />
+                  </div>
+                ))
               : "You don't have any submissions."}
           </>
         ) : (

@@ -10,14 +10,14 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { AssignReviewersDialog } from "~/components/assign-reviewers-dialog";
-import { getPaperAndReviewers } from "~/server/actions/getPaperAndReviewers";
+import { getPaperAndReviewers } from "~/server/actions/abstract/getPaperAndReviewers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { assignReviewer } from "~/server/actions/assignReviewer";
-import { deleteReviewer } from "~/server/actions/deleteReviewer";
+import { assignReviewer } from "~/server/actions/abstract/assignReviewer";
+import { deleteReviewer } from "~/server/actions/abstract/deleteReviewer";
 import { Trash2, XCircle, Bell } from "lucide-react";
 import { Button } from "~/components/ui/button";
-import { updatePaperStatus } from "~/server/actions/finalResponse";
-import { sendIndividualReminder } from "~/server/actions/reminderMail";
+import { updatePaperStatus } from "~/server/actions/abstract/finalResponse";
+import { sendIndividualReminder } from "~/server/actions/abstract/reminderMail";
 import { cn } from "~/lib/utils";
 import { toast } from "sonner";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";

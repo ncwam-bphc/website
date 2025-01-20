@@ -1,9 +1,9 @@
 "use server";
 
-import { db } from "../db";
+import { db } from "../../db";
 import { eq, or } from "drizzle-orm";
-import { users } from "../db/schema";
-import { auth } from "../auth";
+import { users } from "../../db/schema";
+import { auth } from "../../auth";
 
 export async function getReviewersData() {
   try {

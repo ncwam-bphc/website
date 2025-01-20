@@ -1,7 +1,7 @@
 "use server";
 import { formatAbstractPaperNumber } from "~/lib/utils";
-import { auth } from "../auth";
-import { db } from "../db";
+import { auth } from "../../auth";
+import { db } from "../../db";
 
 export async function getPapers() {
   try {

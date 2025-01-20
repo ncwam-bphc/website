@@ -6,7 +6,7 @@ import { Textarea } from "~/components/ui/textarea";
 import {
   changeStatus,
   getAssignedAbstracts,
-} from "~/server/actions/assignedAbstracts";
+} from "~/server/actions/abstract/assignedAbstracts";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { OpenInNewWindowIcon } from "@radix-ui/react-icons";

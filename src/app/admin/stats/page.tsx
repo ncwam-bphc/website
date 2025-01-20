@@ -13,7 +13,7 @@ import {
 import {
   getReviewersData,
   type getReviewersDataReturnType,
-} from "~/server/actions/reviewerCounter";
+} from "~/server/actions/abstract/reviewerCounter";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "~/components/ui/button";
 

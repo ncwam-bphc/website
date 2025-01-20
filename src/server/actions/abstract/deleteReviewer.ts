@@ -1,9 +1,9 @@
 "use server";
 import { and, eq } from "drizzle-orm";
 import { getAbstractPaperNumber } from "~/lib/utils";
-import { auth } from "../auth";
-import { db } from "../db";
-import { abstractReviewers } from "../db/schema";
+import { auth } from "../../auth";
+import { db } from "../../db";
+import { abstractReviewers } from "../../db/schema";
 import { deleteReviewerSchema } from "~/schemas";
 
 export async function deleteReviewer(data: {

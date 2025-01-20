@@ -1,9 +1,9 @@
 "use server";
 
-import { db } from "../db";
-import { abstracts } from "../db/schema";
+import { db } from "../../db";
+import { abstracts } from "../../db/schema";
 import { eq } from "drizzle-orm";
-import { auth, generateSignInLink } from "../auth";
+import { auth, generateSignInLink } from "../../auth";
 import { formatAbstractPaperNumber, getAbstractPaperNumber } from "~/lib/utils";
 import { updatePaperStatusSchema } from "~/schemas";
 import { env } from "~/env";

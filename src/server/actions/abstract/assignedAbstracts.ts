@@ -1,8 +1,8 @@
 "use server";
 import { formatAbstractPaperNumber } from "~/lib/utils";
-import { auth } from "../auth";
-import { db } from "../db";
-import { abstractReviewers, abstracts } from "../db/schema";
+import { auth } from "../../auth";
+import { db } from "../../db";
+import { abstractReviewers, abstracts } from "../../db/schema";
 import { and, eq } from "drizzle-orm";
 import { changeStatusSchema } from "~/schemas";
 

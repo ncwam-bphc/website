@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import { Check, Ellipsis, Filter, X } from "lucide-react";
-import type { getPapersReturnType } from "~/server/actions/getPapers";
+import type { getPapersReturnType } from "~/server/actions/abstract/getPapers";
 import { QuestionMarkIcon } from "@radix-ui/react-icons";
 
 type PaperStatus = "submitted" | "assigned" | "accepted" | "rejected" | "all";

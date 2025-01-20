@@ -29,6 +29,7 @@ export const env = createEnv({
     EMAIL_FROM: z.string().email(),
     WEBHOOK_KEY: z.string(),
     ABSTRACT_URL: z.string().url(),
+    MANUSCRIPT_URL: z.string().url(),
   },
 
   /**
@@ -55,6 +56,7 @@ export const env = createEnv({
     EMAIL_FROM: process.env.EMAIL_FROM,
     WEBHOOK_KEY: process.env.WEBHOOK_KEY,
     ABSTRACT_URL: process.env.ABSTRACT_URL,
+    MANUSCRIPT_URL: process.env.MANUSCRIPT_URL,
     NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
   },
   /**

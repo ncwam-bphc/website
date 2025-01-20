@@ -1,9 +1,9 @@
 import z from "zod";
-import type { changeStatusParamsType } from "~/server/actions/assignedAbstracts";
-import type { assignReviewerParamsType } from "~/server/actions/assignReviewer";
-import type { updatePaperStatusParamsType } from "./server/actions/finalResponse";
-import type { getPaperAndReviewersParamsType } from "./server/actions/getPaperAndReviewers";
-import type { deleteReviewerParamsType } from "./server/actions/deleteReviewer";
+import type { changeStatusParamsType } from "~/server/actions/abstract/assignedAbstracts";
+import type { assignReviewerParamsType } from "~/server/actions/abstract/assignReviewer";
+import type { updatePaperStatusParamsType } from "./server/actions/abstract/finalResponse";
+import type { getPaperAndReviewersParamsType } from "./server/actions/abstract/getPaperAndReviewers";
+import type { deleteReviewerParamsType } from "./server/actions/abstract/deleteReviewer";
 
 export const changeStatusSchema: z.ZodType<changeStatusParamsType> = z.object({
   papernumber: z.number().int(),

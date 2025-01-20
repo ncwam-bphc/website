@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getPapers } from "~/server/actions/getPapers";
+import { getPapers } from "~/server/actions/abstract/getPapers";
 import { PapersTable } from "~/components/papers-table";
 import { buttonVariants } from "~/components/ui/button";
 import Link from "next/link";

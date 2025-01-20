@@ -8,9 +8,78 @@ import {
   primaryKey,
   serial,
   boolean,
+  bigint,
 } from "drizzle-orm/pg-core";
 
 export const createTable = pgTableCreator((name) => `ncwam_${name}`);
+
+export const manuscriptReviewers = createTable(
+  "manuscriptReviewer",
+  {
+    for: integer("for")
+      .notNull()
+      .references(() => manuscripts.papernumber),
+    reviewer: text("reviewer")
+      .notNull()
+      .references(() => users.id),
+    response: boolean("response"),
+    comments: text("comments"),
+  },
+  (table) => {
+    return {
+      pk: primaryKey({ columns: [table.for, table.reviewer] }),
+    };
+  },
+);
+
+export const mReviewersRelation = relations(manuscriptReviewers, ({ one }) => ({
+  abstract: one(manuscripts, {
+    fields: [manuscriptReviewers.for],
+    references: [manuscripts.papernumber],
+    relationName: "manuscript",
+  }),
+  reviewer: one(users, {
+    fields: [manuscriptReviewers.reviewer],
+    references: [users.id],
+    relationName: "reviewer",
+  }),
+}));
+
+export const manuscripts = createTable("manuscript", {
+  userId: text("userId")
+    .notNull()
+    .references(() => users.id),
+  papernumber: bigint("papernumber", { mode: "number" })
+    .primaryKey()
+    .references(() => abstracts.papernumber),
+  timestamp: timestamp("timestamp", { withTimezone: true }).notNull(),
+  title: text("title").notNull(),
+  authors: text("authors").notNull(),
+  presentor: text("presentor").notNull(),
+  transactionNumber: text("transaction_number").notNull(),
+  affiliation: text("affiliation").notNull(),
+  department: text("department").notNull(),
+  uploadWord: text("upload_word"),
+  uploadPdf: text("upload_pdf"),
+  status: boolean("status"),
+  comments: text("comments"),
+});
+
+export const manuscriptsRelations = relations(manuscripts, ({ one, many }) => ({
+  user: one(users, {
+    fields: [manuscripts.userId],
+    references: [users.id],
+    relationName: "user",
+  }),
+  abstract: one(abstracts, {
+    fields: [manuscripts.papernumber],
+    references: [abstracts.papernumber],
+    relationName: "abstract",
+  }),
+  reviewers: many(manuscriptReviewers, {
+    relationName: "manuscript",
+  }),
+}));
 
 export const abstractReviewers = createTable(
   "abstractReviewer",
@@ -93,6 +162,12 @@ export const usersRelations = relations(users, ({ many }) => ({
     relationName: "user",
   }),
   reviews: many(abstractReviewers, {
+    relationName: "reviewer",
+  }),
+  manuscripts: many(manuscripts, {
+    relationName: "user",
+  }),
+  mReviews: many(manuscriptReviewers, {
     relationName: "reviewer",
   }),
 }));

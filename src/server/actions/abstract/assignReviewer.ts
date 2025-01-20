@@ -1,9 +1,9 @@
 "use server";
 import { getAbstractPaperNumber } from "~/lib/utils";
-import { auth, generateSignInLink } from "../auth";
+import { auth, generateSignInLink } from "../../auth";
 import nodemailer from "nodemailer";
-import { db } from "../db";
-import { abstractReviewers } from "../db/schema";
+import { db } from "../../db";
+import { abstractReviewers } from "../../db/schema";
 import { assignReviewerSchema } from "~/schemas";
 import { env } from "~/env";
 import { or } from "drizzle-orm";
