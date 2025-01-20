@@ -7,7 +7,6 @@ import getStatus from "~/server/actions/getStatus";
 import { cn } from "~/lib/utils";
 import { Button, buttonVariants } from "~/components/ui/button";
 import Link from "next/link";
-
 export default function SubmissionsPage() {
   const session = useSession();
   const { data: submissionStatus } = useQuery({
@@ -88,6 +87,52 @@ export default function SubmissionsPage() {
                   </Link>
                 </span>
               </div>
+              <div className="h-[2px] w-96 self-center bg-white"></div>
+              <div className="flex flex-col items-center text-center text-base md:text-xl">
+                <span className="text-bold customcol text-xl md:text-3xl">
+                  Manuscript (full length paper) - Optional Submission:
+                </span>{" "}
+                <div className="text-justify">
+                  <span className="text-accent">
+                    Manuscript submission is optional.
+                  </span>{" "}
+                  However, peer reviewed and accepted manuscripts will be
+                  recommended to Scopus indexed conference proceedings by
+                  international publisher(s) with whom the discussions are in
+                  progress. The authors will be consented before recommending
+                  the manuscript for publication, and it may be a subscription
+                  based (free of cost) and/or an open access (paid, but
+                  discounted price) journal.{" "}
+                  <span className="text-accent">
+                    Further details will be updated to all the registered
+                    participants by the end of January 2025.
+                  </span>{" "}
+                  So, authors who wish to publish in a Scopus indexed conference
+                  proceedings are encouraged to submit the manuscript in a
+                  prescribed format (available in the{" "}
+                  <Link href={"/downloads"} className="underline">
+                    downloads section
+                  </Link>
+                  ) on or before the due date mentioned in the important dates
+                  section.
+                </div>
+                <a
+                  href="https://forms.gle/vWTT42rt8pFErLHZ6"
+                  className={cn(
+                    buttonVariants(),
+                    "mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+                  )}
+                >
+                  Submit manuscript
+                </a>
+                <span>
+                  Already submitted?{" "}
+                  <Link href={"/api/auth/signin"} className="underline">
+                    Sign in
+                  </Link>
+                </span>
+              </div>
+              <br></br>
             </div>
           </span>
         ) : session.status === "authenticated" ? (
@@ -112,55 +157,55 @@ export default function SubmissionsPage() {
             </span>
             {submissionStatus?.length
               ? submissionStatus?.map((submission, index) => (
-                  <div
-                    className="customcol flex w-full max-w-3xl flex-col gap-2 text-center text-lg md:text-2xl"
-                    key={index}
-                  >
-                    <span>
-                      Paper title:{" "}
+                <div
+                  className="customcol flex w-full max-w-3xl flex-col gap-2 text-center text-lg md:text-2xl"
+                  key={index}
+                >
+                  <span>
+                    Paper title:{" "}
+                    <span className="text-white">
+                      {submission.paperTitle}
+                    </span>
+                  </span>
+                  <span>
+                    Paper number:{" "}
+                    <span className="text-white">
+                      {submission.paperNumber}
+                    </span>
+                  </span>
+                  <span>
+                    Status:{" "}
+                    <span className="uppercase text-white">
+                      {submission.status}
+                    </span>
+                  </span>
+                  {submission.status !== "under review" && (
+                    <div className="mt-2 flex flex-col gap-2">
+                      <span className="text-xl font-semibold text-accent">
+                        Reviewer A comments
+                      </span>
                       <span className="text-white">
-                        {submission.paperTitle}
+                        {submission.reviewerA.comment}
                       </span>
-                    </span>
-                    <span>
-                      Paper number:{" "}
+
+                      <span className="text-xl font-semibold text-accent">
+                        Reviewer B comments
+                      </span>
                       <span className="text-white">
-                        {submission.paperNumber}
+                        {submission.reviewerB.comment}
                       </span>
-                    </span>
-                    <span>
-                      Status:{" "}
-                      <span className="uppercase text-white">
-                        {submission.status}
+
+                      <span className="text-xl font-semibold text-accent">
+                        Final Comments
                       </span>
-                    </span>
-                    {submission.status !== "under review" && (
-                      <div className="mt-2 flex flex-col gap-2">
-                        <span className="text-xl font-semibold text-accent">
-                          Reviewer A comments
-                        </span>
-                        <span className="text-white">
-                          {submission.reviewerA.comment}
-                        </span>
-
-                        <span className="text-xl font-semibold text-accent">
-                          Reviewer B comments
-                        </span>
-                        <span className="text-white">
-                          {submission.reviewerB.comment}
-                        </span>
-
-                        <span className="text-xl font-semibold text-accent">
-                          Final Comments
-                        </span>
-                        <span className="text-white">
-                          {submission.finalComments}
-                        </span>
-                      </div>
-                    )}
-                    <div className="h-[2px] w-full bg-accent" />
-                  </div>
-                ))
+                      <span className="text-white">
+                        {submission.finalComments}
+                      </span>
+                    </div>
+                  )}
+                  <div className="h-[2px] w-full bg-accent" />
+                </div>
+              ))
               : "You don't have any submissions."}
           </>
         ) : (
