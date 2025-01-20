@@ -45,8 +45,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",
     to: to,
-    subject:
-      "NCWAM-2025: “Extended Abstract” received and assigned a paper number.",
+    subject: "NCWAM-2025: “Manuscript” received and assigned a paper number.",
     html: mailHtml,
     messageId: manuscriptPaperNumber,
     references: manuscriptPaperNumber,
