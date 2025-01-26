@@ -1,7 +1,114 @@
 "use client";
 import "~/styles/fullpagescroll.css";
 import bg from "~/assets/aboutconference/bg.webp";
-import Image from "next/image";
+// import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import { AvatarIcon } from "@radix-ui/react-icons";
+import { cn } from "~/lib/utils";
+import wiilp from "~/assets/WhatsApp Image 2025-01-19 at 12.30.24.webp";
+import crens from "~/assets/WhatsApp Image 2025-01-19 at 12.33.26.jpeg";
+import { Button } from "~/components/ui/button";
+import pearl1 from "src/assets/pearl11.jpeg";
+import pearl2 from "src/assets/pearl22.jpeg";
+import pearl3 from "src/assets/pearl33.png";
+import pearlc from "src/assets/pearlcard.png";
+
+const scrollToBottom = () => {
+  const targetd = document.getElementById("to");
+
+  // window.scrollTo({
+  //   top: document.documentElement.scrollHeight,
+  //   behavior: "smooth",
+  // });
+  if (targetd) {
+    targetd.scrollIntoView({
+      behavior: "smooth",
+      block: "start", // Ensures scrolling aligns to the top of the div
+    });
+  }
+};
+
+// const scrollToTopOfDiv = (divId: string) => {
+//   const targetDiv = document.getElementById(divId);
+//   if (targetDiv) {
+// targetDiv.scrollIntoView({
+//   behavior: "smooth",
+//   block: "start", // Ensures scrolling aligns to the top of the div
+// });
+//   }
+// };
+
+const SpeakerCard = ({
+  name,
+  institution,
+  img,
+  className,
+  ...props
+}: {
+  name: string;
+  institution: string;
+  img: StaticImageData | null;
+} & React.HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      {...props}
+      className={cn(
+        "flex w-[23rem] flex-col items-center gap-4 p-4",
+        className,
+      )}
+    >
+      {img ? (
+        <Image
+          src={img}
+          className="border-cover h-80 w-80 rounded-full border-2 bg-white object-scale-down"
+          alt="avatar"
+        />
+      ) : (
+        <AvatarIcon className="h-32 w-32 text-muted-foreground" />
+      )}
+      <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
+        {name}
+        <span className="text-xl text-accent md:text-xl">{institution}</span>
+      </div>
+    </div>
+  );
+};
+
+const ServiceCard = ({
+  name,
+  institution,
+  img,
+  className,
+  ...props
+}: {
+  name: string;
+  institution: string;
+  img: StaticImageData | null;
+} & React.HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      {...props}
+      className={cn(
+        "flex w-[23rem] flex-col items-center gap-4 p-4",
+        className,
+      )}
+    >
+      {img ? (
+        <Image
+          src={img}
+          className="border-cover h-60 w-60 border-0 bg-transparent object-scale-down"
+          alt="avatar"
+        />
+      ) : (
+        <AvatarIcon className="h-32 w-32 text-muted-foreground" />
+      )}
+      <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
+        {name}
+        <span className="text-xl text-accent md:text-xl">{institution}</span>
+      </div>
+    </div>
+  );
+};
 
 export default function AboutusPage() {
   return (
@@ -21,6 +128,16 @@ export default function AboutusPage() {
           </div>
         </div>
       </div>
+
+      <div className="link btn" onClick={scrollToBottom}>
+        <Button
+          variant="poppy"
+          className="mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl"
+        >
+          Sponsors
+        </Button>
+      </div>
+
       <div className="mt-4 text-justify text-lg md:text-xl">
         We, the Organizers of{" "}
         <span className="text-accent">
@@ -35,7 +152,15 @@ export default function AboutusPage() {
         <br />
         <br />
         <span>
-          The sponsor can contact the faculty lead <span className="customcol hover:text-accent">(Prof. Aritra Chatterjee: <a href="mailto:aritra.chatterjee@hyderabad.bits-pilani.ac.in">aritra.chatterjee@hyderabad.bits-pilani.ac.in</a>)</span> for further discussion and bank details.
+          The sponsor can contact the faculty lead{" "}
+          <span className="customcol hover:text-accent">
+            (Prof. Aritra Chatterjee:{" "}
+            <a href="mailto:aritra.chatterjee@hyderabad.bits-pilani.ac.in">
+              aritra.chatterjee@hyderabad.bits-pilani.ac.in
+            </a>
+            )
+          </span>{" "}
+          for further discussion and bank details.
         </span>
       </div>
 
@@ -512,7 +637,7 @@ export default function AboutusPage() {
           </tbody>
         </table>
       </div>
-      <div className="max-w-[900px] self-center text-justify text-lg">
+      <div id="to" className="max-w-[900px] self-center text-justify text-lg">
         For any queries, please drop an email (
         <a
           href="mailto:ncwam@hyderabad.bits-pilani.ac.in"
@@ -523,6 +648,71 @@ export default function AboutusPage() {
         ) with an expression of interest, and the lead faculty member will get
         back and discuss about your requirements.
       </div>
+
+      <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+
+      {/* <div className="max-w-[900px] self-center text-justify text-8xl">
+        SPONSORS
+      </div> */}
+
+      <div className="my-4 text-nowrap text-center text-3xl text-accent md:text-5xl">
+        SPONSORS
+      </div>
+
+      <div
+        id="oka"
+        className="max-w-[900px] flex-col place-items-center self-center text-justify text-8xl"
+      >
+        <div className="mb-6 mt-4 flex gap-44">
+          <SpeakerCard name="WILP DIVISION" img={wiilp} institution="">
+            {" "}
+          </SpeakerCard>
+          <SpeakerCard name="CRENS" img={crens} institution="">
+            {" "}
+          </SpeakerCard>
+        </div>
+
+        <div
+          id="to"
+          className="customcol max-w-[900px] self-center text-justify text-lg"
+        >
+          Further Sponsors details will be updated soon.
+        </div>
+      </div>
+
+      <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
+
+      <div className="my-4 text-nowrap text-center text-3xl text-accent md:text-5xl">
+        COMPLEMENTARY SERVICE
+      </div>
+
+      <div className="max-w-[900px] flex-col place-items-center self-center text-justify text-8xl">
+        <div className="mb-6 mt-4 flex gap-28">
+          <ServiceCard name="" img={pearl1} institution="">
+            {" "}
+          </ServiceCard>
+          <ServiceCard name="" img={pearl3} institution="">
+            {" "}
+          </ServiceCard>
+        </div>
+
+        <ServiceCard name="" img={pearl2} institution="">
+          {" "}
+        </ServiceCard>
+
+        <ServiceCard name="" img={pearlc} institution="">
+          {" "}
+        </ServiceCard>
+
+        <div
+          id="to"
+          className="customcol max-w-[900px] self-center text-justify text-lg"
+        >
+          Further Complementary Services details will be updated soon.
+        </div>
+      </div>
+
+      <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
     </main>
   );
 }

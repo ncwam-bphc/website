@@ -4,7 +4,7 @@ import Image, { type StaticImageData } from "next/image";
 import spbg from "~/assets/speakers.webp";
 import speakers from "~/assets/speakers/speakers";
 import { cn } from "~/lib/utils";
-import ArchanaSharma from "~/assets/speakers/Prof. Archana Sharma.webp"
+import ArchanaSharma from "~/assets/speakers/Prof. Archana Sharma.webp";
 import TalksTable from "~/components/talks-table"; // Add this import
 
 const SpeakerCard = ({
