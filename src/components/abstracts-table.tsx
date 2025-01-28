@@ -160,7 +160,7 @@ export function PapersTable({
               <TableCell>{formatDate(paper.timestamp)}</TableCell>
               <TableCell>
                 <Button asChild>
-                  <Link href={`/admin/paper/${paper.papernumber}`}>
+                  <Link href={`/admin/abstracts/${paper.papernumber}`}>
                     View Details
                   </Link>
                 </Button>
