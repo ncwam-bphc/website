@@ -348,11 +348,6 @@ export const technical = [
     imageUrl: null,
   },
   {
-    name: "Prof. Siva S",
-    institution: "IIT Jammu",
-    imageUrl: null,
-  },
-  {
     name: "Prof. Soham Muzumdar",
     institution: "IIT Bombay",
     imageUrl: null,
@@ -385,11 +380,6 @@ export const technical = [
   {
     name: "Prof. Adepu Kumar",
     institution: "NIT Warangal",
-    imageUrl: null,
-  },
-  {
-    name: "Prof. K. Siva Prasad",
-    institution: "NIT Trichy",
     imageUrl: null,
   },
   {
