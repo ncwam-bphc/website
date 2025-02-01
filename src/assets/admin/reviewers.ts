@@ -33,10 +33,6 @@ export const Reviewers =
           label: "Buchibabu Vicharapu",
         },
         {
-          value: "shiva.sekar@iitjammu.ac.in",
-          label: "Siva S",
-        },
-        {
           value: "sohammujumdar@iitb.ac.in",
           label: "Soham Muzumdar",
         },
@@ -64,10 +60,6 @@ export const Reviewers =
         {
           value: "adepu_kumar7@nitw.ac.in",
           label: "Adepu Kumar",
-        },
-        {
-          value: "ksp@nitt.edu",
-          label: "Katakam Siva Prasad",
         },
         // R&Ds
         {
