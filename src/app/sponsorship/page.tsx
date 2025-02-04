@@ -670,8 +670,21 @@ export default function AboutusPage() {
         className="max-w-[900px] flex-col place-items-center self-center text-justify"
       >
         <div className="mb-6 mt-4 flex flex-col items-center gap-8 sm:flex-row sm:gap-12 md:gap-44">
-          <SpeakerCard name="WILP DIVISION" img={wiilp} institution="" />
-          <SpeakerCard name="CRENS" img={crens} institution="" />
+          <a
+            target="_blank"
+            href="https://bits-pilani-wilp.ac.in/"
+            rel="noreferrer"
+          >
+            <SpeakerCard name="WILP DIVISION" img={wiilp} institution="" />
+          </a>
+
+          <a
+            target="_blank"
+            href="https://crens.bits-pilani.ac.in/"
+            rel="noreferrer"
+          >
+            <SpeakerCard name="CRENS" img={crens} institution="" />
+          </a>
         </div>
 
         <div className="mb-2 mt-4 flex justify-center">
