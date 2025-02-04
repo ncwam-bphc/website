@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
-import { AssignReviewersDialog } from "~/components/assign-reviewers-dialog";
+import { AssignReviewersDialog } from "~/components/assign-manuscript-reviewers-dialog";
 import { getManuscriptAndReviewers } from "~/server/actions/manuscript/getManuscriptAndReviewers";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { assignReviewer } from "~/server/actions/manuscript/assignReviewer";

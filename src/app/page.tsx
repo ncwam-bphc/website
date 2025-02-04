@@ -33,8 +33,8 @@ export default function ConferenceLanding() {
       <br />
       <div className="absolute left-0 right-0 top-[4.5rem] w-full backdrop-blur-2xl nav:top-20">
         <div className="customcol flex w-full animate-infinite-scroll justify-end whitespace-nowrap md:text-2xl">
-          Manuscript submission (optional) date has been extended to 7th 
-          February. Registration must be completed on or before 10th February 2025.
+          Registration deadline has been extended to 15th February 2025.
+          Manuscript must be submitted before 15th February 2025 for peer review and publication of conference proceedings in a Scopus indexed book volume.
         </div>
       </div>
 
