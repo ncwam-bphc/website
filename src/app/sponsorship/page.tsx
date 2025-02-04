@@ -12,6 +12,8 @@ import pearl1 from "src/assets/pearl11.jpeg";
 import pearl2 from "src/assets/pearl22.jpeg";
 import pearl3 from "src/assets/pearl33.png";
 import pearlc from "src/assets/pearlcard.png";
+import arc from "~/assets/artechwelders.jpeg";
+import Link from "next/link";
 
 const scrollToBottom = () => {
   const targetd = document.getElementById("to");
@@ -104,7 +106,13 @@ const ServiceCard = ({
       )}
       <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
         {name}
-        <span className="text-xl text-accent md:text-xl">{institution}</span>
+        {/* <span className="text-xl text-accent md:text-justify md:text-xl">
+          {institution}
+        </span> */}
+      </div>
+
+      <div className="flex flex-col text-justify text-xl font-semibold md:text-justify md:text-2xl">
+        {institution}
       </div>
     </div>
   );
@@ -670,6 +678,25 @@ export default function AboutusPage() {
           <SpeakerCard name="CRENS" img={crens} institution="">
             {" "}
           </SpeakerCard>
+        </div>
+
+        <div className="mb-2 mt-4 flex gap-44">
+          <a target="_blank" href="https://www.artechengg.com/">
+            <SpeakerCard
+              name="ARTECH WELDERS PVT. LTD."
+              img={arc}
+              institution=""
+            >
+              {" "}
+            </SpeakerCard>
+          </a>
+        </div>
+
+        <div className="mb-8 gap-44 text-lg">
+          Artech Welders Pvt. Ltd., a{" "}
+          <span className="text-accent">Pioneer & Leading Manufacturer</span> of
+          Capacitor Discharge Projection Welding, Stud Welding Machines and
+          Electron Beam Welding Machines.
         </div>
 
         <div
