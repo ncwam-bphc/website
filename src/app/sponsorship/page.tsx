@@ -13,7 +13,6 @@ import pearl2 from "src/assets/pearl22.jpeg";
 import pearl3 from "src/assets/pearl33.png";
 import pearlc from "src/assets/pearlcard.png";
 import arc from "~/assets/artechwelders.jpeg";
-import Link from "next/link";
 
 const scrollToBottom = () => {
   const targetd = document.getElementById("to");
@@ -55,22 +54,24 @@ const SpeakerCard = ({
     <div
       {...props}
       className={cn(
-        "flex w-[23rem] flex-col items-center gap-4 p-4",
+        "flex w-full max-w-[23rem] flex-col items-center gap-4 p-4",
         className,
       )}
     >
       {img ? (
         <Image
-          src={img}
-          className="border-cover h-80 w-80 rounded-full border-2 bg-white object-scale-down"
+          src={img || "/placeholder.svg"}
+          className="border-cover h-40 w-40 rounded-full border-2 bg-white object-scale-down sm:h-60 sm:w-60 md:h-80 md:w-80"
           alt="avatar"
         />
       ) : (
         <AvatarIcon className="h-32 w-32 text-muted-foreground" />
       )}
-      <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
+      <div className="flex flex-col items-center text-center text-lg font-semibold sm:text-xl md:text-2xl">
         {name}
-        <span className="text-xl text-accent md:text-xl">{institution}</span>
+        <span className="text-base text-accent sm:text-lg md:text-xl">
+          {institution}
+        </span>
       </div>
     </div>
   );
@@ -91,27 +92,24 @@ const ServiceCard = ({
     <div
       {...props}
       className={cn(
-        "flex w-[23rem] flex-col items-center gap-4 p-4",
+        "flex w-full max-w-[23rem] flex-col items-center gap-4 p-4",
         className,
       )}
     >
       {img ? (
         <Image
-          src={img}
-          className="border-cover h-60 w-60 border-0 bg-transparent object-scale-down"
+          src={img || "/placeholder.svg"}
+          className="border-cover h-40 w-40 border-0 bg-transparent object-scale-down sm:h-60 sm:w-60"
           alt="avatar"
         />
       ) : (
         <AvatarIcon className="h-32 w-32 text-muted-foreground" />
       )}
-      <div className="flex flex-col items-center text-center text-xl font-semibold md:text-2xl">
+      <div className="flex flex-col items-center text-center text-lg font-semibold sm:text-xl md:text-2xl">
         {name}
-        {/* <span className="text-xl text-accent md:text-justify md:text-xl">
-          {institution}
-        </span> */}
       </div>
 
-      <div className="flex flex-col text-justify text-xl font-semibold md:text-justify md:text-2xl">
+      <div className="flex flex-col text-justify text-base font-semibold sm:text-lg md:text-xl">
         {institution}
       </div>
     </div>
@@ -122,7 +120,7 @@ export default function AboutusPage() {
   return (
     <main className="flex flex-col items-center gap-4 px-8">
       <Image
-        src={bg}
+        src={bg || "/placeholder.svg"}
         alt="Conference background"
         fill={true}
         objectFit="cover"
@@ -539,7 +537,7 @@ export default function AboutusPage() {
             </tr>
             <tr>
               <th scope="row" className="text-left">
-                <h3 className="customcol py-1 text-lg md:text-xl">
+                <h3 className="py-1 text-lg md:text-xl">
                   Delegate registration
                 </h3>
               </th>
@@ -663,36 +661,34 @@ export default function AboutusPage() {
         SPONSORS
       </div> */}
 
-      <div className="my-4 text-nowrap text-center text-3xl text-accent md:text-5xl">
+      <div className="my-4 text-nowrap text-center text-2xl text-accent sm:text-3xl md:text-5xl">
         SPONSORS
       </div>
 
       <div
         id="oka"
-        className="max-w-[900px] flex-col place-items-center self-center text-justify text-8xl"
+        className="max-w-[900px] flex-col place-items-center self-center text-justify"
       >
-        <div className="mb-6 mt-4 flex gap-44">
-          <SpeakerCard name="WILP DIVISION" img={wiilp} institution="">
-            {" "}
-          </SpeakerCard>
-          <SpeakerCard name="CRENS" img={crens} institution="">
-            {" "}
-          </SpeakerCard>
+        <div className="mb-6 mt-4 flex flex-col items-center gap-8 sm:flex-row sm:gap-12 md:gap-44">
+          <SpeakerCard name="WILP DIVISION" img={wiilp} institution="" />
+          <SpeakerCard name="CRENS" img={crens} institution="" />
         </div>
 
-        <div className="mb-2 mt-4 flex gap-44">
-          <a target="_blank" href="https://www.artechengg.com/">
+        <div className="mb-2 mt-4 flex justify-center">
+          <a
+            target="_blank"
+            href="https://www.artechengg.com/"
+            rel="noreferrer"
+          >
             <SpeakerCard
               name="ARTECH WELDERS PVT. LTD."
               img={arc}
               institution=""
-            >
-              {" "}
-            </SpeakerCard>
+            />
           </a>
         </div>
 
-        <div className="mb-8 gap-44 text-lg">
+        <div className="mb-8 text-base sm:text-lg">
           Artech Welders Pvt. Ltd., a{" "}
           <span className="text-accent">Pioneer & Leading Manufacturer</span> of
           Capacitor Discharge Projection Welding, Stud Welding Machines and
@@ -701,7 +697,7 @@ export default function AboutusPage() {
 
         <div
           id="to"
-          className="customcol max-w-[900px] self-center text-justify text-lg"
+          className="customcol max-w-[900px] self-center text-justify text-base sm:text-lg"
         >
           Further Sponsors details will be updated soon.
         </div>
@@ -709,31 +705,27 @@ export default function AboutusPage() {
 
       <div className="my-4 h-[2px] w-96 self-center bg-white"></div>
 
-      <div className="my-4 text-nowrap text-center text-3xl text-accent md:text-5xl">
+      <div className="my-4 text-nowrap text-center text-2xl text-accent sm:text-3xl md:text-5xl">
         COMPLEMENTARY SERVICE
       </div>
 
-      <div className="max-w-[900px] flex-col place-items-center self-center text-justify text-8xl">
-        <div className="mb-6 mt-4 flex gap-28">
-          <ServiceCard name="" img={pearl1} institution="">
-            {" "}
-          </ServiceCard>
-          <ServiceCard name="" img={pearl3} institution="">
-            {" "}
-          </ServiceCard>
+      <div className="max-w-[900px] flex-col place-items-center self-center text-justify">
+        <div className="mb-6 mt-4 flex flex-col items-center gap-8 sm:flex-row sm:gap-12 md:gap-28">
+          <ServiceCard name="" img={pearl1} institution="" />
+          <ServiceCard name="" img={pearl3} institution="" />
         </div>
 
-        <ServiceCard name="" img={pearl2} institution="">
-          {" "}
-        </ServiceCard>
+        <div className="flex justify-center">
+          <ServiceCard name="" img={pearl2} institution="" />
+        </div>
 
-        <ServiceCard name="" img={pearlc} institution="">
-          {" "}
-        </ServiceCard>
+        <div className="flex justify-center">
+          <ServiceCard name="" img={pearlc} institution="" />
+        </div>
 
         <div
           id="to"
-          className="customcol max-w-[900px] self-center text-justify text-lg"
+          className="customcol max-w-[900px] self-center text-justify text-base sm:text-lg"
         >
           Further Complementary Services details will be updated soon.
         </div>
