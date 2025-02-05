@@ -702,9 +702,9 @@ export default function AboutusPage() {
         </div>
 
         <div className="mb-8 text-base sm:text-lg">
-          Artech Welders Pvt. Ltd., a{" "}
-          <span className="text-accent">Pioneer & Leading Manufacturer</span> of
-          Capacitor Discharge Projection Welding, Stud Welding Machines and
+          Artech Welders Pvt. Ltd.,{" "}
+          <span className="text-accent">a Pioneer & Leading Manufacturer</span>{" "}
+          of Capacitor Discharge Projection Welding, Stud Welding Machines and
           Electron Beam Welding Machines.
         </div>
 

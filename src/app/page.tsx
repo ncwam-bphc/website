@@ -34,7 +34,9 @@ export default function ConferenceLanding() {
       <div className="absolute left-0 right-0 top-[4.5rem] w-full backdrop-blur-2xl nav:top-20">
         <div className="customcol flex w-full animate-infinite-scroll justify-end whitespace-nowrap md:text-2xl">
           Registration deadline has been extended to 15th February 2025.
-          Manuscript must be submitted before 15th February 2025 for peer review and publication of conference proceedings in a Scopus indexed book volume.
+          Manuscript must be submitted before 15th February 2025 for peer review
+          and publication of conference proceedings in a Scopus indexed book
+          volume.
         </div>
       </div>
 
@@ -58,12 +60,17 @@ export default function ConferenceLanding() {
         </div>
         <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
           <Button
-            className="text-xs sm:text-base md:text-xl"
+            className="text-xs before:-inset-1"
             size="lg"
             variant="poppy"
             asChild
           >
-            <Link href="/downloads">Downloads</Link>
+            <Link
+              href="/downloads"
+              className="relative from-slate-300 to-[#ebab9c] before:absolute before:-inset-[2px] before:-z-10 before:animate-pulse before:rounded-md before:bg-gradient-to-bl before:content-[''] sm:text-base md:text-xl"
+            >
+              Downloads
+            </Link>
           </Button>
           <Button
             className="text-xs sm:text-base md:text-xl"

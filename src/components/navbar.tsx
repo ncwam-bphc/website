@@ -12,6 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import { cn } from "~/lib/utils";
 
 const items = [
   { label: "About Conference", href: "/aboutconference" },
@@ -58,7 +59,10 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="relative rounded-full px-2 py-2 text-lg font-medium transition-colors"
+                  className={cn(
+                    "relative rounded-full px-2 py-2 text-lg font-medium transition-colors",
+                    item.href === "/sponsorship" ? "underline" : "",
+                  )}
                 >
                   <span className="relative z-20 text-white">{item.label}</span>
                   {active === item.label && (
