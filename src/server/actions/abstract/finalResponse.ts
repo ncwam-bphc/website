@@ -37,7 +37,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",
     to: email,
-    subject: `Reminder: Pending Review`,
+    subject: `NCWAM Manuscript Submission`,
     html: mailHtml,
     messageId: email + paper,
     references: email + paper,

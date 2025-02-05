@@ -4,7 +4,10 @@ import { db } from "../../db";
 import { manuscripts } from "../../db/schema";
 import { eq } from "drizzle-orm";
 import { auth, generateSignInLink } from "../../auth";
-import { formatManuscriptPaperNumber, getManuscriptPaperNumber } from "~/lib/utils";
+import {
+  formatManuscriptPaperNumber,
+  getManuscriptPaperNumber,
+} from "~/lib/utils";
 import { updatePaperStatusSchema } from "~/schemas";
 import { env } from "~/env";
 import nodemailer from "nodemailer";
@@ -20,7 +23,7 @@ const sendMail = async (
         
 <p>Your manuscript submission has been reviewed, ${status ? "and it has been accepted." : "it is suggested to revise and resubmit incorporating the reviewer's comments."}</p>
 
-<p><strong>Paper Number:</strong> ${formatManuscriptPaperNumber(paper,name)}<br />
+<p><strong>Paper Number:</strong> ${formatManuscriptPaperNumber(paper, name)}<br />
 <strong>Status:</strong> <span style="color: ${status ? "green" : "red"};">${status ? "Accepted" : "Resubmit"}</span></p>
 
 <p>
@@ -37,7 +40,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",
     to: email,
-    subject: `Reminder: Pending Review`,
+    subject: `NCWAM Abstract Submission`,
     html: mailHtml,
     messageId: email + paper,
     references: email + paper,
