@@ -3,6 +3,7 @@ import Navbar from "~/components/navbar";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import Providers from "~/components/providers";
+import { Analytics } from "@vercel/analytics/react"
 // import Footer from "~/components/Footer";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={GeistSans.variable}>
+      <Analytics/>
       <body className="dark relative min-h-screen">
         <Providers>
           <header className="navbar absolute left-0 right-0 top-0 z-50">
