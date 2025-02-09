@@ -58,9 +58,23 @@ export default function ConferenceLanding() {
         <div className="min-h-20">
           <Timer />
         </div>
+        <Button
+          className="text-xs before:-inset-1 sm:hidden"
+          size="lg"
+          variant="poppy"
+          asChild
+        >
+          <Link
+            href="/Program schedule (Public)-NCWAM 2025.pdf"
+            target="_blank"
+            className="relative from-slate-300 to-[#ebab9c] before:absolute before:-inset-[2px] before:-z-10 before:rounded-md sm:text-base md:text-xl"
+          >
+            Program Schedule
+          </Link>
+        </Button>
         <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
           <Button
-            className="text-xs before:-inset-1"
+            className="text-xs before:-inset-1 max-sm:hidden"
             size="lg"
             variant="poppy"
             asChild
@@ -134,7 +148,7 @@ export default function ConferenceLanding() {
         <Image
           src={mottologo}
           alt="bits"
-          className="absolute bottom-10 -z-10 h-auto w-32 object-contain pt-4 opacity-80"
+          className="bottom-5 -z-10 h-auto w-32 object-contain opacity-80 max-md:mt-4 md:absolute"
         />
       </div>
 
