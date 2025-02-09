@@ -16,8 +16,10 @@ import VRamgopalPic from "~/assets/committe/V Ramgopal Rao 2-Chief Patron.webp";
 import JayaprakashPic from "~/assets/committe/Jayaprakash Sharma.webp";
 import JeevanJaidiPic from "~/assets/committe/Jeevan Jaidi 1.webp";
 import { Section } from "~/components/Committee";
+import { useIsMobile } from "~/lib/use-mobile";
 
 export default function ConferenceLanding() {
+  const isMobile = useIsMobile();
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden font-sans">
       <div className="fixed left-0 top-0 -z-10 h-full w-full">
@@ -60,7 +62,7 @@ export default function ConferenceLanding() {
         </div>
         <Button
           className="text-xs before:-inset-1 sm:hidden"
-          size="lg"
+          size={isMobile ? "default" : "lg"}
           variant="poppy"
           asChild
         >
@@ -75,7 +77,7 @@ export default function ConferenceLanding() {
         <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
           <Button
             className="text-xs before:-inset-1 max-sm:hidden"
-            size="lg"
+            size={isMobile ? "default" : "lg"}
             variant="poppy"
             asChild
           >
@@ -89,7 +91,7 @@ export default function ConferenceLanding() {
           </Button>
           <Button
             className="text-xs sm:text-base md:text-xl"
-            size="lg"
+            size={isMobile ? "default" : "lg"}
             variant="poppy"
             asChild
           >
@@ -102,7 +104,7 @@ export default function ConferenceLanding() {
           </Button>
           <Button
             className="text-xs sm:text-base md:text-xl"
-            size="lg"
+            size={isMobile ? "default" : "lg"}
             variant="poppy"
             asChild
           >
@@ -117,7 +119,7 @@ export default function ConferenceLanding() {
         <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
           <Button
             className="text-xs before:-inset-1"
-            size="lg"
+            size={isMobile ? "default" : "lg"}
             variant="poppy"
             asChild
           >
@@ -130,7 +132,7 @@ export default function ConferenceLanding() {
           </Button>
           <Button
             className="text-xs sm:text-base md:text-xl"
-            size="lg"
+            size={isMobile ? "default" : "lg"}
             variant="poppy"
             asChild
           >
@@ -138,7 +140,7 @@ export default function ConferenceLanding() {
           </Button>
           <Button
             className="text-xs sm:text-base md:text-xl"
-            size="lg"
+            size={isMobile ? "default" : "lg"}
             variant="poppy"
             asChild
           >
