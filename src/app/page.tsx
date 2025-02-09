@@ -34,9 +34,9 @@ export default function ConferenceLanding() {
       <div className="absolute left-0 right-0 top-[4.5rem] w-full backdrop-blur-2xl nav:top-20">
         <div className="customcol flex w-full animate-infinite-scroll justify-end whitespace-nowrap md:text-2xl">
           Registration deadline has been extended to 15th February 2025.
-          Manuscript must be submitted before 15th February 2025 for peer review
-          and publication of conference proceedings in a Scopus indexed book
-          volume.
+          Manuscript must be submitted on or before 20th February 2025 for peer
+          review and publication of conference proceedings in a Scopus indexed
+          book volume.
         </div>
       </div>
 
@@ -57,6 +57,48 @@ export default function ConferenceLanding() {
         </p>
         <div className="min-h-20">
           <Timer />
+        </div>
+        <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
+          <Button
+            className="text-xs before:-inset-1"
+            size="lg"
+            variant="poppy"
+            asChild
+          >
+            <Link
+              href="/Program schedule (Public)-NCWAM 2025.pdf"
+              target="_blank"
+              className="relative from-slate-300 to-[#ebab9c] before:absolute before:-inset-[2px] before:-z-10 before:rounded-md sm:text-base md:text-xl"
+            >
+              Program Schedule
+            </Link>
+          </Button>
+          <Button
+            className="text-xs sm:text-base md:text-xl"
+            size="lg"
+            variant="poppy"
+            asChild
+          >
+            <Link
+              target="_blank"
+              href="/Oral Presentations (Public)-NCWAM 2025.pdf"
+            >
+              Oral Presentations
+            </Link>
+          </Button>
+          <Button
+            className="text-xs sm:text-base md:text-xl"
+            size="lg"
+            variant="poppy"
+            asChild
+          >
+            <Link
+              target="_blank"
+              href="/Poster Presentations (Public)-NCWAM 2025.pdf"
+            >
+              Poster Presentations
+            </Link>
+          </Button>
         </div>
         <div className="flex w-full items-center justify-center gap-2 sm:gap-4">
           <Button
@@ -92,7 +134,7 @@ export default function ConferenceLanding() {
         <Image
           src={mottologo}
           alt="bits"
-          className="absolute bottom-20 -z-10 h-auto w-32 object-contain pt-4 opacity-80"
+          className="absolute bottom-10 -z-10 h-auto w-32 object-contain pt-4 opacity-80"
         />
       </div>
 

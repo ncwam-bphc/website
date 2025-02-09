@@ -17,6 +17,41 @@ export default function AboutusPage() {
       <div className="flex grid-cols-3 gap-8 max-lg:flex-col lg:grid">
         <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
           <div className="customcol text-nowrap text-center text-xl font-bold uppercase text-accent md:text-2xl lg:text-3xl">
+            Event details
+          </div>
+          <a
+            href="/Program schedule (Public)-NCWAM 2025.pdf"
+            target="_blank"
+            className={cn(
+              buttonVariants(),
+              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+            )}
+          >
+            Program Schedule
+          </a>
+          <a
+            href="/Oral Presentations (Public)-NCWAM 2025.pdf"
+            target="_blank"
+            className={cn(
+              buttonVariants(),
+              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+            )}
+          >
+            Oral Presentations
+          </a>
+          <a
+            href="/Poster Presentations (Public)-NCWAM 2025.pdf"
+            target="_blank"
+            className={cn(
+              buttonVariants(),
+              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+            )}
+          >
+            Poster Presentations
+          </a>
+        </div>
+        <div className="flex min-w-[300px] flex-col gap-4 text-center text-xl md:text-3xl">
+          <div className="customcol text-nowrap text-center text-xl font-bold uppercase text-accent md:text-2xl lg:text-3xl">
             Manuscript
           </div>
           <a

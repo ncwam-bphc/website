@@ -13,6 +13,7 @@ import pearl2 from "src/assets/pearl22.jpeg";
 import pearl3 from "src/assets/pearl33.png";
 import pearlc from "src/assets/pearlcard.png";
 import arc from "~/assets/artechwelders.jpeg";
+import Link from "next/link";
 
 const scrollToBottom = () => {
   const targetd = document.getElementById("to");
@@ -705,7 +706,15 @@ export default function AboutusPage() {
           Artech Welders Pvt. Ltd.,{" "}
           <span className="text-accent">a Pioneer & Leading Manufacturer</span>{" "}
           of Capacitor Discharge Projection Welding, Stud Welding Machines and
-          Electron Beam Welding Machines.
+          Electron Beam Welding Machines{" "}
+          <Link
+            target="_blank"
+            href="https://www.artechengg.com/"
+            className="underline"
+          >
+            (click here)
+          </Link>
+          .
         </div>
 
         <div
