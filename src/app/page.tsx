@@ -11,7 +11,7 @@ import sixtyyear from "~/assets/homepage/sixtyyearanniversary.webp";
 import mottologo from "~/assets/homepage/motto.webp";
 import Image from "next/image";
 import { chairmen, guestHonors, patrons } from "~/assets/committe/committe";
-import BSMurthyPic from "~/assets/committe/BS Murty 2.webp";
+import BalamuraliPic from "~/assets/committe/Balamuralikrishnan.webp";
 import VRamgopalPic from "~/assets/committe/V Ramgopal Rao 2-Chief Patron.webp";
 import JayaprakashPic from "~/assets/committe/Jayaprakash Sharma.webp";
 import JeevanJaidiPic from "~/assets/committe/Jeevan Jaidi 1.webp";
@@ -165,9 +165,9 @@ export default function ConferenceLanding() {
           title="Chief Guest"
           contentList={[
             {
-              name: "Prof. B.S. Murty",
-              institution: "Director, IIT Hyderabad",
-              imageUrl: BSMurthyPic,
+              name: "Dr. R. Balamuralikrishnan",
+              institution: "Director, DMRL, Hyderabad",
+              imageUrl: BalamuraliPic,
             },
           ]}
         />

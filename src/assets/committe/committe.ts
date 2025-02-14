@@ -1,4 +1,3 @@
-import BalamuraliPic from "~/assets/committe/Balamuralikrishnan.webp";
 import ShajuPic from "~/assets/committe/Shaju Albert.webp";
 import ManojKumarPic from "~/assets/committe/Manoj Kumar Paidisetty.webp";
 import GSundarPic from "~/assets/committe/G. Sundar.webp";
@@ -10,11 +9,6 @@ import CVSMurthyPic from "~/assets/committe/cvsmurthy.webp";
 import satishr from "~/assets/committe/satish reddy.webp";
 
 export const guestHonors = [
-  {
-    name: "Dr. R. Balamuralikrishnan",
-    institution: "Director, DMRL, Hyderabad",
-    imageUrl: BalamuraliPic,
-  },
   {
     name: "Dr. Shaju K. Albert",
     institution: "Retd. Director, MMG, IGCAR Kalpakkam",
