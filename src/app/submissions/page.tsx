@@ -90,7 +90,7 @@ export default function SubmissionsPage() {
                 </Button>
                 <span>
                   Already submitted?{" "}
-                  <Link href={"/api/auth/signin"} className="underline">
+                  <Link href={"/auth/login"} className="underline">
                     Sign in
                   </Link>
                 </span>
@@ -135,7 +135,7 @@ export default function SubmissionsPage() {
                 </a>
                 <span>
                   Already submitted?{" "}
-                  <Link href={"/api/auth/signin"} className="underline">
+                  <Link href={"/auth/login"} className="underline">
                     Sign in
                   </Link>
                 </span>
