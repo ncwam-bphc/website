@@ -7,6 +7,7 @@ import { AvatarIcon } from "@radix-ui/react-icons";
 import { cn } from "~/lib/utils";
 import wiilp from "~/assets/WhatsApp Image 2025-01-19 at 12.30.24.webp";
 import crens from "~/assets/WhatsApp Image 2025-01-19 at 12.33.26.jpeg";
+import idea from "~/assets/idea33.png";
 import { Button } from "~/components/ui/button";
 import pearl1 from "src/assets/pearl11.jpeg";
 import pearl2 from "src/assets/pearl22.jpeg";
@@ -685,6 +686,15 @@ export default function AboutusPage() {
             rel="noreferrer"
           >
             <SpeakerCard name="CRENS" img={crens} institution="" />
+          </a>
+        </div>
+        <div className="mb-2 mt-4 flex justify-center">
+          <a
+            target="_blank"
+            href="https://www.3idea.in/?srsltid=AfmBOopgzdylpmP28YDavTeq4m73Suc_K5jJneigR3L_-u3-RILoIZ_z/"
+            rel="noreferrer"
+          >
+            <SpeakerCard name="3IDEA TECHNOLOGY" img={idea} institution="" />
           </a>
         </div>
 
