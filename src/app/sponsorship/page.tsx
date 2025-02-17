@@ -688,15 +688,6 @@ export default function AboutusPage() {
             <SpeakerCard name="CRENS" img={crens} institution="" />
           </a>
         </div>
-        <div className="mb-2 mt-4 flex justify-center">
-          <a
-            target="_blank"
-            href="https://www.3idea.in/?srsltid=AfmBOopgzdylpmP28YDavTeq4m73Suc_K5jJneigR3L_-u3-RILoIZ_z/"
-            rel="noreferrer"
-          >
-            <SpeakerCard name="3IDEA TECHNOLOGY" img={idea} institution="" />
-          </a>
-        </div>
 
         <div className="mb-2 mt-4 flex justify-center">
           <a
@@ -719,12 +710,22 @@ export default function AboutusPage() {
           Electron Beam Welding Machines{" "}
           <Link
             target="_blank"
-            href="https://www.artechengg.com/"
+            href="/ARTECH-COMPANY PROFILE.pdf"
             className="underline"
           >
             (click here)
           </Link>
           .
+        </div>
+
+        <div className="mb-2 mt-4 flex justify-center">
+          <a
+            target="_blank"
+            href="https://www.3idea.in/?srsltid=AfmBOopgzdylpmP28YDavTeq4m73Suc_K5jJneigR3L_-u3-RILoIZ_z/"
+            rel="noreferrer"
+          >
+            <SpeakerCard name="3IDEA TECHNOLOGY" img={idea} institution="" />
+          </a>
         </div>
 
         <div
