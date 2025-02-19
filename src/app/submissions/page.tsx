@@ -82,15 +82,12 @@ export default function SubmissionsPage() {
                   conference proceedings, and a copy will be given to all the
                   registered participants as part of the conference kit.
                 </div>
-                <a
-                  href="https://forms.gle/x1mrgruoTKrv7PDU9"
-                  className={cn(
-                    buttonVariants(),
-                    "mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
-                  )}
+                <Button
+                  className="mt-4 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl"
+                  disabled
                 >
-                  Submit abstract
-                </a>
+                  Submissions closed
+                </Button>
                 <span>
                   Already submitted?{" "}
                   <Link href={"/auth/login"} className="underline">
