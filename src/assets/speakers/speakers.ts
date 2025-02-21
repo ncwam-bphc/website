@@ -12,7 +12,7 @@ import NijagunayyaSoppayya from "./Nijagunayya.webp";
 import KNVishwanath from "./Vishwanath KN.webp";
 import KaushalKishore from "./kaushalkishore.webp";
 import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp";
-import MaheshKumarTalari from "./Mahesh Kumar Talari.webp";
+import pavan from "./pavan.webp"
 import RLakshmiNarayan from "./R. Lakshmi Narayan.webp";
 import AbhikNChoudhury from "./Abhik N. Choudhury.webp";
 import JyotsnaDutta from "./Jyotsna Dutta.webp";
@@ -70,9 +70,9 @@ const speakers = [
     imageUrl: ShyamprasadKaragadde,
   },
   {
-    name: "Prof. Mahesh Kumar Talari",
-    institution: "NIT Warangal",
-    imageUrl: MaheshKumarTalari,
+    name: "Prof. Pavan Kumar Penumakala",
+    institution: "BITS Pilani Hyderabad",
+    imageUrl: pavan,
   },
   {
     name: "Prof. R. Lakshmi Narayan",
