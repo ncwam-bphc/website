@@ -5,14 +5,14 @@ import MurugaiyanAmirthalingam from "./Murugaiyan Amirthalingam.webp";
 import SSuryakumar from "./S. Suryakumar.webp";
 import NKishoreBabu from "./N. Kishore Babu.webp";
 import GMKarthik from "./G.M. Karthik.webp";
-import RakeshLingam from "./Rakesh Lingam.webp";
+import PawanSharma from "./pawansharma.webp";
 import JohnRozarioJegaraj from "./John Rozario Jegaraj.webp";
 import SubrataKarmakar from "./Subrata karmakar.webp";
 import NijagunayyaSoppayya from "./Nijagunayya.webp";
 import KNVishwanath from "./Vishwanath KN.webp";
 import KaushalKishore from "./kaushalkishore.webp";
 import ShyamprasadKaragadde from "./Shyamprasad Karagadde.webp";
-import pavan from "./pavan.webp"
+import pavan from "./pavan.webp";
 import RLakshmiNarayan from "./R. Lakshmi Narayan.webp";
 import AbhikNChoudhury from "./Abhik N. Choudhury.webp";
 import JyotsnaDutta from "./Jyotsna Dutta.webp";
@@ -55,9 +55,9 @@ const speakers = [
     imageUrl: GMKarthik,
   },
   {
-    name: "Prof. Rakesh Lingam",
-    institution: "IIT Dharwad",
-    imageUrl: RakeshLingam,
+    name: "Prof. Pawan Sharma",
+    institution: "IIT (BHU) Varanasi",
+    imageUrl: PawanSharma,
   },
   {
     name: "Dr. John Rozario Jegaraj",
