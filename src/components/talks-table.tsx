@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, CardContent } from '~/components/ui/card';
+import React from "react";
+import { Card, CardContent } from "~/components/ui/card";
 
 interface Talk {
   title: string;
@@ -22,117 +22,130 @@ const TalksTable = () => {
   const talks: TalksData = {
     plenary: [
       {
-        title: "Technological Challenges of Indigenous Electron Beam Welding and Electro-magnetic Pulsed Welding",
+        title:
+          "Technological Challenges of Indigenous Electron Beam Welding and Electro-magnetic Pulsed Welding",
         speaker: "Dist. Prof. Archana Sharma",
-        institution: "IIIT Naya Raipur"
-      }
+        institution: "IIIT Naya Raipur",
+      },
     ],
     welding: [
       {
-        title: "Applications of Artificial Intelligence/Deep learning Techniques in Welding",
+        title:
+          "Applications of Artificial Intelligence/Deep learning Techniques in Welding",
         speaker: "Dr. M. Vasudevan",
-        institution: "IGCAR Kalpakkam"
+        institution: "IGCAR Kalpakkam",
       },
       {
-        title: "Friction Stir Welding of Similar and Dissimilar Plates and Weldment Properties with Process and Tool Parameters",
+        title:
+          "Friction Stir Welding of Similar and Dissimilar Plates and Weldment Properties with Process and Tool Parameters",
         speaker: "Prof. Satish Vasu Kailas",
-        institution: "IISc Bangalore"
+        institution: "IISc Bangalore",
       },
       {
-        title: "Comparative Study on Microstructures, Mechanical and Corrosion Properties of Fusion and Solid State Weldments of AA2219 Plates",
+        title:
+          "Comparative Study on Microstructures, Mechanical and Corrosion Properties of Fusion and Solid State Weldments of AA2219 Plates",
         speaker: "Prof. G. Madhusudhan Reddy",
-        institution: "NIT Warangal"
+        institution: "NIT Warangal",
       },
       {
-        title: "Microstructures and Mechanical Properties of Resistance Spot Welded Ultra High Strength Steels",
+        title:
+          "Microstructures and Mechanical Properties of Resistance Spot Welded Ultra High Strength Steels",
         speaker: "Prof. Murugaiyan Amirthalingam",
-        institution: "IIT Madras"
+        institution: "IIT Madras",
       },
       {
-        title: "Influence of Ni- and Si-modified fillers on the microstructure and mechanical properties of Ti-15-3 GTA welds",
+        title:
+          "Influence of Ni- and Si-modified fillers on the microstructure and mechanical properties of Ti-15-3 GTA welds",
         speaker: "Prof. N. Kishore Babu",
-        institution: "NIT Warangal"
+        institution: "NIT Warangal",
       },
       {
-        title: "In Situ Observations and Macro-micro Simulations of Laser-based Welding and Additive Manufacturing of Alloys",
+        title:
+          "In Situ Observations and Macro-micro Simulations of Laser-based Welding and Additive Manufacturing of Alloys",
         speaker: "Prof. Shyamprasad Karagadde",
-        institution: "IIT Bombay"
+        institution: "IIT Bombay",
       },
       {
-        title: "Fusion Welding of Advanced High Strength Steels (AHSS) for Automotive Industry",
+        title:
+          "Fusion Welding of Advanced High Strength Steels (AHSS) for Automotive Industry",
         speaker: "Prof. Mahesh Kumar Talari",
-        institution: "NIT Warangal"
+        institution: "NIT Warangal",
       },
       {
         title: "Welding and Joining in Space Sectors",
         speaker: "Dr. Agilan M",
-        institution: "VSSC ISRO, Trivandrum"
+        institution: "VSSC ISRO, Trivandrum",
       },
       {
-        title: "Resistance welding of conventional and advanced high strength steels: challenges and recent developments",
+        title:
+          "Resistance welding of conventional and advanced high strength steels: challenges and recent developments",
         speaker: "Shri. Kaushal Kishore",
-        institution: "R&D, Tata Steel Ltd., Jamshedpur"
-      }
+        institution: "R&D, Tata Steel Ltd., Jamshedpur",
+      },
     ],
     additive: [
       {
         title: "Thermal Management Approaches for Distortion Control in AM",
         speaker: "Prof. Suryakumar",
-        institution: "IIT Hyderabad"
+        institution: "IIT Hyderabad",
       },
       {
         title: "Tailoring the Properties of Metal Additive Parts",
         speaker: "Prof. G.M. Karthik",
-        institution: "IIT (BHU) Varanasi"
+        institution: "IIT (BHU) Varanasi",
       },
       {
-        title: "Slicing and Area Filling Strategies for Layered Manufacturing Technologies",
-        speaker: "Prof. Rakesh Lingam",
-        institution: "IIT Dharwad"
+        title:
+          "Additive manufacturing of hierarchically porous copper electrode for lithium metal battery application",
+        speaker: "Prof. Pawan Sharma",
+        institution: "IIT (BHU) Varanasi",
       },
       {
-        title: "Metal Additive Technologies for Defence Applications: Challenges and Opportunities",
+        title:
+          "Metal Additive Technologies for Defence Applications: Challenges and Opportunities",
         speaker: "Dr. John Rozario Jegaraj",
-        institution: "DRDL Hyderabad"
+        institution: "DRDL Hyderabad",
       },
       {
         title: "Laser powder bed fusion of immiscible alloys",
         speaker: "Prof. R. Lakshmi Narayan",
-        institution: "IIT Delhi"
+        institution: "IIT Delhi",
       },
       {
-        title: "Modeling assisted workflows for single crystal processing of Ni based super alloys: Adaptations from Bridgman to Additive",
+        title:
+          "Modeling assisted workflows for single crystal processing of Ni based super alloys: Adaptations from Bridgman to Additive",
         speaker: "Prof. Abhik N. Choudhury",
-        institution: "IISc Bangalore"
+        institution: "IISc Bangalore",
       },
       {
         title: "Laser surface processing and additive manufacturing of Steel",
         speaker: "Prof. Jyotsna Dutta Majumdar",
-        institution: "IIT Kharagpur"
+        institution: "IIT Kharagpur",
       },
       {
-        title: "Lattice Structure based Light-weighing of Automotive and Space Structures Made by Additive Manufacturing",
+        title:
+          "Lattice Structure based Light-weighing of Automotive and Space Structures Made by Additive Manufacturing",
         speaker: "Prof. Srinivasa Prakash Regalla",
-        institution: "BITS Pilani Hyderabad"
+        institution: "BITS Pilani Hyderabad",
       },
       {
-        title: "Advancements in Welding and Additive Manufacturing: A Tech Talk on Innovation and Application",
+        title:
+          "Advancements in Welding and Additive Manufacturing: A Tech Talk on Innovation and Application",
         speaker: "Shri. Subrata Karmakar",
-        institution: "ABB India, Bangalore"
+        institution: "ABB India, Bangalore",
       },
       {
         title: "Challenges in welding for mass production",
         speaker: "Shri. Nijagunayya Soppayya",
-        institution: "Apollo Heat Exchangers, Tarapur"
+        institution: "Apollo Heat Exchangers, Tarapur",
       },
       {
         title: "Usage of Additive manufacturing in Locomotive industries",
         speaker: "Shri. Vishwanath KN",
-        institution: "Wabtec Corporation, Bangalore"
-      }
-    ]
+        institution: "Wabtec Corporation, Bangalore",
+      },
+    ],
   };
-
 
   const TalkSection: React.FC<TalkSectionProps> = ({ title, talks }) => (
     <div className="mb-12">
@@ -143,16 +156,17 @@ const TalksTable = () => {
         <CardContent className="p-4 md:p-6">
           <div className="block md:hidden">
             {talks.map((talk, index) => (
-              <div 
+              <div
                 key={index}
                 className="mb-6 border-b border-white/10 pb-6 last:mb-0 last:border-b-0 last:pb-0"
               >
                 <h5 className="mb-3 text-2xl font-semibold">{talk.title}</h5>
-                <p className="mb-2 text-2xl customcol">
+                <p className="customcol mb-2 text-2xl">
                   <span className="font-semibold">Speaker:</span> {talk.speaker}
                 </p>
-                <p className="text-2xl customcol">
-                  <span className="font-semibold">Institution:</span> {talk.institution}
+                <p className="customcol text-2xl">
+                  <span className="font-semibold">Institution:</span>{" "}
+                  {talk.institution}
                 </p>
               </div>
             ))}
@@ -167,20 +181,32 @@ const TalksTable = () => {
                 </colgroup>
                 <thead>
                   <tr className="border-b border-white/10">
-                    <th className="whitespace-normal p-4 text-left text-xl font-semibold text-accent">Title</th>
-                    <th className="whitespace-normal p-4 text-left text-xl font-semibold text-accent">Speaker</th>
-                    <th className="whitespace-normal p-4 text-left text-xl font-semibold text-accent">Institution</th>
+                    <th className="whitespace-normal p-4 text-left text-xl font-semibold text-accent">
+                      Title
+                    </th>
+                    <th className="whitespace-normal p-4 text-left text-xl font-semibold text-accent">
+                      Speaker
+                    </th>
+                    <th className="whitespace-normal p-4 text-left text-xl font-semibold text-accent">
+                      Institution
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {talks.map((talk, index) => (
-                    <tr 
-                      key={index} 
+                    <tr
+                      key={index}
                       className="border-b border-white/10 transition-colors hover:bg-white/5"
                     >
-                      <td className="whitespace-normal p-4 text-xl font-medium">{talk.title}</td>
-                      <td className="whitespace-normal p-4 text-xl customcol">{talk.speaker}</td>
-                      <td className="whitespace-normal p-4 text-xl customcol">{talk.institution}</td>
+                      <td className="whitespace-normal p-4 text-xl font-medium">
+                        {talk.title}
+                      </td>
+                      <td className="customcol whitespace-normal p-4 text-xl">
+                        {talk.speaker}
+                      </td>
+                      <td className="customcol whitespace-normal p-4 text-xl">
+                        {talk.institution}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -200,8 +226,14 @@ const TalksTable = () => {
         </h2>
       </div>
       <TalkSection title="PLENARY TALK" talks={talks.plenary} />
-      <TalkSection title="KEYNOTE TALKS: WELDING TECHNOLOGIES" talks={talks.welding} />
-      <TalkSection title="KEYNOTE TALKS: ADDITIVE MANUFACTURING" talks={talks.additive} />
+      <TalkSection
+        title="KEYNOTE TALKS: WELDING TECHNOLOGIES"
+        talks={talks.welding}
+      />
+      <TalkSection
+        title="KEYNOTE TALKS: ADDITIVE MANUFACTURING"
+        talks={talks.additive}
+      />
     </div>
   );
 };
