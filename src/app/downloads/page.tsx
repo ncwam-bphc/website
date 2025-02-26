@@ -20,6 +20,16 @@ export default function DownloadsPage() {
             Event details
           </div>
           <a
+            href="/Inauguration Program (Public)-NCWAM 2025.pdf"
+            target="_blank"
+            className={cn(
+              buttonVariants(),
+              "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+            )}
+          >
+            Inaugration Program
+          </a>
+          <a
             href="/Program schedule (Public)-NCWAM 2025.pdf"
             target="_blank"
             className={cn(
