@@ -99,14 +99,21 @@ export default function SubmissionsPage() {
               <div className="flex flex-col items-center text-center text-xl md:text-xl">
                 <span className="customcol text-xl md:text-3xl">
                   Disclaimer: Springer publication
-                </span>{" "}
+                </span>
                 <div className="text-justify">
-                  Select papers from the conference will be published by
-                  Springer as a proceedings book volume. Springer will conduct
-                  quality checks on the accepted papers and only papers that
-                  pass these checks will be published. Springer Nature does not
-                  charge any money for publication of Non-Open Access content.
-                  Abstracts/extended abstracts and short papers (less than 4
+                  <span className="text-accent">Select papers</span> from the
+                  conference will be published by{" "}
+                  <span className="text-accent">
+                    Springer as a proceedings book volume
+                  </span>
+                  . Springer will conduct quality checks on the accepted papers
+                  and only papers that pass these checks will be published.
+                  <br />
+                  <span className="text-accent">
+                    Springer Nature does not charge any money for publication of
+                    Non-Open Access content
+                  </span>
+                  . Abstracts/extended abstracts and short papers (less than 4
                   pages) are not considered for publication.
                 </div>
               </div>
