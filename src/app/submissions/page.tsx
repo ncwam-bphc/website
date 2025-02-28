@@ -96,6 +96,22 @@ export default function SubmissionsPage() {
                 </span>
               </div>
               <div className="h-[2px] w-96 self-center bg-white"></div>
+              <div className="flex flex-col items-center text-center text-xl md:text-xl">
+                <span className="customcol text-xl md:text-3xl">
+                  Disclaimer: Springer publication
+                </span>{" "}
+                <div className="text-justify">
+                  Select papers from the conference will be published by
+                  Springer as a proceedings book volume. Springer will conduct
+                  quality checks on the accepted papers and only papers that
+                  pass these checks will be published. Springer Nature does not
+                  charge any money for publication of Non-Open Access content.
+                  Abstracts/extended abstracts and short papers (less than 4
+                  pages) are not considered for publication.
+                </div>
+              </div>
+
+              <div className="h-[2px] w-96 self-center bg-white"></div>
               <div className="flex flex-col items-center text-center text-base md:text-xl">
                 <span className="text-bold customcol text-xl md:text-3xl">
                   Manuscript (full length paper) - Optional Submission:
@@ -145,6 +161,23 @@ export default function SubmissionsPage() {
           </span>
         ) : session.status === "authenticated" ? (
           <>
+            <div className="flex flex-col items-center text-center text-xl md:text-xl">
+              <span className="customcol text-xl md:text-3xl">
+                Disclaimer: Springer publication
+              </span>{" "}
+              <div className="text-justify">
+                Select papers from the conference will be published by Springer
+                as a proceedings book volume. Springer will conduct quality
+                checks on the accepted papers and only papers that pass these
+                checks will be published. Springer Nature does not charge any
+                money for publication of Non-Open Access content.
+                Abstracts/extended abstracts and short papers (less than 4
+                pages) are not considered for publication.
+              </div>
+            </div>
+
+            <div className="h-[2px] w-96 self-center bg-white"></div>
+
             <div className="text-nowrap pt-4 text-center text-xl font-bold uppercase text-accent md:text-3xl">
               your submission(s)
             </div>
