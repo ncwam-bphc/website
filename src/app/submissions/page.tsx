@@ -133,14 +133,9 @@ export default function SubmissionsPage() {
                   progress. The authors will be consented before recommending
                   the manuscript for publication, and it may be a subscription
                   based (free of cost) and/or an open access (paid, but
-                  discounted price) journal.{" "}
-                  <span className="text-accent">
-                    Further details will be updated to all the registered
-                    participants by the end of January 2025.
-                  </span>{" "}
-                  So, authors who wish to publish in a Scopus indexed conference
-                  proceedings are encouraged to submit the manuscript in a
-                  prescribed format (available in the{" "}
+                  discounted price) journal. So, authors who wish to publish in
+                  a Scopus indexed conference proceedings are encouraged to
+                  submit the manuscript in a prescribed format (available in the{" "}
                   <Link href={"/downloads"} className="underline">
                     downloads section
                   </Link>
