@@ -8,7 +8,6 @@ import getStatusManuscript from "~/server/actions/manuscript/getStatus";
 import { cn } from "~/lib/utils";
 import { Button, buttonVariants } from "~/components/ui/button";
 import Link from "next/link";
-
 export default function SubmissionsPage() {
   const session = useSession();
   const { data: submissionStatus } = useQuery({
@@ -116,12 +115,24 @@ export default function SubmissionsPage() {
                   . Abstracts/extended abstracts and short papers (less than 4
                   pages) are not considered for publication.
                 </div>
+                <span className="customcol text-xl md:text-3xl">
+                  Important Dates and Instructions to authors
+                </span>
+                <a
+                  href="./Disclaimer (Springer Nature)-Conference Proceedings-Timelines and instructions-NCWAM 2025.pdf"
+                  target="_blank"
+                  className={cn(
+                    buttonVariants(),
+                    "mt-2 rounded-xl bg-accent px-4 py-3 text-base font-semibold text-white hover:bg-accent/80 md:px-6 md:py-6 md:text-xl",
+                  )}
+                >
+                  Download
+                </a>
               </div>
 
-              <div className="h-[2px] w-96 self-center bg-white"></div>
               <div className="flex flex-col items-center text-center text-base md:text-xl">
                 <span className="text-bold customcol text-xl md:text-3xl">
-                  Manuscript (full length paper) - Optional Submission:
+                  Manuscript (full length paper) - Optional Submission
                 </span>{" "}
                 <div className="text-justify">
                   <span className="text-accent">
