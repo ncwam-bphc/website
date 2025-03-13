@@ -67,7 +67,7 @@ export default {
       },
       keyframes: {
         "infinite-scroll": {
-          from: { transform: "translateX(2600px)" },
+          from: { transform: "translateX(1750px)" },
           to: { transform: "translateX(-100%)" },
         },
       },
