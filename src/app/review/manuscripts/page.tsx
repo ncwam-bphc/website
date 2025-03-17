@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button, buttonVariants } from "~/components/ui/button";
-import { Textarea } from "~/components/ui/textarea";
 import {
   changeStatus,
   getAssignedManuscripts,
@@ -12,11 +11,12 @@ import { useEffect, useState } from "react";
 import { OpenInNewWindowIcon } from "@radix-ui/react-icons";
 import { cn } from "~/lib/utils";
 import { toast } from "sonner";
-
-const MAX_CHARS = 300;
+import Link from "next/link";
+import { UploadButton } from "~/lib/uploadthing";
 
 export default function ReviewerDashboard() {
-  const [comments, setComments] = useState<Record<number, string>>({});
+  const [uploadUrls, setUploadUrls] = useState<Record<number, string>>({});
+  const [uploadNames, setUploadNames] = useState<Record<number, string>>({});
   const queryClient = useQueryClient();
   const {
     data: reviews,
@@ -44,7 +44,7 @@ export default function ReviewerDashboard() {
       return await changeStatus({
         papernumber: id,
         newStatus: status,
-        comment: comments[id],
+        comment: "",
       });
     },
     onSettled: () => {
@@ -62,10 +62,19 @@ export default function ReviewerDashboard() {
 
   useEffect(() => {
     if (reviews) {
-      setComments(
+      setUploadUrls(
         reviews.reduce(
           (acc, review) => {
-            acc[review.for] = review.comments ?? "";
+            acc[review.for] = review.uploadUrl ?? "";
+            return acc;
+          },
+          {} as Record<number, string>,
+        ),
+      );
+      setUploadNames(
+        reviews.reduce(
+          (acc, review) => {
+            acc[review.for] = review.uploadName ?? "";
             return acc;
           },
           {} as Record<number, string>,
@@ -78,12 +87,6 @@ export default function ReviewerDashboard() {
     void changeStatusMutation.mutate({ id, status });
   };
 
-  const handleCommentChange = (id: number, value: string) => {
-    if (value.length <= MAX_CHARS) {
-      setComments((prevComments) => ({ ...prevComments, [id]: value }));
-    }
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="mb-8 text-center text-3xl font-bold">
@@ -93,7 +96,8 @@ export default function ReviewerDashboard() {
         {reviews?.length
           ? reviews.map((review, index) => (
               <Card key={index} className="w-full text-left">
-                <CardHeader>manuscript
+                <CardHeader>
+                  manuscript
                   <CardTitle>{review.abstract.papernumber}</CardTitle>
                   <a
                     href={review.abstract.uploadPdf ?? "#"}
@@ -142,7 +146,14 @@ export default function ReviewerDashboard() {
                           {review.response ? "Approved" : "Resubmit"}
                         </span>
                       </p>
-                      {review.comments && <p>Comment: {review.comments}</p>}
+                      {review.uploadUrl && (
+                        <p>
+                          Uploaded File:{" "}
+                          <Link href={review.uploadUrl} className="underline">
+                            {review.uploadName ?? "Review"}
+                          </Link>
+                        </p>
+                      )}
                       <Button
                         variant="outline"
                         onClick={() => handleAction(review.for, null)}
@@ -154,17 +165,43 @@ export default function ReviewerDashboard() {
                   ) : (
                     <div className="flex flex-col gap-4 pt-4">
                       <div>
-                        <Textarea
-                          placeholder={`Add your comment here recommending either oral or poster presentation (max ${MAX_CHARS} characters)`}
-                          value={comments[review.for] ?? ""}
-                          onChange={(e) =>
-                            handleCommentChange(review.for, e.target.value)
-                          }
+                        <UploadButton
+                          endpoint="wordUploader"
+                          content={{
+                            allowedContent: "MS Word File",
+                          }}
+                          onUploadError={(e) => {
+                            toast.error(`ERROR: ${e.message}`);
+                          }}
+                          onClientUploadComplete={(ress) => {
+                            toast.success("Uploaded");
+                            const result = ress[0]!;
+
+                            setUploadUrls((prev) => {
+                              const newObj: Record<number, string> =
+                                Object.fromEntries(Object.entries(prev));
+                              newObj[review.for] = result.url;
+                              return newObj;
+                            });
+                            setUploadNames((prev) => {
+                              const newObj: Record<number, string> =
+                                Object.fromEntries(Object.entries(prev));
+                              newObj[review.for] = result.filename;
+                              return newObj;
+                            });
+                          }}
                         />
-                        <p className="text-sm text-gray-500">
-                          {MAX_CHARS - (comments[review.for]?.length ?? 0)}{" "}
-                          characters remaining
-                        </p>
+                        {uploadUrls[review.for] && (
+                          <p>
+                            Uploaded File:{" "}
+                            <Link
+                              href={uploadUrls[review.for] ?? ""}
+                              className="underline"
+                            >
+                              {uploadNames[review.for] ?? "Review"}
+                            </Link>
+                          </p>
+                        )}
                       </div>
                       <div className="flex space-x-4">
                         <Button
@@ -189,8 +226,8 @@ export default function ReviewerDashboard() {
           : isLoading
             ? "Loading..."
             : isError
-              ? "Error loading abstracts"
-              : "No abstracts assigned to you"}
+              ? "Error loading manuscripts"
+              : "No manuscripts assigned to you"}
       </div>
     </div>
   );

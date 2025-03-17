@@ -24,6 +24,8 @@ export const manuscriptReviewers = createTable(
       .references(() => users.id),
     response: boolean("response"),
     comments: text("comments"),
+    uploadUrl: text("upload_url"),
+    uploadName: text("upload_name"),
   },
   (table) => {
     return {
