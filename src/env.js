@@ -30,6 +30,7 @@ export const env = createEnv({
     WEBHOOK_KEY: z.string(),
     ABSTRACT_URL: z.string().url(),
     MANUSCRIPT_URL: z.string().url(),
+    UPLOADTHING_TOKEN: z.string(),
   },
 
   /**
@@ -58,6 +59,7 @@ export const env = createEnv({
     ABSTRACT_URL: process.env.ABSTRACT_URL,
     MANUSCRIPT_URL: process.env.MANUSCRIPT_URL,
     NEXT_PUBLIC_NODE_ENV: process.env.NODE_ENV,
+    UPLOADTHING_TOKEN: process.env.UPLOADTHING_TOKEN,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
