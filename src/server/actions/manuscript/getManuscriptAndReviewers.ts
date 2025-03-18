@@ -1,5 +1,8 @@
 "use server";
-import { formatManuscriptPaperNumber, getManuscriptPaperNumber } from "~/lib/utils";
+import {
+  formatManuscriptPaperNumber,
+  getManuscriptPaperNumber,
+} from "~/lib/utils";
 import { auth } from "../../auth";
 import { db } from "../../db";
 import { getPaperAndReviewersSchema } from "~/schemas";
@@ -42,20 +45,23 @@ export async function getManuscriptAndReviewers(data: { papernumber: string }) {
     ...paper,
     frontendStatus,
     authors: paper.user.name ?? paper.user.email,
-    reviewers: paper.reviewers.map(({ reviewer, comments, response }) => ({
-      reviewer: {
-        id: reviewer.id,
-        name: reviewer.name,
-        email: reviewer.email,
-      },
-      status:
-        response === null
-          ? "under review"
-          : response === true
-            ? "approved"
-            : "rejected",
-      comments: comments ?? "",
-    })),
+    reviewers: paper.reviewers.map(
+      ({ reviewer, uploadUrl, uploadName, response }) => ({
+        reviewer: {
+          id: reviewer.id,
+          name: reviewer.name,
+          email: reviewer.email,
+        },
+        status:
+          response === null
+            ? "under review"
+            : response === true
+              ? "approved"
+              : "rejected",
+        fileUrl: uploadUrl,
+        fileName: uploadName,
+      }),
+    ),
     papernumber: formatManuscriptPaperNumber(paper.papernumber, paper.authors),
   };
 }

@@ -33,6 +33,7 @@ import {
 import Image from "next/image";
 import acceptedStamp from "~/assets/admin/accepted.webp";
 import { Textarea } from "~/components/ui/textarea";
+import Link from "next/link";
 
 const MAX_CHARS = 300;
 
@@ -80,7 +81,7 @@ export default function PaperPage() {
   const {
     data: manuscript,
     isLoading,
-    isError
+    isError,
   } = useQuery({
     queryKey: [id as string],
     queryFn: async () => {
@@ -186,12 +187,17 @@ export default function PaperPage() {
           <p>
             Status:{" "}
             <span
-              className={cn("uppercase", getStatusColor(manuscript.frontendStatus))}
+              className={cn(
+                "uppercase",
+                getStatusColor(manuscript.frontendStatus),
+              )}
             >
               {manuscript.frontendStatus}
             </span>
           </p>
-          <p>Comments: {manuscript.comments?.length ? manuscript.comments : "-"}</p>
+          <p>
+            Comments: {manuscript.comments?.length ? manuscript.comments : "-"}
+          </p>
         </CardContent>
       </Card>
 
@@ -234,10 +240,14 @@ export default function PaperPage() {
                         </span>
                       </p>
                       <p>
-                        Comments:{" "}
-                        <span className="text-muted-foreground">
-                          {review.comments.length ? review.comments : "-"}
-                        </span>
+                        File:{" "}
+                        <Link
+                          href={review.fileUrl ?? "#"}
+                          target="_blank"
+                          className={cn("self-center underline")}
+                        >
+                          {review.fileName}
+                        </Link>
                       </p>
                     </div>
                     <div className="flex gap-2">

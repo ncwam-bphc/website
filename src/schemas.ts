@@ -4,12 +4,21 @@ import type { assignReviewerParamsType } from "~/server/actions/abstract/assignR
 import type { updatePaperStatusParamsType } from "./server/actions/abstract/finalResponse";
 import type { getPaperAndReviewersParamsType } from "./server/actions/abstract/getPaperAndReviewers";
 import type { deleteReviewerParamsType } from "./server/actions/abstract/deleteReviewer";
+import type { changeStatusManuscriptParamsType } from "./server/actions/manuscript/assignedManuscripts";
 
 export const changeStatusSchema: z.ZodType<changeStatusParamsType> = z.object({
   papernumber: z.number().int(),
   newStatus: z.boolean().nullable(),
   comment: z.string().trim().optional(),
 });
+
+export const changeStatusManuscriptSchema: z.ZodType<changeStatusManuscriptParamsType> =
+  z.object({
+    papernumber: z.number().int(),
+    newStatus: z.boolean().nullable(),
+    fileUrl: z.string().trim().optional(),
+    fileName: z.string().trim().optional(),
+  });
 
 export const assignReviewerSchema: z.ZodType<assignReviewerParamsType> =
   z.object({

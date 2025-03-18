@@ -232,17 +232,29 @@ export default function SubmissionsPage() {
                   {submission.status !== "under review" && (
                     <div className="mt-2 flex flex-col gap-2">
                       <span className="text-xl font-semibold text-accent">
-                        Reviewer A comments
+                        Reviewer A file
                       </span>
                       <span className="text-white">
-                        {submission.reviewerA.comment}
+                        <Link
+                          href={submission.reviewerA.fileUrl ?? "#"}
+                          target="_blank"
+                          className={cn(buttonVariants(), "self-center")}
+                        >
+                          {submission.reviewerA.fileName}
+                        </Link>
                       </span>
 
                       <span className="text-xl font-semibold text-accent">
-                        Reviewer B comments
+                        Reviewer B file
                       </span>
                       <span className="text-white">
-                        {submission.reviewerB.comment}
+                        <Link
+                          href={submission.reviewerB.fileUrl ?? "#"}
+                          target="_blank"
+                          className={cn(buttonVariants(), "self-center")}
+                        >
+                          {submission.reviewerB.fileName}
+                        </Link>
                       </span>
 
                       <span className="text-xl font-semibold text-accent">

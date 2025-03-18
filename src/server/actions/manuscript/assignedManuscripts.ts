@@ -4,7 +4,7 @@ import { auth } from "../../auth";
 import { db } from "../../db";
 import { manuscriptReviewers, manuscripts } from "../../db/schema";
 import { and, eq } from "drizzle-orm";
-import { changeStatusSchema } from "~/schemas";
+import { changeStatusManuscriptSchema } from "~/schemas";
 
 export async function getAssignedManuscripts() {
   const session = await auth();
@@ -24,15 +24,19 @@ export async function getAssignedManuscripts() {
     ...review,
     abstract: {
       ...review.abstract,
-      papernumber: formatManuscriptPaperNumber(review.abstract.papernumber, review.abstract.authors),
+      papernumber: formatManuscriptPaperNumber(
+        review.abstract.papernumber,
+        review.abstract.authors,
+      ),
     },
   }));
 }
 
-export async function changeStatus(data: {
+export async function changeStatusManuscript(data: {
   papernumber: number;
   newStatus: boolean | null;
-  comment?: string;
+  fileUrl?: string;
+  fileName?: string;
 }) {
   const session = await auth();
   if (
@@ -40,7 +44,7 @@ export async function changeStatus(data: {
     (session.user.role !== "reviewer" && session.user.role !== "admin")
   )
     throw new Error("Unauthorized");
-  const parsed = changeStatusSchema.parse(data);
+  const parsed = changeStatusManuscriptSchema.parse(data);
   const paper = await db.query.manuscripts.findFirst({
     where: eq(manuscripts.papernumber, parsed.papernumber),
   });
@@ -49,12 +53,8 @@ export async function changeStatus(data: {
     .update(manuscriptReviewers)
     .set({
       response: parsed.newStatus,
-      comments:
-        parsed.newStatus !== null
-          ? parsed.comment?.length
-            ? parsed.comment
-            : null
-          : null,
+      uploadUrl: parsed.newStatus !== null ? (parsed.fileUrl ?? null) : null,
+      uploadName: parsed.newStatus !== null ? (parsed.fileName ?? null) : null,
     })
     .where(
       and(
@@ -63,7 +63,9 @@ export async function changeStatus(data: {
       ),
     )
     .returning();
-  if (updated.length === 0) throw new Error("Abstract not found");
+  if (updated.length === 0) throw new Error("Manuscript not found");
 }
 
-export type changeStatusParamsType = Parameters<typeof changeStatus>[0];
+export type changeStatusManuscriptParamsType = Parameters<
+  typeof changeStatusManuscript
+>[0];

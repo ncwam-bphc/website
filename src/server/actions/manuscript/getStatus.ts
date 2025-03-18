@@ -44,10 +44,12 @@ const getStatus = async () => {
                 ? "under review"
                 : "resubmit",
           reviewerA: {
-            comment: sortedReviewers[0]?.comments ?? "No comments",
+            fileName: sortedReviewers[0]?.uploadName ?? "No file",
+            fileUrl: sortedReviewers[0]?.uploadUrl ?? "#",
           },
           reviewerB: {
-            comment: sortedReviewers[1]?.comments ?? "No comments",
+            fileName: sortedReviewers[1]?.uploadName ?? "No file",
+            fileUrl: sortedReviewers[1]?.uploadUrl ?? "#",
           },
           finalComments: manuscript.comments ?? "No comments",
         };

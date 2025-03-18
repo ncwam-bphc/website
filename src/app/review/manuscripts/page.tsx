@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button, buttonVariants } from "~/components/ui/button";
 import {
-  changeStatus,
+  changeStatusManuscript,
   getAssignedManuscripts,
 } from "~/server/actions/manuscript/assignedManuscripts";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -41,10 +41,11 @@ export default function ReviewerDashboard() {
       id: number;
       status: boolean | null;
     }) => {
-      return await changeStatus({
+      return await changeStatusManuscript({
         papernumber: id,
         newStatus: status,
-        comment: "",
+        fileName: uploadNames[id],
+        fileUrl: uploadUrls[id],
       });
     },
     onSettled: () => {
@@ -84,6 +85,8 @@ export default function ReviewerDashboard() {
   }, [reviews]);
 
   const handleAction = (id: number, status: boolean | null) => {
+    if (status !== null && (!uploadUrls[id] || !uploadNames[id]))
+      return toast.error("Please upload a file first");
     void changeStatusMutation.mutate({ id, status });
   };
 
@@ -173,20 +176,20 @@ export default function ReviewerDashboard() {
                           onUploadError={(e) => {
                             toast.error(`ERROR: ${e.message}`);
                           }}
-                          onClientUploadComplete={(ress) => {
+                          onClientUploadComplete={(res) => {
                             toast.success("Uploaded");
-                            const result = ress[0]!;
+                            const result = res[0]!;
 
                             setUploadUrls((prev) => {
                               const newObj: Record<number, string> =
                                 Object.fromEntries(Object.entries(prev));
-                              newObj[review.for] = result.url;
+                              newObj[review.for] = result.ufsUrl;
                               return newObj;
                             });
                             setUploadNames((prev) => {
                               const newObj: Record<number, string> =
                                 Object.fromEntries(Object.entries(prev));
-                              newObj[review.for] = result.filename;
+                              newObj[review.for] = result.name;
                               return newObj;
                             });
                           }}
