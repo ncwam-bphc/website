@@ -65,21 +65,16 @@ const abstractCols = z.object({
       "Affiliation in full  (University/R&D/Organization/College/Industry/Others)":
         z.string().trim(),
       "Department name in full": z.string().trim(),
-      "Extended abstract number ( xxx-abstract-NCWAM2025)": z.string().trim(),
+      "Name of Author, who presented in NCWAM-2025": z.string().trim(),
+      "Extended abstract number ( xxx-abstract-NCWAM2025) ": z.string().trim(),
       "Title of the manuscript": z.string().trim(),
       "Author's details (names of all authors, separated by commas)": z
         .string()
         .trim(),
-      "Upload manuscript (MS Word) with file name as, xxx-NCWAM2025-first author name":
+      "Upload manuscript (MS Word file without turnitin  checked) with file name as, xxx-manuscript-NCWAM2025-first author name.": z.string().url(),
+      "Upload turnitin report of manuscript (PDF file) with file name as, xxx-turnitin report-NCWAM2025-first author name.":
         z.string().url(),
-      "Upload turnitin report (PDF) with file name as, xxx-NCWAM2025-first author name.":
-        z.string().url(),
-      "Paper presenting author name": z.string().trim(),
-      "Paper presenting author's registration transaction number": z
-        .string()
-        .trim(),
-      "Author's preferred presentation mode (Oral/Poster). However, final decision will be decided by the technical review committee.":
-        z.string().trim(),
+      "Upload filled-up and signed Copyright Form (PDF file ) with file name as, xxx-Copyright-NCWAM2025-first author name.": z.string().trim(),
     })
     .array(),
 });
@@ -120,7 +115,7 @@ const onManuscriptDataReceived = async (data: unknown) => {
         return eq(
           papernumber,
           getAbstractPaperNumber(
-            entry["Extended abstract number ( xxx-abstract-NCWAM2025)"],
+            entry["Extended abstract number ( xxx-abstract-NCWAM2025) "],
           ),
         );
       },
@@ -131,14 +126,14 @@ const onManuscriptDataReceived = async (data: unknown) => {
     if (!abstract) {
       console.error(
         "Abstract not found for manuscript",
-        entry["Extended abstract number ( xxx-abstract-NCWAM2025)"],
+        entry["Extended abstract number ( xxx-abstract-NCWAM2025) "],
       );
       continue;
     }
     if (abstract.user.email !== entry["E-mail ID"]) {
       console.error(
         "Email mismatch for manuscript",
-        entry["Extended abstract number ( xxx-abstract-NCWAM2025)"],
+        entry["Extended abstract number ( xxx-abstract-NCWAM2025) "],
       );
       continue;
     }
@@ -154,15 +149,16 @@ const onManuscriptDataReceived = async (data: unknown) => {
             ],
           uploadWord:
             entry[
-              "Upload manuscript (MS Word) with file name as, xxx-NCWAM2025-first author name"
+              "Upload manuscript (MS Word file without turnitin  checked) with file name as, xxx-manuscript-NCWAM2025-first author name."
             ],
           uploadPdf:
             entry[
-              "Upload turnitin report (PDF) with file name as, xxx-NCWAM2025-first author name."
+              "Upload turnitin report of manuscript (PDF file) with file name as, xxx-turnitin report-NCWAM2025-first author name."
             ],
-          presentor: entry["Paper presenting author name"],
+          copyrightForm: entry["Upload filled-up and signed Copyright Form (PDF file ) with file name as, xxx-Copyright-NCWAM2025-first author name."],
+          presentor: entry["Name of Author, who presented in NCWAM-2025"],
           transactionNumber:
-            entry["Paper presenting author's registration transaction number"],
+            null,
           department: entry["Department name in full"],
           title: entry["Title of the manuscript"],
           authors:

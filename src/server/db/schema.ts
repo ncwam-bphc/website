@@ -58,11 +58,12 @@ export const manuscripts = createTable("manuscript", {
   title: text("title").notNull(),
   authors: text("authors").notNull(),
   presentor: text("presentor").notNull(),
-  transactionNumber: text("transaction_number").notNull(),
+  transactionNumber: text("transaction_number"),
   affiliation: text("affiliation").notNull(),
   department: text("department").notNull(),
   uploadWord: text("upload_word"),
   uploadPdf: text("upload_pdf"),
+  copyrightForm: text("copyright_form"),
   status: boolean("status"),
   comments: text("comments"),
 });
