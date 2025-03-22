@@ -60,7 +60,7 @@ const abstractCols = z.object({
     .object({
       Timestamp: z.coerce.date(),
       "Name in full with title (Prof./Dr./Mr./Mrs./Ms.)": z.string().trim(),
-      "E-mail ID": z.string().trim().email(),
+      "E-mail ID (please use the same email ID which was used during abstract submission)": z.string().trim().email(),
       "Mobile number": z.string().trim(),
       "Affiliation in full  (University/R&D/Organization/College/Industry/Others)":
         z.string().trim(),
@@ -130,7 +130,7 @@ const onManuscriptDataReceived = async (data: unknown) => {
       );
       continue;
     }
-    if (abstract.user.email !== entry["E-mail ID"]) {
+    if (abstract.user.email !== entry["E-mail ID (please use the same email ID which was used during abstract submission)"]) {
       console.error(
         "Email mismatch for manuscript",
         entry["Extended abstract number ( xxx-abstract-NCWAM2025) "],
