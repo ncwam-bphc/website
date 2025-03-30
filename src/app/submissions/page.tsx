@@ -44,7 +44,10 @@ export default function SubmissionsPage() {
           </Link>
         )}
         {["reviewer", "admin"].includes(session.data?.user.role ?? "") && (
-          <Link href="/review" className={buttonVariants({ variant: "poppy" })}>
+          <Link
+            href="/review/manuscripts"
+            className={buttonVariants({ variant: "poppy" })}
+          >
             Reviewer portal
           </Link>
         )}
