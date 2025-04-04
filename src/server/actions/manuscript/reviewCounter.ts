@@ -15,7 +15,7 @@ export async function getReviewersData() {
     const reviewers = await db.query.users.findMany({
       where: inArray(
         users.email,
-        Reviewers.map((r) => r.label),
+        Reviewers.map((r) => r.value),
       ),
       columns: {
         name: true,
