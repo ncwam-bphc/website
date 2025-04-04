@@ -13,7 +13,7 @@ import {
 import {
   getReviewersData,
   type getReviewersDataReturnType,
-} from "~/server/actions/abstract/reviewerCounter";
+} from "~/server/actions/manuscript/reviewCounter";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "~/components/ui/button";
 
@@ -107,7 +107,7 @@ export default function ReviewerDashboard() {
             <TableRow>
               <TableHead>Email</TableHead>
               <TableHead>Name</TableHead>
-              <TableHead className="text-right">Assigned Abstracts</TableHead>
+              <TableHead className="text-right">Assigned Manuscripts</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
