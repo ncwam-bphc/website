@@ -17,7 +17,7 @@ const sendMail = async (
 ) => {
   const mailHtml = `<p>Dear ${name},</p>
         
-<p>This is a gentle reminder to review the manuscript assigned to you. Please review and submit the decision.</p>
+<p>This is a gentle reminder to review the manuscript assigned to you. The editorial team sincerely requests you to review the manuscript and submit the comments and suggestions by uploading a separate file.</p>
 
 <p><strong>Paper Number:</strong> ${paper}</p>
 

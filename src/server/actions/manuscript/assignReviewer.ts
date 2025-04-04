@@ -16,9 +16,9 @@ const sendMail = async (
 ) => {
   const mailHtml = `<p>Dear ${name},</p>
         
-<p>An manuscript has been assigned to you for review. Review process and submission of comments and suggestion need to be done in 10 days.</p>
+<p>An manuscript has been assigned to you for review. The editorial team sincerely requests you to review the manuscript and submit the comments and suggestions by uploading a separate file, within 10 days.</p>
 
-<p><strong>Paper Number:</strong> ${paper}</p>
+<p><strong>Paper Number: </strong> ${paper}</p>
 
 <p><strong>Note:</strong><br>
 You can review the manuscript paper on the website by logging in using this link: <a href="${link}" target="_blank">Sign in</a><br>
@@ -32,7 +32,7 @@ Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank
   const mailOptions = {
     from: "ncwam@hyderabad.bits-pilani.ac.in",
     to: email,
-    subject: "NCWAM-2025: Review “Extended Manuscript",
+    subject: "NCWAM-2025: Review of full paper (manuscript)",
     html: mailHtml,
     messageId: email + paper,
     references: email + paper,
