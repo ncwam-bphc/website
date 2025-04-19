@@ -36,7 +36,7 @@ export default function ConferenceLanding() {
       <div className="absolute left-0 right-0 top-[4.5rem] w-full backdrop-blur-2xl nav:top-20">
         <div className="customcol flex w-full animate-infinite-scroll justify-end whitespace-nowrap md:text-2xl">
           Manuscript review process is in-progress, and authors may please check
-          the status during April 5-10, 2025
+          the status at the end of April, 2025
         </div>
       </div>
 
