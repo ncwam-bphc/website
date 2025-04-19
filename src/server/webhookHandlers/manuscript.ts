@@ -34,8 +34,8 @@ You can check current status on the website by logging in using this link: <a hr
 Please check the “IMPORTANT DATES” and “NEWS UPDATE” on the website for further follow-ups.</p>
 
 <p>With best regards,<br>
-Dr. Jeevan Jaidi & Dr. P. Jayaprakash Sharma<br>
-Convener & Co-Convener, NCWAM-2025<br>
+Dr. Jeevan Jaidi<br>
+Convener, NCWAM-2025<br>
 E-mail: ncwam@hyderabad.bits-pilani.ac.in<br>
 Conference webpage: <a href="https://www.ncwambitshyderabad.com/" target="_blank">https://www.ncwambitshyderabad.com/</a></p>`;
 
@@ -60,7 +60,8 @@ const abstractCols = z.object({
     .object({
       Timestamp: z.coerce.date(),
       "Name in full with title (Prof./Dr./Mr./Mrs./Ms.)": z.string().trim(),
-      "E-mail ID (please use the same email ID which was used during abstract submission)": z.string().trim().email(),
+      "E-mail ID (please use the same email ID which was used during abstract submission)":
+        z.string().trim().email(),
       "Mobile number": z.string().trim(),
       "Affiliation in full  (University/R&D/Organization/College/Industry/Others)":
         z.string().trim(),
@@ -71,10 +72,12 @@ const abstractCols = z.object({
       "Author's details (names of all authors, separated by commas)": z
         .string()
         .trim(),
-      "Upload manuscript (MS Word file without turnitin  checked) with file name as, xxx-manuscript-NCWAM2025-first author name.": z.string().url(),
+      "Upload manuscript (MS Word file without turnitin  checked) with file name as, xxx-manuscript-NCWAM2025-first author name.":
+        z.string().url(),
       "Upload turnitin report of manuscript (PDF file) with file name as, xxx-turnitin report-NCWAM2025-first author name.":
         z.string().url(),
-      "Upload filled-up and signed Copyright Form (PDF file ) with file name as, xxx-Copyright-NCWAM2025-first author name.": z.string().trim(),
+      "Upload filled-up and signed Copyright Form (PDF file ) with file name as, xxx-Copyright-NCWAM2025-first author name.":
+        z.string().trim(),
     })
     .array(),
 });
@@ -130,9 +133,26 @@ const onManuscriptDataReceived = async (data: unknown) => {
       );
       continue;
     }
-    if (abstract.user.email !== entry["E-mail ID (please use the same email ID which was used during abstract submission)"]) {
+    if (
+      abstract.user.email !==
+      entry[
+        "E-mail ID (please use the same email ID which was used during abstract submission)"
+      ]
+    ) {
       console.error(
         "Email mismatch for manuscript",
+        entry["Extended abstract number ( xxx-abstract-NCWAM2025) "],
+      );
+      continue;
+    }
+    const existingManuscript = await db.query.manuscripts.findFirst({
+      where({ papernumber }, { eq }) {
+        return eq(papernumber, abstract.papernumber);
+      },
+    });
+    if (existingManuscript) {
+      console.error(
+        "Manuscript already exists",
         entry["Extended abstract number ( xxx-abstract-NCWAM2025) "],
       );
       continue;
@@ -155,10 +175,12 @@ const onManuscriptDataReceived = async (data: unknown) => {
             entry[
               "Upload turnitin report of manuscript (PDF file) with file name as, xxx-turnitin report-NCWAM2025-first author name."
             ],
-          copyrightForm: entry["Upload filled-up and signed Copyright Form (PDF file ) with file name as, xxx-Copyright-NCWAM2025-first author name."],
+          copyrightForm:
+            entry[
+              "Upload filled-up and signed Copyright Form (PDF file ) with file name as, xxx-Copyright-NCWAM2025-first author name."
+            ],
           presentor: entry["Name of Author, who presented in NCWAM-2025"],
-          transactionNumber:
-            null,
+          transactionNumber: null,
           department: entry["Department name in full"],
           title: entry["Title of the manuscript"],
           authors:
