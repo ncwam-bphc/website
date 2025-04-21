@@ -19,7 +19,7 @@ export const Reviewers =
         { value: "kishorebabu@nitw.ac.in", label: "Prof. N. Kishore Babu" },
         { value: "talari@nitw.ac.in", label: "Prof. Mahesh Kumar Talari" },
         {
-          value: "fmohammad@kfu.edu.sa",
+          value: "fasee1819@gmail.com",
           label: "Prof. Mohammad Faseeulla Khan",
         },
         {
