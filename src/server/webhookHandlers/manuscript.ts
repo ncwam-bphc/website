@@ -191,7 +191,10 @@ const onManuscriptDataReceived = async (data: unknown) => {
         })
         .returning()
     )[0]!;
-    const signinLink = generateSignInLink(abstract.user.email, "/submissions");
+    const signinLink = await generateSignInLink(
+      abstract.user.email,
+      "/submissions",
+    );
     await sendMail(
       abstract.user.email,
       manuscript.title,

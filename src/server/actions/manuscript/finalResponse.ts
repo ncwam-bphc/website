@@ -78,7 +78,7 @@ export async function updatePaperStatus(data: {
           return eq(fields.id, updated[0]!.userId);
         },
       }))!;
-      const signInLink = generateSignInLink(user.email, "/submissions");
+      const signInLink = await generateSignInLink(user.email, "/submissions");
       void sendMail(
         user.email,
         user.name ?? "Submitter",

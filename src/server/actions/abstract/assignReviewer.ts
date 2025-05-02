@@ -70,7 +70,7 @@ export async function assignReviewer(data: {
     .onConflictDoNothing()
     .returning();
   if (inserted.length && parsed.sendEmail) {
-    const signInLink = generateSignInLink(reviewer.email, "/review");
+    const signInLink = await generateSignInLink(reviewer.email, "/review");
     await sendMail(
       reviewer.email,
       reviewer.name ?? "Reviewer",

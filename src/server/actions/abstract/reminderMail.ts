@@ -68,7 +68,7 @@ export const sendIndividualReminder = async (data: {
   const reviewerEmail = assigned.reviewer.email;
   const reviewerName = assigned.reviewer.name ?? "Reviewer";
   const paperNumber = parsed.papernumber;
-  const signinLink = generateSignInLink(reviewerEmail, "/review");
+  const signinLink = await generateSignInLink(reviewerEmail, "/review");
 
   await sendMail(reviewerEmail, reviewerName, paperNumber, signinLink);
 };
