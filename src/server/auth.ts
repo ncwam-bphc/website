@@ -104,9 +104,9 @@ function hashToken(token: string) {
     .digest("hex");
 }
 
-export function generateSignInLink(email: string, callbackUrl?: string) {
+export async function generateSignInLink(email: string, callbackUrl?: string) {
   const token = randomBytes(32).toString("hex");
-  const ONE_DAY_IN_SECONDS = 86400;
+  const ONE_DAY_IN_SECONDS = 86400 * 30;
   const expires = new Date(
     Date.now() + (config.providers[0]?.maxAge ?? ONE_DAY_IN_SECONDS) * 1000,
   );
@@ -115,7 +115,7 @@ export function generateSignInLink(email: string, callbackUrl?: string) {
     token,
     email,
   });
-  config.adapter.createVerificationToken?.({
+  await config.adapter.createVerificationToken?.({
     identifier: email,
     token: hashToken(token),
     expires,
