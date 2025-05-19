@@ -68,7 +68,7 @@ export default withUt({
       },
       keyframes: {
         "infinite-scroll": {
-          from: { transform: "translateX(1400px)" },
+          from: { transform: "translateX(1800px)" },
           to: { transform: "translateX(-100%)" },
         },
       },
