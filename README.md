@@ -128,7 +128,7 @@ This project is private and proprietary to BITS Pilani, Hyderabad Campus for the
 
 ## Notes
 
-The project follows the T3 Stack conventions and includes comprehensive type safety with Zod validation for environment variables and form schemas. [8](#0-7)  The codebase is well-structured with clear separation between public pages, authentication, submission workflows, and administrative functions.
+The project follows the T3 Stack conventions and includes comprehensive type safety with Zod validation for environment variables and form schemas.  The codebase is well-structured with clear separation between public pages, authentication, submission workflows, and administrative functions.
 
 Wiki pages you might want to explore:
 - [Overview (ncwam-bphc/website)](/wiki/ncwam-bphc/website#1)
