@@ -67,7 +67,7 @@ Required environment variables include:
    npm run dev
    ```
 
-## Available Scripts [3](#0-2) 
+## Available Scripts
 
 - `npm run dev` - Start development server with Turbo
 - `npm run build` - Build for production
