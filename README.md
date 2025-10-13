@@ -1,5 +1,3 @@
-Based on the codebase context, you're asking me to write a README for the NCWAM 2025 website project, which is a conference website for the National Conference on Challenges in Welding and Additive Manufacturing. <cite/>
-
 # NCWAM 2025 Conference Website
 
 The official website for the National Conference on Challenges in Welding and Additive Manufacturing (NCWAM 2025), scheduled for February 27-28, 2025 at BITS Pilani, Hyderabad Campus. <cite/>
